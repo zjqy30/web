@@ -2,6 +2,7 @@
 // 侧边栏的js
 var staut = 1
 function this_show(that) {
+    console.log(123)
     if(that == staut){
         staut = 1;
         $(that).next("ul").hide(400)
@@ -17,4 +18,5 @@ function this_show(that) {
 function target(str) {
     str = str+'.html'
     $('#target_main').html(window.templates[str]);
+    console.log(789)
 }

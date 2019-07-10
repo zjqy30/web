@@ -221,6 +221,7 @@ body{
 .main_content{
     background-color: #F0F2F5;
     height: calc(100% - 50px);
+    width: 1690px;
     border-radius: 4px;
 }
 #target_main{
