@@ -1,0 +1,73 @@
+.market_top{
+    width: 100%;
+    height: 247px;
+    background: white;
+    padding: 1%;
+}
+.market_foot{
+    padding: 2%;
+}
+.market_foot_table{
+    width: 100%;
+    height: 522px;
+    overflow: hidden;
+}
+
+.market_table{
+    width: 100%;
+    background-color: #fff;
+    color: #666;
+    margin:0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.market_tr_heard{
+    height: 60px;
+    background: #FAFAFA;
+}
+.market_table thead tr th{
+    padding: 10px;
+    font-size: 18px;
+    color: #333333;
+}
+.market_table tbody tr{
+    border-bottom: 1px solid #f3f1f1;
+ }
+.market_table tbody tr td{
+    padding: 10px;
+    font-size: 16;
+    color: #595959;
+}
+.market_table tbody tr td:nth-child(1){
+    text-align: center;
+}
+.market_table tbody tr td img{
+    height: 45px;
+    width: 45px;
+    border-radius: 5px;
+}
+.market_name{
+    width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.market_table_btn{
+    color:#1890FF;
+    border: none;
+    background: transparent;
+    padding-right: 2%;
+}
+.right{
+    border-right: 2px solid #f1f1f1
+}
+/* 模态框 */
+#market_modal_content{
+    width: 763px;
+    height: 735px;
+}
+.market_modal-body{
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+}

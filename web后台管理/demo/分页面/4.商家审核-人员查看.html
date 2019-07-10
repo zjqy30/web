@@ -1,0 +1,218 @@
+
+<!--商家-人员查看  -->
+<div class="wh_content">
+        <!-- 查询 -->
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputName2">平台：</label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail2">性别：</label>
+                <input type="text" class="form-control" placeholder="请输入">
+            </div>
+            <div class="form-group">
+                <label for="name">名字：</label>
+                <input type="text" class="form-control" id="name" placeholder="请输入">
+            </div>
+            <button type="submit" class="btn btn-default" style="color: white;
+background: #1890FF">查询</button>
+        </form>
+        <!-- 网红人员列表 -->
+        <div class="divs">
+                <table class="wh_table">
+                        <thead>
+                            <tr class="tr_heard">
+                                <th></th>
+                                <th>姓名</th>
+                                <th>平台</th>
+                                <th>性别</th>
+                                <th>粉丝数量</th>
+                                <th>入驻时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="images/hehua.jpg" alt=""></td>
+                                <td class="tabel_name">你说什么就是什么</td>
+                                <td>抖音</td>
+                                <td>男</td>
+                                <td>1230000</td>
+                                <td>2019-6-18 10:00</td>
+                                <td>
+                                    <button class="wh_table_btn right" data-toggle="modal"
+                                        data-target="#myModalmore">更多资料</button>
+                                    <button class="wh_table_btn">删除资料</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/hehua.jpg" alt=""></td>
+                                <td class="tabel_name">你说什么就是什么</td>
+                                <td>抖音</td>
+                                <td>男</td>
+                                <td>1230000</td>
+                                <td>2019-6-18 10:00</td>
+                                <td>
+                                    <button class="wh_table_btn right" data-toggle="modal"
+                                        data-target="#myModalmore">更多资料</button>
+                                    <button class="wh_table_btn">删除资料</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/hehua.jpg" alt=""></td>
+                                <td class="tabel_name">你说什么就是什么</td>
+                                <td>抖音</td>
+                                <td>男</td>
+                                <td>1230000</td>
+                                <td>2019-6-18 10:00</td>
+                                <td>
+                                    <button class="wh_table_btn right" data-toggle="modal"
+                                        data-target="#myModalmore">更多资料</button>
+                                    <button class="wh_table_btn">删除资料</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/hehua.jpg" alt=""></td>
+                                <td class="tabel_name">你说什么就是什么</td>
+                                <td>抖音</td>
+                                <td>男</td>
+                                <td>1230000</td>
+                                <td>2019-6-18 10:00</td>
+                                <td>
+                                    <button class="wh_table_btn right" data-toggle="modal"
+                                        data-target="#myModalmore">更多资料</button>
+                                    <button class="wh_table_btn">删除资料</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/hehua.jpg" alt=""></td>
+                                <td class="tabel_name">你说什么就是什么</td>
+                                <td>抖音</td>
+                                <td>男</td>
+                                <td>1230000</td>
+                                <td>2019-6-18 10:00</td>
+                                <td>
+                                    <button class="wh_table_btn right" data-toggle="modal"
+                                        data-target="#myModalmore">更多资料</button>
+                                    <button class="wh_table_btn">删除资料</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </div>
+        <!-- 网红人员更多资料-模态框 Modal -->
+        <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" style="z-index: 10">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="layui-row" id="row">
+                            <P class="cardText">基本信息：</P>
+                            <div class="layui-col-md4" id="md4">
+                                    <div class="grid-demo grid-demo-bg1">
+                                        <span class="color_black">姓名：</span>
+                                        <span class="color_gray">朱涛</span>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md4" id="md4">
+                                    <div class="grid-demo">
+                                        <span class="color_black">性别：</span>
+                                        <span class="color_gray">男</span>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md4"id="md4">
+                                    <div class="grid-demo grid-demo-bg1">
+                                        <span class="color_black">邀请人：</span>
+                                        <span class="color_gray">张慧云</span>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6" id="md4">
+                                    <div class="grid-demo grid-demo-bg1">
+                                        <span class="color_black">手机号码：</span>
+                                        <span class="color_gray">110120119115</span>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6" id="md4">
+                                    <div class="grid-demo grid-demo-bg1">
+                                        <span class="color_black">申请时间：</span>
+                                        <span class="color_gray">2019-06-05 20:00</span>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6" id="md4">
+                                    <div class="grid-demo">
+                                        <span class="color_black">行业：</span>
+                                        <span class="color_gray">服装-女装-裤子</span>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6" id="md4">
+                                    <div class="grid-demo grid-demo-bg1">
+                                        <span class="color_black">居住地址：</span>
+                                        <span class="color_gray">江苏省苏州市金马大厦A座</span>
+                                    </div>
+                                </div>
+                        
+                                <div class="layui-col-md9" id="md4">
+                                    <div class="grid-demo grid-demo-bg1">
+                                        <span class="color_black">身份证号码：</span>
+                                        <span class="color_gray">32098119604206732</span>
+                                    </div>
+                                </div>
+
+                            <div class="layui-col-md12">
+                                <div class="more_cardID cardid">
+                                    <P class="cardText">手持身份证照：</P>
+                                    <img class="cardidImg" src="images/hehua.jpg" alt=""
+                                        data-toggle="modal" data-target="#myModal1">
+                                </div>
+                                <div class="more_cardID cardid">
+                                        <P class="cardText">营业执照：</P>
+                                        <img class="cardidImg" src="images/hehua.jpg" alt=""
+                                            data-toggle="modal" data-target="#myModal1">
+                                    </div>
+                                <div class="more_cardID cardid">
+                                    <P class="cardText">身份证正/反面照：</P>
+                                    <img class="cardidImg" src="images/hehua.jpg" alt=""
+                                        data-toggle="modal" data-target="#myModal1">
+                                    <img class="cardidImg" style="margin: 0" src="images/hehua.jpg"
+                                        alt="" data-toggle="modal" data-target="#myModal1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 二级模态框 整个模态框要跟第一个模态框同级 Modal -->
+        <div class="modal fade model" id="myModal1" tabindex="1" role="dialog"
+            aria-labelledby="myModalLabel" style="z-index: 100">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">×</button>
+
+                        <h4 class="modal-title" id="myModalLabel">查看大图</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="more_cardID">
+                            <P class="cardText">查看大图:</P>
+                            <img src="images/hehua.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 模态框-完 -->
+        <!-- 分页 -->
+        <div id="demo2-1"></div>
+    </div>

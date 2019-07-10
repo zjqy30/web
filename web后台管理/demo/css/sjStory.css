@@ -1,0 +1,89 @@
+/* 让tab切换绝对定位 */
+.labels_top{
+    position: relative;
+}
+#all_ul{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-left: 10px;
+    width: 100%;
+    /* border-bottom: 1px solid transparent; */
+}
+/* tab-content有滚动条 */
+.tab-content{
+    width: 100%;
+    height: 585px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.sjStory{
+    width: 95%;
+    height: 781px;
+    /* height: 690px; */
+    margin: 2%;
+    padding: 1%;
+    background:#FFFFFF ;
+}
+.form-inline{
+    padding: 15px 35px;
+}
+.table{
+    margin-top: 50px;
+}
+.sjStory_tr{
+    background: #FAFAFA;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+table tr,table th{
+    text-align: center;
+}
+.sjStory_tr_btn{
+    border:none;
+    background: white;
+    color: #1890FF;
+}
+.color_span{
+    margin: 0 5px;
+    color: #979797;
+}
+.sjStory_form{
+    float: left;
+}
+/* 模态框 */
+#sjStory_modal{
+    width: 763px;
+    height: 499px;
+}
+.sjStory_modal_body{
+    height: 373px;
+}
+#form-group{
+    margin: 25px 0;
+    float: left;
+}
+#sjStory_group{
+    margin: 25px 0;
+    display: inline;
+}
+#sjStory_form_select{
+    width: 35%;
+    display: inline-block;
+}
+.sjDtory_label{
+    margin-top: 50px;
+}
+/* 商家内幕-层级管理 */
+/* #active>a{
+    color: #1890FF;
+    cursor: default;
+    background-color: #fff;
+    border-bottom-color: 1px solid #1890FF;;
+} */
+
+
+
+
+

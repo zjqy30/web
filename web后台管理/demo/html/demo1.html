@@ -1,0 +1,147 @@
+<div class="content_row" id="content_row">
+    <!-- 单个model -->
+    <div class="layui-row" id="row">
+        <!-- 33.3% -->
+        <div class="layui-col-md4">
+            <div class="grid-demo grid-demo-bg1">
+                <span class="color_black">姓名：</span>
+                <span class="color_gray">朱涛</span>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="grid-demo">
+                <span class="color_black">性别：</span>
+                <span class="color_gray">男</span>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="grid-demo grid-demo-bg1">
+                <span class="color_black">年龄：</span>
+                <span class="color_gray">23</span>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="grid-demo grid-demo-bg1">
+                <span class="color_black">店铺：</span>
+                <span class="color_gray">暂无店铺</span>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="grid-demo">
+                <span class="color_black">平台ID：</span>
+                <span class="color_gray">123456</span>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="grid-demo grid-demo-bg1">
+                <span class="color_black">平台：</span>
+                <span class="color_gray">抖音</span>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="grid-demo grid-demo-bg1">
+                <span class="color_black">手机号码：</span>
+                <span class="color_gray">110120119115</span>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="grid-demo">
+                <span class="color_black">邀请人：</span>
+                <span class="color_gray">张慧云</span>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="grid-demo grid-demo-bg1">
+                <span class="color_black">粉丝量：</span>
+                <span class="color_gray">23万</span>
+            </div>
+        </div>
+        <div class="layui-col-md12">
+            <div class="grid-demo grid-demo-bg1">
+                <span class="color_black">申请时间：</span>
+                <span class="color_gray">2019-06-05 20:00</span>
+            </div>
+        </div>
+        <div class="layui-col-md12">
+            <div class="grid-demo grid-demo-bg1">
+                <span class="color_black">居住地址：</span>
+                <span class="color_gray">江苏省苏州市金马大厦A座</span>
+            </div>
+        </div>
+        <div class="layui-col-md9">
+            <div class="grid-demo grid-demo-bg1">
+                <span class="color_black">身份证号码：</span>
+                <span class="color_gray">32098119604206732</span>
+            </div>
+        </div>
+        <div class="layui-col-md3">
+            <!-- 一级模态框-->
+            <div class="grid-demo grid-demo-bg1" data-toggle="modal" data-target="#myModal">
+                更多资料
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="more_cardID">
+                                <P class="cardText">手持身份证照：</P>
+                                <img class="cardImg" src="images/hehua.jpg" alt=""
+                                    data-toggle="modal" data-target="#myModal1">
+                            </div>
+                            <div class="more_cardID">
+                                <P class="cardText">身份证正/反面照：</P>
+                                <img class="cardImg" src="images/hehua.jpg" alt=""
+                                    data-toggle="modal" data-target="#myModal1">
+                                <img class="cardImg" src="images/hehua.jpg" alt="">
+                            </div>
+                            <div class="more_cardID">
+                                <P class="cardText">形象照：</P>
+                                <img class="cardImg" src="images/hehua.jpg" alt=""
+                                    data-toggle="modal" data-target="#myModal1">
+                            </div>
+                            <div class="more_cardID">
+                                <P class="cardText">平台截图：</P>
+                                <img class="cardImg" src="images/hehua.jpg" alt=""
+                                    data-toggle="modal" data-target="#myModal1">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn_green" 
+                            style="margin: 10% 10px 10% 36%;">通过</button>
+                        <button type="button" class="btn btn-default">拒绝</button>
+                    </div>
+                    <!-- 二级模态框 -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal1" tabindex="1" role="dialog" style="margin-left: -18px;"
+                        aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                                    <h4 class="modal-title" id="myModalLabel">查看大图</h4>
+                                </div>
+                                <div class="modal-body">
+                                        <div class="more_cardID">
+                                                <P class="cardText">手持身份证照：</P>
+                                                <img src="images/hehua.jpg" alt="">
+                                            </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

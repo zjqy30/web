@@ -1,0 +1,227 @@
+/* 1.标签管理 */
+.labels_solid{
+    width: 100%;
+    border: 1px solid #dedede;
+}
+.labels_top{
+    background: white;
+    width: 100%;
+    /* height: 319px; */
+    height: 275px;
+    padding: 1%;
+    position: relative;
+}
+#labels_ul{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-left: 10px; 
+    width: 100%;  
+}
+.labels_text{
+    font-size: 18px;
+    font-weight: bold;
+}
+.col-md-2{
+    height: 121px;
+    margin: 1%;
+}
+.labels_col_text{
+    width: 100%;
+    background: #FFFFFF;
+    font-size: 22px;
+    color: #333333;
+    text-align: center;
+    line-height: 85px;
+}
+.labels_col_del{
+    width:100%;
+    height: 36px;
+    background: #FAFAFA;
+    color: #999;
+    text-align: center;
+    letter-spacing: 2px; 
+    border: 1px solid transparent;
+}
+#labels_content{
+    height: 121px;
+    width: 14.666667%;
+    background: #FFFFFF;
+    margin: 1%;
+    float: left;
+    position: relative;
+    padding: 0;
+}
+#labels_content2{
+    height: 136px;
+    width: 14.666667%;
+    background: #FFFFFF;
+    margin: 1%;
+    float: left;
+    position: relative;
+    padding: 0;
+}
+/* 标签管理上传图片 */
+.labes_div_img{
+    width: 60px;
+    height: 60px;
+    margin-top: 8%;
+    margin-left: 50%;
+    transform: translate(-50%);
+    border: 1px solid #dedede;
+    position: relative; 
+}
+.labes_span_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 18px;
+    display: block;
+    opacity: 0.5;
+}
+.labels_input{
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.labes_img{
+    /* margin-left: -15px; */
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    position: absolute;
+    display: none;
+}
+/* #exampleInputFile{
+    margin-left: -100px;
+} */
+.help-block{
+   font-size: 18px;
+   font-weight: bold;
+   color: #333333;
+   text-align: center;
+   padding-top: 8%; 
+}
+
+
+/* 2.公告管理 */
+#labels_contents{
+    height: 178px;
+    width: 30.666667%;
+    background: #FFFFFF;
+    margin: 1%;
+    float: left;
+    position: relative;
+    padding: 0;
+}
+.col-md-4{
+    height: 178px;
+    margin: 1%;
+}
+.col_md_4{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    padding: 1%;
+}
+.col_md_4_text{
+  font-size: 14px;
+  text-indent: 2em; 
+  width: 88%;
+  height: 97px;
+  padding: 1%;
+  float: right; 
+}
+/* 3.轮播图管理 */
+.banner_top{
+    background: white;
+    width: 100%;
+    height: 540px;
+    padding: 1%;
+}
+.banner_foot{
+    margin: 1% 1.5%;
+    width: 100%;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/* 上传图片 */
+#addimg_div{
+    position: relative;
+    width: 50%;
+    height: 200px;
+    border: 1px solid #999;
+}
+.addimg{
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-45%,-50%);
+    display: block;
+}
+ #addimg_input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 200px;
+}
+#banner_imgs{
+    margin-left: -15px;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    position: absolute;
+    display: none;
+}
+/* 小块 */
+#banner_content{
+    height:254px ;
+    width: 30.333333%;
+    background: #FFFFFF;
+    margin: 1%;
+    float: left;
+    position: relative;
+    padding: 0;
+}
+.banner_block_detail{
+    width: 100%;
+    height: 211px;
+}
+.banner_block_detail img{
+    width: 100%;
+    height: 100%;
+}
+.banner_block_foot{
+    width: 100%;
+    height: 43px;
+    background: #FAFAFA;
+    color: #333333;
+    font-size: 14px;
+    line-height: 43px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #f8f7f7;
+}
+#banner_del{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    height: 43px;
+    cursor: pointer;
+}
+
+
+
+
+
+
