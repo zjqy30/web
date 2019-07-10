@@ -2414,3 +2414,4 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "                    </script>";
 //新的注释
 //本地新的注释
+//章回体00
