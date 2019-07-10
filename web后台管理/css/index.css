@@ -1,0 +1,400 @@
+body{
+    margin: 0;
+}
+.Content{
+    height: 100vh;
+    overflow: hidden;
+}
+.left_bar{
+    background-color: #002140;
+    width: 230px;
+    float: left;
+    height: 100%;
+    color: #a4afb8;;
+}
+.left_img{
+    text-align: center;
+    margin: 21px 0 51px 0;
+}
+.left_bar ul{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center; 
+}
+.div_i>i{
+    margin: 0 10px;
+}
+.left{
+    margin-left: -12px;
+}
+.left_bar ul li{
+    min-height: 55px;
+    line-height: 55px;
+    list-style: none;
+}
+.left_bar ul li:hover{
+   color: white;
+   cursor: pointer;
+}
+.left_bar ul li ul{
+    display: none;
+    list-style: none;
+    background: #000;
+}
+.left_bar ul li ul li:hover{
+    background: #1890FF;
+    cursor: pointer;
+}
+.right_content{
+    width: calc(100% - 230px);
+    float: left;
+    background-color: #dedede;
+    height: 100%;
+}
+/* 消息登录 */
+.login_top{
+    height: 50px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+.top_right{
+    float: right;
+    overflow: hidden;
+    margin-right: 20px;
+}
+/* 未登录状态 */
+.top_right_img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* margin-top: 5px; */
+}
+.top_right_img>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.btn-group{
+    float: right;
+}
+
+.login_new{
+  float: left;
+  margin-right: 30px;
+}
+.block{
+    width: 100%;
+    position: relative;
+}
+.block>i{
+    position: absolute;
+    top: 19px;
+    left: 0;
+}
+.new{
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: red;
+    text-align: center;
+    line-height:15px;
+    color: white;
+    font-size: 12px;
+}
+/*login登录下拉菜单*/
+.login_big{
+    position: absolute;
+    top: 0;
+    right: 110px;
+    cursor: pointer;
+}
+.login_big:hover .login{
+    display: block;
+}
+#login-top{
+    width: 40px;
+    height: 50px;
+    position: relative;
+    z-index: 200;
+    right: 30px;
+}
+.login:hover{
+    display: block;
+}
+.login{
+    position: absolute;
+    top: 50px;
+    left: -235px;
+    display: none;
+    z-index: 100;
+}
+.login_body{
+    width: 240px;
+    height: 290px;
+    font-size: 12px;
+    color:#5a5a5a;
+    overflow: hidden;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #a5a4a4
+}
+.body_block{
+    margin: 10px 0;
+}
+.body_img{
+    float: left;
+    width: 30px;
+    height: 30px; 
+    border-radius: 50%;  
+}
+.body_img>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+}
+.body_text{
+    padding-left: 40px;
+}
+.body_text>p{
+   margin: 0;
+}
+
+.login_up{
+    width: 170px;
+    float: right;
+    position: absolute;
+    z-index: 300;
+    top: 0;
+    right: 10px;
+}
+.login_name{
+    display: flex;
+    cursor: pointer;
+}
+#login_out{
+    position: relative;
+}
+.login_up:hover .logins_block{
+ display: block;
+ cursor: pointer;
+}
+.login_name>img{
+    flex: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px 10px;
+}
+.login_name>p{
+    flex: 4;
+    width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    line-height: 50px;
+}
+.login_name>i{
+    flex: 1;
+    line-height: 48px;
+}
+.logins_block{
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 12px;
+    background: white;
+    text-align: center;
+    z-index: 100;
+    display: none;
+    position: absolute;
+    top: 55px;
+    left: 12px;
+}
+
+/* 右侧主题内容 */
+.main_content{
+    background-color: #F0F2F5;
+    height: calc(100% - 50px);
+    width: 1690px;
+    border-radius: 4px;
+}
+#target_main{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+
+/* 网红审核 网红信息排列 */
+.content_row{
+  float: left;
+  width: 48%;
+  height: 302px;
+  margin: 1%;
+  background: white;
+  border-radius: 10px;
+}
+.layui-row{
+    padding: 26px 25px;
+}
+.layui-col-md4,.layui-col-md12,.layui-col-md9{
+    font-size: 14px;
+    margin: 10px 0;
+    padding-left: 7%;
+}
+.color_black{
+    color: #333333;
+}
+.color_gray{
+    color: #333333;
+    opacity: 0.45;
+}
+.grid-demo{
+    color: #1890FF;
+    cursor: pointer;
+}
+/* 模态框 */
+.cardText{
+    color: #333333;
+    font-size: 18px;
+}
+.cardImg{
+    width: 201px;
+    height: 201px;
+    margin: 20px 40px;
+}
+.btn{
+    width: 100px;
+}
+.btn_green{
+    background: #1890FF;
+    color: white;
+}
+.modal-open .modal{
+    overflow-x: 0;
+    overflow-y: 0;
+}
+/* 网红-人员查看 */
+.wh_content{
+    width: 96%;
+    height: 94%;
+    margin: 2%;
+   background: white;
+   padding: 36px;
+}
+.form-group{
+    padding-right: 20px;
+}
+.btn_color{
+    color: white;
+    background: #1890FF
+}
+/* 表格 */
+.divs{
+    width: 100%;
+    height: 70%;
+}
+.wh_table{
+    width: 100%;
+    /* 高度可以不确定 */
+    /* height: 70%; */
+    background-color: #fff;
+    color: #666;
+    margin: 50px 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.tr_heard{
+    background: #FAFAFA;
+}
+.wh_table thead tr th{
+    padding: 10px;
+    font-size: 18px;
+    color: #333333;
+}
+.wh_table tbody tr{
+    border-bottom: 1px solid #f3f1f1;
+ }
+.wh_table tbody tr td{
+    padding: 10px;
+    font-size: 16;
+    color: #595959;
+}
+.wh_table tbody tr td:nth-child(1){
+    text-align: center;
+}
+.wh_table tbody tr td img{
+    height: 45px;
+    width: 45px;
+    border-radius: 5px;
+}
+.tabel_name{
+    width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.wh_table_btn{
+    color:#1890FF;
+    border: none;
+    background: transparent;
+    padding-right: 2%;
+}
+.right{
+    border-right: 2px solid #f1f1f1
+}
+/* 模态框-更多资料 */
+.cardid{
+    /* margin-left: -37px; */
+    margin-left: -11px;
+}
+.cardidImg{
+    width: 201px;
+    height: 201px;
+    margin: 20px 28px;
+}
+.md4{
+    font-size: 14px;
+    margin: 10px 0;
+    padding-left: 4%;
+}
+/* 分页 */
+#demo2-1>div{
+ float: right;
+}
+
+
+/* 商家审核 */
+.layui-col-md4,.layui-col-md6,.layui-col-md12,.layui-col-md9,.layui-col-md3{
+    font-size: 14px;
+    margin: 10px 0;
+    /* padding-left: 7%; */
+    padding-left: 2%;
+}
+.sh_content{
+    float: left;
+    width: 48%;
+    margin: 1%;
+    background: white;
+    border-radius: 10px;
+}
+#demo2-1>div{
+    float: right;
+}
+
+/* 商家-人员查看 */
+#md4{
+    padding-left: 4%;
+}
+
+/* 公共 */
+.modal-title{
+    color:#333333;
+    font-size: 18px;
+    font-weight: bold;
+}
