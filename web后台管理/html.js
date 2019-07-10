@@ -2,7 +2,7 @@
 window.templates = Object.create(null);
 
 
-//新的注释01
+//新的注释01555555
 //新的注释01
 //网红审核
 window.templates['demo1.html'] = '<div class="content_row" id="content_row">' +
