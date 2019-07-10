@@ -5,6 +5,10 @@ window.templates = Object.create(null);
 
 
 
+
+
+
+
 //网红审核
 window.templates['demo1.html'] = '<div class="content_row" id="content_row">' +
     '<!-- 单个model -->' +
