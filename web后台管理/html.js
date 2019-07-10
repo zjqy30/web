@@ -1,14 +1,5 @@
 'use strict';
 window.templates = Object.create(null);
-
-
- 
-
-
-
-//新的注释01555555驱蚊器请8887777886666问
-
-//新的注释01
 //网红审核
 window.templates['demo1.html'] = '<div class="content_row" id="content_row">' +
     '<!-- 单个model -->' +
