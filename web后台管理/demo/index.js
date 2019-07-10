@@ -1,5 +1,8 @@
 
 // 侧边栏的js
+
+
+
 var staut = 1
 function this_show(that) {
     if(that == staut){
