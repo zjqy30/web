@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>web管理后台</title>
     <link rel="stylesheet" href="css/index.css">
@@ -35,373 +35,303 @@
 </head>
 
 <body>
-    <div class="Content">
-        <!--侧边栏开始-->
-        <div class="left_bar">
-            <div class="left_img">
-                <img src="images/logo.png" alt="">
-            </div>
-            <ul>
-                <li>
-                    <div class="div_i" onclick="this_show(this)">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        网红管理
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </div>
-                    <ul>
-                        <li onclick="target('demo1')">网红审核</li>
-                        <li onclick="target('demo2')">人员查看</li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="div_i" onclick="this_show(this)">
-                        <i class="fa fa-archive" aria-hidden="true"></i>
-                        商家管理
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </div>
-                    <ul>
-                        <li onclick="target('demo3')">商家审核</li>
-                        <li onclick="target('demo4')">人员查看</li>
-
-                    </ul>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('dingdan')">
-                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                        订单管理
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('Pure')">
-                        <i class="fa fa-file-code-o" aria-hidden="true"></i>
-                        纯佣订单
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('dings')">
-                        <i class="fa fa-file-code-o" aria-hidden="true"></i>
-                        订单生成
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('red')">
-                        <i class="fa fa-file-code-o" aria-hidden="true"></i>
-                        网红提现
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('refund')">
-                        <i class="fa fa-jpy" aria-hidden="true"></i>
-                        商家退款
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('serveType')">
-                        <i class="fa fa-file-code-o" aria-hidden="true"></i>
-                        服务类型
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('serve')">
-                        <i class="fa fa-pie-chart" aria-hidden="true"></i>
-                        服务内幕
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('market')">
-                        <i class="fa fa-line-chart" aria-hidden="true"></i>
-                        销售管理
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('labels')">
-                        <i class="fa fa-tags" aria-hidden="true"></i>
-                        标签管理
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('announcement')">
-                        <i class="fa fa-volume-up" aria-hidden="true"></i>
-                        公告管理
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i" onclick="this_show(this)">
-                        <i class="fa fa-television" aria-hidden="true"></i>
-                        商家内幕
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </div>
-                    <ul>
-                        <li onclick="target('sjStory')">内幕管理</li>
-                        <li onclick="target('sjindex')">层级管理</li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="div_i left" onclick="target('product')">
-                        <i class="fa fa-volume-up" aria-hidden="true"></i>
-                        商品类型
-                        <i></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="div_i" onclick="target('banner')" style="margin-left: -28px">
-                        <i class="fa fa-picture-o" aria-hidden="true"></i>
-                        轮播图
-                        <i></i>
-                    </div>
-                </li>
-            </ul>
+<div class="Content">
+    <!--侧边栏开始-->
+    <div class="left_bar">
+        <div class="left_img">
+            <img src="images/logo.png" alt="">
         </div>
-        <!--侧边栏结束-->
-        <!--右侧主题内容-->
-        <div class="right_content">
-            <!--这个是网页的头部-->
-            <div class="login_top">
-                <div class="top_right">
-                    <!-- 未登录状态 -->
-                    <div class="login_up ">
-                        <div class="login_name top_right_img" id="login_out">
-                            <img src="images/hehua.jpg" alt="">
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </div>
-                        <div class="logins_block" id="login_show">
-                            <a href="login.html">
-                                <div class="login_out">
-                                    <i class="glyphicon glyphicon-off"></i>
-                                    登录
-                                </div>
-                            </a>
-                        </div>
+        <ul>
+            <li>
+                <div class="div_i" onclick="this_show(this)">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    网红管理
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </div>
+                <ul>
+                    <li onclick="target('demo1')">网红审核</li>
+                    <li onclick="target('demo2')">人员查看</li>
+                </ul>
+            </li>
+            <li>
+                <div class="div_i" onclick="this_show(this)">
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    商家管理
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </div>
+                <ul>
+                    <li onclick="target('demo3')">商家审核</li>
+                    <li onclick="target('demo4')">人员查看</li>
+
+                </ul>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('dingdan')">
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                    订单管理
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('Pure')">
+                    <i class="fa fa-file-code-o" aria-hidden="true"></i>
+                    纯佣订单
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('dings')">
+                    <i class="fa fa-file-code-o" aria-hidden="true"></i>
+                    订单生成
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('red')">
+                    <i class="fa fa-file-code-o" aria-hidden="true"></i>
+                    网红提现
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('refund')">
+                    <i class="fa fa-jpy" aria-hidden="true"></i>
+                    商家退款
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('serveType')">
+                    <i class="fa fa-file-code-o" aria-hidden="true"></i>
+                    服务类型
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('serve')">
+                    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                    服务内幕
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('market')">
+                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                    销售管理
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('labels')">
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    标签管理
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('announcement')">
+                    <i class="fa fa-volume-up" aria-hidden="true"></i>
+                    公告管理
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i" onclick="this_show(this)">
+                    <i class="fa fa-television" aria-hidden="true"></i>
+                    商家内幕
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </div>
+                <ul>
+                    <li onclick="target('sjStory')">内幕管理</li>
+                    <li onclick="target('sjindex')">层级管理</li>
+                </ul>
+            </li>
+            <li>
+                <div class="div_i left" onclick="target('product')">
+                    <i class="fa fa-volume-up" aria-hidden="true"></i>
+                    商品类型
+                    <i></i>
+                </div>
+            </li>
+            <li>
+                <div class="div_i" onclick="target('banner')" style="margin-left: -28px">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    轮播图
+                    <i></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--侧边栏结束-->
+    <!--右侧主题内容-->
+    <div class="right_content">
+        <!--这个是网页的头部-->
+        <div class="login_top">
+            <div class="top_right">
+                <!-- 未登录状态 -->
+                <div class="login_up ">
+                    <div class="login_name top_right_img" id="login_out">
+                        <img src="images/hehua.jpg" alt="">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </div>
-                    <!-- 登录成功状态 -->
-                    <!-- <div class="top_right">
-                    <div class="login_big login_new">
-                        <div class="block" id="login-top">
-                            <i class="fa fa-bell-o" aria-hidden="true"></i>
-                            <div class="new">1</div>
-                        </div>
-                        <div class="login">
-                            <div class="login_body">
-                                <div class="body_block">
-                                    <div class="body_img">
-                                        <img src="images/hehua.jpg" alt="">
-                                    </div>
-                                    <div class="body_text">
-                                        <p class="text_p1">有网红提交了审核快去看看吧</p>
-                                        <p class="text_p2">5分钟前</p>
-                                    </div>
-                                </div>
-                                <div class="body_block">
-                                    <div class="body_img">
-                                        <img src="images/hehua.jpg" alt="">
-                                    </div>
-                                    <div class="body_text">
-                                        <p class="text_p1">有网红提交了审核快去看看吧</p>
-                                        <p class="text_p2">5分钟前</p>
-                                    </div>
-                                </div>
-                                <div class="body_block">
-                                    <div class="body_img">
-                                        <img src="images/hehua.jpg" alt="">
-                                    </div>
-                                    <div class="body_text">
-                                        <p class="text_p1">有网红提交了审核快去看看吧</p>
-                                        <p class="text_p2">5分钟前</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="login_up ">
-                        <div class="login_name" id="login_out">
-                            <img src="images/hehua.jpg" alt="">
-                            <p>ZKB1789012</p>
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </div>
-                        <div class="logins_block">
+                    <div class="logins_block" id="login_show">
+                        <a href="login.html">
                             <div class="login_out">
                                 <i class="glyphicon glyphicon-off"></i>
-                                退出登录
+                                登录
                             </div>
-                            <div class="login_out" style="display: none">
-                                <i class="glyphicon glyphicon-off"></i>
-                                登录 
+                        </a>
+                    </div>
+                </div>
+                <!-- 登录成功状态 -->
+                <!-- <div class="top_right">
+                <div class="login_big login_new">
+                    <div class="block" id="login-top">
+                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+                        <div class="new">1</div>
+                    </div>
+                    <div class="login">
+                        <div class="login_body">
+                            <div class="body_block">
+                                <div class="body_img">
+                                    <img src="images/hehua.jpg" alt="">
+                                </div>
+                                <div class="body_text">
+                                    <p class="text_p1">有网红提交了审核快去看看吧</p>
+                                    <p class="text_p2">5分钟前</p>
+                                </div>
+                            </div>
+                            <div class="body_block">
+                                <div class="body_img">
+                                    <img src="images/hehua.jpg" alt="">
+                                </div>
+                                <div class="body_text">
+                                    <p class="text_p1">有网红提交了审核快去看看吧</p>
+                                    <p class="text_p2">5分钟前</p>
+                                </div>
+                            </div>
+                            <div class="body_block">
+                                <div class="body_img">
+                                    <img src="images/hehua.jpg" alt="">
+                                </div>
+                                <div class="body_text">
+                                    <p class="text_p1">有网红提交了审核快去看看吧</p>
+                                    <p class="text_p2">5分钟前</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div> -->
                 </div>
-            </div>
-            <!-- 这是网页主内容区域 -->
-            <div class="main_content">
-                <div id="target_main">
-                    <!-- ----------------------------------- -->
-                    <!-- 网红审核 -->
-                    <div class="content_row" id="content_row">
-                        <!-- 单个model -->
-                        <div class="layui-row" id="row">
-                            <!-- 33.3% -->
-                            <div class="layui-col-md4">
-                                <div class="grid-demo grid-demo-bg1">
-                                    <span class="color_black">姓名：</span>
-                                    <span class="color_gray">朱涛</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md4">
-                                <div class="grid-demo">
-                                    <span class="color_black">性别：</span>
-                                    <span class="color_gray">男</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md4">
-                                <div class="grid-demo grid-demo-bg1">
-                                    <span class="color_black">年龄：</span>
-                                    <span class="color_gray">23</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md4">
-                                <div class="grid-demo grid-demo-bg1">
-                                    <span class="color_black">店铺：</span>
-                                    <span class="color_gray">暂无店铺</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md4">
-                                <div class="grid-demo">
-                                    <span class="color_black">平台ID：</span>
-                                    <span class="color_gray">123456</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md4">
-                                <div class="grid-demo grid-demo-bg1">
-                                    <span class="color_black">平台：</span>
-                                    <span class="color_gray">抖音</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md4">
-                                <div class="grid-demo grid-demo-bg1">
-                                    <span class="color_black">手机号码：</span>
-                                    <span class="color_gray">110120119115</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md4">
-                                <div class="grid-demo">
-                                    <span class="color_black">邀请人：</span>
-                                    <span class="color_gray">张慧云</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md4">
-                                <div class="grid-demo grid-demo-bg1">
-                                    <span class="color_black">粉丝量：</span>
-                                    <span class="color_gray">23万</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md12">
-                                <div class="grid-demo grid-demo-bg1">
-                                    <span class="color_black">申请时间：</span>
-                                    <span class="color_gray">2019-06-05 20:00</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md12">
-                                <div class="grid-demo grid-demo-bg1">
-                                    <span class="color_black">居住地址：</span>
-                                    <span class="color_gray">江苏省苏州市金马大厦A座</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md9">
-                                <div class="grid-demo grid-demo-bg1">
-                                    <span class="color_black">身份证号码：</span>
-                                    <span class="color_gray">32098119604206732</span>
-                                </div>
-                            </div>
-                            <div class="layui-col-md3">
-                                <!-- 一级模态框 -->
-                                <div class="grid-demo grid-demo-bg1" data-toggle="modal" data-target="#myModal">
-                                    更多资料
-                                </div>
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel" style="z-index: 10">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="more_cardID">
-                                                    <P class="cardText">手持身份证照：</P>
-                                                    <img class="cardImg" src="images/hehua.jpg" alt=""
-                                                        data-toggle="modal" data-target="#myModal1">
-                                                </div>
-                                                <div class="more_cardID">
-                                                    <P class="cardText">身份证正/反面照：</P>
-                                                    <img class="cardImg" src="images/hehua.jpg" alt=""
-                                                        data-toggle="modal" data-target="#myModal1">
-                                                    <img class="cardImg" src="images/hehua.jpg" alt=""
-                                                        data-toggle="modal" data-target="#myModal1">
-                                                </div>
-                                                <div class="more_cardID">
-                                                    <P class="cardText">形象照：</P>
-                                                    <img class="cardImg" src="images/hehua.jpg" alt=""
-                                                        data-toggle="modal" data-target="#myModal1">
-                                                </div>
-                                                <div class="more_cardID">
-                                                    <P class="cardText">平台截图：</P>
-                                                    <img class="cardImg" src="images/hehua.jpg" alt=""
-                                                        data-toggle="modal" data-target="#myModal1">
-                                                </div>
-                                            </div>
-                                            <button type="button" class="btn btn_green"
-                                                style="margin: 10% 10px 10% 36%;">通过</button>
-                                            <button type="button" class="btn btn-default">拒绝</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 二级模态框 整个模态框要跟第一个模态框同级 -->
-                                <div class="modal fade model" id="myModal1" tabindex="1" role="dialog"
-                                    aria-labelledby="myModalLabel" style="z-index: 100">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-hidden="true">×</button>
-
-                                                <h4 class="modal-title" id="myModalLabel">查看大图</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="more_cardID">
-                                                    <P class="cardText">手持身份证照：</P>
-                                                    <img src="images/hehua.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default"
-                                                    data-dismiss="modal">确定</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                <div class="login_up ">
+                    <div class="login_name" id="login_out">
+                        <img src="images/hehua.jpg" alt="">
+                        <p>ZKB1789012</p>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                    <div class="logins_block">
+                        <div class="login_out">
+                            <i class="glyphicon glyphicon-off"></i>
+                            退出登录
+                        </div>
+                        <div class="login_out" style="display: none">
+                            <i class="glyphicon glyphicon-off"></i>
+                            登录
                         </div>
                     </div>
-
-                    <!-- ----------------------------------- -->
                 </div>
+            </div> -->
             </div>
-            <!--右侧主题内容结束-->
         </div>
+        <!-- 这是网页主内容区域 -->
+        <div class="main_content">
+            <div id="target_main">
+                <!-- ----------------------------------- -->
+                <!-- 服务类型 -->
+                <!-- <link rel="stylesheet" href="../css/serve.css"> -->
+                <div class="serve_solid"></div>
+                <div class="serve_content">
+                    <div class="serve_top">
+                        <p class="serve_text">添加模板</p>
+                        <form class="form-inline">
+                            <div class="form-group col-sm-6">
+                                <label for="exampleInputName2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 标题：</label>
+                                <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入"
+                                       style="width: 50%">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="exampleInputEmail2">详情描述：</label>
+                                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="请输入"
+                                       style="width: 50%">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="exampleInputName2">最高单价：</label>
+                                <input type="number" class="form-control" id="exampleInputName2" placeholder="请输入"
+                                       style="width: 50%">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="exampleInputEmail2">最低单价：</label>
+                                <input type="number" class="form-control" id="exampleInputEmail2" placeholder="请输入"
+                                       style="width: 50%">
+                            </div>
+                            <div class="form-group col-sm-12" id="serve_modal_center">
+                                <div class="">
+                                    <button type="submit" class="btn btn-default"
+                                            style="background: #1890FF;color: white;">保存
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="serve_foot">
+                        <div role="tabpanel" class="tab-pane" id="settings">
+                            <div class="row" style="margin: 0">
+                                <!--  小块  -->
+                                <div class="col-md-4" id="serve_content">
+                                    <div class="serve_block_detail">
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span></p>
+                                        <p class="serve_block_p">详情描述：<span
+                                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span></p>
+                                        <p>最低单价：<span>500</span></p>
+                                        <p>最高单价：<span>1000</span></p>
+                                    </div>
+                                    <div class="serve_block_foot">
+                                        <span id="serve_del">删除模板</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="serve_content">
+                                    <div class="serve_block_detail">
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span></p>
+                                        <p class="serve_block_p">详情描述：<span
+                                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span></p>
+                                        <p>最低单价：<span>500</span></p>
+                                        <p>最高单价：<span>1000</span></p>
+                                    </div>
+                                    <div class="serve_block_foot">
+                                        <span id="serve_del">删除模板</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="serve_content">
+                                    <div class="serve_block_detail">
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span></p>
+                                        <p class="serve_block_p">详情描述：<span
+                                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span></p>
+                                        <p>最低单价：<span>500</span></p>
+                                        <p>最高单价：<span>1000</span></p>
+                                    </div>
+                                    <div class="serve_block_foot">
+                                        <span id="serve_del">删除模板</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ----------------------------------- -->
+            </div>
+        </div>
+        <!--右侧主题内容结束-->
+    </div>
 </body>
 
 <script type="text/javascript" src="jquery.min.js"></script>

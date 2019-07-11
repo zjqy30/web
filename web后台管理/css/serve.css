@@ -62,8 +62,37 @@
 .serve_block_p{
     height: 50px;
 }
+.serve_block_ps{
+    padding-left: 3%;
+}
 .serve_block_span{
     display: block;
-    width: 80%;
+    width: 85%;
     float: right;
+}
+/* 通过/拒绝 */
+.dd_foot{
+    width: 100%;
+    height: 43px;
+    background: #FAFAFA;
+    color: #333333;
+    font-size: 14px;
+    line-height: 43px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #f8f7f7;
+}
+.dd_foot>span{
+    display: inline-block;
+    text-align: center;
+    width: 49%;
+    height: 43px;
+    cursor: pointer;
+}
+#dd_foot_detail{
+    width: 100%;
+    text-align: center;
+    height: 43px;
+    cursor: pointer;
 }

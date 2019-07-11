@@ -155,7 +155,6 @@
 }
 .dd_table{
     /* width: 763px; */
-
     /* height: 715px; */
     width: 100%;
     background-color: #fff;
@@ -183,8 +182,14 @@
     font-size: 12px;
     padding: 2px 5px;
 }
+.layui-col-md12>p{
+    font-size: 15px;
+    color: #BDBDBD;
+}
 .dd_layui_span{
     color: #333333;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 

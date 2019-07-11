@@ -1362,6 +1362,607 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '    </div>\n' +
     '\n' +
     '</div>';
+// <!-- 纯佣订单 -->
+window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
+    '<link rel="stylesheet" href="../css/dingdan.css">\n' +
+    '<div class="dd_solid"></div>\n' +
+    '<div class="dd_content">\n' +
+    '    <div class="dd_top">\n' +
+    '        <p class="dd_text">搜索订单</p>\n' +
+    '        <div class="input-group" id="input_group">\n' +
+    '            <input type="text" class="form-control" placeholder="请输入" aria-describedby="basic-addon2"\n' +
+    '                style="height: 49px">\n' +
+    '            <span class="input-group-addon" id="basic-addon2">搜索</span>\n' +
+    '        </div>\n' +
+    '        <!-- Nav tabs -->\n' +
+    '        <ul class="nav nav-tabs" role="tablist" id="dd_ul">\n' +
+    '            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"\n' +
+    '                    data-toggle="tab">待审核</a></li>\n' +
+    '            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">派单中</a></li>\n' +
+    '            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">已完成</a>\n' +
+    '            </li>\n' +
+    '        </ul>\n' +
+    '\n' +
+    '    </div>\n' +
+    '    <!-- Tab panes -->\n' +
+    '    <div class="tab-content">\n' +
+    '        <!-- 待审核 -->\n' +
+    '        <div role="tabpanel" class="tab-pane active" id="home">\n' +
+    '            <div class="row" style="margin: 0">\n' +
+    '                <div class="col-md-4" id="tab-content">\n' +
+    '                    <!--订单更多资料-模态框(仅写了一个模态框)-->\n' +
+    '                    <div class="dd_tab_detail" data-toggle="modal" data-target="#sjmyModal">\n' +
+    '                        <div class="dd_detail">\n' +
+    '                            <div class="dd_userImg">\n' +
+    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_userText">\n' +
+    '                                <div class="dd_userName">你说什么就是什么ne</div>\n' +
+    '                                <div class="dd_userDe">\n' +
+    '                                    <span style="color: #ADADAD">发布时间</span>\n' +
+    '                                    <span style="margin-left: 10px;">2019-6-19</span>\n' +
+    '                                    <span style="color: #333333">18:00</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_price">\n' +
+    '                                <span style="color: #F03D37">1000元</span>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                        <div class="dd_gn">\n' +
+    '                            <div class="dd_gn_first">\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">商品类型：</span><span class=\'first_3\'>鞋帽箱包</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">粉丝要求：</span><span class=\'first_3\'>10万</span>\n' +
+    '                                </div>\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">达人平台：</span><span class=\'first_3\'>暂无要求</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">佣金比例：</span><span class=\'first_3\'>30%</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
+    '                        <span>拒绝</span>\n' +
+    '                    </div>\n' +
+    '                    <!--订单更多资料-模态框-->\n' +
+    '                    <!-- 商家更多资料 -->\n' +
+    '                    <div class="modal fade" id="sjmyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n' +
+    '                        <div class="modal-dialog" role="document">\n' +
+    '                            <div class="modal-content">\n' +
+    '                                <div class="modal-header">\n' +
+    '                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span\n' +
+    '                                            aria-hidden="true">&times;</span></button>\n' +
+    '                                    <h4 class="modal-title" id="myModalLabel">更多资料</h4>\n' +
+    '                                </div>\n' +
+    '                                <div class="modal-body">\n' +
+    '                                    <div class="row">\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>商品类型：\n' +
+    '                                                <span class="dd_layui_span">\n' +
+    '                                                    鞋帽箱包\n' +
+    '                                                </span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>发布时间：\n' +
+    '                                                <span class="dd_layui_span">\n' +
+    '                                                    2019-7-11 11:29\n' +
+    '                                                </span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>\n' +
+    '                                                需求标签：\n' +
+    '                                                <span class="layui_span">美食</span>\n' +
+    '                                                <span class="layui_span">三农</span>\n' +
+    '                                                <span class="layui_span">美女</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>粉丝要求：<span class="dd_layui_span">10万</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>达人平台：\n' +
+    '                                                <span class="dd_layui_span">\n' +
+    '                                                    暂无要求\n' +
+    '                                                </span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>店铺等级：\n' +
+    '                                                <span class="dd_layui_span">\n' +
+    '                                                    一颗皇冠\n' +
+    '                                                </span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>佣金比例：\n' +
+    '                                                <span class="dd_layui_span">\n' +
+    '                                                    30%\n' +
+    '                                                </span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>是否寄样：\n' +
+    '                                                <span class="dd_layui_span">\n' +
+    '                                                    否\n' +
+    '                                                </span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>产品以往销量：\n' +
+    '                                                <span class="dd_layui_span">\n' +
+    '                                                    3271\n' +
+    '                                                </span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                    </div>\n' +
+    '                                </div>\n' +
+    '\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-4" id="tab-content">\n' +
+    '                    <div class="dd_tab_detail">\n' +
+    '                        <div class="dd_detail">\n' +
+    '                            <div class="dd_userImg">\n' +
+    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_userText">\n' +
+    '                                <div class="dd_userName">你说什么就是什么ne</div>\n' +
+    '                                <div class="dd_userDe">\n' +
+    '                                    <span style="color: #ADADAD">发布时间</span>\n' +
+    '                                    <span style="margin-left: 10px;">2019-6-19</span>\n' +
+    '                                    <span style="color: #333333">18:00</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_price">\n' +
+    '                                <span style="color: #F03D37">1000元</span>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                        <div class="dd_gn">\n' +
+    '                            <div class="dd_gn_first">\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">商品类型：</span><span class=\'first_3\'>鞋帽箱包</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">粉丝要求：</span><span class=\'first_3\'>10万</span>\n' +
+    '                                </div>\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">达人平台：</span><span class=\'first_3\'>暂无要求</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">佣金比例：</span><span class=\'first_3\'>30%</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
+    '                        <span>拒绝</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-4" id="tab-content">\n' +
+    '                    <div class="dd_tab_detail">\n' +
+    '                        <div class="dd_detail">\n' +
+    '                            <div class="dd_userImg">\n' +
+    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_userText">\n' +
+    '                                <div class="dd_userName">你说什么就是什么ne</div>\n' +
+    '                                <div class="dd_userDe">\n' +
+    '                                    <span style="color: #ADADAD">发布时间</span>\n' +
+    '                                    <span style="margin-left: 10px;">2019-6-19</span>\n' +
+    '                                    <span style="color: #333333">18:00</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_price">\n' +
+    '                                <span style="color: #F03D37">1000元</span>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                        <div class="dd_gn">\n' +
+    '                            <div class="dd_gn_first">\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">商品类型：</span><span class=\'first_3\'>鞋帽箱包</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">粉丝要求：</span><span class=\'first_3\'>10万</span>\n' +
+    '                                </div>\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">达人平台：</span><span class=\'first_3\'>暂无要求</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">佣金比例：</span><span class=\'first_3\'>30%</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
+    '                        <span>拒绝</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '        <!-- 派单中 -->\n' +
+    '        <div role="tabpanel" class="tab-pane" id="profile">\n' +
+    '            <div class="row" style="margin: 0">\n' +
+    '                <div class="col-md-4" id="tab-content">\n' +
+    '                    <!--订单更多资料-模态框(仅写了一个模态框)-->\n' +
+    '                    <div class="dd_tab_detail" data-toggle="modal" data-target="#sjModal">\n' +
+    '                        <div class="dd_detail">\n' +
+    '                            <div class="dd_userImg">\n' +
+    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_userText">\n' +
+    '                                <div class="dd_userName">你说什么就是什么</div>\n' +
+    '                                <div class="dd_userDe">\n' +
+    '                                    <span>快手</span>\n' +
+    '                                    <span style="margin-left: 10px;">短视频直播推广</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_price">\n' +
+    '                                <span style="color: #F03D37">1000元</span>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                        <div class="dd_gn">\n' +
+    '                            <p>在中台产品的研发过程中，会出现不同的 设计规范练习方式，但其中往往存在很帅 类似的问题。我们还是要多多注意谢谢规\n' +
+    '                                范一些东西还是要注意细节。</p>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <!-- 抢单人员-模态框 -->\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span style="border-right: 1px solid #dedede" data-toggle="modal"\n' +
+    '                            data-target=".bs-example-modal-lg">抢单人员</span>\n' +
+    '                        <span>删除订单</span>\n' +
+    '                    </div>\n' +
+    '                    <!-- 抢单人员 modal -->\n' +
+    '                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"\n' +
+    '                        aria-labelledby="myLargeModalLabel">\n' +
+    '                        <div class="modal-dialog modal-lg" role="document">\n' +
+    '                            <div class="modal-content" id="modal-content">\n' +
+    '                                <div class="modal-header">\n' +
+    '                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span\n' +
+    '                                            aria-hidden="true">&times;</span></button>\n' +
+    '                                    <h4 class="modal-title" id="myModalLabel">抢单人员</h4>\n' +
+    '                                </div>\n' +
+    '                                <!-- <p class="mode_title">抢单人员</p> -->\n' +
+    '                                <table class="dd_table wh_table">\n' +
+    '                                    <tbody>\n' +
+    '                                        <tr>\n' +
+    '                                            <td><img src="images/hehua.jpg" alt=""></td>\n' +
+    '                                            <td class="tabel_name">你说什么就是什么</td>\n' +
+    '                                            <td>抖音</td>\n' +
+    '                                            <td>男</td>\n' +
+    '                                            <td>200万</td>\n' +
+    '                                        </tr>\n' +
+    '                                        <tr>\n' +
+    '                                            <td><img src="images/hehua.jpg" alt=""></td>\n' +
+    '                                            <td class="tabel_name">你说什么就是什么</td>\n' +
+    '                                            <td>抖音</td>\n' +
+    '                                            <td>男</td>\n' +
+    '                                            <td>200万</td>\n' +
+    '                                        </tr>\n' +
+    '                                        <tr>\n' +
+    '                                            <td><img src="images/hehua.jpg" alt=""></td>\n' +
+    '                                            <td class="tabel_name">你说什么就是什么</td>\n' +
+    '                                            <td>抖音</td>\n' +
+    '                                            <td>男</td>\n' +
+    '                                            <td>200万</td>\n' +
+    '                                        </tr>\n' +
+    '                                        <tr>\n' +
+    '                                            <td><img src="images/hehua.jpg" alt=""></td>\n' +
+    '                                            <td class="tabel_name">你说什么就是什么</td>\n' +
+    '                                            <td>抖音</td>\n' +
+    '                                            <td>男</td>\n' +
+    '                                            <td>200万</td>\n' +
+    '                                        </tr>\n' +
+    '                                        <tr>\n' +
+    '                                            <td><img src="images/hehua.jpg" alt=""></td>\n' +
+    '                                            <td class="tabel_name">你说什么就是什么</td>\n' +
+    '                                            <td>抖音</td>\n' +
+    '                                            <td>男</td>\n' +
+    '                                            <td>200万</td>\n' +
+    '                                        </tr>\n' +
+    '\n' +
+    '                                    </tbody>\n' +
+    '                                </table>\n' +
+    '                                <div id="demo2-1"></div>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <!--订单更多资料-模态框-->\n' +
+    '                    <!-- 商家更多资料 -->\n' +
+    '                    <div class="modal fade" id="sjModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n' +
+    '                        <div class="modal-dialog" role="document">\n' +
+    '                            <div class="modal-content">\n' +
+    '                                <div class="modal-header">\n' +
+    '                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span\n' +
+    '                                            aria-hidden="true">&times;</span></button>\n' +
+    '                                    <h4 class="modal-title" id="myModalLabel">更多资料</h4>\n' +
+    '                                </div>\n' +
+    '                                <div class="modal-body">\n' +
+    '                                    <div class="row">\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>商家电话：<span style="color:#1890FF ">15371185538</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>\n' +
+    '                                                需求标签：\n' +
+    '                                                <span class="layui_span">美食</span>\n' +
+    '                                                <span class="layui_span">三农</span>\n' +
+    '                                                <span class="layui_span">美女</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>粉丝要求：<span class="dd_layui_span">10万</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>发布时间：<span class="dd_layui_span">2019-6-19\n' +
+    '                                                    15:17</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>创建时间：<span class="dd_layui_span">2019-6-19\n' +
+    '                                                    15:17</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>订单编号：\n' +
+    '                                                <span class="dd_layui_span">\n' +
+    '                                                    1324558885555896666666\n' +
+    '                                                </span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>商品图片：</p>\n' +
+    '                                            <img src="images/hehua.jpg" alt="">\n' +
+    '                                        </div>\n' +
+    '                                    </div>\n' +
+    '                                </div>\n' +
+    '\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <!-- 完 -->\n' +
+    '\n' +
+    '                </div>\n' +
+    '\n' +
+    '                <div class="col-md-4" id="tab-content">\n' +
+    '                    <div class="dd_tab_detail">\n' +
+    '                        <div class="dd_detail">\n' +
+    '                            <div class="dd_userImg">\n' +
+    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_userText">\n' +
+    '                                <div class="dd_userName">你说什么就是什么</div>\n' +
+    '                                <div class="dd_userDe">\n' +
+    '                                    <span>快手</span>\n' +
+    '                                    <span style="margin-left: 10px;">短视频直播推广</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                            <!-- <div class="dd_price">\n' +
+    '                                                        <span style="color: #F03D37">1000元</span>\n' +
+    '                                                    </div> -->\n' +
+    '                        </div>\n' +
+    '                        <div class="dd_gn">\n' +
+    '                            <div class="dd_gn_first">\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">商品类型：</span><span class=\'first_3\'>鞋帽箱包</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">粉丝要求：</span><span class=\'first_3\'>10万</span>\n' +
+    '                                </div>\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">达人平台：</span><span class=\'first_3\'>暂无要求</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">佣金比例：</span><span class=\'first_3\'>30%</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span style="border-right: 1px solid #dedede">抢单人员</span>\n' +
+    '                        <span>删除订单</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-4" id="tab-content">\n' +
+    '                    <div class="dd_tab_detail">\n' +
+    '                        <div class="dd_detail">\n' +
+    '                            <div class="dd_userImg">\n' +
+    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_userText">\n' +
+    '                                <div class="dd_userName">你说什么就是什么</div>\n' +
+    '                                <div class="dd_userDe">\n' +
+    '                                    <span>快手</span>\n' +
+    '                                    <span style="margin-left: 10px;">短视频直播推广</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_price">\n' +
+    '                                <span style="color: #F03D37">1000元</span>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                        <div class="dd_gn">\n' +
+    '                            <p>在中台产品的研发过程中，会出现不同的 设计规范练习方式，但其中往往存在很帅 类似的问题。我们还是要多多注意谢谢规\n' +
+    '                                范一些东西还是要注意细节。</p>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span style="border-right: 1px solid #dedede">抢单人员</span>\n' +
+    '                        <span>删除订单</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '        <!-- 已完成 -->\n' +
+    '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
+    '            <div class="row" style="margin: 0">\n' +
+    '                <div class="col-md-4" id="tab-content">\n' +
+    '                    <div class="dd_tab_detail">\n' +
+    '                        <div class="dd_detail">\n' +
+    '                            <div class="dd_userImg">\n' +
+    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_userText">\n' +
+    '                                <div class="dd_userName">你说什么就是什么</div>\n' +
+    '                                <div class="dd_userDe">\n' +
+    '                                    <span>快手</span>\n' +
+    '                                    <span style="margin-left: 10px;">短视频直播推广</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_price">\n' +
+    '                                <span style="color: #F03D37">1000元</span>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                        <div class="dd_gn">\n' +
+    '                            <p>在中台产品的研发过程中，会出现不同的 设计规范练习方式，但其中往往存在很帅 类似的问题。我们还是要多多注意谢谢规\n' +
+    '                                范一些东西还是要注意细节。</p>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span id="dd_foot_detail" data-toggle="modal" data-target="#sjachieve">订单详情</span>\n' +
+    '                    </div>\n' +
+    '                    <!--订单更多资料-模态框-->\n' +
+    '                    <!-- 商家更多资料 -->\n' +
+    '                    <div class="modal fade" id="sjachieve" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n' +
+    '                        <div class="modal-dialog" role="document">\n' +
+    '                            <div class="modal-content">\n' +
+    '                                <div class="modal-header">\n' +
+    '                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span\n' +
+    '                                            aria-hidden="true">&times;</span></button>\n' +
+    '                                    <h4 class="modal-title" id="myModalLabel">更多资料</h4>\n' +
+    '                                </div>\n' +
+    '                                <div class="modal-body">\n' +
+    '                                    <div class="row">\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>商家电话：<span style="color:#1890FF ">15371185538</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>抢单人员：\n' +
+    '                                                <span>你说什么就是什么</span>\n' +
+    '                                                <span style="color:#1890FF ">15371185538</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>\n' +
+    '                                                需求标签：\n' +
+    '                                                <span class="layui_span">美食</span>\n' +
+    '                                                <span class="layui_span">三农</span>\n' +
+    '                                                <span class="layui_span">美女</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>粉丝要求：<span class="dd_layui_span">10万</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>发布时间：<span class="dd_layui_span">2019-6-19\n' +
+    '                                                    15:17</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>创建时间：<span class="dd_layui_span">2019-6-19\n' +
+    '                                                    15:17</span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>订单编号：\n' +
+    '                                                <span class="dd_layui_span">\n' +
+    '                                                    1324558885555896666666\n' +
+    '                                                </span>\n' +
+    '                                            </p>\n' +
+    '                                        </div>\n' +
+    '                                        <div class="layui-col-md12">\n' +
+    '                                            <p>商品图片：</p>\n' +
+    '                                            <img src="images/hehua.jpg" alt="">\n' +
+    '                                        </div>\n' +
+    '                                    </div>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <!-- 完 -->\n' +
+    '                </div>\n' +
+    '                <div class="col-md-4" id="tab-content">\n' +
+    '                    <div class="dd_tab_detail">\n' +
+    '                        <div class="dd_detail">\n' +
+    '                            <div class="dd_userImg">\n' +
+    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_userText">\n' +
+    '                                <div class="dd_userName">你说什么就是什么</div>\n' +
+    '                                <div class="dd_userDe">\n' +
+    '                                    <span>快手</span>\n' +
+    '                                    <span style="margin-left: 10px;">短视频直播推广</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                            <!-- <div class="dd_price">\n' +
+    '                                                    <span style="color: #F03D37">1000元</span>\n' +
+    '                                                </div> -->\n' +
+    '                        </div>\n' +
+    '                        <div class="dd_gn">\n' +
+    '                            <div class="dd_gn_first">\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">商品类型：</span><span class=\'first_3\'>鞋帽箱包</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">粉丝要求：</span><span class=\'first_3\'>10万</span>\n' +
+    '                                </div>\n' +
+    '                                <div>\n' +
+    '                                    <span class="first_gary">达人平台：</span><span class=\'first_3\'>暂无要求</span>\n' +
+    '                                </div>\n' +
+    '                                <div style=\'float:right\'>\n' +
+    '                                    <span class="first_gary">佣金比例：</span><span class=\'first_3\'>30%</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span id="dd_foot_detail">订单详情</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-4" id="tab-content">\n' +
+    '                    <div class="dd_tab_detail">\n' +
+    '                        <div class="dd_detail">\n' +
+    '                            <div class="dd_userImg">\n' +
+    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_userText">\n' +
+    '                                <div class="dd_userName">你说什么就是什么</div>\n' +
+    '                                <div class="dd_userDe">\n' +
+    '                                    <span>快手</span>\n' +
+    '                                    <span style="margin-left: 10px;">短视频直播推广</span>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                            <div class="dd_price">\n' +
+    '                                <span style="color: #F03D37">1000元</span>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                        <div class="dd_gn">\n' +
+    '                            <p>在中台产品的研发过程中，会出现不同的 设计规范练习方式，但其中往往存在很帅 类似的问题。我们还是要多多注意谢谢规\n' +
+    '                                范一些东西还是要注意细节。</p>\n' +
+    '                        </div>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span id="dd_foot_detail">订单详情</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '</div>';
 //订单生成
 window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '<link rel="stylesheet" href="css/dings.css">\n' +
@@ -1403,6 +2004,81 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '                </div>\n' +
     '            </div>\n' +
     '        </form>\n' +
+    '    </div>\n' +
+    '</div>';
+// <!-- 服务类型 -->
+window.templates['serveType.html'] = '<!-- 服务类型 -->\n' +
+    '<link rel="stylesheet" href="css/serve.css">\n' +
+    '<div class="serve_solid"></div>\n' +
+    '<div class="serve_content">\n' +
+    '    <div class="serve_top">\n' +
+    '        <p class="serve_text">添加模板</p>\n' +
+    '        <form class="form-inline">\n' +
+    '            <div class="form-group col-sm-6">\n' +
+    '                <label for="exampleInputName2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 标题：</label>\n' +
+    '                <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入" style="width: 50%">\n' +
+    '            </div>\n' +
+    '            <div class="form-group col-sm-6">\n' +
+    '                <label for="exampleInputEmail2">详情描述：</label>\n' +
+    '                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="请输入" style="width: 50%">\n' +
+    '            </div>\n' +
+    '            <div class="form-group col-sm-6">\n' +
+    '                <label for="exampleInputName2">最高单价：</label>\n' +
+    '                <input type="number" class="form-control" id="exampleInputName2" placeholder="请输入" style="width: 50%">\n' +
+    '            </div>\n' +
+    '            <div class="form-group col-sm-6">\n' +
+    '                <label for="exampleInputEmail2">最低单价：</label>\n' +
+    '                <input type="number" class="form-control" id="exampleInputEmail2" placeholder="请输入" style="width: 50%">\n' +
+    '            </div>\n' +
+    '            <div class="form-group col-sm-12" id="serve_modal_center">\n' +
+    '                <div class="">\n' +
+    '                    <button type="submit" class="btn btn-default" style="background: #1890FF;color: white;">保存</button>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </form>\n' +
+    '    </div>\n' +
+    '    <div class="serve_foot">\n' +
+    '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
+    '            <div class="row" style="margin: 0">\n' +
+    '                <!--  小块  -->\n' +
+    '                <div class="col-md-4" id="serve_content">\n' +
+    '                    <div class="serve_block_detail">\n' +
+    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span> </p>\n' +
+    '                        <p class="serve_block_p">详情描述：<span\n' +
+    '                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span> </p>\n' +
+    '                        <p>最低单价：<span>500</span> </p>\n' +
+    '                        <p>最高单价：<span>1000</span> </p>\n' +
+    '                    </div>\n' +
+    '                    <div class="serve_block_foot">\n' +
+    '                        <span id="serve_del">删除模板</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-4" id="serve_content">\n' +
+    '                    <div class="serve_block_detail">\n' +
+    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span> </p>\n' +
+    '                        <p class="serve_block_p">详情描述：<span\n' +
+    '                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span> </p>\n' +
+    '                        <p>最低单价：<span>500</span> </p>\n' +
+    '                        <p>最高单价：<span>1000</span> </p>\n' +
+    '                    </div>\n' +
+    '                    <div class="serve_block_foot">\n' +
+    '                        <span id="serve_del">删除模板</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-4" id="serve_content">\n' +
+    '                    <div class="serve_block_detail">\n' +
+    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span> </p>\n' +
+    '                        <p class="serve_block_p">详情描述：<span\n' +
+    '                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span> </p>\n' +
+    '                        <p>最低单价：<span>500</span> </p>\n' +
+    '                        <p>最高单价：<span>1000</span> </p>\n' +
+    '                    </div>\n' +
+    '                    <div class="serve_block_foot">\n' +
+    '                        <span id="serve_del">删除模板</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
     '    </div>\n' +
     '</div>';
 //    服务内幕
@@ -1669,6 +2345,58 @@ window.templates['market.html'] = "<!-- 销售管理 -->\n" +
     "\n" +
     "                        </div>\n" +
     "                    </div>";
+// <!-- 网红提现 -->
+window.templates['red.html'] = '<!-- 网红提现 -->\n' +
+    '<link rel="stylesheet" href="css/serve.css">\n' +
+    '<div class="serve_solid"></div>\n' +
+    '<div class="serve_content">\n' +
+    '    <div class="serve_foot">\n' +
+    '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
+    '            <div class="row" style="margin: 0">\n' +
+    '                <!--  小块  -->\n' +
+    '                <div class="col-md-4" id="serve_content">\n' +
+    '                    <div class="serve_block_detail">\n' +
+    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：<span>你说什么就是什么</span> </p>\n' +
+    '                        <p class="serve_block_ps">手续费：<span class="serve_block_span" style="width: 88%">1</span> </p>\n' +
+    '                        <p>提现金额：<span>100</span> </p>\n' +
+    '                        <p>账号余额：<span>100</span> </p>\n' +
+    '                        <p>申请时间：<span>2019-7-10 12:00</span> </p>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
+    '                        <span>拒绝</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-4" id="serve_content">\n' +
+    '                    <div class="serve_block_detail">\n' +
+    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：<span>你说什么就是什么</span> </p>\n' +
+    '                        <p class="serve_block_ps">手续费：<span class="serve_block_span" style="width: 88%">1</span> </p>\n' +
+    '                        <p>提现金额：<span>100</span> </p>\n' +
+    '                        <p>账号余额：<span>100</span> </p>\n' +
+    '                        <p>申请时间：<span>2019-7-10 12:00</span> </p>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
+    '                        <span>拒绝</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-4" id="serve_content">\n' +
+    '                    <div class="serve_block_detail">\n' +
+    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：<span>你说什么就是什么</span> </p>\n' +
+    '                        <p class="serve_block_ps">手续费：<span class="serve_block_span" style="width: 88%">1</span> </p>\n' +
+    '                        <p>提现金额：<span>100</span> </p>\n' +
+    '                        <p>账号余额：<span>100</span> </p>\n' +
+    '                        <p>申请时间：<span>2019-7-10 12:00</span> </p>\n' +
+    '                    </div>\n' +
+    '                    <div class="dd_foot">\n' +
+    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
+    '                        <span>拒绝</span>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '</div>';
 //商家退款
 window.templates['refund.html'] = '<!-- 商家退款 -->\n' +
     '<link rel="stylesheet" href="css/refund.css">\n' +
@@ -2319,10 +3047,84 @@ window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>";
+// <!-- 商品类型 -->
+window.templates['product.html'] = '<!-- 商品类型 -->\n' +
+    '<link rel="stylesheet" href="css/labels.css">\n' +
+    '<div class="labels_solid"></div>\n' +
+    '<div class="labels_content">\n' +
+    '    <div class="labels_top">\n' +
+    '        <p class="labels_text">类型生成</p>\n' +
+    '        <form class="form-horizontal">\n' +
+    '            <div class="form-group" id="ds_modal_center">\n' +
+    '                <label for="inputEmail3" class="col-sm-2 control-label">新建标签：</label>\n' +
+    '                <div class="col-sm-10">\n' +
+    '                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入"\n' +
+    '                        style="width: 50%">\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '            <div class="form-group" id="ds_modal_center">\n' +
+    '                <div class="col-sm-offset-2 col-sm-10">\n' +
+    '                    <button type="submit" class="btn btn-default"\n' +
+    '                        style="background: #1890FF;color: white;">生成</button>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </form>\n' +
+    '        <!-- Nav tabs -->\n' +
+    '        <ul class="nav" role="tablist" id="labels_ul">\n' +
+    '            <li role="presentation" class="active">\n' +
+    '                <a href="#home" style="color: #1890FF">商品类型</a>\n' +
+    '            </li>\n' +
+    '        </ul>\n' +
+    '    </div>\n' +
+    '    <div class="tab-content">\n' +
+    '        <!-- 商品类型 -->\n' +
+    '        <div role="tabpanel" class="tab-pane active" id="home">\n' +
+    '            <div class="row" style="margin: 0">\n' +
+    '                <div class="col-md-2" id="labels_content">\n' +
+    '                    <div class="labels_col_text">\n' +
+    '                        生活技巧\n' +
+    '                    </div>\n' +
+    '                    <button class="labels_col_del">删除标签</button>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-2" id="labels_content">\n' +
+    '                    <div class="labels_col_text">\n' +
+    '                        生活技巧\n' +
+    '                    </div>\n' +
+    '                    <button class="labels_col_del">删除标签</button>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-2" id="labels_content">\n' +
+    '                    <div class="labels_col_text">\n' +
+    '                        生活技巧\n' +
+    '                    </div>\n' +
+    '                    <button class="labels_col_del">删除标签</button>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-2" id="labels_content">\n' +
+    '                    <div class="labels_col_text">\n' +
+    '                        生活技巧\n' +
+    '                    </div>\n' +
+    '                    <button class="labels_col_del">删除标签</button>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-2" id="labels_content">\n' +
+    '                    <div class="labels_col_text">\n' +
+    '                        生活技巧\n' +
+    '                    </div>\n' +
+    '                    <button class="labels_col_del">删除标签</button>\n' +
+    '                </div>\n' +
+    '                <div class="col-md-2" id="labels_content">\n' +
+    '                    <div class="labels_col_text">\n' +
+    '                        生活技巧\n' +
+    '                    </div>\n' +
+    '                    <button class="labels_col_del">删除标签</button>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '\n' +
+    '    </div>\n' +
+    '</div>';
 // 轮播图管理
 window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "                    <!-- 把css写在labels.css里面了 -->\n" +
-    "                    <link rel=\"stylesheet\" href=\"../css/labels.css\">\n" +
+    "                    <link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
     "                    <div class=\"labels_solid\"></div>\n" +
     "                    <div class=\"labels_content\">\n" +
     "                        <div class=\"banner_top\">\n" +
