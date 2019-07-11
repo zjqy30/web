@@ -182,11 +182,15 @@
     font-size: 12px;
     padding: 2px 5px;
 }
-.layui-col-md12>p{
+.dd_layui_span{
+    color: #333333;
+}
+
+.layui-col-md12-p{
     font-size: 15px;
     color: #BDBDBD;
 }
-.dd_layui_span{
+.dd_layui_span-span{
     color: #333333;
     font-size: 15px;
     font-weight: bold;
