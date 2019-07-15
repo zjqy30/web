@@ -8,8 +8,6 @@
     <title>登陆</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="bootstrap/js/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -17,24 +15,89 @@
     <div class="logins">
         <div class="modal-dialog" role="document" style="width: 488px;height: 310px;margin-top: 150px;">
             <div class="modal-content">
-                <div class="modal-body" style="width: 488px;height: 310px;">
+                <div class="modal-body" style="width: 488px;height: 320px;">
                     <div class="login_img public">
                         <img src="images/black.png" alt="">
                     </div>
-                    <form action="">
+                    <form>
                         <div class="input-group public">
-                            <input type="text" class="form-control" placeholder="Username" style="border-radius: 5px;">
+                            <input type="text" id="user" class="form-control" placeholder="Username" maxlength="12"
+                                style="border-radius: 5px;">
                         </div>
                         <div class="input-group public">
-                            <input type="text" class="form-control" placeholder="Password" style="border-radius: 5px;">
+                            <input type="password" id="pwd" class="form-control" placeholder="Password" maxlength="12"
+                                style="border-radius: 5px;">
                         </div>
-                        <button type="submit" class="btn btn-primary submit">登录</button>
+                        <div id="error"></div>
+                        <button type="button" class="btn btn-primary submit" onclick="chack()" id="btn">登录</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
+<script src="./jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="./js/jQuery.md5.js"></script>
+
+<script type="text/javascript">
+ var globel = 'http://192.168.0.167:8080';
+    // 获取焦点
+    $("#user").focus();
+
+    // 判断用户名和密码
+    function chack() {
+        var username = $("#user").val();
+        var password = $("#pwd").val();
+        if (username == "" || username == null && password == "" || password == null) {
+            $("#error").html("账号或密码不能为空")
+        } else {
+            // console.log(username, password)
+            var str = password + "sysUser";
+            var md5pwd = $.md5(str);
+            // console.log('加密后的密码', md5pwd);
+            sign(username, md5pwd)
+        }
+
+    }
+
+    function sign(username, md5pwd) {
+        var users = $("#user").val() + '';
+        var passWords = $("#pwd").val() + "";
+        // 加密后传的参数
+        var datas = {
+            "userName": username,
+            "passWord": md5pwd
+        }
+        $.ajax({
+            url: globel + "/hone/backend/sysUser/login",
+            dataType: 'json',
+            type: "post",
+            contentType: "application/json",
+            data: JSON.stringify(datas),
+            success: function (data) {
+                console.log(data);
+                // 存储用户信息（返回）
+                var token = data.data.token;
+                var headPic = data.data.user.headPic;
+                var username = data.data.user.username;
+                var id = data.data.user.id;
+                window.localStorage.setItem("token",token);
+                window.localStorage.setItem("headPic",headPic);
+                window.localStorage.setItem("username",username);
+                window.localStorage.setItem("id",id);
+                console.log(token,headPic,username,id)
+                
+                window.open('index.html') //跳转页面
+  
+            },
+            err:function(){
+                console.log('网络错误！')
+            }
+        })
+    }
+
+
+</script>
 
 </html>

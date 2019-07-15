@@ -1,5 +1,7 @@
 <!-- 标签管理 -->
 <link rel="stylesheet" href="../css/labels.css">
+<script src="../jquery.min.js"></script>
+<script src="../js/labels.js"></script>
 <div class="labels_solid"></div>
 <div class="labels_content">
     <div class="labels_top">
@@ -14,8 +16,8 @@
             </div>
             <div class="form-group" id="ds_modal_center">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default"
-                        style="background: #1890FF;color: white;">生成</button>
+                    <button type="button" class="btn btn-default"
+                        style="background: #1890FF;color: white;" id="labels_btn">生成</button>
                 </div>
             </div>
         </form>
@@ -31,48 +33,19 @@
     <div class="tab-content">
         <!-- 网红标签 -->
         <div role="tabpanel" class="tab-pane active" id="home">
-            <div class="row" style="margin: 0">
-                <div class="col-md-2" id="labels_content">
-                    <div class="labels_col_text">
+            <div class="row" style="margin: 0" id="labels_row">
+                <!-- <div class="col-md-2" id="labels_content">
+                    <div class="labels_col_text" id="labels_text">
                         生活技巧
                     </div>
-                    <button class="labels_col_del">删除标签</button>
-                </div>
-                <div class="col-md-2" id="labels_content">
-                    <div class="labels_col_text">
-                        生活技巧
-                    </div>
-                    <button class="labels_col_del">删除标签</button>
-                </div>
-                <div class="col-md-2" id="labels_content">
-                    <div class="labels_col_text">
-                        生活技巧
-                    </div>
-                    <button class="labels_col_del">删除标签</button>
-                </div>
-                <div class="col-md-2" id="labels_content">
-                    <div class="labels_col_text">
-                        生活技巧
-                    </div>
-                    <button class="labels_col_del">删除标签</button>
-                </div>
-                <div class="col-md-2" id="labels_content">
-                    <div class="labels_col_text">
-                        生活技巧
-                    </div>
-                    <button class="labels_col_del">删除标签</button>
-                </div>
-                <div class="col-md-2" id="labels_content">
-                    <div class="labels_col_text">
-                        生活技巧
-                    </div>
-                    <button class="labels_col_del">删除标签</button>
-                </div>
+                    <button class="labels_col_del" id="del">删除标签</button>
+                </div> -->
             </div>
         </div>
         <!-- 网红平台 -->
         <div role="tabpanel" class="tab-pane" id="profile">
             <div class="row" style="margin: 0">
+
                 <div class="col-md-2" id="labels_content2">
                     <div class="form-group">
                         <div class="labes_div_img">
@@ -83,56 +56,7 @@
                         <p class="help-block">抖音</p>
                     </div>
                 </div>
-                <!-- <div class="col-md-2" id="labels_content2">
-                    <div class="form-group">
-                        <div class="labes_div_img">
-                            <span class="labes_span_img">+</span>
-                            <input type="file" class="labels_input" id="ipt">
-                            <img class="labes_img" src="" alt="" id="labes_img">
-                        </div>
-                        <p class="help-block">抖音</p>
-                    </div>
-                </div>
-                <div class="col-md-2" id="labels_content2">
-                    <div class="form-group">
-                        <div class="labes_div_img">
-                            <span class="labes_span_img">+</span>
-                            <input type="file" class="labels_input" id="ipt">
-                            <img class="labes_img" src="" alt="" id="labes_img">
-                        </div>
-                        <p class="help-block">抖音</p>
-                    </div>
-                </div>
-                <div class="col-md-2" id="labels_content2">
-                    <div class="form-group">
-                        <div class="labes_div_img">
-                            <span class="labes_span_img">+</span>
-                            <input type="file" class="labels_input" id="ipt">
-                            <img class="labes_img" src="" alt="" id="labes_img">
-                        </div>
-                        <p class="help-block">抖音</p>
-                    </div>
-                </div>
-                <div class="col-md-2" id="labels_content2">
-                    <div class="form-group">
-                        <div class="labes_div_img">
-                            <span class="labes_span_img">+</span>
-                            <input type="file" class="labels_input" id="ipt">
-                            <img class="labes_img" src="" alt="" id="labes_img">
-                        </div>
-                        <p class="help-block">抖音</p>
-                    </div>
-                </div>
-                <div class="col-md-2" id="labels_content2">
-                    <div class="form-group">
-                        <div class="labes_div_img">
-                            <span class="labes_span_img">+</span>
-                            <input type="file" class="labels_input" id="ipt">
-                            <img class="labes_img" src="" alt="" id="labes_img">
-                        </div>
-                        <p class="help-block">抖音</p>
-                    </div>
-                </div> -->
+                
             </div>
         </div>
     </div>

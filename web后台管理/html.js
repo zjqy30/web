@@ -2443,159 +2443,85 @@ window.templates['refund.html'] = '<!-- 商家退款 -->\n' +
 
 //标签管理
 window.templates['labels.html'] = "<!-- 标签管理 -->\n" +
-    "                    <link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
-    "                    <div class=\"labels_solid\"></div>\n" +
-    "                    <div class=\"labels_content\">\n" +
-    "                        <div class=\"labels_top\">\n" +
-    "                            <p class=\"labels_text\">标签生成</p>\n" +
-    "                            <form class=\"form-horizontal\">\n" +
-    "                                <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                                    <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">新建标签：</label>\n" +
-    "                                    <div class=\"col-sm-10\">\n" +
-    "                                        <input type=\"text\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"请输入\"\n" +
-    "                                            style=\"width: 50%\">\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                                <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                                    <div class=\"col-sm-offset-2 col-sm-10\">\n" +
-    "                                        <button type=\"submit\" class=\"btn btn-default\"\n" +
-    "                                            style=\"background: #1890FF;color: white;\">生成</button>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </form>\n" +
-    "                            <!-- Nav tabs -->\n" +
-    "                            <ul class=\"nav nav-tabs\" role=\"tablist\" id=\"labels_ul\">\n" +
-    "                                <li role=\"presentation\" class=\"active\"><a href=\"#home\" aria-controls=\"home\" role=\"tab\"\n" +
-    "                                        data-toggle=\"tab\">网红标签</a></li>\n" +
-    "                                <li role=\"presentation\"><a href=\"#profile\" aria-controls=\"profile\" role=\"tab\"\n" +
-    "                                        data-toggle=\"tab\">网红平台</a>\n" +
-    "                                </li>\n" +
-    "                            </ul>\n" +
-    "                        </div>\n" +
-    "                        <div class=\"tab-content\">\n" +
-    "                            <!-- 网红标签 -->\n" +
-    "                            <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home\">\n" +
-    "                                <div class=\"row\" style=\"margin: 0\">\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                                        <div class=\"labels_col_text\">\n" +
-    "                                            生活技巧\n" +
-    "                                        </div>\n" +
-    "                                        <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                                        <div class=\"labels_col_text\">\n" +
-    "                                            生活技巧\n" +
-    "                                        </div>\n" +
-    "                                        <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                                        <div class=\"labels_col_text\">\n" +
-    "                                            生活技巧\n" +
-    "                                        </div>\n" +
-    "                                        <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                                        <div class=\"labels_col_text\">\n" +
-    "                                            生活技巧\n" +
-    "                                        </div>\n" +
-    "                                        <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                                        <div class=\"labels_col_text\">\n" +
-    "                                            生活技巧\n" +
-    "                                        </div>\n" +
-    "                                        <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                                        <div class=\"labels_col_text\">\n" +
-    "                                            生活技巧\n" +
-    "                                        </div>\n" +
-    "                                        <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                            <!-- 网红平台 -->\n" +
-    "                            <div role=\"tabpanel\" class=\"tab-pane\" id=\"profile\">\n" +
-    "                                <div class=\"row\" style=\"margin: 0\">\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content2\">\n" +
-    "                                        <div class=\"form-group\">\n" +
-    "                                            <div class=\"labes_div_img\">\n" +
-    "                                                <span class=\"labes_span_img\">+</span>\n" +
-    "                                                <input type=\"file\" class=\"labels_input\" id=\"ipt\">\n" +
-    "                                                <img class=\"labes_img\" src=\"\" alt=\"\" id=\"labes_img\">\n" +
-    "                                            </div>\n" +
-    "                                            <p class=\"help-block\">抖音</p>\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                    <!-- <div class=\"col-md-2\" id=\"labels_content2\">\n" +
-    "                                        <div class=\"form-group\">\n" +
-    "                                            <div class=\"labes_div_img\">\n" +
-    "                                                <span class=\"labes_span_img\">+</span>\n" +
-    "                                                <input type=\"file\" class=\"labels_input\" id=\"ipt\">\n" +
-    "                                                <img class=\"labes_img\" src=\"\" alt=\"\" id=\"labes_img\">\n" +
-    "                                            </div>\n" +
-    "                                            <p class=\"help-block\">抖音</p>\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content2\">\n" +
-    "                                        <div class=\"form-group\">\n" +
-    "                                            <div class=\"labes_div_img\">\n" +
-    "                                                <span class=\"labes_span_img\">+</span>\n" +
-    "                                                <input type=\"file\" class=\"labels_input\" id=\"ipt\">\n" +
-    "                                                <img class=\"labes_img\" src=\"\" alt=\"\" id=\"labes_img\">\n" +
-    "                                            </div>\n" +
-    "                                            <p class=\"help-block\">抖音</p>\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content2\">\n" +
-    "                                        <div class=\"form-group\">\n" +
-    "                                            <div class=\"labes_div_img\">\n" +
-    "                                                <span class=\"labes_span_img\">+</span>\n" +
-    "                                                <input type=\"file\" class=\"labels_input\" id=\"ipt\">\n" +
-    "                                                <img class=\"labes_img\" src=\"\" alt=\"\" id=\"labes_img\">\n" +
-    "                                            </div>\n" +
-    "                                            <p class=\"help-block\">抖音</p>\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content2\">\n" +
-    "                                        <div class=\"form-group\">\n" +
-    "                                            <div class=\"labes_div_img\">\n" +
-    "                                                <span class=\"labes_span_img\">+</span>\n" +
-    "                                                <input type=\"file\" class=\"labels_input\" id=\"ipt\">\n" +
-    "                                                <img class=\"labes_img\" src=\"\" alt=\"\" id=\"labes_img\">\n" +
-    "                                            </div>\n" +
-    "                                            <p class=\"help-block\">抖音</p>\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-2\" id=\"labels_content2\">\n" +
-    "                                        <div class=\"form-group\">\n" +
-    "                                            <div class=\"labes_div_img\">\n" +
-    "                                                <span class=\"labes_span_img\">+</span>\n" +
-    "                                                <input type=\"file\" class=\"labels_input\" id=\"ipt\">\n" +
-    "                                                <img class=\"labes_img\" src=\"\" alt=\"\" id=\"labes_img\">\n" +
-    "                                            </div>\n" +
-    "                                            <p class=\"help-block\">抖音</p>\n" +
-    "                                        </div>\n" +
-    "                                    </div> -->\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
+    "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
+    "<script src=\"jquery.min.js\"></script>\n" +
+    "<script src=\"js/labels.js\"></script>\n" +
+    "<div class=\"labels_solid\"></div>\n" +
+    "<div class=\"labels_content\">\n" +
+    "    <div class=\"labels_top\">\n" +
+    "        <p class=\"labels_text\">标签生成</p>\n" +
+    "        <form class=\"form-horizontal\">\n" +
+    "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
+    "                <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">新建标签：</label>\n" +
+    "                <div class=\"col-sm-10\">\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"请输入\"\n" +
+    "                        style=\"width: 50%\">\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
+    "                <div class=\"col-sm-offset-2 col-sm-10\">\n" +
+    "                    <button type=\"button\" class=\"btn btn-default\"\n" +
+    "                        style=\"background: #1890FF;color: white;\" id=\"labels_btn\">生成</button>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </form>\n" +
+    "        <!-- Nav tabs -->\n" +
+    "        <ul class=\"nav nav-tabs\" role=\"tablist\" id=\"labels_ul\">\n" +
+    "            <li role=\"presentation\" class=\"active\"><a href=\"#home\" aria-controls=\"home\" role=\"tab\"\n" +
+    "                    data-toggle=\"tab\">网红标签</a></li>\n" +
+    "            <li role=\"presentation\"><a href=\"#profile\" aria-controls=\"profile\" role=\"tab\"\n" +
+    "                    data-toggle=\"tab\">网红平台</a>\n" +
+    "            </li>\n" +
+    "        </ul>\n" +
+    "    </div>\n" +
+    "    <div class=\"tab-content\">\n" +
+    "        <!-- 网红标签 -->\n" +
+    "        <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home\">\n" +
+    "            <div class=\"row\" style=\"margin: 0\" id=\"labels_row\">\n" +
+    "                <!-- <div class=\"col-md-2\" id=\"labels_content\">\n" +
+    "                    <div class=\"labels_col_text\" id=\"labels_text\">\n" +
+    "                        生活技巧\n" +
     "                    </div>\n" +
-    "                    <script>\n" +
-    "                        // 标签上传图片\n" +
-    "                        ipt.onchange = function () {\n" +
-    "                            // console.log(this.files[0])\n" +
-    "                            var F = new FileReader();\n" +
-    "                            F.readAsDataURL(this.files[0]);\n" +
-    "                            F.onload = function () {\n" +
-    "                                labes_img.src = F.result;\n" +
-    "                                labes_img.style.display = \"block\";\n" +
-    "                            }\n" +
-    "                        }\n" +
-    "                    </script>";
+    "                    <button class=\"labels_col_del\" id=\"del\">删除标签</button>\n" +
+    "                </div> -->\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <!-- 网红平台 -->\n" +
+    "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"profile\">\n" +
+    "            <div class=\"row\" style=\"margin: 0\">\n" +
+    "\n" +
+    "                <div class=\"col-md-2\" id=\"labels_content2\">\n" +
+    "                    <div class=\"form-group\">\n" +
+    "                        <div class=\"labes_div_img\">\n" +
+    "                            <span class=\"labes_span_img\">+</span>\n" +
+    "                            <input type=\"file\" class=\"labels_input\" id=\"ipt\">\n" +
+    "                            <img class=\"labes_img\" src=\"\" alt=\"\" id=\"labes_img\">\n" +
+    "                        </div>\n" +
+    "                        <p class=\"help-block\">抖音</p>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                \n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "<script>\n" +
+    "    // 标签上传图片\n" +
+    "    ipt.onchange = function () {\n" +
+    "        // console.log(this.files[0])\n" +
+    "        var F = new FileReader();\n" +
+    "        F.readAsDataURL(this.files[0]);\n" +
+    "        F.onload = function () {\n" +
+    "            labes_img.src = F.result;\n" +
+    "            labes_img.style.display = \"block\";\n" +
+    "        }\n" +
+    "    }\n" +
+    "</script>";
 //公告管理
 window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
     "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
+    "<script src=\"jquery.min.js\"></script>\n" +
+    "<script src=\"js/announcement.js\"></script>\n" +
     "<div class=\"labels_solid\"></div>\n" +
     "<div class=\"labels_content\">\n" +
     "    <div class=\"labels_top\">\n" +
@@ -2604,70 +2530,33 @@ window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">新建公告：</label>\n" +
     "                <div class=\"col-sm-10\">\n" +
-    "                    <input type=\"text\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"ann_value\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <div class=\"col-sm-offset-2 col-sm-10\">\n" +
-    "                    <button type=\"submit\" class=\"btn btn-default\" style=\"background: #1890FF;color: white;\">生成</button>\n" +
+    "                    <button type=\"button\" class=\"btn btn-default\" id=\"ann_btn\"\n" +
+    "                        style=\"background: #1890FF;color: white;\">生成</button>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </form>\n" +
     "\n" +
     "    </div>\n" +
     "    <div class=\"tab-content\">\n" +
-    "        <!-- 网红标签 -->\n" +
+    "        <!-- 公告标签 -->\n" +
     "        <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home\">\n" +
     "            <div class=\"row\" style=\"margin: 0\">\n" +
-    "                <div class=\"col-md-4\" id=\"labels_contents\">\n" +
-    "                    <p class=\"col_md_4\">公告1</p>\n" +
-    "                    <div class=\"col_md_4_text\">\n" +
-    "                        生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除公告</button>\n" +
+    "\n" +
+    "                <div id=\"ann_content\">\n" +
+    "                    <!-- <div class=\"col-md-4\" id=\"labels_contents\">\n" +
+    "                            <p class=\"col_md_4\">公告1</p>\n" +
+    "                            <div class=\"col_md_4_text\">\n" +
+    "                                生活技巧生活技巧生活技巧生活巧生活技巧\n" +
+    "                            </div>\n" +
+    "                            <button class=\"labels_col_del\">删除公告</button>\n" +
+    "                        </div> -->\n" +
     "                </div>\n" +
-    "                <div class=\"col-md-4\" id=\"labels_contents\">\n" +
-    "                    <p class=\"col_md_4\">公告1</p>\n" +
-    "                    <div class=\"col_md_4_text\">\n" +
-    "                        生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除公告</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-4\" id=\"labels_contents\">\n" +
-    "                    <p class=\"col_md_4\">公告1</p>\n" +
-    "                    <div class=\"col_md_4_text\">\n" +
-    "                        生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除公告</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-4\" id=\"labels_contents\">\n" +
-    "                    <p class=\"col_md_4\">公告1</p>\n" +
-    "                    <div class=\"col_md_4_text\">\n" +
-    "                        生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除公告</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-4\" id=\"labels_contents\">\n" +
-    "                    <p class=\"col_md_4\">公告1</p>\n" +
-    "                    <div class=\"col_md_4_text\">\n" +
-    "                        生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除公告</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-4\" id=\"labels_contents\">\n" +
-    "                    <p class=\"col_md_4\">公告1</p>\n" +
-    "                    <div class=\"col_md_4_text\">\n" +
-    "                        生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除公告</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-4\" id=\"labels_contents\">\n" +
-    "                    <p class=\"col_md_4\">公告1</p>\n" +
-    "                    <div class=\"col_md_4_text\">\n" +
-    "                        生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除公告</button>\n" +
-    "                </div>\n" +
+    "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "\n" +
@@ -2994,6 +2883,8 @@ window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
 // <!-- 商品类型 -->
 window.templates['product.html'] = '<!-- 商品类型 -->\n' +
     '<link rel="stylesheet" href="css/labels.css">\n' +
+    '<script src="jquery.min.js"></script>\n' +
+    '<script src="js/product.js"></script>\n' +
     '<div class="labels_solid"></div>\n' +
     '<div class="labels_content">\n' +
     '    <div class="labels_top">\n' +
@@ -3002,13 +2893,12 @@ window.templates['product.html'] = '<!-- 商品类型 -->\n' +
     '            <div class="form-group" id="ds_modal_center">\n' +
     '                <label for="inputEmail3" class="col-sm-2 control-label">新建标签：</label>\n' +
     '                <div class="col-sm-10">\n' +
-    '                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入"\n' +
-    '                        style="width: 50%">\n' +
+    '                    <input type="text" class="form-control" placeholder="请输入" id="pro_Value" style="width: 50%">\n' +
     '                </div>\n' +
     '            </div>\n' +
     '            <div class="form-group" id="ds_modal_center">\n' +
     '                <div class="col-sm-offset-2 col-sm-10">\n' +
-    '                    <button type="submit" class="btn btn-default"\n' +
+    '                    <button type="button" class="btn btn-default" id="pro_btn"\n' +
     '                        style="background: #1890FF;color: white;">生成</button>\n' +
     '                </div>\n' +
     '            </div>\n' +
@@ -3024,41 +2914,13 @@ window.templates['product.html'] = '<!-- 商品类型 -->\n' +
     '        <!-- 商品类型 -->\n' +
     '        <div role="tabpanel" class="tab-pane active" id="home">\n' +
     '            <div class="row" style="margin: 0">\n' +
-    '                <div class="col-md-2" id="labels_content">\n' +
-    '                    <div class="labels_col_text">\n' +
-    '                        生活技巧\n' +
-    '                    </div>\n' +
-    '                    <button class="labels_col_del">删除标签</button>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-2" id="labels_content">\n' +
-    '                    <div class="labels_col_text">\n' +
-    '                        生活技巧\n' +
-    '                    </div>\n' +
-    '                    <button class="labels_col_del">删除标签</button>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-2" id="labels_content">\n' +
-    '                    <div class="labels_col_text">\n' +
-    '                        生活技巧\n' +
-    '                    </div>\n' +
-    '                    <button class="labels_col_del">删除标签</button>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-2" id="labels_content">\n' +
-    '                    <div class="labels_col_text">\n' +
-    '                        生活技巧\n' +
-    '                    </div>\n' +
-    '                    <button class="labels_col_del">删除标签</button>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-2" id="labels_content">\n' +
-    '                    <div class="labels_col_text">\n' +
-    '                        生活技巧\n' +
-    '                    </div>\n' +
-    '                    <button class="labels_col_del">删除标签</button>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-2" id="labels_content">\n' +
-    '                    <div class="labels_col_text">\n' +
-    '                        生活技巧\n' +
-    '                    </div>\n' +
-    '                    <button class="labels_col_del">删除标签</button>\n' +
+    '                <div id="pro_content">\n' +
+    '                    <!-- <div class="col-md-2" id="labels_content">\n' +
+    '                                            <div class="labels_col_text">\n' +
+    '                                                生活技巧\n' +
+    '                                            </div>\n' +
+    '                                            <button class="labels_col_del">删除标签</button>\n' +
+    '                                        </div> -->\n' +
     '                </div>\n' +
     '            </div>\n' +
     '        </div>\n' +

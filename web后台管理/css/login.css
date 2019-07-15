@@ -39,6 +39,13 @@ body{
     transform: translate(-50%);
 }
 .submit{
+    width: 43%;
+    margin-top: 3%;
     margin-left: 50%;
     transform: translate(-50%); 
+}
+#error{
+    color: red;
+    font-size: 12px;
+    margin: -3% 32% 2%;
 }
