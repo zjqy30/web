@@ -19,11 +19,9 @@
     <link rel="stylesheet" href="layui/css/layui.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="jquery.min.js"></script>
-    <script src="bootstrap/js/jquery.min.js"></script>
+    <!-- <script src="bootstrap/js/jquery.min.js"></script> -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- <script src="js/labels.js"></script> -->
-    <!-- <script src="js/product.js"></script> -->
-    <!-- <script src="js/announcement.js"></script> -->
+
 
     <style>
         .model {
@@ -155,7 +153,7 @@
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </div>
                     <ul>
-                        <li onclick="target('sjStory')">内幕管理</li>
+                        <!-- <li onclick="target('sjStory')">内幕管理</li> -->
                         <li onclick="target('sjindex')">层级管理</li>
                     </ul>
                 </li>
@@ -260,7 +258,85 @@
             <div class="main_content">
                 <div id="target_main">
                     <!-- ----------------------------------- -->
-                   
+                    <!-- 商家内幕-层级管理 -->
+                    <!-- <link rel="stylesheet" href="../css/labels.css">
+                    <link rel="stylesheet" href="../css/sjStory.css"> -->
+                    <div class="labels_solid"></div>
+                    <div class="labels_content">
+                        <div class="labels_top" style="height: 320px;">
+                            <p class="labels_text">层级管理</p>
+                            <!-- <form class="form-inline sjStory_form">
+                                <div class="form-group" id="form-group">
+                                    <label for="exampleInputName2">第一层级：</label>
+                                    <input type="text" class="form-control" id="one_val" placeholder="请输入" style="width: 50%">
+                                </div>
+                                <div class="form-group" id="form-group">
+                                    <label for="name">第二层级：</label>
+                                    <input type="text" class="form-control" id="two_val" placeholder="请输入" style="width: 50%">
+                                </div>
+                                <div class="form-group" id="form-group">
+                                    <label for="exampleInputName2">第三层级：</label>
+                                    <input type="text" class="form-control" id="three_val" placeholder="请输入" style="width: 50%">
+                                </div>
+                                <div class="form-group" id="form-group">
+                                    <label for="name">标&nbsp;&nbsp;&nbsp; 签：</label>
+                                    <input type="text" class="form-control" id="all_val" placeholder="请输入" style="width: 50%">
+                                </div>
+                                <button type="button" class="btn btn-default"  id="all_click" style="color: white;background: #1890FF;margin-left: 36%">添加</button>
+                            </form> -->
+                            <form class="form-horizontal">
+                                <div class="form-group" id="ds_modal_center">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">新建标签：</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="all_value" placeholder="请输入"
+                                            style="width: 50%">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="ds_modal_center">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default" id="all_click"
+                                            style="background: #1890FF;color: white;">生成</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist" id="all_ul" style="margin-top: 44px;">
+                                <li role="presentation" class="active" id="active"><a href="#one" aria-controls="home"
+                                        role="tab" data-toggle="tab">第一层级</a></li>
+                                <li role="presentation"><a href="#two" aria-controls="profile" role="tab"
+                                        data-toggle="tab">第二层级</a>
+                                </li>
+                                <li role="presentation"><a href="#three" aria-controls="profile" role="tab"
+                                        data-toggle="tab">第三层级</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <!-- 第一层级 -->
+                            <div role="tabpanel" class="tab-pane active" id="one">
+                                <div class="row" style="margin: 0" id="one_list">
+                                    <!-- <div class="col-md-2" id="labels_content">
+                                        <div class="labels_col_text">
+                                            生活技巧
+                                        </div>
+                                        <button class="labels_col_del">删除标签</button>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <!-- 第二层级 -->
+                            <div role="tabpanel" class="tab-pane" id="two">
+                                <div class="row" style="margin: 0" id="two_list">
+
+                                </div>
+                            </div>
+                            <!-- 第三层级 -->
+                            <div role="tabpanel" class="tab-pane" id="three">
+                                <div class="row" style="margin: 0" id="three_list">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- ----------------------------------- -->
                 </div>
             </div>
@@ -268,9 +344,16 @@
         </div>
 </body>
 
-
 <script src="html.js"></script>
 <script src="index.js"></script>
+<script src="js/sjindex.js"></script>
+<!-- <script src="js/market.js"></script> -->
+<!-- <script src="js/red.js"></script> -->
+<!-- <script src="js/serveType.js"></script> -->
+<!-- <script src="js/serve.js"></script> -->
+<!-- <script src="js/labels.js"></script>
+<script src="js/product.js"></script>
+<script src="js/announcement.js"></script> -->
 <script src="layui/layui.all.js"></script>
 <script>
     login_out.onclick = function () {

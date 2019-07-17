@@ -1,5 +1,5 @@
-
-var globel = 'http://192.168.0.167:8080';
+console.log(123)
+var globel = 'http://192.168.0.166:8080';
 var token = localStorage.getItem('token')
 
 // 获取商品类型列表

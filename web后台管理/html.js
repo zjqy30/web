@@ -1953,6 +1953,7 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
 // <!-- 服务类型 -->
 window.templates['serveType.html'] = '<!-- 服务类型 -->\n' +
     '<link rel="stylesheet" href="css/serve.css">\n' +
+    '<script src="js/serveType.js"></script>\n' +
     '<div class="serve_solid"></div>\n' +
     '<div class="serve_content">\n' +
     '    <div class="serve_top">\n' +
@@ -1960,67 +1961,26 @@ window.templates['serveType.html'] = '<!-- 服务类型 -->\n' +
     '        <form class="form-inline">\n' +
     '            <div class="form-group col-sm-6">\n' +
     '                <label for="exampleInputName2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 标题：</label>\n' +
-    '                <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入" style="width: 50%">\n' +
+    '                <input type="text" class="form-control" id="type_title" placeholder="请输入" style="width: 50%">\n' +
     '            </div>\n' +
     '            <div class="form-group col-sm-6">\n' +
     '                <label for="exampleInputEmail2">详情描述：</label>\n' +
-    '                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="请输入" style="width: 50%">\n' +
-    '            </div>\n' +
-    '            <div class="form-group col-sm-6">\n' +
-    '                <label for="exampleInputName2">最高单价：</label>\n' +
-    '                <input type="number" class="form-control" id="exampleInputName2" placeholder="请输入" style="width: 50%">\n' +
-    '            </div>\n' +
-    '            <div class="form-group col-sm-6">\n' +
-    '                <label for="exampleInputEmail2">最低单价：</label>\n' +
-    '                <input type="number" class="form-control" id="exampleInputEmail2" placeholder="请输入" style="width: 50%">\n' +
+    '                <input type="text" class="form-control" id="type_infos" placeholder="请输入" style="width: 50%">\n' +
     '            </div>\n' +
     '            <div class="form-group col-sm-12" id="serve_modal_center">\n' +
     '                <div class="">\n' +
-    '                    <button type="submit" class="btn btn-default" style="background: #1890FF;color: white;">保存</button>\n' +
+    '                    <button type="button" class="btn btn-default" onclick="type_btn()"\n' +
+    '                        style="background: #1890FF;color: white;">保存</button>\n' +
     '                </div>\n' +
     '            </div>\n' +
+    '\n' +
     '        </form>\n' +
     '    </div>\n' +
     '    <div class="serve_foot">\n' +
     '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
-    '            <div class="row" style="margin: 0">\n' +
+    '            <div class="row" style="margin:0;height:555px;overflow: auto;" id="serve_big">\n' +
     '                <!--  小块  -->\n' +
-    '                <div class="col-md-4" id="serve_content">\n' +
-    '                    <div class="serve_block_detail">\n' +
-    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span> </p>\n' +
-    '                        <p class="serve_block_p">详情描述：<span\n' +
-    '                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span> </p>\n' +
-    '                        <p>最低单价：<span>500</span> </p>\n' +
-    '                        <p>最高单价：<span>1000</span> </p>\n' +
-    '                    </div>\n' +
-    '                    <div class="serve_block_foot">\n' +
-    '                        <span id="serve_del">删除模板</span>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-4" id="serve_content">\n' +
-    '                    <div class="serve_block_detail">\n' +
-    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span> </p>\n' +
-    '                        <p class="serve_block_p">详情描述：<span\n' +
-    '                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span> </p>\n' +
-    '                        <p>最低单价：<span>500</span> </p>\n' +
-    '                        <p>最高单价：<span>1000</span> </p>\n' +
-    '                    </div>\n' +
-    '                    <div class="serve_block_foot">\n' +
-    '                        <span id="serve_del">删除模板</span>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-4" id="serve_content">\n' +
-    '                    <div class="serve_block_detail">\n' +
-    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span> </p>\n' +
-    '                        <p class="serve_block_p">详情描述：<span\n' +
-    '                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span> </p>\n' +
-    '                        <p>最低单价：<span>500</span> </p>\n' +
-    '                        <p>最高单价：<span>1000</span> </p>\n' +
-    '                    </div>\n' +
-    '                    <div class="serve_block_foot">\n' +
-    '                        <span id="serve_del">删除模板</span>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
+    '\n' +
     '            </div>\n' +
     '        </div>\n' +
     '    </div>\n' +
@@ -2028,6 +1988,7 @@ window.templates['serveType.html'] = '<!-- 服务类型 -->\n' +
 //    服务内幕
 window.templates['serve.html'] = '<!-- 服务内幕 -->\n' +
     '<link rel="stylesheet" href="css/serve.css">\n' +
+    '<script src="js/serve.js"></script>\n' +
     '<div class="serve_solid"></div>\n' +
     '<div class="serve_content">\n' +
     '    <div class="serve_top">\n' +
@@ -2035,30 +1996,32 @@ window.templates['serve.html'] = '<!-- 服务内幕 -->\n' +
     '        <form class="form-inline">\n' +
     '            <div class="form-group col-sm-6">\n' +
     '                <label for="exampleInputName2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 标题：</label>\n' +
-    '                <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入" style="width: 50%">\n' +
+    '                <input type="text" class="form-control" id="title" placeholder="请输入" style="width: 50%">\n' +
     '            </div>\n' +
     '            <div class="form-group col-sm-6">\n' +
     '                <label for="exampleInputEmail2">详情描述：</label>\n' +
-    '                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="请输入" style="width: 50%">\n' +
+    '                <input type="text" class="form-control" id="infos" placeholder="请输入" style="width: 50%">\n' +
     '            </div>\n' +
     '            <div class="form-group col-sm-6">\n' +
     '                <label for="exampleInputName2">最高单价：</label>\n' +
-    '                <input type="number" class="form-control" id="exampleInputName2" placeholder="请输入" style="width: 50%">\n' +
+    '                <input type="number" class="form-control" id="heightPrice" placeholder="请输入" style="width: 50%">\n' +
     '            </div>\n' +
     '            <div class="form-group col-sm-6">\n' +
     '                <label for="exampleInputEmail2">最低单价：</label>\n' +
-    '                <input type="number" class="form-control" id="exampleInputEmail2" placeholder="请输入" style="width: 50%">\n' +
+    '                <input type="number" class="form-control" id="footPrice" placeholder="请输入" style="width: 50%">\n' +
     '            </div>\n' +
     '            <div class="form-group col-sm-12" id="serve_modal_center">\n' +
     '                <div class="">\n' +
-    '                    <button type="submit" class="btn btn-default" style="background: #1890FF;color: white;">保存</button>\n' +
+    '                    <button type="button" class="btn btn-default" onclick="must()" id="serve"\n' +
+    '                        style="background: #1890FF;color: white;">保存</button>\n' +
     '                </div>\n' +
     '            </div>\n' +
     '        </form>\n' +
     '    </div>\n' +
     '    <div class="serve_foot">\n' +
     '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
-    '            <div class="row" style="margin: 0">\n' +
+    '            <div class="row" style="margin:0;height:555px;overflow: auto;" id="serve_big">\n' +
+    '\n' +
     '                <!--  小块  -->\n' +
     '                <div class="col-md-4" id="serve_content">\n' +
     '                    <div class="serve_block_detail">\n' +
@@ -2072,30 +2035,7 @@ window.templates['serve.html'] = '<!-- 服务内幕 -->\n' +
     '                        <span id="serve_del">删除模板</span>\n' +
     '                    </div>\n' +
     '                </div>\n' +
-    '                <div class="col-md-4" id="serve_content">\n' +
-    '                    <div class="serve_block_detail">\n' +
-    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span> </p>\n' +
-    '                        <p class="serve_block_p">详情描述：<span\n' +
-    '                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span> </p>\n' +
-    '                        <p>最低单价：<span>500</span> </p>\n' +
-    '                        <p>最高单价：<span>1000</span> </p>\n' +
-    '                    </div>\n' +
-    '                    <div class="serve_block_foot">\n' +
-    '                        <span id="serve_del">删除模板</span>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-4" id="serve_content">\n' +
-    '                    <div class="serve_block_detail">\n' +
-    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>线下直播</span> </p>\n' +
-    '                        <p class="serve_block_p">详情描述：<span\n' +
-    '                                class="serve_block_span">让网红做一场线下直播推广/带货/网红带到标准即可付款。让网红做</span> </p>\n' +
-    '                        <p>最低单价：<span>500</span> </p>\n' +
-    '                        <p>最高单价：<span>1000</span> </p>\n' +
-    '                    </div>\n' +
-    '                    <div class="serve_block_foot">\n' +
-    '                        <span id="serve_del">删除模板</span>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
+    '\n' +
     '            </div>\n' +
     '        </div>\n' +
     '    </div>\n' +
@@ -2292,51 +2232,15 @@ window.templates['market.html'] = "<!-- 销售管理 -->\n" +
 // <!-- 网红提现 -->
 window.templates['red.html'] = '<!-- 网红提现 -->\n' +
     '<link rel="stylesheet" href="css/serve.css">\n' +
+    '<script src="js/red.js"></script>\n' +
     '<div class="serve_solid"></div>\n' +
     '<div class="serve_content">\n' +
     '    <div class="serve_foot">\n' +
     '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
-    '            <div class="row" style="margin: 0">\n' +
+    '            <div class="row" style="margin: 0" id="red_ti">\n' +
+    '\n' +
     '                <!--  小块  -->\n' +
-    '                <div class="col-md-4" id="serve_content">\n' +
-    '                    <div class="serve_block_detail">\n' +
-    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：<span>你说什么就是什么</span> </p>\n' +
-    '                        <p class="serve_block_ps">手续费：<span class="serve_block_span" style="width: 88%">1</span> </p>\n' +
-    '                        <p>提现金额：<span>100</span> </p>\n' +
-    '                        <p>账号余额：<span>100</span> </p>\n' +
-    '                        <p>申请时间：<span>2019-7-10 12:00</span> </p>\n' +
-    '                    </div>\n' +
-    '                    <div class="dd_foot">\n' +
-    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
-    '                        <span>拒绝</span>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-4" id="serve_content">\n' +
-    '                    <div class="serve_block_detail">\n' +
-    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：<span>你说什么就是什么</span> </p>\n' +
-    '                        <p class="serve_block_ps">手续费：<span class="serve_block_span" style="width: 88%">1</span> </p>\n' +
-    '                        <p>提现金额：<span>100</span> </p>\n' +
-    '                        <p>账号余额：<span>100</span> </p>\n' +
-    '                        <p>申请时间：<span>2019-7-10 12:00</span> </p>\n' +
-    '                    </div>\n' +
-    '                    <div class="dd_foot">\n' +
-    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
-    '                        <span>拒绝</span>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
-    '                <div class="col-md-4" id="serve_content">\n' +
-    '                    <div class="serve_block_detail">\n' +
-    '                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：<span>你说什么就是什么</span> </p>\n' +
-    '                        <p class="serve_block_ps">手续费：<span class="serve_block_span" style="width: 88%">1</span> </p>\n' +
-    '                        <p>提现金额：<span>100</span> </p>\n' +
-    '                        <p>账号余额：<span>100</span> </p>\n' +
-    '                        <p>申请时间：<span>2019-7-10 12:00</span> </p>\n' +
-    '                    </div>\n' +
-    '                    <div class="dd_foot">\n' +
-    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
-    '                        <span>拒绝</span>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
+    '\n' +
     '            </div>\n' +
     '        </div>\n' +
     '    </div>\n' +
@@ -2563,162 +2467,7 @@ window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
     "    </div>\n" +
     "</div>";
 // 商家内幕-内幕管理
-window.templates['sjStory.html'] = "<!-- 商家内幕-内幕管理 -->\n" +
-    "<link rel=\"stylesheet\" href=\"css/sjStory.css\">\n" +
-    "<div class=\"sjStory\">\n" +
-    "    <!-- 查询 -->\n" +
-    "    <div class=\"sjStory_top\">\n" +
-    "        <form class=\"form-inline sjStory_form\">\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"exampleInputName2\">标签名称：</label>\n" +
-    "                <input type=\"text\" class=\"form-control\" id=\"exampleInputName2\" placeholder=\"请输入\">\n" +
-    "            </div>\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"name\">所属行业：</label>\n" +
-    "                <input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"请输入\">\n" +
-    "            </div>\n" +
-    "            <button type=\"submit\" class=\"btn btn-default\" style=\"color: white;\n" +
-    "    background: #1890FF\">查询</button>\n" +
-    "        </form>\n" +
-    "        <!-- 添加-模态框 -->\n" +
-    "        <button type=\"text\" class=\"btn btn-default\" style=\"color: white;\n" +
-    "    background: #1890FF;margin-top: 16px;\" data-toggle=\"modal\" data-target=\"#myModal\">添加</button>\n" +
-    "        <!-- 模态框（Modal） -->\n" +
-    "        <div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n" +
-    "            aria-hidden=\"true\">\n" +
-    "            <div class=\"modal-dialog\">\n" +
-    "                <div class=\"modal-content\" id=\"sjStory_modal\">\n" +
-    "                    <div class=\"modal-header\">\n" +
-    "                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-    "                        <h4 class=\"modal-title\" id=\"myModalLabel\">添加标签</h4>\n" +
-    "                    </div>\n" +
-    // "                    <div class=\"modal-body\" style=\"height:350px\">\n" +
-    "                    <div class=\"modal-body\">\n" +
-    "                        <form class=\"form-inline sjStory_form\">\n" +
-    "                            <div class=\"form-group\" id=\"form-group\">\n" +
-    "                                <label for=\"exampleInputName2\">第一类：</label>\n" +
-    "                                <input type=\"text\" class=\"form-control\" id=\"exampleInputName2\" placeholder=\"请输入\">\n" +
-    "                            </div>\n" +
-    "                            <div class=\"form-group\" id=\"form-group\">\n" +
-    "                                <label for=\"name\">第二类：</label>\n" +
-    "                                <input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"请输入\">\n" +
-    "                            </div>\n" +
-    "                            <div class=\"form-group\" id=\"form-group\">\n" +
-    "                                <label for=\"exampleInputName2\">第三类：</label>\n" +
-    "                                <input type=\"text\" class=\"form-control\" id=\"exampleInputName2\" placeholder=\"请输入\">\n" +
-    "                            </div>\n" +
-    "                            <div class=\"form-group\" id=\"form-group\">\n" +
-    "                                <label for=\"name\">标&nbsp;&nbsp;&nbsp; 签：</label>\n" +
-    "                                <input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"请输入\">\n" +
-    "                            </div>\n" +
-    "                            <!-- <button type=\"submit\" class=\"btn btn-default\" style=\"color: white;\n" +
-    "background: #1890FF;margin-top: 98px\">添加</button> -->\n" +
-    "                        </form>\n" +
-    "                    </div>\n" +
-    "                    <div class=\"modal-footer\">\n" +
-    "                        <!-- <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button> -->\n" +
-    "                        <button type=\"button\" class=\"btn btn-primary\">添加</button>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "    </div>\n" +
-    "    <!-- 表格 -->\n" +
-    "    <table class=\"table\">\n" +
-    "        <thead>\n" +
-    "            <tr class=\"sjStory_tr\">\n" +
-    "                <th>第一类</th>\n" +
-    "                <th>第二类</th>\n" +
-    "                <th>第三类</th>\n" +
-    "                <th>标签名称</th>\n" +
-    "                <th>操作</th>\n" +
-    "            </tr>\n" +
-    "        </thead>\n" +
-    "        <tbody>\n" +
-    "            <tr>\n" +
-    "                <td>鞋包配饰</td>\n" +
-    "                <td>女鞋 </td>\n" +
-    "                <td>单鞋</td>\n" +
-    "                <td>鞋包配饰-女鞋-单鞋</td>\n" +
-    "                <td>\n" +
-    "                    <button class=\"sjStory_tr_btn\" data-toggle=\"modal\" data-target=\"#altermyModal\">修改</button><span\n" +
-    "                        class=\"color_span\">|</span>\n" +
-    "                    <button class=\"sjStory_tr_btn\">删除</button>\n" +
-    "                </td>\n" +
-    "            </tr>\n" +
-    "            <tr>\n" +
-    "                <td>鞋包配饰</td>\n" +
-    "                <td>女鞋 </td>\n" +
-    "                <td>单鞋</td>\n" +
-    "                <td>鞋包配饰-女鞋-单鞋</td>\n" +
-    "                <td>\n" +
-    "                    <button class=\"sjStory_tr_btn\" data-toggle=\"modal\" data-target=\"#altermyModal\">修改</button><span\n" +
-    "                        class=\"color_span\">|</span>\n" +
-    "                    <button class=\"sjStory_tr_btn\">删除</button>\n" +
-    "                </td>\n" +
-    "            </tr>\n" +
-    "        </tbody>\n" +
-    "        <!-- 表格-修改-模态框 -->\n" +
-    "        <div class=\"modal fade\" id=\"altermyModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n" +
-    "            aria-hidden=\"true\">\n" +
-    "            <div class=\"modal-dialog\">\n" +
-    "                <div class=\"modal-content\" id=\"sjStory_modal\">\n" +
-    "                    <div class=\"modal-header\">\n" +
-    "                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-    "                        <h4 class=\"modal-title\" id=\"myModalLabel\">修改标签</h4>\n" +
-    "                    </div>\n" +
-    "                    <div class=\"modal-body sjStory_modal_body\" >\n" +
-    "                        <form role=\"form\">\n" +
-    "                            <div class=\"form-group\" id=\"sjStory_group\">\n" +
-    "                                <label for=\"name\" class=\"sjDtory_label\">第一类：</label>\n" +
-    "                                <select class=\"form-control\" id=\"sjStory_form_select\">\n" +
-    "                                    <option>1</option>\n" +
-    "                                    <option>2</option>\n" +
-    "                                    <option>3</option>\n" +
-    "                                    <option>4</option>\n" +
-    "                                    <option>5</option>\n" +
-    "                                </select>\n" +
-    "                            </div>\n" +
-    "                            <div class=\"form-group\" id=\"sjStory_group\">\n" +
-    "                                <label for=\"name\" class=\"sjDtory_label\">第二类：</label>\n" +
-    "                                <select class=\"form-control\" id=\"sjStory_form_select\">\n" +
-    "                                    <option>1</option>\n" +
-    "                                    <option>2</option>\n" +
-    "                                    <option>3</option>\n" +
-    "                                    <option>4</option>\n" +
-    "                                    <option>5</option>\n" +
-    "                                </select>\n" +
-    "                            </div>\n" +
-    "                            <div class=\"form-group\" id=\"sjStory_group\">\n" +
-    "                                <label for=\"name\" class=\"sjDtory_label\">第三类：</label>\n" +
-    "                                <select class=\"form-control\" id=\"sjStory_form_select\">\n" +
-    "                                    <option>1</option>\n" +
-    "                                    <option>2</option>\n" +
-    "                                    <option>3</option>\n" +
-    "                                    <option>4</option>\n" +
-    "                                    <option>5</option>\n" +
-    "                                </select>\n" +
-    "                            </div>\n" +
-    "                            <div class=\"form-group\" id=\"sjStory_group\">\n" +
-    "                                <label for=\"name\" class=\"sjDtory_label\">标&nbsp;&nbsp;&nbsp; 签：</label>\n" +
-    "                                <select class=\"form-control\" id=\"sjStory_form_select\">\n" +
-    "                                    <option>1</option>\n" +
-    "                                    <option>2</option>\n" +
-    "                                    <option>3</option>\n" +
-    "                                    <option>4</option>\n" +
-    "                                    <option>5</option>\n" +
-    "                                </select>\n" +
-    "                            </div>\n" +
-    "                        </form>\n" +
-    "                    </div>\n" +
-    "                    <div class=\"modal-footer\">\n" +
-    "                        <button type=\"button\" class=\"btn btn-primary\">添加</button>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "    </table>\n" +
-    "</div>";
+// window.templates['sjStory.html'] = "";
 //商家内幕-层级管理
 window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
     "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +

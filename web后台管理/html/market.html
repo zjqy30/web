@@ -1,26 +1,28 @@
 <!-- 销售管理 -->
 <link rel="stylesheet" href="../css/market.css">
 <link rel="stylesheet" href="../css/index.css">
+<script src="../js/market.js"></script>
 <div class="serve_solid"></div>
 <div class="serve_content">
     <div class="market_top">
+        <p class="serve_text">添加人员</p>
         <form class="form-inline">
-            <div class="form-group col-sm-6">
+            <div class="form-group col-sm-12">
                 <label for="exampleInputName2">姓名：</label>
-                <input type="text" class="form-control" id="" placeholder="请输入" style="width: 50%">
+                <input type="text" class="form-control" id="market_name" placeholder="请输入" style="width: 25%">
             </div>
-            <div class="form-group col-sm-6">
-                <label for="exampleInputEmail2">邀请码生成：</label>
-                <input type="text" class="form-control" id="" placeholder="请输入" style="width: 50%">
-            </div>
+            <!-- <div class="form-group col-sm-6">
+                                    <label for="exampleInputEmail2">邀请码生成：</label>
+                                    <input type="text" class="form-control" id="" placeholder="请输入" style="width: 50%">
+                                </div> -->
             <div class="form-group col-sm-12" id="serve_modal_center">
                 <div class="">
-                    <button type="submit" class="btn btn-default"
+                    <button type="button" class="btn btn-default" onclick="market_btn()"
                         style="background: #1890FF;color: white;letter-spacing: 4px;">确认添加</button>
                 </div>
             </div>
         </form>
-        <p class="serve_text">添加人员</p>
+
     </div>
     <div class="market_foot">
         <div class="market_foot_table">
@@ -36,109 +38,20 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="red_ti">
                     <tr>
                         <td><img src="images/hehua.jpg" alt=""></td>
-                        <td class="market_name">你说什么就是什么</td>
+                        <td class="market_name">你说啥就是啥</td>
                         <td>男</td>
-                        <td>20</td>
-                        <td>12356</td>
-                        <td class="market_btn" style="color:#1890ff;">二维码</td>
+                        <td>50</td>
+                        <td>1876</td>
+                        <td><img src="images/hehua.jpg" alt=""></td>
+                        <!-- <td class="market_btn" style="color:#1890ff;">'+item.qrcodeUrl+'</td>
+                                            <td> -->
                         <td>
                             <button class="market_table_btn right" data-toggle="modal"
                                 data-target="#myModalmore">邀请人员</button>
                             <button class="market_table_btn">删除资料</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/hehua.jpg" alt=""></td>
-                        <td class="tabel_name">你说什么就是什么</td>
-                        <td>男</td>
-                        <td>20</td>
-                        <td>12356</td>
-                        <td class="wh_table_btn" style="color:#1890ff;">二维码</td>
-                        <td>
-                            <button class="wh_table_btn right" data-toggle="modal"
-                                data-target="#myModalmore">邀请人员</button>
-                            <button class="wh_table_btn">删除资料</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/hehua.jpg" alt=""></td>
-                        <td class="tabel_name">你说什么就是什么</td>
-                        <td>男</td>
-                        <td>20</td>
-                        <td>12356</td>
-                        <td class="wh_table_btn" style="color:#1890ff;">二维码</td>
-                        <td>
-                            <button class="wh_table_btn right" data-toggle="modal"
-                                data-target="#myModalmore">邀请人员</button>
-                            <button class="wh_table_btn">删除资料</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/hehua.jpg" alt=""></td>
-                        <td class="tabel_name">你说什么就是什么</td>
-                        <td>男</td>
-                        <td>20</td>
-                        <td>12356</td>
-                        <td class="wh_table_btn" style="color:#1890ff;">二维码</td>
-                        <td>
-                            <button class="wh_table_btn right" data-toggle="modal"
-                                data-target="#myModalmore">邀请人员</button>
-                            <button class="wh_table_btn">删除资料</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/hehua.jpg" alt=""></td>
-                        <td class="tabel_name">你说什么就是什么</td>
-                        <td>男</td>
-                        <td>20</td>
-                        <td>12356</td>
-                        <td class="wh_table_btn" style="color:#1890ff;">二维码</td>
-                        <td>
-                            <button class="wh_table_btn right" data-toggle="modal"
-                                data-target="#myModalmore">邀请人员</button>
-                            <button class="wh_table_btn">删除资料</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/hehua.jpg" alt=""></td>
-                        <td class="tabel_name">你说什么就是什么</td>
-                        <td>男</td>
-                        <td>20</td>
-                        <td>12356</td>
-                        <td class="wh_table_btn" style="color:#1890ff;">二维码</td>
-                        <td>
-                            <button class="wh_table_btn right" data-toggle="modal"
-                                data-target="#myModalmore">邀请人员</button>
-                            <button class="wh_table_btn">删除资料</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/hehua.jpg" alt=""></td>
-                        <td class="tabel_name">你说什么就是什么</td>
-                        <td>男</td>
-                        <td>20</td>
-                        <td>12356</td>
-                        <td class="wh_table_btn" style="color:#1890ff;">二维码</td>
-                        <td>
-                            <button class="wh_table_btn right" data-toggle="modal"
-                                data-target="#myModalmore">邀请人员</button>
-                            <button class="wh_table_btn">删除资料</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/hehua.jpg" alt=""></td>
-                        <td class="tabel_name">你说什么就是什么</td>
-                        <td>男</td>
-                        <td>20</td>
-                        <td>12356</td>
-                        <td class="wh_table_btn" style="color:#1890ff;">二维码</td>
-                        <td>
-                            <button class="wh_table_btn right" data-toggle="modal"
-                                data-target="#myModalmore">邀请人员</button>
-                            <button class="wh_table_btn">删除资料</button>
                         </td>
                     </tr>
                 </tbody>
@@ -146,15 +59,15 @@
         </div>
         <!-- 分页 -->
         <div id="demo2-1"></div>
-        <!--邀请人员-模态框-->
+        <!-- 邀请人员-模态框 -->
         <!-- 网红人员更多资料-模态框 Modal -->
-        <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" style="z-index: 10">
+        <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            style="z-index: 10">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" id="market_modal_content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel"> 抢单人员</h4>
                     </div>
                     <div class="modal-body">
@@ -183,6 +96,6 @@
             </div>
         </div>
         <!-- 完 -->
-        
+
     </div>
 </div>

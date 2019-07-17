@@ -61,6 +61,7 @@ table tr,table th{
     height: 373px;
 }
 #form-group{
+    width:50%;
     margin: 25px 0;
     float: left;
 }

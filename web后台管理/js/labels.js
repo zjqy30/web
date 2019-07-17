@@ -1,5 +1,5 @@
 
-var globel = 'http://192.168.0.167:8080';
+var globel = 'http://192.168.0.166:8080';
 var token = localStorage.getItem('token')
 // window.location.reload()//实时刷新
 

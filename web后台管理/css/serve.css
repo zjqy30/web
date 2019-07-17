@@ -27,7 +27,7 @@
 }
 /* 小块 */
 #serve_content{
-    height:238px ;
+    height:275px ;
     width: 30.333333%;
     background: #FFFFFF;
     margin: 1%;
@@ -40,6 +40,9 @@
 .serve_block_detail p{
     margin: 3% 0;
 }
+/* .serve_type{
+    margin: 7% 0;
+} */
 .serve_block_foot{
     width: 100%;
     height: 43px;
