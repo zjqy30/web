@@ -35,7 +35,7 @@ $.ajax({
             for (var i = 0; i < list.length; i++) {
                 var ipt_Value = list[i].dictValue;
                 var id = list[i].id;
-                
+
                 // 创建大标签
                 var labels_div = document.createElement('div');
                 labels_div.className = "col-md-2"
@@ -141,26 +141,37 @@ $.ajax({
 })
 
 
-
-
-
-
-
 // 获取网红平台列表
-// var labels_input = document.getElementsByClassName("labels_input")
-// var labels_content2=document.getElementById("labels_content2");
-// for(var j=0;j<labels_content2.length;j++){
-//     // 标签上传图片
-// labels_input[j].onchange = function () {
-//     // console.log(this.files[0])
-//     var F = new FileReader();
-//     F.readAsDataURL(this.files[0]);
-//     F.onload = function () {
-//         labes_img.src = F.result;
-//         labes_img.style.display = "block";
-//     }
-// }
-// }
+var creat = {
+    'token': token,
+    'dictType': 'platType'
+}
+$.ajax({
+    url: globel + "/hone/backend/dict/list",
+    dataType: 'json',
+    type: "post",
+    contentType: "application/json",
+    data: JSON.stringify(creat),
+    success: function (data) {
+        console.log('网红平台列表', data)
+        var list = data.data.dictList;
+        $.each(list, function (index, item) {
+            $("#labels_red").append(
+                '<div class="col-md-2" id="labels_content2">'+
+                '<div class="form-group">' +
+                '<div class="labes_div_img">' +
+                // '<span class="labes_span_img">+</span>' +
+                '<span class="labes_span_img"><img src='+item.dictPic+' alt=""></span>' + //出现图片会报错
+                '<input type="file" class="labels_input" id="ipt">' +
+                '<img class="labes_img" src="" alt="" id="labes_img">' +
+                '</div>' +
+                '<p class="help-block">'+item.dictValue+'</p>' +
+                '</div>'+
+                '</div>'
+            )
+        })
 
+    }
+})
 
 

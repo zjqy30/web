@@ -71,7 +71,8 @@
     margin-left: 50%;
     transform: translate(-50%);
     border: 1px solid #dedede;
-    position: relative; 
+    position: relative;
+    border-radius: 10px; 
 }
 .labes_span_img{
     position: absolute;
@@ -80,7 +81,7 @@
     transform: translate(-50%,-50%);
     font-size: 18px;
     display: block;
-    opacity: 0.5;
+    /* opacity: 0.5; */
 }
 .labels_input{
     width: 60px;
@@ -222,6 +223,18 @@
     text-align: center;
     height: 43px;
     cursor: pointer;
+}
+.banner_number{
+    width: 42px;
+    height: 42px;
+    background: #333333;
+    color: #FFFFFF;
+    font-size: 24px;
+    text-align: center;
+    line-height: 42px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 

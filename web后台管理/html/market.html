@@ -11,10 +11,6 @@
                 <label for="exampleInputName2">姓名：</label>
                 <input type="text" class="form-control" id="market_name" placeholder="请输入" style="width: 25%">
             </div>
-            <!-- <div class="form-group col-sm-6">
-                                    <label for="exampleInputEmail2">邀请码生成：</label>
-                                    <input type="text" class="form-control" id="" placeholder="请输入" style="width: 50%">
-                                </div> -->
             <div class="form-group col-sm-12" id="serve_modal_center">
                 <div class="">
                     <button type="button" class="btn btn-default" onclick="market_btn()"
@@ -22,7 +18,6 @@
                 </div>
             </div>
         </form>
-
     </div>
     <div class="market_foot">
         <div class="market_foot_table">
@@ -39,28 +34,13 @@
                     </tr>
                 </thead>
                 <tbody id="red_ti">
-                    <tr>
-                        <td><img src="images/hehua.jpg" alt=""></td>
-                        <td class="market_name">你说啥就是啥</td>
-                        <td>男</td>
-                        <td>50</td>
-                        <td>1876</td>
-                        <td><img src="images/hehua.jpg" alt=""></td>
-                        <!-- <td class="market_btn" style="color:#1890ff;">'+item.qrcodeUrl+'</td>
-                                            <td> -->
-                        <td>
-                            <button class="market_table_btn right" data-toggle="modal"
-                                data-target="#myModalmore">邀请人员</button>
-                            <button class="market_table_btn">删除资料</button>
-                        </td>
-                    </tr>
+                    <!-- 销售人员 -->
                 </tbody>
             </table>
         </div>
         <!-- 分页 -->
         <div id="demo2-1"></div>
         <!-- 邀请人员-模态框 -->
-        <!-- 网红人员更多资料-模态框 Modal -->
         <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             style="z-index: 10">
             <div class="modal-dialog" role="document">
@@ -68,27 +48,17 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel"> 抢单人员</h4>
+                        <h4 class="modal-title" id="myModalLabel">邀请人员</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="market_modal-body">
+                        <div class="market_modal-body" id="bobo">
                             <table class="market_table">
-                                <tbody>
-                                    <tr>
-                                        <td><img src="images/hehua.jpg" alt=""></td>
-                                        <td class="tabel_name">你说什么就是什么</td>
-                                        <td>网红</td>
-                                        <td>抖音</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="images/hehua.jpg" alt=""></td>
-                                        <td class="tabel_name">你说什么就是什么</td>
-                                        <td>商家</td>
-                                        <td>服装-男装-裤子</td>
-                                    </tr>
+                                <tbody id="market_red">
+                                    <!-- 邀请人员 -->
                                 </tbody>
                             </table>
                         </div>
+
                         <!-- 分页 -->
                         <!-- <div id="demo2-1"></div> -->
                     </div>
@@ -96,6 +66,5 @@
             </div>
         </div>
         <!-- 完 -->
-
     </div>
 </div>

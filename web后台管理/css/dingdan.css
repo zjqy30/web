@@ -80,7 +80,7 @@
 /*  */
 .dd_userText{
     line-height: 27px;
-    flex: 5;
+    flex: 4;
 }
 .dd_userName{
     color: #333333;
@@ -112,6 +112,9 @@
     float: right; 
     margin: 7px;
 }
+/* .dd_gn>p{
+    margin: 0 0 10px 4px;
+} */
 .first_gary{
     color:#ADADAD;
     font-size:14px;

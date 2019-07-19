@@ -10,14 +10,13 @@
             <div class="form-group" id="ds_modal_center">
                 <label for="inputEmail3" class="col-sm-2 control-label">新建标签：</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入"
-                        style="width: 50%">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入" style="width: 50%">
                 </div>
             </div>
             <div class="form-group" id="ds_modal_center">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-default"
-                        style="background: #1890FF;color: white;" id="labels_btn">生成</button>
+                    <button type="button" class="btn btn-default" style="background: #1890FF;color: white;"
+                        id="labels_btn">生成</button>
                 </div>
             </div>
         </form>
@@ -25,8 +24,7 @@
         <ul class="nav nav-tabs" role="tablist" id="labels_ul">
             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
                     data-toggle="tab">网红标签</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
-                    data-toggle="tab">网红平台</a>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">网红平台</a>
             </li>
         </ul>
     </div>
@@ -35,28 +33,33 @@
         <div role="tabpanel" class="tab-pane active" id="home">
             <div class="row" style="margin: 0" id="labels_row">
                 <!-- <div class="col-md-2" id="labels_content">
-                    <div class="labels_col_text" id="labels_text">
-                        生活技巧
-                    </div>
-                    <button class="labels_col_del" id="del">删除标签</button>
-                </div> -->
+    <div class="labels_col_text" id="labels_text">
+        生活技巧
+    </div>
+    <button class="labels_col_del" id="del">删除标签</button>
+</div> -->
             </div>
         </div>
         <!-- 网红平台 -->
         <div role="tabpanel" class="tab-pane" id="profile">
-            <div class="row" style="margin: 0">
+            <div class="row" style="margin: 0" id='labels_red'>
 
                 <div class="col-md-2" id="labels_content2">
                     <div class="form-group">
                         <div class="labes_div_img">
-                            <span class="labes_span_img">+</span>
+                            <!-- <span class="labes_span_img">
+                                    <img src="images/hehua.jpg" alt="" style="width: 100%">
+                                </span> -->
+                            <span class="labes_span_img" style="opacity: 0.5;">
+                                +
+                            </span>
                             <input type="file" class="labels_input" id="ipt">
                             <img class="labes_img" src="" alt="" id="labes_img">
                         </div>
                         <p class="help-block">抖音</p>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

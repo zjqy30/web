@@ -15,10 +15,8 @@ $.ajax({
     contentType: "application/json",
     data: JSON.stringify(type_data),
     success: function (data) {
-        console.log('1', data)
-        // var getPage = data.data.pageData;
         var list = data.data.pageData.list;
-        console.log('2', list)
+        // console.log('销售人员列表', list)
         $.each(list, function (index, item) {
             var id = list[index].id
             // console.log(id)
@@ -32,58 +30,76 @@ $.ajax({
                 // '<td><img src="'+item.qrcodeUrl+'" alt=""></td>' +
                 '<td class="market_btn" style="color:#1890ff;">' + item.qrcodeUrl + '</td>' +
                 '<td>' +
-                '<button class="market_table_btn right" data-toggle="modal" data-target="#myModalmore">邀请人员</button>' +
-                '<button class="market_table_btn" id="market_del">删除资料</button>' +
+                '<button class="market_table_btn right" onclick="please(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">邀请人员</button>' +
+                '<button class="market_table_btn" onclick="market_del(\'' + id + '\')">删除资料</button>' +
                 ' </td>' +
                 '</tr>'
             )
-
-            // $("#myModalmore").click(function(){
-            //     // console.log(111111)
-            //     //   点击弹出邀请人员
-            //             var market_data = {
-            //                 'token': token,
-            //                 'marketerId': id,
-            //                 'pageNumber':'1',
-            //                 'pageSize':'10'
-
-            //             }
-            //             console.log(market_data)
-            //             $.ajax({
-            //                 url: globel + "/hone/backend/marketer/inviteList",
-            //                 dataType: 'json',
-            //                 type: "post",
-            //                 contentType: "application/json",
-            //                 data: JSON.stringify(market_data),
-            //                 success: function (data) {
-            //                     console.log('邀请人员', data)
-
-            //                 }
-            //             })
-            // })
-
-            // 点击删除销售人员
-            // $(".market_table_btn").click(function () {
-            //     var market_data = {
-            //         'token': token,
-            //         'marketerId':id
-            //     }
-            //     $.ajax({
-            //         url: globel + "/hone/backend/marketer/create",
-            //         dataType: 'json',
-            //         type: "post",
-            //         contentType: "application/json",
-            //         data: JSON.stringify(market_data),
-            //         success: function (data) {
-            //             console.log('删除', data)
-            //             $("#red_ti").remove()
-            //         }
-            //     })
-            // })
         })
     }
 })
+//点击弹出邀请人员
+function please(id) {
+    var market_data = {
+        'token': token,
+        'marketerId': id,
+        'pageNumber': '1',
+        'pageSize': '10'
 
+    }
+    $.ajax({
+        url: globel + "/hone/backend/marketer/inviteList",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(market_data),
+        success: function (data) {
+            // console.log('邀请人员', data)
+            var please_list = data.data.pageData.list;
+            console.log(please_list)
+           if(please_list){
+            $.each(please_list, function (index, item) {
+                $("#market_red").append(
+                    '<tr>' +
+                    '<td><img src="' + item.headPic + '" alt=""></td>' +
+                    '<td class="tabel_name">' + item.wxName + '</td>' +
+                    '<td>' + (item.type == '1' ? "网红" : "商家") + '</td>' +
+                    '<td>' + (item.type == '1' ? item.platName : item.industry) + '</td>' +
+                    '</tr> '
+                )
+            })
+           }else{
+            $("#bobo").append(
+                '<div暂时还没有邀请到人，要加油哦~</div>'
+            )
+           }
+        }
+    })
+}
+// 点击删除销售人员
+function market_del(id) {
+    var market_del = {
+        'token': token,
+        'marketerId': id
+    }
+    $.ajax({
+        url: globel + "/hone/backend/marketer/del",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(market_del),
+        success: function (data) {
+            console.log('删除', data)
+            if(data.errorCode==0){
+                alert("删除成功！")
+                window.location.reload()
+            }else{
+                alert("删除失败！")
+            }
+            
+        }
+    })
+}
 
 // 创建销售人员
 function market_btn() {
@@ -99,7 +115,7 @@ function market_btn() {
         contentType: "application/json",
         data: JSON.stringify(mar_data),
         success: function (data) {
-            // console.log('创建销售人员',data)
+            console.log('创建销售人员',data)
             var liss = data.data.hoMarketer;
             $.each(liss, function (index, item) {
                 $("#red_ti").append(
@@ -123,38 +139,3 @@ function market_btn() {
         }
     })
 }
-
-
-// '<!-- 网红人员更多资料-模态框 Modal -->'+
-                // '< div class= "modal fade" id = "myModalmore" tabindex = "-1" role = "dialog" aria - labelledby="myModalLabel" style = "z-index: 10" >'+
-                // '<div class="modal-dialog" role="document">'+
-                //     '<div class="modal-content" id="market_modal_content">'+
-                //         '<div class="modal-header">'+
-                //             '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-                //             '<h4 class="modal-title" id="myModalLabel"> 抢单人员</h4>'+
-                //         '</div>'+
-                //         '<div class="modal-body">'+
-                //             '<div class="market_modal-body">'+
-                //                 '<table class="market_table">'+
-                //                     '<tbody>'+
-                //                         '<tr>'+
-                //                             '<td><img src="images/hehua.jpg" alt=""></td>'+
-                //                                 '<td class="tabel_name">你说什么就是什么</td>'+
-                //                                 '<td>网红</td>'+
-                //                                 '<td>抖音</td>'+
-                //                                         '</tr>'+
-                //                             '<tr>'+
-                //                                 '<td><img src="images/hehua.jpg" alt=""></td>'+
-                //                                     '<td class="tabel_name">你说什么就是什么</td>'+
-                //                                     '<td>商家</td>'+
-                //                                     '<td>服装-男装-裤子</td>'+
-                //                                         '</tr>'+
-                //                                     '</tbody>'+
-                //                                 '</table>'+
-                //                             '</div>'+
-                //                    ' <!-- 分页 -->'+
-                //                             '<!-- <div id="demo2-1"></div> -->'+
-                //                         '</div>'+
-                //             '</div>'+
-                //         '</div>'+
-                //     '</div>'

@@ -1,679 +1,185 @@
 'use strict';
 window.templates = Object.create(null);
 //网红审核
-window.templates['demo1.html'] = '<div class="content_row" id="content_row">' +
-    '<!-- 单个model -->' +
-    '<div class="layui-row" id="row">' +
-    ' <!-- 33.3% -->' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">姓名：</span>' +
-    '<span class="color_gray">朱涛</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo">' +
-    '<span class="color_black">性别：</span>' +
-    '<span class="color_gray">男</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">年龄：</span>' +
-    '<span class="color_gray">23</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    ' <span class="color_black">店铺：</span>' +
-    '<span class="color_gray">暂无店铺</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    ' <div class="grid-demo">' +
-    '<span class="color_black">平台ID：</span>' +
-    '<span class="color_gray">123456</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">平台：</span>' +
-    '<span class="color_gray">抖音</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">手机号码：</span>' +
-    '<span class="color_gray">110120119115</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo">' +
-    '<span class="color_black">邀请人：</span>' +
-    '<span class="color_gray">张慧云</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">粉丝量：</span>' +
-    ' <span class="color_gray">23万</span>' +
-    ' </div>' +
-    '</div>' +
-    '<div class="layui-col-md12">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">申请时间：</span>' +
-    '<span class="color_gray">2019-06-05 20:00</span>' +
-    ' </div>' +
-    '</div>' +
-    '<div class="layui-col-md12">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">居住地址：</span>' +
-    '<span class="color_gray">江苏省苏州市金马大厦A座</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md9">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">身份证号码：</span>' +
-    '<span class="color_gray">32098119604206732</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md3">' +
-    '<!-- 一级模态框-->' +
-    '<div class="grid-demo grid-demo-bg1" data-toggle="modal" data-target="#myModal">' +
-    '更多资料' +
-    '</div>' +
-    '<!-- Modal -->' +
-    '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:10">' +
-    '<div class="modal-dialog" role="document">' +
-    '<div class="modal-content">' +
-    '<div class="modal-header">' +
-    '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-    '<h4 class="modal-title" id="myModalLabel"> 更多资料</h4>' +
-    '</div>' +
-    '<div class="modal-body">' +
-    '<div class="more_cardID">' +
-    '<P class="cardText">手持身份证照：</P>' +
-    '<img class="cardImg" src="images/hehua.jpg" alt="" data-toggle="modal" data-target="#myModal1">' +
-    '</div>' +
-    '<div class="more_cardID">' +
-    '<P class="cardText">身份证正/反面照：</P>' +
-    '<img class="cardImg" src="images/hehua.jpg" alt="" data-toggle="modal" data-target="#myModal1">' +
-    '<img class="cardImg" src="images/hehua.jpg" alt="" data-toggle="modal" data-target="#myModal1">' +
-    '</div>' +
-    '<div class="more_cardID">' +
-    '<P class="cardText">形象照：</P>' +
-    '<img class="cardImg" src="images/hehua.jpg" alt=""data-toggle="modal" data-target="#myModal1">' +
-    '</div>' +
-    '<div class="more_cardID">' +
-    '<P class="cardText">平台截图：</P>' +
-    '<img class="cardImg" src="images/hehua.jpg" alt="" data-toggle="modal" data-target="#myModal1">' +
-    '</div>' +
-    ' </div>' +
-    '<button type="button" class="btn btn_green" style="margin: 10% 10px 10% 36%;">通过</button>' +
-    '<button type="button" class="btn btn-default">拒绝</button>' +
-    '</div>' +
-
-    '</div>' +
-    '</div>' +
-    '<!-- 二级模态框 同一级模态框同级-->' +
-    ' <!-- Modal -->' +
-    '<div class="modal fade model" id="myModal1" tabindex="1" role="dialog" style="z-index:100;" aria-labelledby="myModalLabel">' +
-    '<div class="modal-dialog" role="document">' +
-    '<div class="modal-content">' +
-    '<div class="modal-header">' +
-    '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>' +
-
-    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
-    '</div>' +
-    '<div class="modal-body">' +
-    '<div class="more_cardID">' +
-    '<P class="cardText">手持身份证照：</P>' +
-    '<img src="images/hehua.jpg" alt="">' +
-    '</div>' +
-    '</div>' +
-    '<div class="modal-footer">' +
-    '<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
+window.templates['demo1.html'] = '<!-- 网红管理-网红审核 -->\n' +
+    '<script src="js/demo1.js"></script>\n' +
+    '<div id="red_sh" style="width: 100%;height:100%;">   \n' +
+    '  <!-- 内容 -->\n' +
     '</div>';
 // <!--网红审核-人员查看  -->
-window.templates['demo2.html'] = '<!--人员查看  -->' +
-    '<div class="wh_content">' +
-    '<!-- 查询 -->' +
-    '<form class="form-inline">' +
-    '<div class="form-group">' +
-    '<label for="exampleInputName2">平台：</label>' +
-    '<input type="text" class="form-control" id="exampleInputName2" placeholder="请输入">' +
-    '</div>' +
-    '<div class="form-group">' +
-    '<label for="exampleInputEmail2">性别：</label>' +
-    '<input type="text" class="form-control" placeholder="请输入">' +
-    '</div>' +
-    '<div class="form-group">' +
-    '<label for="name">名字：</label>' +
-    '<input type="text" class="form-control" id="name" placeholder="请输入">' +
-    '</div>' +
-    '<button type="submit" class="btn btn-default" style="color: white;background: #1890FF">查询</button>' +
-    '</form>' +
-    '<!-- 网红人员列表 -->' +
-    '<table class="wh_table">' +
-    '<thead>' +
-    '<tr class="tr_heard">' +
-    '<th></th>' +
-    '<th>姓名</th>' +
-    '<th>平台</th>' +
-    '<th>性别</th>' +
-    '<th>粉丝数量</th>' +
-    '<th>入驻时间</th>' +
-    '<th>操作</th>' +
-    '</tr>' +
-    '</thead>' +
-    '<tbody>' +
-    '<tr>' +
-    '<td><img src="images/hehua.jpg" alt=""></td>' +
-    '<td class="tabel_name">你说什么就是什么</td>' +
-    '<td>抖音</td>' +
-    '<td>男</td>' +
-    '<td>1230000</td>' +
-    '<td>2019-6-18 10:00</td>' +
-    '<td>' +
-    '<button class="wh_table_btn right" data-toggle="modal" data-target="#myModalmore">更多资料</button>' +
-    '<button class="wh_table_btn">删除资料</button>' +
-    '</td>' +
-    ' </tr>' +
-    '<tr>' +
-    '<td><img src="images/hehua.jpg" alt=""></td>' +
-    '<td class="tabel_name">你说什么就是什么</td>' +
-    '<td>抖音</td>' +
-    '<td>男</td>' +
-    '<td>1230000</td>' +
-    '<td>2019-6-18 10:00</td>' +
-    '<td>' +
-    '<button class="wh_table_btn right" data-toggle="modal" data-target="#myModalmore">更多资料</button>' +
-    '<button class="wh_table_btn">删除资料</button>' +
-    '</td>' +
-    ' </tr>' +
-    '</tbody>' +
-    '</table>' +
-    '<!-- 网红人员更多资料-模态框 -->' +
-    '<!-- Modal -->' +
-    '<div class="modal fade" id="myModalmore" tabindex="-1" role="dialog"' +
-    'aria-labelledby="myModalLabel" style="z-index: 10">' +
-    '<div class="modal-dialog" role="document">' +
-    '<div class="modal-content">' +
-    '<div class="modal-header">' +
-    '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-    '<h4 class="modal-title" id="myModalLabel"> 更多资料</h4>' +
-    '</div>' +
-    '<div class="modal-body">' +
-
-    '<div class="layui-row" id="row">' +
-    '<P class="cardText">基本信息：</P>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">姓名：</span>' +
-    '<span class="color_gray">朱涛</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo">' +
-    '<span class="color_black">性别：</span>' +
-    '<span class="color_gray">男</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">年龄：</span>' +
-    '<span class="color_gray">23</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    ' <span class="color_black">店铺：</span>' +
-    '<span class="color_gray">暂无店铺</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    ' <div class="grid-demo">' +
-    '<span class="color_black">平台ID：</span>' +
-    '<span class="color_gray">123456</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">平台：</span>' +
-    '<span class="color_gray">抖音</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">手机号码：</span>' +
-    '<span class="color_gray">110120119115</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo">' +
-    '<span class="color_black">邀请人：</span>' +
-    '<span class="color_gray">张慧云</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md4">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">粉丝量：</span>' +
-    ' <span class="color_gray">23万</span>' +
-    ' </div>' +
-    '</div>' +
-    '<div class="layui-col-md12">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">申请时间：</span>' +
-    '<span class="color_gray">2019-06-05 20:00</span>' +
-    ' </div>' +
-    '</div>' +
-    '<div class="layui-col-md12">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">居住地址：</span>' +
-    '<span class="color_gray">江苏省苏州市金马大厦A座</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md9">' +
-    '<div class="grid-demo grid-demo-bg1">' +
-    '<span class="color_black">身份证号码：</span>' +
-    '<span class="color_gray">32098119604206732</span>' +
-    '</div>' +
-    '</div>' +
-    '<div class="layui-col-md12">' +
-    '<div class="more_cardID cardid">' +
-    '<P class="cardText">手持身份证照：</P>' +
-    '<img class="cardidImg" src="images/hehua.jpg" alt=""data-toggle="modal" data-target="#myModal1">' +
-    '</div>' +
-    '<div class="more_cardID cardid">' +
-    '<P class="cardText">身份证正/反面照：</P>' +
-    '<img class="cardidImg" src="images/hehua.jpg" alt=""data-toggle="modal" data-target="#myModal1">' +
-    '<img class="cardidImg" style="margin: 0" src="images/hehua.jpg"alt="" data-toggle="modal" data-target="#myModal1">' +
-    '</div>' +
-    '<div class="more_cardID cardid">' +
-    '<P class="cardText">形象照：</P>' +
-    '<img class="cardidImg" src="images/hehua.jpg" alt="" data-toggle="modal" data-target="#myModal1">' +
-    '</div>' +
-    '<div class="more_cardID cardid">' +
-    '<P class="cardText">平台截图：</P>' +
-    '<img class="cardidImg" src="images/hehua.jpg" alt="" data-toggle="modal" data-target="#myModal1">' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
-    '<!-- 二级模态框 整个模态框要跟第一个模态框同级 Modal -->' +
-    '<div class="modal fade model" id="myModal1" tabindex="1" role="dialog"aria-labelledby="myModalLabel" style="z-index: 100">' +
-    '<div class="modal-dialog" role="document">' +
-    '<div class="modal-content">' +
-    '<div class="modal-header">' +
-    '<button type="button" class="close" data-dismiss="modal"aria-hidden="true">×</button>' +
-    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
-    '</div>' +
-    '<div class="modal-body">' +
-    '<div class="more_cardID">' +
-    '<P class="cardText">查看大图:</P>' +
-    '<img src="images/hehua.jpg" alt="">' +
-    '</div>' +
-    '</div>' +
-    '<div class="modal-footer">' +
-    '<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>' +
-    '</div>' +
-    ' </div>' +
-    '</div>' +
-    '</div>' +
-    ' <!-- 模态框-完 -->' +
-    '<!-- 分页 -->' +
-    '<div id="demo2-1"></div>' +
+window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
+    '<script src="js/demo2.js"></script>\n' +
+    '<div class="wh_content">\n' +
+    '    <!-- 查询 -->\n' +
+    '    <form class="form-inline">\n' +
+    '        <div class="form-group">\n' +
+    '            <label for="exampleInputName2">平台：</label>\n' +
+    '            <input type="text" class="form-control" id="ipt_platName" placeholder="请输入">\n' +
+    '        </div>\n' +
+    '        <div class="form-group">\n' +
+    '            <label for="exampleInputEmail2">名字：</label>\n' +
+    '            <input type="text" class="form-control" id="ipt_wxName" placeholder="请输入">\n' +
+    '        </div>\n' +
+    '        <div class="form-group">\n' +
+    '            <label for="name">性别：</label>\n' +
+    '            <input type="text" class="form-control" id="ipt_sex" placeholder="请输入">\n' +
+    '        </div>\n' +
+    '        <button type="button" class="btn btn-default" style="color: white;\n' +
+    'background: #1890FF">查询</button>\n' +
+    '    </form>\n' +
+    '    <!-- 网红人员列表 -->\n' +
+    '    <table class="wh_table">\n' +
+    '        <thead>\n' +
+    '            <tr class="tr_heard">\n' +
+    '                <th></th>\n' +
+    '                <th>姓名</th>\n' +
+    '                <th>平台</th>\n' +
+    '                <th>性别</th>\n' +
+    '                <th>粉丝数量</th>\n' +
+    '                <th>入驻时间</th>\n' +
+    '                <th>操作</th>\n' +
+    '            </tr>\n' +
+    '        </thead>\n' +
+    '        <tbody id="red_tbody">\n' +
+    '            <!-- 表格内容 -->\n' +
+    '        </tbody>\n' +
+    '    </table>\n' +
+    '    <!-- 网红人员更多资料-模态框 Modal -->\n' +
+    '    <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"\n' +
+    '        style="z-index: 10">\n' +
+    '        <div class="modal-dialog" role="document">\n' +
+    '            <div class="modal-content">\n' +
+    '                <div class="modal-header">\n' +
+    '                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span\n' +
+    '                            aria-hidden="true">&times;</span></button>\n' +
+    '                    <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>\n' +
+    '                </div>\n' +
+    '                <div class="modal-body" id="more">\n' +
+    '\n' +
+    '                    <div class="layui-row" id="row">\n' +
+    '                        <!-- 内容 -->\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <!--  -->\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '    <!-- 二级模态框 整个模态框要跟第一个模态框同级 Modal -->\n' +
+    '    <div class="modal fade model" id="myModal1" tabindex="1" role="dialog" aria-labelledby="myModalLabel"\n' +
+    '        style="z-index: 100">\n' +
+    '        <div class="modal-dialog" role="document">\n' +
+    '            <div class="modal-content">\n' +
+    '                <div class="modal-header">\n' +
+    '                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\n' +
+    '\n' +
+    '                    <h4 class="modal-title" id="myModalLabel">查看大图</h4>\n' +
+    '                </div>\n' +
+    '                <div class="modal-body">\n' +
+    '                    <div class="more_cardID">\n' +
+    '                        <P class="cardText">查看大图:</P>\n' +
+    '                        <img src="images/hehua.jpg" alt="">\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="modal-footer">\n' +
+    '                    <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '    <!-- 模态框-完 -->\n' +
+    '    <!-- 分页 -->\n' +
+    '    <div id="demo2-1"></div>\n' +
     '</div>';
 //商家审核
 window.templates['demo3.html'] = '<!-- 商家审核 -->\n' +
-    '                    <div class="sh_content" id="content_row">\n' +
-    '                        <!-- 单个model -->\n' +
-    '                        <div class="layui-row" id="row">\n' +
-    '                            <!-- 33.3% -->\n' +
-    '                            <div class="layui-col-md4">\n' +
-    '                                <div class="grid-demo grid-demo-bg1">\n' +
-    '                                    <span class="color_black">姓名：</span>\n' +
-    '                                    <span class="color_gray">朱涛</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                            <div class="layui-col-md4">\n' +
-    '                                <div class="grid-demo">\n' +
-    '                                    <span class="color_black">性别：</span>\n' +
-    '                                    <span class="color_gray">男</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                            <div class="layui-col-md4">\n' +
-    '                                <div class="grid-demo grid-demo-bg1">\n' +
-    '                                    <span class="color_black">邀请人：</span>\n' +
-    '                                    <span class="color_gray">张慧云</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                            <div class="layui-col-md6">\n' +
-    '                                <div class="grid-demo grid-demo-bg1">\n' +
-    '                                    <span class="color_black">手机号码：</span>\n' +
-    '                                    <span class="color_gray">110120119115</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                            <div class="layui-col-md6">\n' +
-    '                                <div class="grid-demo grid-demo-bg1">\n' +
-    '                                    <span class="color_black">申请时间：</span>\n' +
-    '                                    <span class="color_gray">2019-06-05 20:00</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                            <div class="layui-col-md6">\n' +
-    '                                <div class="grid-demo">\n' +
-    '                                    <span class="color_black">行业：</span>\n' +
-    '                                    <span class="color_gray">服装-女装-裤子</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                            <div class="layui-col-md6">\n' +
-    '                                <div class="grid-demo grid-demo-bg1">\n' +
-    '                                    <span class="color_black">居住地址：</span>\n' +
-    '                                    <span class="color_gray">江苏省苏州市金马大厦A座</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '\n' +
-    '                            <div class="layui-col-md9">\n' +
-    '                                <div class="grid-demo grid-demo-bg1">\n' +
-    '                                    <span class="color_black">身份证号码：</span>\n' +
-    '                                    <span class="color_gray">32098119604206732</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                            <div class="layui-col-md3">\n' +
-    '                                <!-- 一级模态框 -->\n' +
-    '                                <div class="grid-demo grid-demo-bg1" data-toggle="modal" data-target="#myModal">\n' +
-    '                                    更多资料\n' +
-    '                                </div>\n' +
-    '                                <!-- Modal -->\n' +
-    '                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog"\n' +
-    '                                    aria-labelledby="myModalLabel" style="z-index: 10">\n' +
-    '                                    <div class="modal-dialog" role="document">\n' +
-    '                                        <div class="modal-content">\n' +
-    '                                            <div class="modal-header">\n' +
-    '                                                <button type="button" class="close" data-dismiss="modal"\n' +
-    '                                                    aria-label="Close"><span aria-hidden="true">&times;</span></button>\n' +
-    '                                                <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>\n' +
-    '                                            </div>\n' +
-    '                                            <div class="modal-body">\n' +
-    '                                                <div class="more_cardID">\n' +
-    '                                                    <P class="cardText">手持身份证照：</P>\n' +
-    '                                                    <img class="cardImg" src="images/hehua.jpg" alt=""\n' +
-    '                                                        data-toggle="modal" data-target="#myModal1">\n' +
-    '                                                </div>\n' +
-    '                                                <div class="more_cardID">\n' +
-    '                                                        <P class="cardText">营业执照：</P>\n' +
-    '                                                        <img class="cardImg" src="images/hehua.jpg" alt=""\n' +
-    '                                                            data-toggle="modal" data-target="#myModal1">\n' +
-    '                                                    </div>\n' +
-    '                                                <div class="more_cardID">\n' +
-    '                                                    <P class="cardText">身份证正/反面照：</P>\n' +
-    '                                                    <img class="cardImg" src="images/hehua.jpg" alt=""\n' +
-    '                                                        data-toggle="modal" data-target="#myModal1">\n' +
-    '                                                    <img class="cardImg" src="images/hehua.jpg" alt=""\n' +
-    '                                                        data-toggle="modal" data-target="#myModal1">\n' +
-    '                                                </div>\n' +
-    '                                            </div>\n' +
-    '                                            <button type="button" class="btn btn_green"\n' +
-    '                                                style="margin: 10% 10px 10% 36%;">通过</button>\n' +
-    '                                            <button type="button" class="btn btn-default">拒绝</button>\n' +
-    '                                        </div>\n' +
-    '                                    </div>\n' +
-    '                                </div>\n' +
-    '                                <!-- 二级模态框 整个模态框要跟第一个模态框同级\n' +
-    '                                Modal -->\n' +
-    '                                <div class="modal fade model" id="myModal1" tabindex="1" role="dialog"\n' +
-    '                                    aria-labelledby="myModalLabel" style="z-index: 100">\n' +
-    '                                    <div class="modal-dialog" role="document">\n' +
-    '                                        <div class="modal-content">\n' +
-    '                                            <div class="modal-header">\n' +
-    '                                                <button type="button" class="close" data-dismiss="modal"\n' +
-    '                                                    aria-hidden="true">×</button>\n' +
-    '\n' +
-    '                                                <h4 class="modal-title" id="myModalLabel">查看大图</h4>\n' +
-    '                                            </div>\n' +
-    '                                            <div class="modal-body">\n' +
-    '                                                <div class="more_cardID">\n' +
-    '                                                    <P class="cardText">查看大图：</P>\n' +
-    '                                                    <img src="images/hehua.jpg" alt="">\n' +
-    '                                                </div>\n' +
-    '                                            </div>\n' +
-    '                                            <div class="modal-footer">\n' +
-    '                                                <button type="button" class="btn btn-default"\n' +
-    '                                                    data-dismiss="modal">确定</button>\n' +
-    '                                            </div>\n' +
-    '                                        </div>\n' +
-    '                                    </div>\n' +
-    '                                </div>\n' +
-    '\n' +
-    '                            </div>\n' +
-    '                        </div>\n' +
-    '                    </div>'
+    '<script src="js/demo3.js"></script>\n' +
+    '<div id="sjDate">\n' +
+    '    <!-- 内容 -->\n' +
+    '</div>'
 // <!--商家审核-人员查看  -->
 window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
-    '                    <div class="wh_content">\n' +
-    '                        <!-- 查询 -->\n' +
-    '                        <form class="form-inline">\n' +
-    '                            <div class="form-group">\n' +
-    '                                <label for="exampleInputName2">平台：</label>\n' +
-    '                                <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入">\n' +
-    '                            </div>\n' +
-    '                            <div class="form-group">\n' +
-    '                                <label for="exampleInputEmail2">性别：</label>\n' +
-    '                                <input type="text" class="form-control" placeholder="请输入">\n' +
-    '                            </div>\n' +
-    '                            <div class="form-group">\n' +
-    '                                <label for="name">名字：</label>\n' +
-    '                                <input type="text" class="form-control" id="name" placeholder="请输入">\n' +
-    '                            </div>\n' +
-    '                            <button type="submit" class="btn btn-default" style="color: white;\n' +
-    '            background: #1890FF">查询</button>\n' +
-    '                        </form>\n' +
-    '                        <!-- 网红人员列表 -->\n' +
-    '                        <table class="wh_table">\n' +
-    '                            <thead>\n' +
-    '                                <tr class="tr_heard">\n' +
-    '                                    <th></th>\n' +
-    '                                    <th>姓名</th>\n' +
-    '                                    <th>平台</th>\n' +
-    '                                    <th>性别</th>\n' +
-    '                                    <th>粉丝数量</th>\n' +
-    '                                    <th>入驻时间</th>\n' +
-    '                                    <th>操作</th>\n' +
-    '                                </tr>\n' +
-    '                            </thead>\n' +
-    '                            <tbody>\n' +
-    '                                <tr>\n' +
-    '                                    <td><img src="images/hehua.jpg" alt=""></td>\n' +
-    '                                    <td class="tabel_name">你说什么就是什么</td>\n' +
-    '                                    <td>抖音</td>\n' +
-    '                                    <td>男</td>\n' +
-    '                                    <td>1230000</td>\n' +
-    '                                    <td>2019-6-18 10:00</td>\n' +
-    '                                    <td>\n' +
-    '                                        <button class="wh_table_btn right" data-toggle="modal"\n' +
-    '                                            data-target="#myModalmore">更多资料</button>\n' +
-    '                                        <button class="wh_table_btn">删除资料</button>\n' +
-    '                                    </td>\n' +
-    '                                </tr>\n' +
-    '                                <tr>\n' +
-    '                                    <td><img src="images/hehua.jpg" alt=""></td>\n' +
-    '                                    <td class="tabel_name">你说什么就是什么</td>\n' +
-    '                                    <td>抖音</td>\n' +
-    '                                    <td>男</td>\n' +
-    '                                    <td>1230000</td>\n' +
-    '                                    <td>2019-6-18 10:00</td>\n' +
-    '                                    <td>\n' +
-    '                                        <button class="wh_table_btn right" data-toggle="modal"\n' +
-    '                                            data-target="#myModalmore">更多资料</button>\n' +
-    '                                        <button class="wh_table_btn">删除资料</button>\n' +
-    '                                    </td>\n' +
-    '                                </tr>\n' +
-    '                                <tr>\n' +
-    '                                    <td><img src="images/hehua.jpg" alt=""></td>\n' +
-    '                                    <td class="tabel_name">你说什么就是什么</td>\n' +
-    '                                    <td>抖音</td>\n' +
-    '                                    <td>男</td>\n' +
-    '                                    <td>1230000</td>\n' +
-    '                                    <td>2019-6-18 10:00</td>\n' +
-    '                                    <td>\n' +
-    '                                        <button class="wh_table_btn right" data-toggle="modal"\n' +
-    '                                            data-target="#myModalmore">更多资料</button>\n' +
-    '                                        <button class="wh_table_btn">删除资料</button>\n' +
-    '                                    </td>\n' +
-    '                                </tr>\n' +
-    '                                <tr>\n' +
-    '                                    <td><img src="images/hehua.jpg" alt=""></td>\n' +
-    '                                    <td class="tabel_name">你说什么就是什么</td>\n' +
-    '                                    <td>抖音</td>\n' +
-    '                                    <td>男</td>\n' +
-    '                                    <td>1230000</td>\n' +
-    '                                    <td>2019-6-18 10:00</td>\n' +
-    '                                    <td>\n' +
-    '                                        <button class="wh_table_btn right" data-toggle="modal"\n' +
-    '                                            data-target="#myModalmore">更多资料</button>\n' +
-    '                                        <button class="wh_table_btn">删除资料</button>\n' +
-    '                                    </td>\n' +
-    '                                </tr>\n' +
-    '                                <tr>\n' +
-    '                                    <td><img src="images/hehua.jpg" alt=""></td>\n' +
-    '                                    <td class="tabel_name">你说什么就是什么</td>\n' +
-    '                                    <td>抖音</td>\n' +
-    '                                    <td>男</td>\n' +
-    '                                    <td>1230000</td>\n' +
-    '                                    <td>2019-6-18 10:00</td>\n' +
-    '                                    <td>\n' +
-    '                                        <button class="wh_table_btn right" data-toggle="modal"\n' +
-    '                                            data-target="#myModalmore">更多资料</button>\n' +
-    '                                        <button class="wh_table_btn">删除资料</button>\n' +
-    '                                    </td>\n' +
-    '                                </tr>\n' +
-    '                            </tbody>\n' +
-    '                        </table>\n' +
-    '                        <!-- 网红人员更多资料-模态框 Modal -->\n' +
-    '                        <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog"\n' +
-    '                            aria-labelledby="myModalLabel" style="z-index: 10">\n' +
-    '                            <div class="modal-dialog" role="document">\n' +
-    '                                <div class="modal-content">\n' +
-    '                                    <div class="modal-header">\n' +
-    '                                        <button type="button" class="close" data-dismiss="modal"\n' +
-    '                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>\n' +
-    '                                        <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>\n' +
-    '                                    </div>\n' +
-    '                                    <div class="modal-body">\n' +
-    '\n' +
-    '                                        <div class="layui-row" id="row">\n' +
-    '                                            <P class="cardText">基本信息：</P>\n' +
-    '                                            <div class="layui-col-md4" id="md4">\n' +
-    '                                                    <div class="grid-demo grid-demo-bg1">\n' +
-    '                                                        <span class="color_black">姓名：</span>\n' +
-    '                                                        <span class="color_gray">朱涛</span>\n' +
-    '                                                    </div>\n' +
-    '                                                </div>\n' +
-    '                                                <div class="layui-col-md4" id="md4">\n' +
-    '                                                    <div class="grid-demo">\n' +
-    '                                                        <span class="color_black">性别：</span>\n' +
-    '                                                        <span class="color_gray">男</span>\n' +
-    '                                                    </div>\n' +
-    '                                                </div>\n' +
-    '                                                <div class="layui-col-md4"id="md4">\n' +
-    '                                                    <div class="grid-demo grid-demo-bg1">\n' +
-    '                                                        <span class="color_black">邀请人：</span>\n' +
-    '                                                        <span class="color_gray">张慧云</span>\n' +
-    '                                                    </div>\n' +
-    '                                                </div>\n' +
-    '                                                <div class="layui-col-md6" id="md4">\n' +
-    '                                                    <div class="grid-demo grid-demo-bg1">\n' +
-    '                                                        <span class="color_black">手机号码：</span>\n' +
-    '                                                        <span class="color_gray">110120119115</span>\n' +
-    '                                                    </div>\n' +
-    '                                                </div>\n' +
-    '                                                <div class="layui-col-md6" id="md4">\n' +
-    '                                                    <div class="grid-demo grid-demo-bg1">\n' +
-    '                                                        <span class="color_black">申请时间：</span>\n' +
-    '                                                        <span class="color_gray">2019-06-05 20:00</span>\n' +
-    '                                                    </div>\n' +
-    '                                                </div>\n' +
-    '                                                <div class="layui-col-md6" id="md4">\n' +
-    '                                                    <div class="grid-demo">\n' +
-    '                                                        <span class="color_black">行业：</span>\n' +
-    '                                                        <span class="color_gray">服装-女装-裤子</span>\n' +
-    '                                                    </div>\n' +
-    '                                                </div>\n' +
-    '                                                <div class="layui-col-md6" id="md4">\n' +
-    '                                                    <div class="grid-demo grid-demo-bg1">\n' +
-    '                                                        <span class="color_black">居住地址：</span>\n' +
-    '                                                        <span class="color_gray">江苏省苏州市金马大厦A座</span>\n' +
-    '                                                    </div>\n' +
-    '                                                </div>\n' +
-    '                                        \n' +
-    '                                                <div class="layui-col-md9" id="md4">\n' +
-    '                                                    <div class="grid-demo grid-demo-bg1">\n' +
-    '                                                        <span class="color_black">身份证号码：</span>\n' +
-    '                                                        <span class="color_gray">32098119604206732</span>\n' +
-    '                                                    </div>\n' +
-    '                                                </div>\n' +
-    '\n' +
-    '                                            <div class="layui-col-md12">\n' +
-    '                                                <div class="more_cardID cardid">\n' +
-    '                                                    <P class="cardText">手持身份证照：</P>\n' +
-    '                                                    <img class="cardidImg" src="images/hehua.jpg" alt=""\n' +
-    '                                                        data-toggle="modal" data-target="#myModal1">\n' +
-    '                                                </div>\n' +
-    '                                                <div class="more_cardID cardid">\n' +
-    '                                                        <P class="cardText">营业执照：</P>\n' +
-    '                                                        <img class="cardidImg" src="images/hehua.jpg" alt=""\n' +
-    '                                                            data-toggle="modal" data-target="#myModal1">\n' +
-    '                                                    </div>\n' +
-    '                                                <div class="more_cardID cardid">\n' +
-    '                                                    <P class="cardText">身份证正/反面照：</P>\n' +
-    '                                                    <img class="cardidImg" src="images/hehua.jpg" alt=""\n' +
-    '                                                        data-toggle="modal" data-target="#myModal1">\n' +
-    '                                                    <img class="cardidImg" style="margin: 0" src="images/hehua.jpg"\n' +
-    '                                                        alt="" data-toggle="modal" data-target="#myModal1">\n' +
-    '                                                </div>\n' +
-    '                                            </div>\n' +
-    '                                        </div>\n' +
-    '                                    </div>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                        </div>\n' +
-    '                        <!-- 二级模态框 整个模态框要跟第一个模态框同级 Modal -->\n' +
-    '                        <div class="modal fade model" id="myModal1" tabindex="1" role="dialog"\n' +
-    '                            aria-labelledby="myModalLabel" style="z-index: 100">\n' +
-    '                            <div class="modal-dialog" role="document">\n' +
-    '                                <div class="modal-content">\n' +
-    '                                    <div class="modal-header">\n' +
-    '                                        <button type="button" class="close" data-dismiss="modal"\n' +
-    '                                            aria-hidden="true">×</button>\n' +
-    '\n' +
-    '                                        <h4 class="modal-title" id="myModalLabel">查看大图</h4>\n' +
-    '                                    </div>\n' +
-    '                                    <div class="modal-body">\n' +
-    '                                        <div class="more_cardID">\n' +
-    '                                            <P class="cardText">查看大图:</P>\n' +
-    '                                            <img src="images/hehua.jpg" alt="">\n' +
-    '                                        </div>\n' +
-    '                                    </div>\n' +
-    '                                    <div class="modal-footer">\n' +
-    '                                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>\n' +
-    '                                    </div>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                        </div>\n' +
-    '                        <!-- 模态框-完 -->\n' +
-    '                        <!-- 分页 -->\n' +
-    '                        <div id="demo2-1"></div>\n' +
+    '<script src="js/demo4.js"></script>\n' +
+    '<div class="wh_content">\n' +
+    '    <!-- 查询 -->\n' +
+    '    <form class="form-inline">\n' +
+    '        <div class="form-group">\n' +
+    '            <label for="exampleInputName2">平台：</label>\n' +
+    '            <input type="text" class="form-control" id="sj_platName" placeholder="请输入">\n' +
+    '        </div>\n' +
+    '        <div class="form-group">\n' +
+    '            <label for="exampleInputEmail2">性别：</label>\n' +
+    '            <input type="text" class="form-control" id="sj_sex" placeholder="请输入">\n' +
+    '        </div>\n' +
+    '        <div class="form-group">\n' +
+    '            <label for="name">名字：</label>\n' +
+    '            <input type="text" class="form-control" id="sj_wxName" placeholder="请输入">\n' +
+    '        </div>\n' +
+    '        <button type="submit" class="btn btn-default" style="color: white;\n' +
+    'background: #1890FF">查询</button>\n' +
+    '    </form>\n' +
+    '    <!-- 网红人员列表 -->\n' +
+    '    <div class="divs">\n' +
+    '        <table class="wh_table">\n' +
+    '            <thead>\n' +
+    '                <tr class="tr_heard">\n' +
+    '                    <th></th>\n' +
+    '                    <th>姓名</th>\n' +
+    '                    <th>性别</th>\n' +
+    '                    <th>行业</th>\n' +
+    '                    <th>入驻时间</th>\n' +
+    '                    <th>操作</th>\n' +
+    '                </tr>\n' +
+    '            </thead>\n' +
+    '            <tbody id="sjData">\n' +
+    '                <!-- tabel表格 -->\n' +
+    '            </tbody>\n' +
+    '        </table>\n' +
+    '    </div>\n' +
+    '    <!-- 网红人员更多资料-模态框 Modal -->\n' +
+    '    <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog"\n' +
+    '        aria-labelledby="myModalLabel" style="z-index: 10">\n' +
+    '        <div class="modal-dialog" role="document">\n' +
+    '            <div class="modal-content">\n' +
+    '                <div class="modal-header">\n' +
+    '                    <button type="button" class="close" data-dismiss="modal"\n' +
+    '                        aria-label="Close"><span aria-hidden="true">&times;</span></button>\n' +
+    '                    <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>\n' +
+    '                </div>\n' +
+    '                <div class="modal-body">\n' +
+    '                    <div class="layui-row" id="row">\n' +
+    '                        <!-- 内容 -->\n' +
     '                    </div>\n' +
-    '                </div>';
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '    <!-- 二级模态框 整个模态框要跟第一个模态框同级 Modal -->\n' +
+    '    <div class="modal fade model" id="myModal1" tabindex="1" role="dialog"\n' +
+    '        aria-labelledby="myModalLabel" style="z-index: 100">\n' +
+    '        <div class="modal-dialog" role="document">\n' +
+    '            <div class="modal-content">\n' +
+    '                <div class="modal-header">\n' +
+    '                    <button type="button" class="close" data-dismiss="modal"\n' +
+    '                        aria-hidden="true">×</button>\n' +
+    '\n' +
+    '                    <h4 class="modal-title" id="myModalLabel">查看大图</h4>\n' +
+    '                </div>\n' +
+    '                <div class="modal-body">\n' +
+    '                    <div class="more_cardID">\n' +
+    '                        <P class="cardText">查看大图:</P>\n' +
+    '                        <img src="images/hehua.jpg" alt="">\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '                <div class="modal-footer">\n' +
+    '                    <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '    <!-- 模态框-完 -->\n' +
+    '    <!-- 分页 -->\n' +
+    '    <div id="demo2-1"></div>\n' +
+    '</div>';
 // <!-- 订单管理 -->
 window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '<link rel="stylesheet" href="css/dingdan.css">\n' +
@@ -2042,193 +1548,75 @@ window.templates['serve.html'] = '<!-- 服务内幕 -->\n' +
     '</div>';
 //销售管理
 window.templates['market.html'] = "<!-- 销售管理 -->\n" +
-    "                    <link rel=\"stylesheet\" href=\"css/market.css\"> \n" +
-    "                        <link rel=\"stylesheet\" href=\"css/index.css\"> \n" +
-    "                    <div class=\"serve_solid\"></div>\n" +
-    "                    <div class=\"serve_content\">\n" +
-    "                        <div class=\"market_top\">\n" +
-    "                            <p class=\"serve_text\">添加人员</p>\n" +
-    "                            <form class=\"form-inline\">\n" +
-    "                                <div class=\"form-group col-sm-12\">\n" +
-    "                                    <label for=\"exampleInputName2\">姓名：</label>\n" +
-    "                                    <input type=\"text\" class=\"form-control\" id=\"\" placeholder=\"请输入\" style=\"width: 25%\">\n" +
-    "                                </div>\n" +
-    "                                <!-- <div class=\"form-group col-sm-6\">\n" +
-    "                                    <label for=\"exampleInputEmail2\">邀请码生成：</label>\n" +
-    "                                    <input type=\"text\" class=\"form-control\" id=\"\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
-    "                                </div> -->\n" +
-    "                                <div class=\"form-group col-sm-12\" id=\"serve_modal_center\">\n" +
-    "                                    <div class=\"\">\n" +
-    "                                        <button type=\"submit\" class=\"btn btn-default\"\n" +
-    "                                            style=\"background: #1890FF;color: white;letter-spacing: 4px;\">确认添加</button>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </form>\n" +
+    "<link rel=\"stylesheet\" href=\"css/market.css\">\n" +
+    "<link rel=\"stylesheet\" href=\"css/index.css\">\n" +
+    "<script src=\"js/market.js\"></script>\n" +
+    "<div class=\"serve_solid\"></div>\n" +
+    "<div class=\"serve_content\">\n" +
+    "    <div class=\"market_top\">\n" +
+    "        <p class=\"serve_text\">添加人员</p>\n" +
+    "        <form class=\"form-inline\">\n" +
+    "            <div class=\"form-group col-sm-12\">\n" +
+    "                <label for=\"exampleInputName2\">姓名：</label>\n" +
+    "                <input type=\"text\" class=\"form-control\" id=\"market_name\" placeholder=\"请输入\" style=\"width: 25%\">\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group col-sm-12\" id=\"serve_modal_center\">\n" +
+    "                <div class=\"\">\n" +
+    "                    <button type=\"button\" class=\"btn btn-default\" onclick=\"market_btn()\"\n" +
+    "                        style=\"background: #1890FF;color: white;letter-spacing: 4px;\">确认添加</button>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </form>\n" +
+    "    </div>\n" +
+    "    <div class=\"market_foot\">\n" +
+    "        <div class=\"market_foot_table\">\n" +
+    "            <table class=\"market_table\">\n" +
+    "                <thead>\n" +
+    "                    <tr class=\"market_tr_heard\">\n" +
+    "                        <th></th>\n" +
+    "                        <th>姓名</th>\n" +
+    "                        <th>性别</th>\n" +
+    "                        <th>邀请数量</th>\n" +
+    "                        <th>邀请码</th>\n" +
+    "                        <th>二维码生成</th>\n" +
+    "                        <th>操作</th>\n" +
+    "                    </tr>\n" +
+    "                </thead>\n" +
+    "                <tbody id=\"red_ti\">\n" +
+    "                    <!-- 销售人员 -->\n" +
+    "                </tbody>\n" +
+    "            </table>\n" +
+    "        </div>\n" +
+    "        <!-- 分页 -->\n" +
+    "        <div id=\"demo2-1\"></div>\n" +
+    "        <!-- 邀请人员-模态框 -->\n" +
+    "        <div class=\"modal fade\" id=\"myModalmore\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n" +
+    "            style=\"z-index: 10\">\n" +
+    "            <div class=\"modal-dialog\" role=\"document\">\n" +
+    "                <div class=\"modal-content\" id=\"market_modal_content\">\n" +
+    "                    <div class=\"modal-header\">\n" +
+    "                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span\n" +
+    "                                aria-hidden=\"true\">&times;</span></button>\n" +
+    "                        <h4 class=\"modal-title\" id=\"myModalLabel\">邀请人员</h4>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"modal-body\">\n" +
+    "                        <div class=\"market_modal-body\" id=\"bobo\">\n" +
+    "                            <table class=\"market_table\">\n" +
+    "                                <tbody id=\"market_red\">\n" +
+    "                                    <!-- 邀请人员 -->\n" +
+    "                                </tbody>\n" +
+    "                            </table>\n" +
     "                        </div>\n" +
-    "                        <div class=\"market_foot\">\n" +
-    "                            <div class=\"market_foot_table\">\n" +
-    "                                <table class=\"market_table\">\n" +
-    "                                    <thead>\n" +
-    "                                        <tr class=\"market_tr_heard\">\n" +
-    "                                            <th></th>\n" +
-    "                                            <th>姓名</th>\n" +
-    "                                            <th>性别</th>\n" +
-    "                                            <th>邀请数量</th>\n" +
-    "                                            <th>邀请码</th>\n" +
-    "                                            <th>二维码生成</th>\n" +
-    "                                            <th>操作</th>\n" +
-    "                                        </tr>\n" +
-    "                                    </thead>\n" +
-    "                                    <tbody>\n" +
-    "                                        <tr>\n" +
-    "                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                            <td class=\"market_name\">你说什么就是什么</td>\n" +
-    "                                            <td>男</td>\n" +
-    "                                            <td>20</td>\n" +
-    "                                            <td>12356</td>\n" +
-    "                                            <td class=\"market_btn\" style=\"color:#1890ff;\">二维码</td>\n" +
-    "                                            <td>\n" +
-    "                                                <button class=\"market_table_btn right\" data-toggle=\"modal\"\n" +
-    "                                                    data-target=\"#myModalmore\">邀请人员</button>\n" +
-    "                                                <button class=\"market_table_btn\">删除资料</button>\n" +
-    "                                            </td>\n" +
-    "                                        </tr>\n" +
-    "                                        <tr>\n" +
-    "                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                            <td class=\"tabel_name\">你说什么就是什么</td>\n" +
-    "                                            <td>男</td>\n" +
-    "                                            <td>20</td>\n" +
-    "                                            <td>12356</td>\n" +
-    "                                            <td class=\"wh_table_btn\" style=\"color:#1890ff;\">二维码</td>\n" +
-    "                                            <td>\n" +
-    "                                                <button class=\"wh_table_btn right\" data-toggle=\"modal\"\n" +
-    "                                                    data-target=\"#myModalmore\">邀请人员</button>\n" +
-    "                                                <button class=\"wh_table_btn\">删除资料</button>\n" +
-    "                                            </td>\n" +
-    "                                        </tr>\n" +
-    "                                        <tr>\n" +
-    "                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                            <td class=\"tabel_name\">你说什么就是什么</td>\n" +
-    "                                            <td>男</td>\n" +
-    "                                            <td>20</td>\n" +
-    "                                            <td>12356</td>\n" +
-    "                                            <td class=\"wh_table_btn\" style=\"color:#1890ff;\">二维码</td>\n" +
-    "                                            <td>\n" +
-    "                                                <button class=\"wh_table_btn right\" data-toggle=\"modal\"\n" +
-    "                                                    data-target=\"#myModalmore\">邀请人员</button>\n" +
-    "                                                <button class=\"wh_table_btn\">删除资料</button>\n" +
-    "                                            </td>\n" +
-    "                                        </tr>\n" +
-    "                                        <tr>\n" +
-    "                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                            <td class=\"tabel_name\">你说什么就是什么</td>\n" +
-    "                                            <td>男</td>\n" +
-    "                                            <td>20</td>\n" +
-    "                                            <td>12356</td>\n" +
-    "                                            <td class=\"wh_table_btn\" style=\"color:#1890ff;\">二维码</td>\n" +
-    "                                            <td>\n" +
-    "                                                <button class=\"wh_table_btn right\" data-toggle=\"modal\"\n" +
-    "                                                    data-target=\"#myModalmore\">邀请人员</button>\n" +
-    "                                                <button class=\"wh_table_btn\">删除资料</button>\n" +
-    "                                            </td>\n" +
-    "                                        </tr>\n" +
-    "                                        <tr>\n" +
-    "                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                            <td class=\"tabel_name\">你说什么就是什么</td>\n" +
-    "                                            <td>男</td>\n" +
-    "                                            <td>20</td>\n" +
-    "                                            <td>12356</td>\n" +
-    "                                            <td class=\"wh_table_btn\" style=\"color:#1890ff;\">二维码</td>\n" +
-    "                                            <td>\n" +
-    "                                                <button class=\"wh_table_btn right\" data-toggle=\"modal\"\n" +
-    "                                                    data-target=\"#myModalmore\">邀请人员</button>\n" +
-    "                                                <button class=\"wh_table_btn\">删除资料</button>\n" +
-    "                                            </td>\n" +
-    "                                        </tr>\n" +
-    "                                        <tr>\n" +
-    "                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                            <td class=\"tabel_name\">你说什么就是什么</td>\n" +
-    "                                            <td>男</td>\n" +
-    "                                            <td>20</td>\n" +
-    "                                            <td>12356</td>\n" +
-    "                                            <td class=\"wh_table_btn\" style=\"color:#1890ff;\">二维码</td>\n" +
-    "                                            <td>\n" +
-    "                                                <button class=\"wh_table_btn right\" data-toggle=\"modal\"\n" +
-    "                                                    data-target=\"#myModalmore\">邀请人员</button>\n" +
-    "                                                <button class=\"wh_table_btn\">删除资料</button>\n" +
-    "                                            </td>\n" +
-    "                                        </tr>\n" +
-    "                                        <tr>\n" +
-    "                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                            <td class=\"tabel_name\">你说什么就是什么</td>\n" +
-    "                                            <td>男</td>\n" +
-    "                                            <td>20</td>\n" +
-    "                                            <td>12356</td>\n" +
-    "                                            <td class=\"wh_table_btn\" style=\"color:#1890ff;\">二维码</td>\n" +
-    "                                            <td>\n" +
-    "                                                <button class=\"wh_table_btn right\" data-toggle=\"modal\"\n" +
-    "                                                    data-target=\"#myModalmore\">邀请人员</button>\n" +
-    "                                                <button class=\"wh_table_btn\">删除资料</button>\n" +
-    "                                            </td>\n" +
-    "                                        </tr>\n" +
-    "                                        <tr>\n" +
-    "                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                            <td class=\"tabel_name\">你说什么就是什么</td>\n" +
-    "                                            <td>男</td>\n" +
-    "                                            <td>20</td>\n" +
-    "                                            <td>12356</td>\n" +
-    "                                            <td class=\"wh_table_btn\" style=\"color:#1890ff;\">二维码</td>\n" +
-    "                                            <td>\n" +
-    "                                                <button class=\"wh_table_btn right\" data-toggle=\"modal\"\n" +
-    "                                                    data-target=\"#myModalmore\">邀请人员</button>\n" +
-    "                                                <button class=\"wh_table_btn\">删除资料</button>\n" +
-    "                                            </td>\n" +
-    "                                        </tr>\n" +
-    "                                    </tbody>\n" +
-    "                                </table>\n" +
-    "                            </div>\n" +
-    "                            <!-- 分页 -->\n" +
-    "                            <div id=\"demo2-1\"></div>\n" +
-    "                            <!--邀请人员-模态框-->\n" +
-    "                            <!-- 网红人员更多资料-模态框 Modal -->\n" +
-    "                            <div class=\"modal fade\" id=\"myModalmore\" tabindex=\"-1\" role=\"dialog\"\n" +
-    "                                aria-labelledby=\"myModalLabel\" style=\"z-index: 10\">\n" +
-    "                                <div class=\"modal-dialog\" role=\"document\">\n" +
-    "                                    <div class=\"modal-content\" id=\"market_modal_content\">\n" +
-    "                                        <div class=\"modal-header\">\n" +
-    "                                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\"\n" +
-    "                                                aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n" +
-    "                                            <h4 class=\"modal-title\" id=\"myModalLabel\"> 抢单人员</h4>\n" +
-    "                                        </div>\n" +
-    "                                        <div class=\"modal-body\">\n" +
-    "                                            <div class=\"market_modal-body\">\n" +
-    "                                                <table class=\"market_table\">\n" +
-    "                                                    <tbody>\n" +
-    "                                                        <tr>\n" +
-    "                                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                                            <td class=\"tabel_name\">你说什么就是什么</td>\n" +
-    "                                                            <td>网红</td>\n" +
-    "                                                            <td>抖音</td>\n" +
-    "                                                        </tr>\n" +
-    "                                                        <tr>\n" +
-    "                                                            <td><img src=\"images/hehua.jpg\" alt=\"\"></td>\n" +
-    "                                                            <td class=\"tabel_name\">你说什么就是什么</td>\n" +
-    "                                                            <td>商家</td>\n" +
-    "                                                            <td>服装-男装-裤子</td>\n" +
-    "                                                        </tr>\n" +
-    "                                                    </tbody>\n" +
-    "                                                </table>\n" +
-    "                                            </div>\n" +
-    "                                            <!-- 分页 -->\n" +
-    "                                            <!-- <div id=\"demo2-1\"></div> -->\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                            <!-- 完 -->\n" +
     "\n" +
-    "                        </div>\n" +
-    "                    </div>";
+    "                        <!-- 分页 -->\n" +
+    "                        <!-- <div id=\"demo2-1\"></div> -->\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <!-- 完 -->\n" +
+    "    </div>\n" +
+    "</div>";
 // <!-- 网红提现 -->
 window.templates['red.html'] = '<!-- 网红提现 -->\n' +
     '<link rel="stylesheet" href="css/serve.css">\n' +
@@ -2358,14 +1746,13 @@ window.templates['labels.html'] = "<!-- 标签管理 -->\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">新建标签：</label>\n" +
     "                <div class=\"col-sm-10\">\n" +
-    "                    <input type=\"text\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"请输入\"\n" +
-    "                        style=\"width: 50%\">\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <div class=\"col-sm-offset-2 col-sm-10\">\n" +
-    "                    <button type=\"button\" class=\"btn btn-default\"\n" +
-    "                        style=\"background: #1890FF;color: white;\" id=\"labels_btn\">生成</button>\n" +
+    "                    <button type=\"button\" class=\"btn btn-default\" style=\"background: #1890FF;color: white;\"\n" +
+    "                        id=\"labels_btn\">生成</button>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </form>\n" +
@@ -2373,8 +1760,7 @@ window.templates['labels.html'] = "<!-- 标签管理 -->\n" +
     "        <ul class=\"nav nav-tabs\" role=\"tablist\" id=\"labels_ul\">\n" +
     "            <li role=\"presentation\" class=\"active\"><a href=\"#home\" aria-controls=\"home\" role=\"tab\"\n" +
     "                    data-toggle=\"tab\">网红标签</a></li>\n" +
-    "            <li role=\"presentation\"><a href=\"#profile\" aria-controls=\"profile\" role=\"tab\"\n" +
-    "                    data-toggle=\"tab\">网红平台</a>\n" +
+    "            <li role=\"presentation\"><a href=\"#profile\" aria-controls=\"profile\" role=\"tab\" data-toggle=\"tab\">网红平台</a>\n" +
     "            </li>\n" +
     "        </ul>\n" +
     "    </div>\n" +
@@ -2383,28 +1769,33 @@ window.templates['labels.html'] = "<!-- 标签管理 -->\n" +
     "        <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home\">\n" +
     "            <div class=\"row\" style=\"margin: 0\" id=\"labels_row\">\n" +
     "                <!-- <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\" id=\"labels_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\" id=\"del\">删除标签</button>\n" +
-    "                </div> -->\n" +
+    "    <div class=\"labels_col_text\" id=\"labels_text\">\n" +
+    "        生活技巧\n" +
+    "    </div>\n" +
+    "    <button class=\"labels_col_del\" id=\"del\">删除标签</button>\n" +
+    "</div> -->\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <!-- 网红平台 -->\n" +
     "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"profile\">\n" +
-    "            <div class=\"row\" style=\"margin: 0\">\n" +
+    "            <div class=\"row\" style=\"margin: 0\" id='labels_red'>\n" +
     "\n" +
     "                <div class=\"col-md-2\" id=\"labels_content2\">\n" +
     "                    <div class=\"form-group\">\n" +
     "                        <div class=\"labes_div_img\">\n" +
-    "                            <span class=\"labes_span_img\">+</span>\n" +
+    "                            <!-- <span class=\"labes_span_img\">\n" +
+    "                                    <img src=\"images/hehua.jpg\" alt=\"\" style=\"width: 100%\">\n" +
+    "                                </span> -->\n" +
+    "                            <span class=\"labes_span_img\" style=\"opacity: 0.5;\">\n" +
+    "                                +\n" +
+    "                            </span>\n" +
     "                            <input type=\"file\" class=\"labels_input\" id=\"ipt\">\n" +
     "                            <img class=\"labes_img\" src=\"\" alt=\"\" id=\"labes_img\">\n" +
     "                        </div>\n" +
     "                        <p class=\"help-block\">抖音</p>\n" +
     "                    </div>\n" +
     "                </div>\n" +
-    "                \n" +
+    "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -2472,21 +1863,40 @@ window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
 window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
     "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
     "<link rel=\"stylesheet\" href=\"css/sjStory.css\">\n" +
+    "<script src=\"js/sjindex.js\"></script>\n" +
     "<div class=\"labels_solid\"></div>\n" +
     "<div class=\"labels_content\">\n" +
-    "    <div class=\"labels_top\">\n" +
+    "    <div class=\"labels_top\" style=\"height: 320px;\">\n" +
     "        <p class=\"labels_text\">层级管理</p>\n" +
+    "        <!-- <form class=\"form-inline sjStory_form\">\n" +
+    "                                <div class=\"form-group\" id=\"form-group\">\n" +
+    "                                    <label for=\"exampleInputName2\">第一层级：</label>\n" +
+    "                                    <input type=\"text\" class=\"form-control\" id=\"one_val\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
+    "                                </div>\n" +
+    "                                <div class=\"form-group\" id=\"form-group\">\n" +
+    "                                    <label for=\"name\">第二层级：</label>\n" +
+    "                                    <input type=\"text\" class=\"form-control\" id=\"two_val\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
+    "                                </div>\n" +
+    "                                <div class=\"form-group\" id=\"form-group\">\n" +
+    "                                    <label for=\"exampleInputName2\">第三层级：</label>\n" +
+    "                                    <input type=\"text\" class=\"form-control\" id=\"three_val\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
+    "                                </div>\n" +
+    "                                <div class=\"form-group\" id=\"form-group\">\n" +
+    "                                    <label for=\"name\">标&nbsp;&nbsp;&nbsp; 签：</label>\n" +
+    "                                    <input type=\"text\" class=\"form-control\" id=\"all_val\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
+    "                                </div>\n" +
+    "                                <button type=\"button\" class=\"btn btn-default\"  id=\"all_click\" style=\"color: white;background: #1890FF;margin-left: 36%\">添加</button>\n" +
+    "                            </form> -->\n" +
     "        <form class=\"form-horizontal\">\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">新建标签：</label>\n" +
     "                <div class=\"col-sm-10\">\n" +
-    "                    <input type=\"text\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"请输入\"\n" +
-    "                        style=\"width: 50%\">\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"all_value\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <div class=\"col-sm-offset-2 col-sm-10\">\n" +
-    "                    <button type=\"submit\" class=\"btn btn-default\"\n" +
+    "                    <button type=\"button\" class=\"btn btn-default\" id=\"all_click\"\n" +
     "                        style=\"background: #1890FF;color: white;\">生成</button>\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -2495,136 +1905,34 @@ window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
     "        <ul class=\"nav nav-tabs\" role=\"tablist\" id=\"all_ul\" style=\"margin-top: 44px;\">\n" +
     "            <li role=\"presentation\" class=\"active\" id=\"active\"><a href=\"#one\" aria-controls=\"home\" role=\"tab\"\n" +
     "                    data-toggle=\"tab\">第一层级</a></li>\n" +
-    "            <li role=\"presentation\"><a href=\"#two\" aria-controls=\"profile\" role=\"tab\"\n" +
-    "                    data-toggle=\"tab\">第二层级</a>\n" +
+    "            <li role=\"presentation\"><a href=\"#two\" aria-controls=\"profile\" role=\"tab\" data-toggle=\"tab\">第二层级</a>\n" +
     "            </li>\n" +
-    "            <li role=\"presentation\"><a href=\"#three\" aria-controls=\"profile\" role=\"tab\"\n" +
-    "                    data-toggle=\"tab\">第三层级</a>\n" +
+    "            <li role=\"presentation\"><a href=\"#three\" aria-controls=\"profile\" role=\"tab\" data-toggle=\"tab\">第三层级</a>\n" +
     "            </li>\n" +
     "        </ul>\n" +
     "    </div>\n" +
     "    <div class=\"tab-content\">\n" +
     "        <!-- 第一层级 -->\n" +
     "        <div role=\"tabpanel\" class=\"tab-pane active\" id=\"one\">\n" +
-    "            <div class=\"row\" style=\"margin: 0\">\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
+    "            <div class=\"row\" style=\"margin: 0\" id=\"one_list\">\n" +
+    "                <!-- <div class=\"col-md-2\" id=\"labels_content\">\n" +
+    "                                        <div class=\"labels_col_text\">\n" +
+    "                                            生活技巧\n" +
+    "                                        </div>\n" +
+    "                                        <button class=\"labels_col_del\">删除标签</button>\n" +
+    "                                    </div> -->\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <!-- 第二层级 -->\n" +
     "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"two\">\n" +
-    "            <div class=\"row\" style=\"margin: 0\">\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        层级管理\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
+    "            <div class=\"row\" style=\"margin: 0\" id=\"two_list\">\n" +
+    "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <!-- 第三层级 -->\n" +
     "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"three\">\n" +
-    "            <div class=\"row\" style=\"margin: 0\">\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        第三层级\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                    <div class=\"labels_col_text\">\n" +
-    "                        生活技巧\n" +
-    "                    </div>\n" +
-    "                    <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                </div>\n" +
+    "            <div class=\"row\" style=\"margin: 0\" id=\"three_list\">\n" +
+    "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -2678,90 +1986,75 @@ window.templates['product.html'] = '<!-- 商品类型 -->\n' +
     '</div>';
 // 轮播图管理
 window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
-    "                    <!-- 把css写在labels.css里面了 -->\n" +
-    "                    <link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
-    "                    <div class=\"labels_solid\"></div>\n" +
-    "                    <div class=\"labels_content\">\n" +
-    "                        <div class=\"banner_top\">\n" +
-    "                            <p class=\"labels_text\">轮播图管理</p>\n" +
-    "                            <form class=\"form-horizontal\">\n" +
-    "                                <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                                    <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">选择类型：</label>\n" +
-    "                                    <div class=\"col-sm-9\">\n" +
-    "                                        <!-- <input type=\"text\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"请输入\"\n" +
-    "                                            style=\"width: 50%\"> -->\n" +
-    "                                        <select class=\"form-control\" style=\"width: 68%\">\n" +
-    "                                            <option>请选择</option>\n" +
-    "                                            <option>轮播图</option>\n" +
-    "                                            <option>H5链接</option>\n" +
-    "                                            <option>富文本</option>\n" +
-    "                                        </select>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                                <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                                    <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">新建轮播图：</label>\n" +
-    "                                    <div class=\"col-sm-9\" id=\"addimg_div\">\n" +
-    "                                        <span class=\"addimg\">+</span>\n" +
-    "                                        <input type=\"file\" class=\"form-control\" id=\"addimg_input\" placeholder=\"请输入\">\n" +
-    "                                        <img src=\"\" alt=\"\" id=\"banner_imgs\">\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                                <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                                    <label for=\"inputh5\" class=\"col-sm-3 control-label\">H5链接：</label>\n" +
-    "                                    <div class=\"col-sm-9\">\n" +
-    "                                        <input type=\"text\" class=\"form-control\" id=\"inputh5\" placeholder=\"请输入\"\n" +
-    "                                            style=\"width: 68%\">\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                                <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                                    <div class=\"col-sm-offset-2 col-sm-10\">\n" +
-    "                                        <button type=\"submit\" class=\"btn btn-default\"\n" +
-    "                                            style=\"background: #1890FF;color: white;\">生成</button>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </form>\n" +
-    "                        </div>\n" +
+    "<!-- 把css写在labels.css里面了 -->\n" +
+    "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
+    "<script src=\"js/banner.js\"></script>\n" +
+    "<div class=\"labels_solid\"></div>\n" +
+    "<div class=\"labels_content\">\n" +
+    "    <div class=\"banner_top\">\n" +
+    "        <p class=\"labels_text\">轮播图管理</p>\n" +
+    "        <form class=\"form-horizontal\">\n" +
+    "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
+    "                <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">选择类型：</label>\n" +
+    "                <div class=\"col-sm-9\">\n" +
+    "                    <select class=\"form-control\" style=\"width: 68%\" id=\"banner_select\">\n" +
+    "                        <option>请选择</option>\n" +
+    "                        <option>轮播图</option>\n" +
+    "                        <option>H5链接</option>\n" +
+    "                        <option>富文本</option>\n" +
+    "                    </select>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
+    "                <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">新建轮播图：</label>\n" +
+    "                <div class=\"col-sm-9\" id=\"addimg_div\">\n" +
+    "                    <span class=\"addimg\">+</span>\n" +
+    "                    <input type=\"file\" class=\"form-control\" id=\"addimg_input\" placeholder=\"请输入\">\n" +
+    "                    <img src=\"\" alt=\"\" id=\"banner_imgs\">\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
+    "                <label for=\"inputh5\" class=\"col-sm-3 control-label\">H5链接：</label>\n" +
+    "                <div class=\"col-sm-9\">\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"inputh5\" placeholder=\"请输入\" style=\"width: 68%\">\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
+    "                <div class=\"col-sm-offset-2 col-sm-10\">\n" +
+    "                    <button type=\"button\" class=\"btn btn-default\" onclick=\"banner_success()\"\n" +
+    "                        style=\"background: #1890FF;color: white;\">生成</button>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </form>\n" +
+    "    </div>\n" +
     "\n" +
-    "                        <div class=\"banner_foot\">\n" +
-    "                            <div role=\"tabpanel\" class=\"tab-pane\">\n" +
-    "                                <div class=\"row\" style=\"margin: 0\">\n" +
-    // "                                    <--小块-->\n" +
-    "                                    <div class=\"col-md-4\" id=\"banner_content\">\n" +
-    "                                        <div class=\"banner_block_detail\">\n" +
-    "                                            <img src=\"images/hehua.jpg\" alt=\"\">\n" +
-    "                                        </div>\n" +
-    "                                        <div class=\"banner_block_foot\">\n" +
-    "                                            <span id=\"banner_del\">删除模板</span>\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-4\" id=\"banner_content\">\n" +
-    "                                        <div class=\"banner_block_detail\">\n" +
-    "                                            <img src=\"images/hehua.jpg\" alt=\"\">\n" +
-    "                                        </div>\n" +
-    "                                        <div class=\"banner_block_foot\">\n" +
-    "                                            <span id=\"banner_del\">删除模板</span>\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"col-md-4\" id=\"banner_content\">\n" +
-    "                                        <div class=\"banner_block_detail\">\n" +
-    "                                            <img src=\"images/hehua.jpg\" alt=\"\">\n" +
-    "                                        </div>\n" +
-    "                                        <div class=\"banner_block_foot\">\n" +
-    "                                            <span id=\"banner_del\">删除模板</span>\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
+    "    <div class=\"banner_foot\">\n" +
+    "        <div role=\"tabpanel\" class=\"tab-pane\">\n" +
+    "            <div class=\"row\" style=\"margin: 0\" id=\"banner_list\">\n" +
+    "                <!-- 小块 -->\n" +
+    "                <div class=\"col-md-4\" id=\"banner_content\">\n" +
+    "                    <div class=\"banner_number\">0</div>\n" +
+    "                    <div class=\"banner_block_detail\">\n" +
+    "                        <img src=\"images/hehua.jpg\" alt=\"\">\n" +
     "                    </div>\n" +
-    "                    <script>\n" +
-    "                        addimg_input.onchange = function () {\n" +
-    "                            // console.log(this.files[0])\n" +
-    "                            var F = new FileReader();\n" +
-    "                            F.readAsDataURL(this.files[0]);\n" +
-    "                            F.onload = function () {\n" +
-    "                                banner_imgs.src = F.result;\n" +
-    "                                banner_imgs.style.display = \"block\"\n" +
-    "                            }\n" +
-    "                        }\n" +
-    "                    </script>";
+    "                    <div class=\"banner_block_foot\">\n" +
+    "                        <span id=\"banner_del\">删除</span>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "<script>\n" +
+    "    addimg_input.onchange = function () {\n" +
+    "        // console.log(this.files[0])\n" +
+    "        var F = new FileReader();\n" +
+    "        F.readAsDataURL(this.files[0]);\n" +
+    "        F.onload = function () {\n" +
+    "            banner_imgs.src = F.result;\n" +
+    "            banner_imgs.style.display = \"block\"\n" +
+    "        }\n" +
+    "    }\n" +
+    "</script>";
+// window.templates[index.html]=

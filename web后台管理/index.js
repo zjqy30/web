@@ -29,3 +29,13 @@ $("#left_ul li ul li").on('click', function () {
     $(this).addClass("bgColor");
 })
 
+// 退出登陆
+var token = localStorage.getItem('token')
+var headPic = localStorage.getItem('headPic')
+var username = localStorage.getItem('username')
+var id = localStorage.getItem('id')
+
+function ligin_out(){
+    
+}
+

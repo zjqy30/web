@@ -17,7 +17,7 @@ $.ajax({
         console.log('一级层级', data)
         var oneList = data.data.dictList;
         $.each(oneList, function (index, item) {
-            // var oneId=oneList[index].id;
+            var oneId=oneList[index].id;
             $("#one_list").append(
                 '<div class="col-md-2" id="labels_content">' +
                 '<div class="labels_col_text">'+item.dictValue +'</div>' +
@@ -27,6 +27,7 @@ $.ajax({
         })
     }
 })
+
 // 获取第二层级标签列表
 var sj_data = {
     'token': token,
@@ -83,17 +84,19 @@ $("#all_click").click(function(){
     // var one_val=$("#one_val").val();
     // var two_val=$("#two_val").val();
     // var three_val=$("#three_val").val();
-
-    var all_val=one_val+two_val+three_val;
+    // var all_val=one_val+two_val+three_val;
     // var all="one_val+'-'+two_val+'-'+three_val"
     // all_val=all
-    console.log(all_val)
 
+    var all_value=$("#all_value").val()
+    console.log(all_value)
+
+    // 要传的参数（怎么才能获取到pid_1，pid_2，value的值）
     var all_data={
         'token':token,
-        'pid_1':1,//一级标签ID
-        'pid_2':1,//二级标签ID
-        'value':1 //标签值
+        'pid_1':'07830439f4074ae9a4f3344936f0cba8',//一级标签ID
+        'pid_2':'1e52db79e8de4fe1b97bc02400694477',//二级标签ID
+        'value':all_value //标签值
     }
     $.ajax({
         url: globel + "/hone/backend/dict/sellerTagList",

@@ -21,8 +21,6 @@
     <script src="jquery.min.js"></script>
     <!-- <script src="bootstrap/js/jquery.min.js"></script> -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
-
     <style>
         .model {
             width: 633px;
@@ -196,6 +194,7 @@
                     </div> -->
                     <!-- 登录成功状态 -->
                     <div class="top_right">
+                        <!-- 消息 -->
                         <div class="login_big login_new">
                             <div class="block" id="login-top">
                                 <i class="fa fa-bell-o" aria-hidden="true"></i>
@@ -233,6 +232,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 账号 -->
                         <div class="login_up ">
                             <div class="login_name" id="login_out">
                                 <img src="images/hehua.jpg" alt="">
@@ -240,7 +240,7 @@
                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
                             </div>
                             <div class="logins_block">
-                                <div class="login_out">
+                                <div class="login_out" onclick=ligin_out()>
                                     <i class="glyphicon glyphicon-off"></i>
                                     退出登录
                                 </div>
@@ -258,84 +258,333 @@
             <div class="main_content">
                 <div id="target_main">
                     <!-- ----------------------------------- -->
-                    <!-- 商家内幕-层级管理 -->
-                    <!-- <link rel="stylesheet" href="../css/labels.css">
-                    <link rel="stylesheet" href="../css/sjStory.css"> -->
-                    <div class="labels_solid"></div>
-                    <div class="labels_content">
-                        <div class="labels_top" style="height: 320px;">
-                            <p class="labels_text">层级管理</p>
-                            <!-- <form class="form-inline sjStory_form">
-                                <div class="form-group" id="form-group">
-                                    <label for="exampleInputName2">第一层级：</label>
-                                    <input type="text" class="form-control" id="one_val" placeholder="请输入" style="width: 50%">
-                                </div>
-                                <div class="form-group" id="form-group">
-                                    <label for="name">第二层级：</label>
-                                    <input type="text" class="form-control" id="two_val" placeholder="请输入" style="width: 50%">
-                                </div>
-                                <div class="form-group" id="form-group">
-                                    <label for="exampleInputName2">第三层级：</label>
-                                    <input type="text" class="form-control" id="three_val" placeholder="请输入" style="width: 50%">
-                                </div>
-                                <div class="form-group" id="form-group">
-                                    <label for="name">标&nbsp;&nbsp;&nbsp; 签：</label>
-                                    <input type="text" class="form-control" id="all_val" placeholder="请输入" style="width: 50%">
-                                </div>
-                                <button type="button" class="btn btn-default"  id="all_click" style="color: white;background: #1890FF;margin-left: 36%">添加</button>
-                            </form> -->
-                            <form class="form-horizontal">
-                                <div class="form-group" id="ds_modal_center">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">新建标签：</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="all_value" placeholder="请输入"
-                                            style="width: 50%">
-                                    </div>
-                                </div>
-                                <div class="form-group" id="ds_modal_center">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="button" class="btn btn-default" id="all_click"
-                                            style="background: #1890FF;color: white;">生成</button>
-                                    </div>
-                                </div>
-                            </form>
+                    <!-- 订单管理 -->
+                    <!-- <link rel="stylesheet" href="../css/dingdan.css"> -->
+                    <div class="dd_solid"></div>
+                    <div class="dd_content">
+                        <div class="dd_top">
+                            <p class="dd_text">搜索订单</p>
+                            <div class="input-group" id="input_group">
+                                <input type="text" class="form-control" placeholder="请输入"
+                                    aria-describedby="basic-addon2" id="dd_ipt" style="height: 49px">
+                                <span class="input-group-addon" id="basic-addon2">搜索</span>
+                            </div>
                             <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist" id="all_ul" style="margin-top: 44px;">
-                                <li role="presentation" class="active" id="active"><a href="#one" aria-controls="home"
-                                        role="tab" data-toggle="tab">第一层级</a></li>
-                                <li role="presentation"><a href="#two" aria-controls="profile" role="tab"
-                                        data-toggle="tab">第二层级</a>
+                            <ul class="nav nav-tabs" role="tablist" id="dd_ul">
+                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                        data-toggle="tab">待审核</a></li>
+                                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
+                                        data-toggle="tab">派单中</a></li>
+                                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab"
+                                        data-toggle="tab">进行中</a>
                                 </li>
-                                <li role="presentation"><a href="#three" aria-controls="profile" role="tab"
-                                        data-toggle="tab">第三层级</a>
+                                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab"
+                                        data-toggle="tab">已完成</a>
                                 </li>
                             </ul>
+
                         </div>
+                        <!-- Tab panes -->
                         <div class="tab-content">
-                            <!-- 第一层级 -->
-                            <div role="tabpanel" class="tab-pane active" id="one">
-                                <div class="row" style="margin: 0" id="one_list">
-                                    <!-- <div class="col-md-2" id="labels_content">
-                                        <div class="labels_col_text">
-                                            生活技巧
+                            <!-- 待审核 -->
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <div class="row" style="margin: 0" id="needData">
+                                   <!-- 待审核内容 -->
+                                </div>
+                            </div>
+                            <!-- 派单中 -->
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <div class="row" style="margin: 0" id="paiData">
+                                    <!-- <div class="col-md-4" id="tab-content"> -->
+                                        <!-- 抢单人员 modal -->
+                                        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content" id="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close"><span
+                                                                aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">抢单人员</h4>
+                                                    </div>
+                                                    <table class="dd_table wh_table">
+                                                        <tbody id="robData">
+                                                            <!-- 抢单人员 -->
+                                                        </tbody>
+                                                    </table>
+                                                    <!-- <div id="demo2-1"></div> -->
+                                                </div>
+                                            </div>
                                         </div>
-                                        <button class="labels_col_del">删除标签</button>
-                                    </div> -->
+
+                                    <!-- </div> -->
                                 </div>
                             </div>
-                            <!-- 第二层级 -->
-                            <div role="tabpanel" class="tab-pane" id="two">
-                                <div class="row" style="margin: 0" id="two_list">
-
+                            <!-- 进行中 -->
+                            <div role="tabpanel" class="tab-pane" id="messages">
+                                <div class="row" style="margin: 0" id="unway">
+                                    <div class="col-md-4" id="tab-content">
+                                        <!--订单更多资料-模态框(仅写了一个模态框)-->
+                                        <div class="dd_tab_detail" data-toggle="modal" data-target="#sjing">
+                                            <div class="dd_detail">
+                                                <div class="dd_userImg">
+                                                    <img class="dd_img" src="images/hehua.jpg" alt="">
+                                                </div>
+                                                <div class="dd_userText">
+                                                    <div class="dd_userName">你说什么就是什么</div>
+                                                    <div class="dd_userDe">
+                                                        <span>快手</span>
+                                                        <span style="margin-left: 10px;">短视频直播推广</span>
+                                                    </div>
+                                                </div>
+                                                <div class="dd_price">
+                                                    <span style="color: #F03D37">1000元</span>
+                                                </div>
+                                            </div>
+                                            <div class="dd_gn">
+                                                <p>在中台产品的研发过程中，会出现不同的 设计规范练习方式，但其中往往存在很帅 类似的问题。我们还是要多多注意谢谢规
+                                                    范一些东西还是要注意细节。</p>
+                                            </div>
+                                        </div>
+                                        <div class="dd_foot">
+                                            <span style="border-right: 1px solid #dedede">恢复订单</span>
+                                            <span>结束订单</span>
+                                        </div>
+                                        <!--订单更多资料-模态框-->
+                                        <!-- 商家更多资料 -->
+                                        <div class="modal fade" id="sjing" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close"><span
+                                                                aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">更多资料</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="layui-col-md12">
+                                                                <p>商家电话：<span style="color:#1890FF ">15371185538</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>抢单人员：
+                                                                    <span>你说什么就是什么</span>
+                                                                    <span style="color:#1890FF ">15371185538</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>
+                                                                    需求标签：
+                                                                    <span class="layui_span">美食</span>
+                                                                    <span class="layui_span">三农</span>
+                                                                    <span class="layui_span">美女</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>粉丝要求：<span class="dd_layui_span">10万</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>发布时间：<span class="dd_layui_span">2019-6-19
+                                                                        15:17</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>创建时间：<span class="dd_layui_span">2019-6-19
+                                                                        15:17</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>订单编号：
+                                                                    <span class="dd_layui_span">
+                                                                        1324558885555896666666
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>商品图片：</p>
+                                                                <img src="images/hehua.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 完 -->
+                                    </div>
                                 </div>
                             </div>
-                            <!-- 第三层级 -->
-                            <div role="tabpanel" class="tab-pane" id="three">
-                                <div class="row" style="margin: 0" id="three_list">
-
+                            <!-- 已完成 -->
+                            <div role="tabpanel" class="tab-pane" id="settings">
+                                <div class="row" style="margin: 0" id="finish">
+                                    <div class="col-md-4" id="tab-content">
+                                        <div class="dd_tab_detail">
+                                            <div class="dd_detail">
+                                                <div class="dd_userImg">
+                                                    <img class="dd_img" src="images/hehua.jpg" alt="">
+                                                </div>
+                                                <div class="dd_userText">
+                                                    <div class="dd_userName">你说什么就是什么</div>
+                                                    <div class="dd_userDe">
+                                                        <span>快手</span>
+                                                        <span style="margin-left: 10px;">短视频直播推广</span>
+                                                    </div>
+                                                </div>
+                                                <div class="dd_price">
+                                                    <span style="color: #F03D37">1000元</span>
+                                                </div>
+                                            </div>
+                                            <div class="dd_gn">
+                                                <p>在中台产品的研发过程中，会出现不同的 设计规范练习方式，但其中往往存在很帅 类似的问题。我们还是要多多注意谢谢规
+                                                    范一些东西还是要注意细节。</p>
+                                            </div>
+                                        </div>
+                                        <div class="dd_foot">
+                                            <span id="dd_foot_detail" data-toggle="modal"
+                                                data-target="#sjachieve">订单详情</span>
+                                        </div>
+                                        <!--订单更多资料-模态框-->
+                                        <!-- 商家更多资料 -->
+                                        <div class="modal fade" id="sjachieve" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close"><span
+                                                                aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">更多资料</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="layui-col-md12">
+                                                                <p>商家电话：<span style="color:#1890FF ">15371185538</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>抢单人员：
+                                                                    <span>你说什么就是什么</span>
+                                                                    <span style="color:#1890FF ">15371185538</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>
+                                                                    需求标签：
+                                                                    <span class="layui_span">美食</span>
+                                                                    <span class="layui_span">三农</span>
+                                                                    <span class="layui_span">美女</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>粉丝要求：<span class="dd_layui_span">10万</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>发布时间：<span class="dd_layui_span">2019-6-19
+                                                                        15:17</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>创建时间：<span class="dd_layui_span">2019-6-19
+                                                                        15:17</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>完成时间：<span class="dd_layui_span">2019-6-19
+                                                                        15:17</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>订单编号：
+                                                                    <span class="dd_layui_span">
+                                                                        1324558885555896666666
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="layui-col-md12">
+                                                                <p>商品图片：</p>
+                                                                <img src="images/hehua.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 完 -->
+                                    </div>
+                                    <div class="col-md-4" id="tab-content">
+                                        <div class="dd_tab_detail">
+                                            <div class="dd_detail">
+                                                <div class="dd_userImg">
+                                                    <img class="dd_img" src="images/hehua.jpg" alt="">
+                                                </div>
+                                                <div class="dd_userText">
+                                                    <div class="dd_userName">你说什么就是什么</div>
+                                                    <div class="dd_userDe">
+                                                        <span>快手</span>
+                                                        <span style="margin-left: 10px;">短视频直播推广</span>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="dd_price">
+                                                    <span style="color: #F03D37">1000元</span>
+                                                </div> -->
+                                            </div>
+                                            <div class="dd_gn">
+                                                <div class="dd_gn_first">
+                                                    <div>
+                                                        <span class="first_gary">商品类型：</span><span
+                                                            class='first_3'>鞋帽箱包</span>
+                                                    </div>
+                                                    <div style='float:right'>
+                                                        <span class="first_gary">粉丝要求：</span><span
+                                                            class='first_3'>10万</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="first_gary">达人平台：</span><span
+                                                            class='first_3'>暂无要求</span>
+                                                    </div>
+                                                    <div style='float:right'>
+                                                        <span class="first_gary">佣金比例：</span><span
+                                                            class='first_3'>30%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dd_foot">
+                                            <span id="dd_foot_detail">订单详情</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" id="tab-content">
+                                        <div class="dd_tab_detail">
+                                            <div class="dd_detail">
+                                                <div class="dd_userImg">
+                                                    <img class="dd_img" src="images/hehua.jpg" alt="">
+                                                </div>
+                                                <div class="dd_userText">
+                                                    <div class="dd_userName">你说什么就是什么</div>
+                                                    <div class="dd_userDe">
+                                                        <span>快手</span>
+                                                        <span style="margin-left: 10px;">短视频直播推广</span>
+                                                    </div>
+                                                </div>
+                                                <div class="dd_price">
+                                                    <span style="color: #F03D37">1000元</span>
+                                                </div>
+                                            </div>
+                                            <div class="dd_gn">
+                                                <p>在中台产品的研发过程中，会出现不同的 设计规范练习方式，但其中往往存在很帅 类似的问题。我们还是要多多注意谢谢规
+                                                    范一些东西还是要注意细节。</p>
+                                            </div>
+                                        </div>
+                                        <div class="dd_foot">
+                                            <span id="dd_foot_detail">订单详情</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <!-- ----------------------------------- -->
                 </div>
@@ -343,17 +592,22 @@
             <!--右侧主题内容结束-->
         </div>
 </body>
-
 <script src="html.js"></script>
 <script src="index.js"></script>
-<script src="js/sjindex.js"></script>
+<script src="js/dingdan.js"></script>
+<!-- <script src="js/demo4.js"></script> -->
+<!-- <script src="js/demo3.js"></script> -->
+<!-- <script src="js/demo2.js"></script> -->
+<!-- <script src="js/demo1.js"></script> -->
+<!-- <script src="js/banner.js"></script> -->
+<!-- <script src="js/sjindex.js"></script> -->
 <!-- <script src="js/market.js"></script> -->
 <!-- <script src="js/red.js"></script> -->
 <!-- <script src="js/serveType.js"></script> -->
 <!-- <script src="js/serve.js"></script> -->
-<!-- <script src="js/labels.js"></script>
-<script src="js/product.js"></script>
-<script src="js/announcement.js"></script> -->
+<!-- <script src="js/labels.js"></script>  -->
+<!-- <script src="js/product.js"></script> -->
+<!-- <script src="js/announcement.js"></script> -->
 <script src="layui/layui.all.js"></script>
 <script>
     login_out.onclick = function () {
@@ -383,7 +637,7 @@
     // }
 
     // 轮播图上传图片
-    // addimg_input.onchange = function () {
+    // $("#addimg_input").onchange = function () {
     //     // console.log(this.files[0])
     //     var F = new FileReader();
     //     F.readAsDataURL(this.files[0]);
