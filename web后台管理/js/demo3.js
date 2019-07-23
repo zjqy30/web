@@ -144,8 +144,12 @@ $.ajax({
                     contentType: "application/json",
                     data: JSON.stringify(pass_data),
                     success: function (data) {
-                        console.log('审核通过',data)
-                        alert("审核通过")
+                        if(data.errorCode==0){
+                            alert("审核通过")
+                        }else{
+                            alert("审核未通过")
+                        }
+                        window.location.reload();
                     }
                 })
             })
@@ -164,8 +168,12 @@ $.ajax({
                     contentType: "application/json",
                     data: JSON.stringify(nopass_data),
                     success: function (data) {
-                        console.log('审核未通过',data)
-                        alert("审核未通过")
+                        if(data.errorCode==0){
+                            alert("审核已拒绝")
+                        }else{
+                            alert("审核拒绝失败")
+                        }
+                        window.location.reload();
                     }
                     
                 })

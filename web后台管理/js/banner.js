@@ -16,7 +16,6 @@ $.ajax({
         var list = data.data.bannersList;
         $.each(list, function (index, item) {
             var id=item.id;
-            // console.log(id)
             $("#banner_list").append(
                 '<div class="col-md-4" id="banner_content">' +
                 '<div class="banner_number">'+(index+1)+'</div>'+
@@ -24,33 +23,37 @@ $.ajax({
                 '<img src="'+item.imgs+'" alt="">' +
                 '</div>' +
                 '<div class="banner_block_foot">' +
-                '<span id="banner_del" class="banner_del">删除</span>' +
+                '<span id="banner_del" class="banner_del" onclick="ban_del(\''+id+'\')">删除</span>' +
                 '</div>' +
                 '</div>'
             )
-            // 删除轮播图
-            $(".banner_del").click(function(){
-                var del={
-                    'token':token,
-                    'id':id
-                }
-                $.ajax({
-                    url:globel+"/hone/backend/banner/del",
-                    dataType:"json",
-                    type:"POST",
-                    contentType:"application/json",
-                    data:JSON.stringify(del),
-                    success:function(data){
-                        console.log(data)
-                        // $("#banner_list")[index].remove()
-                    }
-                })
-                
-            })
         })
         
     }
 })
+// 删除轮播图
+function ban_del(id){
+    var del={
+        'token':token,
+        'id':id
+    }
+    $.ajax({
+        url:globel+"/hone/backend/banner/del",
+        dataType:"json",
+        type:"POST",
+        contentType:"application/json",
+        data:JSON.stringify(del),
+        success:function(data){
+            // console.log(data)
+            if(data.errorCode==0){
+                alert("删除成功！")
+            }else{
+                alert("删除失败！")
+            }
+         window.location.reload();
+        }
+    })
+}
 // 轮播图上传图片
 addimg_input.onchange = function () {
     // console.log(this.files[0])

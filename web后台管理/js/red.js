@@ -20,7 +20,7 @@ $.ajax({
                    ' <div class="serve_block_detail">'+
                         '<p class="serve_block_ps">用户名：<span>'+item.userName+'</span> </p>'+
                         '<p class="serve_block_ps">微信名：<span>'+item.wxName+'</span> </p>'+
-                        '<p class="serve_block_ps">手续费：<span class="serve_block_span" style="width: 88%">'+item.drawFee+'</span> </p>'+
+                        '<p class="serve_block_ps">手续费：<span>'+item.drawFee+'</span> </p>'+
                         '<p>提现金额：<span>'+item.drawAmount+'</span> </p>'+
                         '<p>银行名称：<span>'+item.cradBank+'</span> </p>'+
                         '<p>银行卡号：<span>'+item.cradNumber+'</span> </p>'+

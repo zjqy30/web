@@ -67,7 +67,7 @@
    .refund_foot>span{
        display: inline-block;
        text-align: center;
-       width: 49%;
+       width: 50%;
        height: 43px;
        cursor: pointer;
    }
@@ -77,6 +77,10 @@
     text-align: center;
     height: 43px;
     cursor: pointer;
+}
+.re_del:hover{
+ background: #1980ff;
+ color: white;
 }
 
 /* 模态框 */
@@ -114,5 +118,8 @@
 }
 .refund_layui_span{
     color: #333333;
+}
+.img{
+    width: 98%;
 }
    

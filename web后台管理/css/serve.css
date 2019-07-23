@@ -89,7 +89,7 @@
 .dd_foot>span{
     display: inline-block;
     text-align: center;
-    width: 49%;
+    width: 50%;
     height: 43px;
     cursor: pointer;
 }

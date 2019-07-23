@@ -1,11 +1,12 @@
 <!-- 纯佣订单 -->
 <link rel="stylesheet" href="../css/dingdan.css">
+<script src="../js/cun.js"></script>
 <div class="dd_solid"></div>
 <div class="dd_content">
     <div class="dd_top">
         <p class="dd_text">搜索订单</p>
         <div class="input-group" id="input_group">
-            <input type="text" class="form-control" placeholder="请输入" aria-describedby="basic-addon2"
+            <input type="text" class="form-control" placeholder="请输入" aria-describedby="basic-addon2" id="cun_ipt"
                 style="height: 49px">
             <span class="input-group-addon" id="basic-addon2">搜索</span>
         </div>
@@ -23,9 +24,8 @@
     <div class="tab-content">
         <!-- 待审核 -->
         <div role="tabpanel" class="tab-pane active" id="home">
-            <div class="row" style="margin: 0">
+            <div class="row" style="margin: 0" id="homeData">
                 <div class="col-md-4" id="tab-content">
-                    <!--订单更多资料-模态框(仅写了一个模态框)-->
                     <div class="dd_tab_detail" data-toggle="modal" data-target="#sjmyModal">
                         <div class="dd_detail">
                             <div class="dd_userImg">
@@ -65,171 +65,13 @@
                         <span>拒绝</span>
                     </div>
                     <!--订单更多资料-模态框-->
-                    <!-- 商家更多资料 -->
-                    <div class="modal fade" id="sjmyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                            aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">更多资料</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="layui-col-md12">
-                                            <p class="layui-col-md12-p">商品类型：
-                                                <span class="dd_layui_span-span">
-                                                    鞋帽箱包
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p class="layui-col-md12-p">发布时间：
-                                                <span class="dd_layui_span-span">
-                                                    2019-7-11 11:29
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p class="layui-col-md12-p">
-                                                需求标签：
-                                                <span class="layui_span">美食</span>
-                                                <span class="layui_span">三农</span>
-                                                <span class="layui_span">美女</span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p class="layui-col-md12-p">粉丝要求：
-                                                <span class="dd_layui_span-span">10万</span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p class="layui-col-md12-p">达人平台：
-                                                <span class="dd_layui_span-span">
-                                                    暂无要求
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p class="layui-col-md12-p">店铺等级：
-                                                <span class="dd_layui_span-span">
-                                                    一颗皇冠
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p class="layui-col-md12-p">佣金比例：
-                                                <span class="dd_layui_span-span">
-                                                    30%
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p class="layui-col-md12-p">是否寄样：
-                                                <span class="dd_layui_span-span">
-                                                    否
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p class="layui-col-md12-p">产品以往销量：
-                                                <span class="dd_layui_span-span">
-                                                    3271
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4" id="tab-content">
-                    <div class="dd_tab_detail">
-                        <div class="dd_detail">
-                            <div class="dd_userImg">
-                                <img class="dd_img" src="images/hehua.jpg" alt="">
-                            </div>
-                            <div class="dd_userText">
-                                <div class="dd_userName">你说什么就是什么ne</div>
-                                <div class="dd_userDe">
-                                    <span style="color: #ADADAD">发布时间</span>
-                                    <span style="margin-left: 10px;">2019-6-19</span>
-                                    <span style="color: #333333">18:00</span>
-                                </div>
-                            </div>
-                            <div class="dd_price">
-                                <span style="color: #F03D37">1000元</span>
-                            </div>
-                        </div>
-                        <div class="dd_gn">
-                            <div class="dd_gn_first">
-                                <div>
-                                    <span class="first_gary">商品类型：</span><span class='first_3'>鞋帽箱包</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">粉丝要求：</span><span class='first_3'>10万</span>
-                                </div>
-                                <div>
-                                    <span class="first_gary">达人平台：</span><span class='first_3'>暂无要求</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">佣金比例：</span><span class='first_3'>30%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dd_foot">
-                        <span style="border-right: 1px solid #dedede">通过</span>
-                        <span>拒绝</span>
-                    </div>
-                </div>
-                <div class="col-md-4" id="tab-content">
-                    <div class="dd_tab_detail">
-                        <div class="dd_detail">
-                            <div class="dd_userImg">
-                                <img class="dd_img" src="images/hehua.jpg" alt="">
-                            </div>
-                            <div class="dd_userText">
-                                <div class="dd_userName">你说什么就是什么ne</div>
-                                <div class="dd_userDe">
-                                    <span style="color: #ADADAD">发布时间</span>
-                                    <span style="margin-left: 10px;">2019-6-19</span>
-                                    <span style="color: #333333">18:00</span>
-                                </div>
-                            </div>
-                            <div class="dd_price">
-                                <span style="color: #F03D37">1000元</span>
-                            </div>
-                        </div>
-                        <div class="dd_gn">
-                            <div class="dd_gn_first">
-                                <div>
-                                    <span class="first_gary">商品类型：</span><span class='first_3'>鞋帽箱包</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">粉丝要求：</span><span class='first_3'>10万</span>
-                                </div>
-                                <div>
-                                    <span class="first_gary">达人平台：</span><span class='first_3'>暂无要求</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">佣金比例：</span><span class='first_3'>30%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dd_foot">
-                        <span style="border-right: 1px solid #dedede">通过</span>
-                        <span>拒绝</span>
-                    </div>
                 </div>
             </div>
         </div>
         <!-- 派单中 -->
         <div role="tabpanel" class="tab-pane" id="profile">
-            <div class="row" style="margin: 0">
+            <div class="row" style="margin: 0" id="profileData">
                 <div class="col-md-4" id="tab-content">
                     <div class="dd_tab_detail">
                         <div class="dd_detail">
@@ -244,89 +86,9 @@
                                     <span style="color: #333333">18:00</span>
                                 </div>
                             </div>
-                            <div class="dd_price">
-                                <span style="color: #F03D37">1000元</span>
-                            </div>
-                        </div>
-                        <div class="dd_gn">
-                            <div class="dd_gn_first">
-                                <div>
-                                    <span class="first_gary">商品类型：</span><span class='first_3'>鞋帽箱包</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">粉丝要求：</span><span class='first_3'>10万</span>
-                                </div>
-                                <div>
-                                    <span class="first_gary">达人平台：</span><span class='first_3'>暂无要求</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">佣金比例：</span><span class='first_3'>30%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dd_foot">
-                        <span style="border-right: 1px solid #dedede">删除</span>
-                        <span>结束</span>
-                    </div>
-                </div>
-                <div class="col-md-4" id="tab-content">
-                    <div class="dd_tab_detail">
-                        <div class="dd_detail">
-                            <div class="dd_userImg">
-                                <img class="dd_img" src="images/hehua.jpg" alt="">
-                            </div>
-                            <div class="dd_userText">
-                                <div class="dd_userName">你说什么就是什么ne</div>
-                                <div class="dd_userDe">
-                                    <span style="color: #ADADAD">发布时间</span>
-                                    <span style="margin-left: 10px;">2019-6-19</span>
-                                    <span style="color: #333333">18:00</span>
-                                </div>
-                            </div>
-                            <div class="dd_price">
-                                <span style="color: #F03D37">1000元</span>
-                            </div>
-                        </div>
-                        <div class="dd_gn">
-                            <div class="dd_gn_first">
-                                <div>
-                                    <span class="first_gary">商品类型：</span><span class='first_3'>鞋帽箱包</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">粉丝要求：</span><span class='first_3'>10万</span>
-                                </div>
-                                <div>
-                                    <span class="first_gary">达人平台：</span><span class='first_3'>暂无要求</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">佣金比例：</span><span class='first_3'>30%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dd_foot">
-                        <span style="border-right: 1px solid #dedede">删除</span>
-                        <span>结束</span>
-                    </div>
-                </div>
-                <div class="col-md-4" id="tab-content">
-                    <div class="dd_tab_detail">
-                        <div class="dd_detail">
-                            <div class="dd_userImg">
-                                <img class="dd_img" src="images/hehua.jpg" alt="">
-                            </div>
-                            <div class="dd_userText">
-                                <div class="dd_userName">你说什么就是什么ne</div>
-                                <div class="dd_userDe">
-                                    <span style="color: #ADADAD">发布时间</span>
-                                    <span style="margin-left: 10px;">2019-6-19</span>
-                                    <span style="color: #333333">18:00</span>
-                                </div>
-                            </div>
-                            <div class="dd_price">
-                                <span style="color: #F03D37">1000元</span>
-                            </div>
+                            <!-- <div class="dd_price">
+                                 <span style="color: #F03D37">1000元</span>
+                             </div> -->
                         </div>
                         <div class="dd_gn">
                             <div class="dd_gn_first">
@@ -354,178 +116,8 @@
         </div>
         <!-- 已完成 -->
         <div role="tabpanel" class="tab-pane" id="settings">
-            <div class="row" style="margin: 0">
-                <div class="col-md-4" id="tab-content">
-                    <div class="dd_tab_detail">
-                        <div class="dd_detail">
-                            <div class="dd_userImg">
-                                <img class="dd_img" src="images/hehua.jpg" alt="">
-                            </div>
-                            <div class="dd_userText">
-                                <div class="dd_userName">你说什么就是什么ne</div>
-                                <div class="dd_userDe">
-                                    <span style="color: #ADADAD">发布时间</span>
-                                    <span style="margin-left: 10px;">2019-6-19</span>
-                                    <span style="color: #333333">18:00</span>
-                                </div>
-                            </div>
-                            <!-- <div class="dd_price">
-                                        <span style="color: #F03D37">1000元</span>
-                                    </div> -->
-                        </div>
-                        <div class="dd_gn">
-                            <div class="dd_gn_first">
-                                <div>
-                                    <span class="first_gary">商品类型：</span><span class='first_3'>鞋帽箱包</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">粉丝要求：</span><span class='first_3'>10万</span>
-                                </div>
-                                <div>
-                                    <span class="first_gary">达人平台：</span><span class='first_3'>暂无要求</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">佣金比例：</span><span class='first_3'>30%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dd_foot">
-                        <span id="dd_foot_detail" data-toggle="modal" data-target="#sjachieve">订单详情</span>
-                    </div>
-                    <!--订单更多资料-模态框-->
-                    <!-- 商家更多资料 -->
-                    <div class="modal fade" id="sjachieve" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                            aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">更多资料</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="layui-col-md12">
-                                            <p>商家电话：<span style="color:#1890FF ">15371185538</span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p>抢单人员：
-                                                <span>你说什么就是什么</span>
-                                                <span style="color:#1890FF ">15371185538</span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p>
-                                                需求标签：
-                                                <span class="layui_span">美食</span>
-                                                <span class="layui_span">三农</span>
-                                                <span class="layui_span">美女</span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p>粉丝要求：<span class="dd_layui_span">10万</span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p>发布时间：<span class="dd_layui_span">2019-6-19
-                                                    15:17</span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p>创建时间：<span class="dd_layui_span">2019-6-19
-                                                    15:17</span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p>订单编号：
-                                                <span class="dd_layui_span">
-                                                    1324558885555896666666
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="layui-col-md12">
-                                            <p>商品图片：</p>
-                                            <img src="images/hehua.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 完 -->
-                </div>
-                <div class="col-md-4" id="tab-content">
-                    <div class="dd_tab_detail">
-                        <div class="dd_detail">
-                            <div class="dd_userImg">
-                                <img class="dd_img" src="images/hehua.jpg" alt="">
-                            </div>
-                            <div class="dd_userText">
-                                <div class="dd_userName">你说什么就是什么</div>
-                                <div class="dd_userDe">
-                                    <span>快手</span>
-                                    <span style="margin-left: 10px;">短视频直播推广</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dd_gn">
-                            <div class="dd_gn_first">
-                                <div>
-                                    <span class="first_gary">商品类型：</span><span class='first_3'>鞋帽箱包</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">粉丝要求：</span><span class='first_3'>10万</span>
-                                </div>
-                                <div>
-                                    <span class="first_gary">达人平台：</span><span class='first_3'>暂无要求</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">佣金比例：</span><span class='first_3'>30%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dd_foot">
-                        <span id="dd_foot_detail">订单详情</span>
-                    </div>
-                </div>
-                <div class="col-md-4" id="tab-content">
-                    <div class="dd_tab_detail">
-                        <div class="dd_detail">
-                            <div class="dd_userImg">
-                                <img class="dd_img" src="images/hehua.jpg" alt="">
-                            </div>
-                            <div class="dd_userText">
-                                <div class="dd_userName">你说什么就是什么ne</div>
-                                <div class="dd_userDe">
-                                    <span style="color: #ADADAD">发布时间</span>
-                                    <span style="margin-left: 10px;">2019-6-19</span>
-                                    <span style="color: #333333">18:00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dd_gn">
-                            <div class="dd_gn_first">
-                                <div>
-                                    <span class="first_gary">商品类型：</span><span class='first_3'>鞋帽箱包</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">粉丝要求：</span><span class='first_3'>10万</span>
-                                </div>
-                                <div>
-                                    <span class="first_gary">达人平台：</span><span class='first_3'>暂无要求</span>
-                                </div>
-                                <div style='float:right'>
-                                    <span class="first_gary">佣金比例：</span><span class='first_3'>30%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dd_foot">
-                        <span id="dd_foot_detail">订单详情</span>
-                    </div>
-                </div>
+            <div class="row" style="margin: 0" id="settingsData">
+                <!-- 已完成 -->
             </div>
         </div>
     </div>

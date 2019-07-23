@@ -22,8 +22,15 @@ $.ajax({
         console.log('待审核需求列表', data)
         var needList = data.data.pageData.list;
         $.each(needList, function (index, item) {
-            var tags = item.tags;
             var id = item.id;
+            var tags = item.tags;
+            var tt=tags.split(",")
+            // console.log(tt)
+            
+            var str=item.pics
+            var img=str.split(",");
+            console.log('商品图片',img)
+   
             $("#needData").append(
                 '<div class="col-md-4" id="tab-content">' +
                 '<div class="dd_tab_detail" data-toggle="modal" data-target="#sjmyModal">' +
@@ -47,8 +54,8 @@ $.ajax({
                 '</div>' +
                 '</div>' +
                 '<div class="dd_foot">' +
-                '<span style="border-right: 1px solid #dedede" onclick="pass(\'' + id + '\')">通过</span>' +
-                '<span onclick="nopass(\'' + id + '\')">拒绝</span>' +
+                '<span id="rob_del" style="border-right: 1px solid #dedede" onclick="pass(\'' + id + '\')">通过</span>' +
+                '<span id="rob_del" onclick="nopass(\'' + id + '\')">拒绝</span>' +
                 '</div>' +
                 '<!--订单更多资料-模态框-->' +
                 '<!-- 商家更多资料 -->' +
@@ -70,9 +77,12 @@ $.ajax({
                 '<div class="layui-col-md12">' +
                 '<p>' +
                 '需求标签：' +
-                '<span class="layui_span">' + item.tags + '</span>' +
-                // '<span class="layui_span">三农</span>' +
-                // '<span class="layui_span">美女</span>' +
+                '<span class="layui_span">' + tt[0] + '</span>' +
+                '<span class="layui_span">' + tt[1] + '</span>' +
+                '<span class="layui_span">' + tt[2] + '</span>' +
+                '<span class="layui_span">' + tt[3] + '</span>' +
+                '<span class="layui_span">' + tt[4] + '</span>' +
+                '<span class="layui_span">' + tt[5] + '</span>' +
                 '</p>' +
                 '</div>' +
                 '<div class="layui-col-md12">' +
@@ -80,7 +90,12 @@ $.ajax({
                 '</div>' +
                 '<div class="layui-col-md12">' +
                 '<p>商品图片：</p>' +
-                '<img style="width:98%" src="' + item.pics[0] + '" alt="">' +
+                '<img style="width:98%" src="' + img[0] + '" alt="">' +
+                '<img style="width:98%" src="' + img[1] + '" alt="">' +
+                '<img style="width:98%" src="' + img[2] + '" alt="">' +
+                '<img style="width:98%" src="' + img[3] + '" alt="">' +
+                '<img style="width:98%" src="' + img[4] + '" alt="">' +
+                '<img style="width:98%" src="' + img[5] + '" alt="">' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
@@ -131,11 +146,10 @@ function nopass(id) {
         contentType: "application/json",
         data: JSON.stringify(dd_wait),
         success: function (data) {
-            console.log('通过', data)
             if (data.errorCode == 0) {
                 alert('审核已拒绝！')
             } else {
-                alert('网络错误！')
+                alert('审核拒绝失败！')
             }
         }
     })
@@ -160,8 +174,12 @@ $.ajax({
         console.log('派单中需求列表', data)
         var needList = data.data.pageData.list;
         $.each(needList, function (index, item) {
-            var tags = item.tags;
             var id = item.id;
+            var tags = item.tags;
+            
+            var str=item.pics
+            var img=str.split(",");
+
             $("#paiData").append(
                 '<div class="col-md-4" id="tab-content">' +
                 '<div class="dd_tab_detail" data-toggle="modal" data-target="#sjModal">' +
@@ -186,8 +204,8 @@ $.ajax({
                 '</div>' +
                 '<!-- 抢单人员-模态框 -->' +
                 '<div class="dd_foot">' +
-                '<span style="border-right: 1px solid #dedede" onclick="rob(\'' + id + '\')" data-toggle="modal" data-target=".bs-example-modal-lg">抢单人员</span>' +
-                '<span onclick="rob_del(\'' + id + '\')">删除订单</span>' +
+                '<span style="border-right: 1px solid #dedede" id="rob_del" onclick="rob(\'' + id + '\',this)" data-toggle="modal" data-target=".bs-example-modal-lg">抢单人员</span>' +
+                '<span id="rob_del" onclick="rob_del(\'' + id + '\',this)">删除订单</span>' +
                 '</div>' +
                 '<!--订单更多资料-模态框-->' +
                 ' <!-- 商家更多资料 -->' +
@@ -195,7 +213,7 @@ $.ajax({
                 '<div class="modal-dialog" role="document">' +
                 '<div class="modal-content">' +
                 '<div class="modal-header">' +
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span  aria-hidden="true">&times;</span></button>' +
+                '<button type="button" class="close"  id="close" data-dismiss="modal" aria-label="Close"><span  aria-hidden="true">&times;</span></button>' +
                 '<h4 class="modal-title" id="myModalLabel">更多资料</h4>' +
                 '</div>' +
                 '<div class="modal-body">' +
@@ -225,7 +243,12 @@ $.ajax({
                 '</div>' +
                 '<div class="layui-col-md12">' +
                 '<p>商品图片：</p>' +
-                '<img style="width:98%" src="' + item.pics[0] + '" alt="">' +
+                '<img style="width:98%" src="' + img[0] + '" alt="">' +
+                '<img style="width:98%" src="' + img[1] + '" alt="">' +
+                '<img style="width:98%" src="' + img[2] + '" alt="">' +
+                '<img style="width:98%" src="' + img[3] + '" alt="">' +
+                '<img style="width:98%" src="' + img[4] + '" alt="">' +
+                '<img style="width:98%" src="' + img[5] + '" alt="">' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
@@ -240,7 +263,9 @@ $.ajax({
 })
 
 // 抢单人员
-function rob(id) {
+function rob(id,that) {
+    // $(that).attr('disabled',1)//按钮只能点击一次
+    $(that).css({background:"#1890FF",color:"white"})
     var rob_data = {
         'token': token,
         'id': id,
@@ -267,11 +292,19 @@ function rob(id) {
                     '</tr>'
                 )
             })
+            $(that).css({background:"#FAFAFA",color:"#333333"})
         }
     })
 }
-// 删除订单
-function rob_del(id) {
+
+// $("#rob_del").on('click', function () {
+//     $("#rob_del").removeClass("on");
+//     $(this).addClass("on");
+// })
+// 删除订单---------------------------------------------
+function rob_del(id,that) {
+    $(that).attr('disabled',1)//按钮只能点击一次
+    $(that).css({background:"#1890FF",color:"white"})
     var rob_del = {
         'token': token,
         'id': id
@@ -289,6 +322,7 @@ function rob_del(id) {
             }else{
                 alert("删除失败")
             }
+            window.location.reload()//实时刷新
         }
     })
 }
@@ -312,8 +346,12 @@ $.ajax({
         console.log('进行中列表', data)
         var needList = data.data.pageData.list;
         $.each(needList, function (index, item) {
-            var tags = item.tags;
             var id = item.id;
+            var tags = item.tags;
+            var tt=tags.split(",")
+            
+            var str=item.pics
+            var img=str.split(",");
             $("#unway").append(
                 '<div class="col-md-4" id="tab-content">' +
                 '<div class="dd_tab_detail" data-toggle="modal" data-target="#sjing">' +
@@ -337,8 +375,8 @@ $.ajax({
                 '</div>' +
                 '</div>' +
                 '<div class="dd_foot">' +
-                '<span style="border-right: 1px solid #dedede" onclick="ipass(\'' + id + '\')">恢复订单</span>' +
-                '<span onclick="noipass(\'' + id + '\')">结束订单</span>' +
+                '<span style="border-right: 1px solid #dedede" id="rob_del" onclick="ipass(\'' + id + '\')">恢复订单</span>' +
+                '<span id="rob_del" onclick="noipass(\'' + id + '\')">结束订单</span>' +
                 '</div>' +
                 '<!--订单更多资料-模态框-->' +
                 '<!-- 商家更多资料 -->' +
@@ -360,7 +398,7 @@ $.ajax({
                 '<div class="layui-col-md12">' +
                 '<p>' +
                 '需求标签：' +
-                '<span class="layui_span">' + item.tags + '</span>' +
+                '<span class="layui_span">' + tt[index] + '</span>' +
                 // '<span class="layui_span">三农</span>' +
                 // '<span class="layui_span">美女</span>' +
                 '</p>' +
@@ -379,7 +417,12 @@ $.ajax({
                 '</div>' +
                 '<div class="layui-col-md12">' +
                 '<p>商品图片：</p>' +
-                '<img style="width:98%" src="' + item.pics[0] + '" alt="">' +
+                '<img style="width:98%" src="' + img[0] + '" alt="">' +
+                '<img style="width:98%" src="' + img[1] + '" alt="">' +
+                '<img style="width:98%" src="' + img[2] + '" alt="">' +
+                '<img style="width:98%" src="' + img[3] + '" alt="">' +
+                '<img style="width:98%" src="' + img[4] + '" alt="">' +
+                '<img style="width:98%" src="' + img[5] + '" alt="">' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
@@ -415,6 +458,7 @@ function ipass(id){
 }
 // 进行中结束订单
 function noipass(id){
+
     var ing_data={
         'token':token,
         'id':id
@@ -438,7 +482,7 @@ function noipass(id){
 
 // 已完成列表展示
 var ipt = $("#dd_ipt").val();
-var need_data = {
+var fn_data = {
     'token': token,
     'pageNumber': 1,
     'pageSize': 5,
@@ -450,16 +494,19 @@ $.ajax({
     dataType: 'json',
     type: "post",
     contentType: "application/json",
-    data: JSON.stringify(need_data),
+    data: JSON.stringify(fn_data),
     success: function (data) {
         console.log('已完成列表', data)
-        var needList = data.data.pageData.list;
-        $.each(needList, function (index, item) {
-            var tags = item.tags;
+        var fiList = data.data.pageData.list;
+        $.each(fiList, function (index, item) {
             var id = item.id;
+            var tags = item.tags;
+            
+            var str=item.pics
+            var img=str.split(",");
             $("#finish").append(
                 '<div class="col-md-4" id="tab-content">' +
-                '<div class="dd_tab_detail" data-toggle="modal" data-target="#sjing">' +
+                '<div class="dd_tab_detail" data-toggle="modal" data-target="#sjachieve">' +
                 '<div class="dd_detail">' +
                 '<div class="dd_userImg">' +
                 '<img class="dd_img" src="' + item.headPic + '" alt="">' +
@@ -484,7 +531,7 @@ $.ajax({
                 '</div>' +
                 '<!--订单更多资料-模态框-->' +
                 '<!-- 商家更多资料 -->' +
-                '<div class="modal fade" id="sjing" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+                '<div class="modal fade" id="sjachieve" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
                 '<div class="modal-dialog" role="document">' +
                 '<div class="modal-content">' +
                 '<div class="modal-header">' +
@@ -511,17 +558,25 @@ $.ajax({
                 '<p>粉丝要求：<span class="dd_layui_span">' + item.fansNums + '</span></p>' +
                 '</div>' +
                 '<div class="layui-col-md12">' +
-                '<p>发布时间：<span class="dd_layui_span">' + item.createDate + '</span></p>' +
+                '<p>发布时间：<span class="dd_layui_span">' + item.approveDate + '</span></p>' +
                 '</div>' +
                 '<div class="layui-col-md12">' +
                 '<p>创建时间：<span class="dd_layui_span">' + item.createDate + '</span></p>' +
+                '</div>' +
+                '<div class="layui-col-md12">' +
+                '<p>完成时间：<span class="dd_layui_span">' + item.finshDate + '</span></p>' +
                 '</div>' +
                 '<div class="layui-col-md12">' +
                 '<p>订单编号：<span class="dd_layui_span">' + item.orderNo + '</span></p>' +
                 '</div>' +
                 '<div class="layui-col-md12">' +
                 '<p>商品图片：</p>' +
-                '<img style="width:98%" src="' + item.pics[0] + '" alt="">' +
+                '<img style="width:98%" src="' + img[0] + '" alt="">' +
+                '<img style="width:98%" src="' + img[1] + '" alt="">' +
+                '<img style="width:98%" src="' + img[2] + '" alt="">' +
+                '<img style="width:98%" src="' + img[3] + '" alt="">' +
+                '<img style="width:98%" src="' + img[4] + '" alt="">' +
+                '<img style="width:98%" src="' + img[5] + '" alt="">' +
                 '</div>' +
                 '</div>' +
                 '</div>' +

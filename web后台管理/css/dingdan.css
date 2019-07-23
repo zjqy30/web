@@ -1,3 +1,11 @@
+.on{
+    background: #1890FF;
+    color: white;
+}
+#rob_del:hover{
+    background: #1890FF;
+    color: white;
+}
 .dd_solid{
     width: 100%;
     border: 1px solid #dedede;
@@ -140,7 +148,7 @@
 .dd_foot>span{
     display: inline-block;
     text-align: center;
-    width: 49%;
+    width: 50%;
     height: 43px;
     cursor: pointer;
 }
@@ -149,6 +157,10 @@
     text-align: center;
     height: 43px;
     cursor: pointer;
+}
+#dd_foot_detail:hover{
+    background: #1980ff;
+    color: white;
 }
 
 /* 模态框 */
@@ -184,6 +196,7 @@
     border-radius: 2px 2px 2px 2px; 
     font-size: 12px;
     padding: 2px 5px;
+    margin: 1px;
 }
 .dd_layui_span{
     color: #333333;

@@ -19,6 +19,7 @@ $.ajax({
         // 循环获取数据
         $.each(list,function(index,item){
             var id=list[index].id
+            console.log(id)
             $("#serve_big").append(
                 '<div class="col-md-4" id="serve_content">'+
                 '<div class="serve_block_detail">'+
@@ -28,33 +29,36 @@ $.ajax({
                 '<p>最高单价：<span>'+item.maxPrice+'</span> </p>'+
                 '</div>'+
                 '<div class="serve_block_foot">'+
-                '<span id="serve_del" class="del">删除模板</span>'+
+                '<span id="serve_del" onclick="del(\''+id+'\')">删除模板</span>'+
                 '</div>'+
                 '</div>'
-            )
-            // 点击删除模板
-            $(".del").click(function(){
-                var del={
-                    'token':token,
-                    'id':id
-                }
-                $.ajax({
-                    url: globel + "/hone/backend/offerTemplate/del",
-                    dataType: 'json',
-                    type: "post",
-                    contentType: "application/json",
-                    data: JSON.stringify(del),
-                    success: function (data) {
-                        console.log('del'+data)
-                        // $("list")[index].remove()
-                        $("#serve_big")[id].remove()
-                    }
-                })
-            })
+            ) 
         })
     }
 })
-
+// 点击删除模板
+function del(id){
+    var del={
+        'token':token,
+        'id':id
+    }
+    $.ajax({
+        url: globel + "/hone/backend/offerTemplate/del",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(del),
+        success: function (data) {
+            console.log('del',data)
+            if(data.errorCode==0){
+                alert('删除成功！')
+            }else{
+                alert('删除失败！')
+            }
+            window.location.reload()//实时刷新
+        }
+    })
+}
 
 // 创建模板内容
 function must() {

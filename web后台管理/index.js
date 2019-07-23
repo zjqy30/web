@@ -2,7 +2,7 @@
 // 侧边栏的js
 var staut = 1
 function this_show(that) {
-    if(that == staut){
+    if (that == staut) {
         staut = 1;
         $(that).next("ul").hide(400)
         return false
@@ -14,7 +14,7 @@ function this_show(that) {
 
 //切换页面
 function target(str) {
-    str = str+'.html'
+    str = str + '.html'
     $('#target_main').html(window.templates[str]);
 }
 
@@ -29,13 +29,22 @@ $("#left_ul li ul li").on('click', function () {
     $(this).addClass("bgColor");
 })
 
-// 退出登陆
+// 登陆后用户信息展示
 var token = localStorage.getItem('token')
 var headPic = localStorage.getItem('headPic')
 var username = localStorage.getItem('username')
 var id = localStorage.getItem('id')
-
-function ligin_out(){
-    
+$("#login_out").append(
+    '<img src="'+(headPic?"images/hehua.jpg":headPic)+'" alt="">' +
+    '<p>'+username+'</p>' +
+    '<i class="fa fa-caret-down" aria-hidden="true"></i>'
+)
+// 退出登陆
+function ligin_out() {
+    var result = confirm("确定要退出吗？");
+    if (result) {
+        localStorage.clear()//清除所有缓存
+        window.open('login.html') //跳转页面
+    }
 }
 

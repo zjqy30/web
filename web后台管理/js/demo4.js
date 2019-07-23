@@ -28,7 +28,7 @@ $.ajax({
             var id = item.id;
             $("#sjData").append(
                 '<tr>' +
-                '<td><img src="' + item.headdPic + '" alt=""></td>' +
+                '<td><img src="' + item.headPic + '" alt=""></td>' +
                 '<td class="tabel_name">' + item.wxName + '</td>' +
                 '<td>' + (item.sex == 2 ? '女' : '男') + '</td>' +
                 '<td>' + item.industry + '</td>' +
