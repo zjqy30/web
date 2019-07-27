@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -15,14 +14,13 @@
     <link rel="stylesheet" href="css/refund.css">
     <link rel="stylesheet" href="css/labels.css">
     <link rel="stylesheet" href="css/sjStory.css">
+    <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="layui/css/layui.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- <script src="js/dingdan.js"></script> -->
-    <!-- <script src="js/cun.js"></script> -->
-    <!-- <script src="js/refund.js"></script> -->
+    <script src="js/news.js"></script>
     <style>
         .model {
             width: 633px;
@@ -42,6 +40,15 @@
         .bgColor {
             background: #1980ff;
         }
+
+        /* .active{
+            color: white;
+            background: #1980ff
+        } */
+        /* .on{
+            color: #333333;
+            background: white;
+        } */
     </style>
 </head>
 
@@ -84,11 +91,15 @@
                     </div>
                 </li>
                 <li>
-                    <div class="div_i left" onclick="target('Pure')">
+                    <div class="div_i left" onclick="this_show(this)">
                         <i class="fa fa-file-code-o" aria-hidden="true"></i>
-                        纯佣订单
-                        <i></i>
+                        纯佣管理
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </div>
+                    <ul>
+                        <li onclick="target('Pure')">订单审核</li>
+                        <li onclick="target('Pure_rob')">抢单管理</li>
+                    </ul>
                 </li>
                 <li>
                     <div class="div_i left" onclick="target('dings')">
@@ -182,40 +193,14 @@
                     <!-- 登录成功状态 -->
                     <div class="top_right">
                         <!-- 消息 -->
-                        <div class="login_big login_new">
+                        <div class="login_big login_new" id="news">
                             <div class="block" id="login-top">
                                 <i class="fa fa-bell-o" aria-hidden="true"></i>
-                                <div class="new">1</div>
+
                             </div>
                             <div class="login">
-                                <div class="login_body">
-                                    <div class="body_block">
-                                        <div class="body_img">
-                                            <img src="images/hehua.jpg" alt="">
-                                        </div>
-                                        <div class="body_text">
-                                            <p class="text_p1">有网红提交了审核快去看看吧</p>
-                                            <p class="text_p2">5分钟前</p>
-                                        </div>
-                                    </div>
-                                    <div class="body_block">
-                                        <div class="body_img">
-                                            <img src="images/hehua.jpg" alt="">
-                                        </div>
-                                        <div class="body_text">
-                                            <p class="text_p1">有网红提交了审核快去看看吧</p>
-                                            <p class="text_p2">5分钟前</p>
-                                        </div>
-                                    </div>
-                                    <div class="body_block">
-                                        <div class="body_img">
-                                            <img src="images/hehua.jpg" alt="">
-                                        </div>
-                                        <div class="body_text">
-                                            <p class="text_p1">有网红提交了审核快去看看吧</p>
-                                            <p class="text_p2">5分钟前</p>
-                                        </div>
-                                    </div>
+                                <div class="login_body" id="new_body">
+                                    <!-- 消息内容 -->
                                 </div>
                             </div>
                         </div>
@@ -235,103 +220,117 @@
                     </div>
                 </div>
             </div>
-
             <!-- 这是网页主内容区域 -->
             <div class="main_content">
                 <div id="target_main">
                     <!-- ----------------------------------- -->
-                    <div class="wh_content">
-                        <!-- 查询 -->
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="exampleInputName2">平台：</label>
-                                <input type="text" class="form-control" id="ipt_platName" placeholder="请输入">
+                    <!-- 纯佣订单 -->
+                    <!-- <link rel="stylesheet" href="../css/dingdan.css">
+                    <script src="../js/cun.js"></script> -->
+                    <div class="dd_solid"></div>
+                    <div class="dd_content">
+                        <div class="dd_top">
+                            <p class="dd_text">搜索订单</p>
+                            <div class="input-group" id="input_group">
+                                <input type="text" class="form-control" placeholder="请输入"
+                                    aria-describedby="basic-addon2" id="cun_ipt" style="height: 49px">
+                                <span class="input-group-addon" id="basic-addon2">搜索</span>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail2">名字：</label>
-                                <input type="text" class="form-control" id="ipt_wxName" placeholder="请输入">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist" id="dd_ul">
+                                <li role="presentation" class="tabbar active" tabtype='PY'><a href="#home"
+                                        aria-controls="home" role="tab" data-toggle="tab">待审核</a></li>
+                                <li role="presentation" class="tabbar" tabtype='AP'><a href="#profile"
+                                        aria-controls="profile" role="tab" data-toggle="tab">派单中</a></li>
+                                <li role="presentation" class="tabbar" tabtype='FN'><a href="#settings"
+                                        aria-controls="settings" role="tab" data-toggle="tab">已完成</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <!-- 待审核 -->
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <div class="row" style="margin: 0" id="homeData">
+                                    <!-- 待审核内容 -->
+                                </div>
+                                <!-- 分页 -->
+                                <div class="my-btn-box">
+                                    <span class="fr">
+                                        <a href="javascript:">
+                                            <button
+                                                class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                                        </a>
+                                        <span id="span"><span id="currPage1">1</span>/<span id="allPage1"></span></span>
+                                        <a href="javascript:">
+                                            <button
+                                                class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                                        </a>
+                                    </span>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="name">性别：</label>
-                                <input type="text" class="form-control" id="ipt_sex" placeholder="请输入">
+                            <!-- 派单中 -->
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <div class="row" style="margin: 0" id="profileData">
+                                    <!-- 派单中 -->
+                                </div>
+                                <!-- 分页 -->
+                                <div class="my-btn-box">
+                                    <span class="fr">
+                                        <a href="javascript:">
+                                            <button
+                                                class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                                        </a>
+                                        <span id="span"><span id="currPage2">1</span>/<span id="allPage2"></span></span>
+                                        <a href="javascript:">
+                                            <button
+                                                class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                                        </a>
+                                    </span>
+                                </div>
                             </div>
-                            <button type="button" class="btn btn-default" style="color: white;
-                    background: #1890FF">查询</button>
-                        </form>
-                        <!-- 网红人员列表 -->
-                        <table class="wh_table">
-                            <thead>
-                                <tr class="tr_heard">
-                                    <th></th>
-                                    <th>姓名</th>
-                                    <th>平台</th>
-                                    <th>性别</th>
-                                    <th>粉丝数量</th>
-                                    <th>入驻时间</th>
-                                    <th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody id="red_tbody">
-                                <!-- 表格内容 -->
-                            </tbody>
-                        </table>
-                        <!-- 网红人员更多资料-模态框 Modal -->
-                        <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                            style="z-index: 10">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                                aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>
-                                    </div>
-                                    <div class="modal-body" id="more">
-                                        <div class="layui-row" id="row">
-                                            <!-- 内容 -->
-                                        </div>
-                                    </div>
-                                    <!--  -->
+                            <!-- 已完成 -->
+                            <div role="tabpanel" class="tab-pane" id="settings">
+                                <div class="row" style="margin: 0" id="settingsData">
+                                    <!-- 已完成 -->
+                                </div>
+                                <!-- 分页 -->
+                                <div class="my-btn-box">
+                                    <span class="fr">
+                                        <a href="javascript:">
+                                            <button
+                                                class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                                        </a>
+                                        <span id="span"><span id="currPage3">1</span>/<span id="allPage3"></span></span>
+                                        <a href="javascript:">
+                                            <button
+                                                class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                                        </a>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <!-- 二级模态框 整个模态框要跟第一个模态框同级 Modal -->
-                        <div class="modal fade model" id="myModal1" tabindex="1" role="dialog" aria-labelledby="myModalLabel"
-                            style="z-index: 100">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    
-                                        <h4 class="modal-title" id="myModalLabel">查看大图</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="more_cardID">
-                                            <P class="cardText">查看大图:</P>
-                                            <img src="images/hehua.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 模态框-完 -->
-                        <!-- 分页 -->
-                        <div id="demo2-1"></div>
                     </div>
+
                     <!-- ----------------------------------- -->
                 </div>
             </div>
-            <!--右侧主题内容结束-->
         </div>
+        <!--右侧主题内容结束-->
+    </div>
 </body>
 <script type='text/javaScript'></script>
 <script src="html.js"></script>
 <script src="index.js"></script>
+<!-- <script src="js/dingdan.js"></script> -->
+<script src="js/cun.js"></script>
+<!-- <script src="js/refund.js"></script> -->
+<!-- <script src="js/pure_rob.js"></script> -->
+<!-- <script src="js/dings.js"></script> -->
 <!-- <script src="js/demo4.js"></script> -->
 <!-- <script src="js/demo3.js"></script> -->
-<script src="js/demo2.js"></script>
+<!-- <script src="js/demo2.js"></script> -->
 <!-- <script src="js/demo1.js"></script> -->
 <!-- <script src="js/banner.js"></script> -->
 <!-- <script src="js/sjindex.js"></script> -->
@@ -339,44 +338,8 @@
 <!-- <script src="js/red.js"></script> -->
 <!-- <script src="js/serveType.js"></script> -->
 <!-- <script src="js/serve.js"></script> -->
-<!-- <script src="js/labels.js"></script>  -->
+<!-- <script src="js/labels.js"></script> -->
 <!-- <script src="js/product.js"></script> -->
 <!-- <script src="js/announcement.js"></script> -->
 <script src="layui/layui.all.js"></script>
-<script>
-
-    // 网红审核-分页
-    layui.use(['laypage', 'layer'], function () {
-        var laypage = layui.laypage;
-        layer = layui.layer;
-        laypage.render({
-            elem: 'demo2-1',
-            count: 100,
-            theme: '#1890FF'
-        })
-    })
-
-    // 标签上传图片
-    // ipt.onchange = function () {
-    //     // console.log(this.files[0])
-    //     var F = new FileReader();
-    //     F.readAsDataURL(this.files[0]);
-    //     F.onload = function () {
-    //         labes_img.src = F.result;
-    //         labes_img.style.display = "block";
-    //     }
-    // }
-
-    // 轮播图上传图片
-    // $("#addimg_input").onchange = function () {
-    //     // console.log(this.files[0])
-    //     var F = new FileReader();
-    //     F.readAsDataURL(this.files[0]);
-    //     F.onload = function () {
-    //         banner_imgs.src = F.result;
-    //         banner_imgs.style.display = "block"
-    //     }
-    // }
-</script>
-
 </html>

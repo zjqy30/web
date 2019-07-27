@@ -12,12 +12,15 @@
         </div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist" id="dd_ul">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+            <li role="presentation" class="tabbar active" tabtype='PY'><a href="#home" aria-controls="home" role="tab"
                     data-toggle="tab">待审核</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">派单中</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">进行中</a>
+            <li role="presentation" class="tabbar" tabtype='AP'><a href="#profile" aria-controls="profile" role="tab"
+                    data-toggle="tab">派单中</a></li>
+            <li role="presentation" class="tabbar" tabtype='LK'><a href="#messages" aria-controls="messages" role="tab"
+                    data-toggle="tab">进行中</a>
             </li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">已完成</a>
+            <li role="presentation" class="tabbar" tabtype='FN'><a href="#settings" aria-controls="settings" role="tab"
+                    data-toggle="tab">已完成</a>
             </li>
         </ul>
 
@@ -28,6 +31,18 @@
         <div role="tabpanel" class="tab-pane active" id="home">
             <div class="row" style="margin: 0" id="needData">
                 <!-- 待审核内容 -->
+            </div>
+            <!-- 分页 -->
+            <div class="my-btn-box">
+                <span class="fr">
+                    <a href="javascript:">
+                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                    </a>
+                    <span id="span"><span id="currPage1">1</span>/<span id="allPage1"></span></span>
+                    <a href="javascript:">
+                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                    </a>
+                </span>
             </div>
         </div>
         <!-- 派单中 -->
@@ -48,10 +63,20 @@
                                     <!-- 抢单人员 -->
                                 </tbody>
                             </table>
-                            <!-- <div id="demo2-1"></div> -->
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="my-btn-box">
+                <span class="fr">
+                    <a href="javascript:">
+                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                    </a>
+                    <span id="span"><span id="currPage2">1</span>/<span id="allPage2"></span></span>
+                    <a href="javascript:">
+                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                    </a>
+                </span>
             </div>
         </div>
         <!-- 进行中 -->
@@ -87,11 +112,33 @@
                     <!--订单更多资料-模态框-->
                 </div>
             </div>
+            <div class="my-btn-box">
+                <span class="fr">
+                    <a href="javascript:">
+                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                    </a>
+                    <span id="span"><span id="currPage3">1</span>/<span id="allPage3"></span></span>
+                    <a href="javascript:">
+                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                    </a>
+                </span>
+            </div>
         </div>
         <!-- 已完成 -->
         <div role="tabpanel" class="tab-pane" id="settings">
             <div class="row" style="margin: 0" id="finish">
                 <!--已完成-->
+            </div>
+            <div class="my-btn-box">
+                <span class="fr">
+                    <a href="javascript:">
+                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                    </a>
+                    <span id="span"><span id="currPage4">1</span>/<span id="allPage4"></span></span>
+                    <a href="javascript:">
+                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                    </a>
+                </span>
             </div>
         </div>
     </div>

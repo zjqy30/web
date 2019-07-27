@@ -10,12 +10,13 @@
             <div class="form-group" id="ds_modal_center">
                 <label for="inputEmail3" class="col-sm-3 control-label">选择类型：</label>
                 <div class="col-sm-9">
-                    <select class="form-control" style="width: 68%" id="banner_select">
-                        <option>请选择</option>
-                        <option>轮播图</option>
-                        <option>H5链接</option>
-                        <option>富文本</option>
-                    </select>
+                    <input type="text" class="form-control" id="lb" placeholder="请输入" style="width: 68%">
+                    <!-- <select class="form-control" style="width: 68%" id="banner_select">
+                            <option>请选择</option>
+                            <option id="lb">轮播图</option>
+                            <option>H5链接</option>
+                            <option>富文本</option>
+                        </select> -->
                 </div>
             </div>
             <div class="form-group" id="ds_modal_center">
@@ -33,7 +34,7 @@
                 </div>
             </div>
             <div class="form-group" id="ds_modal_center">
-                <div class="col-sm-offset-2 col-sm-10">
+                <div class="col-sm-10" style="text-align: center;">
                     <button type="button" class="btn btn-default" onclick="banner_success()"
                         style="background: #1890FF;color: white;">生成</button>
                 </div>
@@ -45,28 +46,17 @@
         <div role="tabpanel" class="tab-pane">
             <div class="row" style="margin: 0" id="banner_list">
                 <!-- 小块 -->
-                <div class="col-md-4" id="banner_content">
-                    <div class="banner_number">0</div>
-                    <div class="banner_block_detail">
-                        <img src="images/hehua.jpg" alt="">
-                    </div>
-                    <div class="banner_block_foot">
-                        <span id="banner_del">删除</span>
-                    </div>
-                </div>
+                <!-- <div class="col-md-4" id="banner_content">
+                        <div class="banner_number">0</div>
+                        <div class="banner_block_detail">
+                            <img src="images/hehua.jpg" alt="">
+                        </div>
+                        <div class="banner_block_foot">
+                            <span id="banner_del">删除</span>
+                        </div>
+                    </div> -->
 
             </div>
         </div>
     </div>
 </div>
-<script>
-    addimg_input.onchange = function () {
-        // console.log(this.files[0])
-        var F = new FileReader();
-        F.readAsDataURL(this.files[0]);
-        F.onload = function () {
-            banner_imgs.src = F.result;
-            banner_imgs.style.display = "block"
-        }
-    }
-</script>

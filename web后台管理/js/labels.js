@@ -31,43 +31,10 @@ $.ajax({
                     '</div>'
                 )
             })
-
-        }
-        // 创建网红标签
-        var labels_input = document.getElementById('inputEmail3');
-        var labels_btn = document.getElementById('labels_btn');
-        // 点击生成标签
-        labels_btn.onclick = function () {
-            // 获取输入框的值
-            var iptValue = labels_input.value;
-            if (iptValue == "" || iptValue == null) {
-                alert('标签不能为空！')
-            } else {
-                // 要传的参数
-                var creat = {
-                    'token': token,
-                    'dictType': 'label',
-                    'dictValue': iptValue
-                }
-                $.ajax({
-                    url: globel + "/hone/backend/dict/create",
-                    dataType: 'json',
-                    type: "post",
-                    contentType: "application/json",
-                    data: JSON.stringify(creat),
-                    success: function (data) {
-                        if (data.errorCode == 0) {
-                            alert("标签创建成功！")
-                        } else {
-                            alert("标签创建失败！")
-                        }
-                        window.location.reload()//实时刷新
-                    },
-                    err: function () {
-                        console.log('网络错误！')
-                    }
-                });
-            }
+        } else {
+            $("#labels_row").append(
+                '<div class="col-md-2" id="labels_content">还没有数据呢</div>'
+            )
         }
     }
 })
@@ -112,109 +79,137 @@ $.ajax({
         console.log('网红平台列表', data)
         var list = data.data.dictList;
         $.each(list, function (index, item) {
-            var id=item.id
+            var id = item.id
             $("#labels_red").append(
                 '<div class="col-md-2" id="labels_content2">' +
                 '<div class="form-group">' +
                 '<div class="labes_div_img">' +
-                '<span class="labes_span_img"><img src=' + item.dictPic + ' alt=""></span>' + 
-                '<input type="file" class="labels_input" onchange=ipt(\''+id+'\',this) >' +
-                '<img class="labes_img" src="" alt="" id="labes_img">' +
+                '<input type="file" class="labels_input" id="picture" name="'+id+'">' + //onclick="picture(\'' + id + '\')" 
+                '<img class="labes_img" src="' + item.dictPic + '" id="labes_img">' +
                 '</div>' +
                 '<p class="help-block">' + item.dictValue + '</p>' +
                 '</div>' +
                 '</div>'
             )
         })
-        // 创建网红平台
-        labels_btn.onclick = function () {
-            var whplat = $("#inputEmail3").val();
-            var plat = {
-                'token': token,
-                'dictType': 'platType',
-                'dictValue': whplat
-            }
-            $.ajax({
-                url: globel + "/hone/backend/dict/create",
-                dataType: 'json',
-                type: "post",
-                contentType: "application/json",
-                data: JSON.stringify(plat),
-                success: function (data) {
-                    console.log('网红平台',data)
-                    if (data.errorCode == 0) {
-                        alert("标签创建成功！")
-                    } else {
-                        alert("标签创建失败！")
-                    }
-                    window.location.reload()//实时刷新
-                },
-                err: function () {
-                    console.log('网络错误！')
-                }
-            });
-        }
+        // 循环标签找到文件流
+        $('.labels_input').each(function(e){
+            console.log(1234)
+            $(this).change(function(){
+            var url = $(this)[0].files[0];
+            getImgUrl(url,this);
+        })
+        })
+
     }
 })
-// 更换照片
-//  onclick=chan(\''+id+'\')
-// function chan(id){
-//     var huan={
-//         'token':token,
-//         'id':id,
-//         'pic':'../images/hehua.jpg'
-//     }
-//     $.ajax({
-//         url: globel + "/hone/backend/dict/updatePic",
-//         dataType: 'json',
-//         type: "post",
-//         contentType: "application/json",
-//         data: JSON.stringify(huan),
-//         success: function (data) {
-//             console.log('更换照片', data)
-        
-//         }
-//     })
-// }
-// 标签上传图片
-    // $("#ipt").onchange = function () {
-    //     // console.log(this.files[0])
-    //     var F = new FileReader();
-    //     F.readAsDataURL(this.files[0]);
-    //     F.onload = function () {
-    //         labes_img.src = F.result;
-    //         labes_img.style.display = "block";
-    //     }
-    // }
-    function ipt(id,event){
-        var id=id;
-        var file=event.target.file[0]
-        console.log(file)
-        if (window.FileReader) {
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            //监听文件读取结束后事件
-            reader.onloadend = function (e) {
-                labes_img.style.display = "block";
-                // $("#"+num).css("display","block");
-                $("#"+num).attr("src",e.target.result);    //e.target.result就是最后的路径地址
+//点击上传图片：步骤1.上传图片
+function getImgUrl(url,thisDom){
+    var formData = new FormData();
+     formData.append("file",url);
+     $.ajax({
+         url:globel+'/hone/applet/cos/uploadFile', /*接口域名地址*/
+         type:'post',
+         data: formData,
+         contentType: false,
+         processData: false,
+         success:function(res){
+             console.log(res.data);
+             if(res.errorCode == '0'){
+                 console.log(res.data.fileName);
+                 var imgpic=res.data.fileName
+                 $(thisDom).siblings('img').prop('src',res.data.fileName)
+                var id=$(thisDom).attr("name")
+                 picture(id,imgpic)
+             }
+ 
+         }
+     })
+ }
+//步骤2.自动更换图片 
+function picture(id,imgpic) {
+    console.log(12)
+    var huan = {
+        'token': token,
+        'id': id,
+        'pic': imgpic
+    }
+    console.log(111)
+    $.ajax({
+        url: globel + "/hone/backend/dict/updatePic",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(huan),
+        success: function (data) {
+            console.log('更换照片', data)
+
+        }
+    })
+}
+
+// 创建标签
+$("#labels_btn").click(function () {
+    $(".tab-pane").each(function (e, ele) {
+        console.log(e);
+        if ($(this).hasClass('active')) {
+            var type = $(this).attr('type');
+            if (type == '1') {
+                var whplat = $("#inputEmail3").val();
+                var plat = {
+                    'token': token,
+                    'dictType': 'label',
+                    'dictValue': whplat
+                }
+                $.ajax({
+                    url: globel + "/hone/backend/dict/create",
+                    dataType: 'json',
+                    type: "post",
+                    contentType: "application/json",
+                    data: JSON.stringify(plat),
+                    success: function (data) {
+                        console.log('网红标签', data)
+                        if (data.errorCode == 0) {
+                            alert("网红标签创建成功！")
+                        } else {
+                            alert("网红标签创建失败！")
+                        }
+                        window.location.reload()//实时刷新
+                    },
+                    err: function (data) {
+                        console.log(data)
+                    }
+                });
+            } else {
+                var whplat = $("#inputEmail3").val();
+                var plat = {
+                    'token': token,
+                    'dictType': 'platType',
+                    'dictValue': whplat
+                }
+                $.ajax({
+                    url: globel + "/hone/backend/dict/create",
+                    dataType: 'json',
+                    type: "post",
+                    contentType: "application/json",
+                    data: JSON.stringify(plat),
+                    success: function (data) {
+                        console.log('网红平台', data)
+                        if (data.errorCode == 0) {
+                            alert("网红平台创建成功！")
+                        } else {
+                            alert("网红平台创建失败！")
+                        }
+                        window.location.reload()//实时刷新
+                    },
+                    err: function (data) {
+                        console.log(data)
+                    }
+                });
             }
         }
-    }
-    // function l(evn){
-    //     var id = $(evn).attr('id');//获取id
-    //     var num = id+"_1";
-    //     var file = event.target.files[0];
-    //     if (window.FileReader) {
-    //         var reader = new FileReader();
-    //         reader.readAsDataURL(file);
-    //         //监听文件读取结束后事件
-    //         reader.onloadend = function (e) {
-           
-    //             $("#"+num).css("display","block");
-    //             $("#"+num).attr("src",e.target.result);    //e.target.result就是最后的路径地址
-    //         };
-    //     }
-    // }
+    })
+
+});
 
 

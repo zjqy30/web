@@ -31,11 +31,12 @@ $("#left_ul li ul li").on('click', function () {
 
 // 登陆后用户信息展示
 var token = localStorage.getItem('token')
-var headPic = localStorage.getItem('headPic')
+var headPic=localStorage.getItem("headPic")
 var username = localStorage.getItem('username')
 var id = localStorage.getItem('id')
+
 $("#login_out").append(
-    '<img src="'+(headPic?"images/hehua.jpg":headPic)+'" alt="">' +
+    '<img src="'+(headPic?headPic:images/hehua.jpg)+'" alt="">' +
     '<p>'+username+'</p>' +
     '<i class="fa fa-caret-down" aria-hidden="true"></i>'
 )

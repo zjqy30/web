@@ -4,7 +4,7 @@
     <!-- 查询 -->
     <form class="form-inline">
         <div class="form-group">
-            <label for="exampleInputName2">平台：</label>
+            <label for="exampleInputName2">所属行业：</label>
             <input type="text" class="form-control" id="sj_platName" placeholder="请输入">
         </div>
         <div class="form-group">
@@ -15,12 +15,12 @@
             <label for="name">名字：</label>
             <input type="text" class="form-control" id="sj_wxName" placeholder="请输入">
         </div>
-        <button type="submit" class="btn btn-default" style="color: white;
-background: #1890FF">查询</button>
+        <button type="button" class="btn btn-default" style="color: white;
+background: #1890FF" onclick="sj_seach(page)">查询</button>
     </form>
     <!-- 网红人员列表 -->
     <div class="divs">
-        <table class="wh_table">
+        <table class="wh_table" id="content">
             <thead>
                 <tr class="tr_heard">
                     <th></th>
@@ -79,5 +79,22 @@ background: #1890FF">查询</button>
     </div>
     <!-- 模态框-完 -->
     <!-- 分页 -->
-    <div id="demo2-1"></div>
+    <div class="my-btn-box">
+        <span class="fr">
+            <!-- 这里是分页，传入的参数page在下面的js中有定义 -->
+            <a href="javascript:" onclick="goodstable(1)">
+                <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>
+            </a>
+            <a href="javascript:" onclick="goodstable(page-1)">
+                <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>
+            </a>
+            <span id="span">/</span>
+            <a href="javascript:" onclick="goodstable(page+1)">
+                <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>
+            </a>
+            <!-- <a href="javascript:" onclick="goodstable(pageToti)">
+                <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>
+            </a> -->
+        </span>
+    </div>
 </div>

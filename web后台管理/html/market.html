@@ -39,7 +39,24 @@
             </table>
         </div>
         <!-- 分页 -->
-        <div id="demo2-1"></div>
+        <div class="my-btn-box">
+            <span class="fr">
+                <!-- 这里是分页，传入的参数page在下面的js中有定义 -->
+                <a href="javascript:" onclick="goodstable(1)">
+                    <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>
+                </a>
+                <a href="javascript:" onclick="goodstable(page-1)">
+                    <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>
+                </a>
+                <span id="span">/</span>
+                <a href="javascript:" onclick="goodstable(page+1)">
+                    <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>
+                </a>
+                <!-- <a href="javascript:" onclick="goodstable(pageToti)">
+                    <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>
+                </a> -->
+            </span>
+        </div>
         <!-- 邀请人员-模态框 -->
         <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             style="z-index: 10">
@@ -60,7 +77,24 @@
                         </div>
 
                         <!-- 分页 -->
-                        <!-- <div id="demo2-1"></div> -->
+                        <!-- <div class="my-btn-box">
+                            <span class="fr">
+                                这里是分页，传入的参数page在下面的js中有定义
+                                <a href="javascript:" onclick="please(1)">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>
+                                </a>
+                                <a href="javascript:" onclick="please(page-1)">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>
+                                </a>
+                                <span id="span">/</span>
+                                <a href="javascript:" onclick="please(page+1)">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>
+                                </a>
+                                <a href="javascript:" onclick="goodstable(pageToti)">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>
+                                </a>
+                            </span>
+                        </div> -->
                     </div>
                 </div>
             </div>

@@ -74,7 +74,7 @@
     transform: translate(-50%);
     border: 1px solid #dedede;
     position: relative;
-    border-radius: 10px; 
+    border-radius: 20px; 
 }
 .labes_span_img{
     position: absolute;
@@ -89,6 +89,7 @@
     width: 60px;
     height: 60px;
     opacity: 0;
+    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
@@ -96,11 +97,11 @@
 
 .labes_img{
     /* margin-left: -15px; */
-    width: 100%;
+    /* width: 100%;
     height: 100%;
-    z-index: 30;
+    z-index: 30; */
     position: absolute;
-    display: none;
+    /* display: none; */
 }
 /* #exampleInputFile{
     margin-left: -100px;
@@ -110,6 +111,7 @@
    font-weight: bold;
    color: #333333;
    text-align: center;
+   /* margin-left: 37%; */
    padding-top: 8%; 
 }
 
@@ -148,13 +150,13 @@
 .banner_top{
     background: white;
     width: 100%;
-    height: 540px;
+    height: 520px;
     padding: 1%;
 }
 .banner_foot{
     margin: 1% 1.5%;
     width: 100%;
-    height: 500px;
+    height: 370px;
     overflow-x: hidden;
     overflow-y: auto;
 }

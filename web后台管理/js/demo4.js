@@ -2,16 +2,18 @@ var globel = 'http://192.168.0.166:8080';
 var token = localStorage.getItem('token')
 
 // 获取商家人员列表
-var sj_platName = $("#sj_platName").val();
+var sj_industry = $("#sj_platName").val();
 var sj_sex = $("#sj_sex").val();
 var sj_wxName = $("#sj_wxName").val();
+var page = page ? page : 1;
+var pageSize = 7;
 
-var sj_data={
-    'token':token,
-    'pageNumber': 1,//页数
-    'pageSize': 6,//页面值
+var sj_data = {
+    'token': token,
+    'pageNumber': page,//页数
+    'pageSize': pageSize,//页面值
     'orderBy': 'createDate desc',
-    'platName': sj_platName,//平台名
+    'industry': sj_industry,//平台名
     'wxName': sj_wxName,
     'sex': sj_sex
 }
@@ -54,7 +56,7 @@ function red_more(id) {
         type: "post",
         contentType: "application/json",
         data: JSON.stringify(more),
-        success: function (data) { 
+        success: function (data) {
             console.log('网红详情列表', data)
             var list = data.data.userInfo;
             console.log(list)
@@ -126,16 +128,16 @@ function red_more(id) {
                 '</div>' +
                 '</div>'
             )
-            
+
         }
     })
 }
 // 删除资料（可以刷新，但是是全局，不是仅仅当前页面）
-function red_del(id){
+function red_del(id) {
     console.log(123)
-    var del={
-        'token':token,
-        'appletUserId':id
+    var del = {
+        'token': token,
+        'appletUserId': id
     }
     $.ajax({
         url: globel + "/hone/backend/userBasic/delUser",
@@ -146,6 +148,123 @@ function red_del(id){
         success: function (data) {
             console.log('删除资料', data)
             window.location.reload()//实时刷新
+        }
+    })
+}
+
+
+// 分页
+var sj_industry = $("#sj_platName").val();
+var sj_sex = $("#sj_sex").val();
+var sj_wxName = $("#sj_wxName").val();
+var page = page ? page : 1;
+var pageSize = 7;
+
+function goodstable(p) {
+    var sj_data = {
+        'token': token,
+        'pageNumber': page,//页数
+        'pageSize': pageSize,//页面值
+        'orderBy': 'createDate desc',
+        'industry': sj_industry,//平台名
+        'wxName': sj_wxName,
+        'sex': sj_sex
+    }
+    page = p
+    $.ajax({
+        url: globel + "/hone/backend/userBasic/seller/list",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(sj_data),
+        success: function (data) {
+            console.log('分页', data)
+            // 总条数
+            var totalCount = data.data.pageData.totalCount;
+            var list = data.data.pageData.list;
+            //  页数
+            pageToti = Math.ceil(totalCount / pageSize);
+            console.log(pageToti);
+
+            if (p >= 0 && p <= pageToti + 1) {
+                p = 1
+                // 添加页数
+                document.getElementById("span").innerHTML = page + "/" + pageToti;
+                $("#content").find("tbody").empty()
+                $.each(list, function (index, item) {
+                    var id = item.id;
+                    $("#sjData").append(
+                        '<tr>' +
+                        '<td><img src="' + item.headPic + '" alt=""></td>' +
+                        '<td class="tabel_name">' + item.wxName + '</td>' +
+                        '<td>' + (item.sex == 2 ? '女' : '男') + '</td>' +
+                        '<td>' + item.industry + '</td>' +
+                        '<td>' + item.createDate + '</td>' +
+                        '<td>' +
+                        '<button class="wh_table_btn right" onclick="red_more(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">更多资料</button>' +
+                        '<button class="wh_table_btn" onclick="red_del(\'' + id + '\')">删除资料</button>' +
+                        '</td>' +
+                        '</tr> '
+                    )
+                })
+            }
+        }
+    })
+}
+
+
+
+// 查询
+function sj_seach(p) {
+    var sj_industry = $("#sj_platName").val();
+    var sj_sex = $("#sj_sex").val();
+    var sj_wxName = $("#sj_wxName").val();
+    var sex = sj_sex == '女' ? '2' : '1'
+    var sj_data = {
+        'token': token,
+        'pageNumber': page,//页数
+        'pageSize': pageSize,//页面值
+        'orderBy': 'createDate desc',
+        'industry': sj_industry,//行业
+        'wxName': sj_wxName,
+        'sex': sex
+    }
+    page=p
+    $.ajax({
+        url: globel + "/hone/backend/userBasic/seller/list",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(sj_data),
+        success: function (data) {
+            console.log('cc', data)
+            // 总条数
+            var totalCount = data.data.pageData.totalCount;
+             //  页数
+            pageToti = Math.ceil(totalCount / pageSize);
+            var list = data.data.pageData.list;
+            if (p >= 0 && p <= pageToti + 1) {
+                //  页数
+             pageToti = Math.ceil(totalCount / pageSize);
+                $("#content").find("tbody").empty()
+                $.each(list, function (index, item) {
+                    var id = item.id;
+                    $("#sjData").append(
+                        '<tr>' +
+                        '<td><img src="' + item.headPic + '" alt=""></td>' +
+                        '<td class="tabel_name">' + item.wxName + '</td>' +
+                        '<td>' + (item.sex == 2 ? '女' : '男') + '</td>' +
+                        '<td>' + item.industry + '</td>' +
+                        '<td>' + item.createDate + '</td>' +
+                        '<td>' +
+                        '<button class="wh_table_btn right" onclick="red_more(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">更多资料</button>' +
+                        '<button class="wh_table_btn" onclick="red_del(\'' + id + '\')">删除资料</button>' +
+                        '</td>' +
+                        '</tr> '
+                    )
+                })
+            }
+            // window.location.reload()//需要手动刷新
         }
     })
 }

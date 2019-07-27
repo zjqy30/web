@@ -5,7 +5,7 @@ var token = localStorage.getItem('token')
 var red_data={
     'token':token,
     'pageNumber':1,
-    'pageSize':10
+    'pageSize':100
 }
 $.ajax({
     url: globel + "/hone/backend/userBasic/starApproveList",
@@ -171,7 +171,12 @@ $.ajax({
                     data: JSON.stringify(pass_data),
                     success: function (data) {
                         console.log('审核通过',data)
-                        alert("审核通过")
+                        if(data.errorCode==0){
+                            alert("审核通过")
+                        }else{
+                            alert("审核未通过")
+                        }
+                        window.location.reload();
                     }
                 })
             })
@@ -190,8 +195,13 @@ $.ajax({
                     contentType: "application/json",
                     data: JSON.stringify(nopass_data),
                     success: function (data) {
-                        console.log('审核未通过',data)
-                        alert("审核未通过")
+                        console.log('拒绝',data)
+                        if(data.errorCode==0){
+                            alert("审核已拒绝")
+                        }else{
+                            alert("审核拒绝失败")
+                        }
+                        // window.location.reload();
                     }
                     
                 })

@@ -1,12 +1,13 @@
 var globel = 'http://192.168.0.166:8080';
 var token = localStorage.getItem('token')
 
-// 页数没写
 // 获取销售人员列表
+var page = page ? page : 1;
+var pageSize = '7'
 var type_data = {
     'token': token,
-    'pageNumber': 1,//页数
-    'pageSize': 15 //页面值
+    'pageNumber': page,//页数
+    'pageSize': pageSize //页面值
 }
 $.ajax({
     url: globel + "/hone/backend/marketer/list",
@@ -37,13 +38,65 @@ $.ajax({
         })
     }
 })
+// 分页
+var page = page ? page : 1;
+var pageSize = '7'
+function goodstable(p) {
+    var type_data = {
+        'token': token,
+        'pageNumber': page,//页数
+        'pageSize': pageSize //页面值
+    }
+    page = p;
+    $.ajax({
+        url: globel + "/hone/backend/marketer/list",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(type_data),
+        success: function (data) {
+            console.log(data)
+            // 总条数
+            var totalCount = data.data.pageData.totalCount;
+            var list = data.data.pageData.list;
+            pageToti = Math.ceil(totalCount / pageSize);
+            console.log(pageToti)
+            
+            if (p >= 0 && p <= pageToti+1) {
+                p=1
+                // 添加页数
+                document.getElementById("span").innerHTML = page + "/" + pageToti;
+                $("#red_ti").find("tr").empty()
+                //  $("#red_ti tr").remove();
+                $.each(list, function (index, item) {
+                    var id = list[index].id
+                    $("#red_ti").append(
+                        '<tr>' +
+                        '<td><img src="images/hehua.jpg" alt=""></td>' +
+                        '<td class="market_name">' + item.marketName + '</td>' +
+                        '<td>男</td>' +
+                        '<td>' + item.inviteNums + '</td>' +
+                        '<td>' + item.userCode + '</td>' +
+                        // '<td><img src="'+item.qrcodeUrl+'" alt=""></td>' +
+                        '<td class="market_btn" style="color:#1890ff;">' + item.qrcodeUrl + '</td>' +
+                        '<td>' +
+                        '<button class="market_table_btn right" onclick="please(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">邀请人员</button>' +
+                        '<button class="market_table_btn" onclick="market_del(\'' + id + '\')">删除资料</button>' +
+                        ' </td>' +
+                        '</tr>'
+                    )
+                })
+            }
+        }
+    })
+}
 //点击弹出邀请人员
 function please(id) {
     var market_data = {
         'token': token,
         'marketerId': id,
-        'pageNumber': '1',
-        'pageSize': '10'
+        'pageNumber': page,
+        'pageSize': pageSize
 
     }
     $.ajax({
@@ -75,6 +128,8 @@ function please(id) {
         }
     })
 }
+
+
 // 点击删除销售人员
 function market_del(id) {
     var market_del = {

@@ -27,7 +27,7 @@ $.ajax({
                 var sort=list[code].sort;//排序
                 console.log(sort)
                 $("#serve_big").append(
-                    '<div class="col-md-4" id="serve_content">'+
+                    '<div class="col-md-4" id="serve_content" style="height:170px;">'+
                     '<div class="serve_block_detail">'+
                     '<p style="display:none">排序：<span>'+item.sort+'</span> </p>'+
                     '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>'+item.title+'</span> </p>'+
@@ -93,7 +93,7 @@ function type_btn() {
             // 循环获取数据
             $.each(list,function(code,item){
                 $("#serve_big").append(
-                    '<div class="col-md-4" id="serve_content">'+
+                    '<div class="col-md-4" id="serve_content" style="height:170px;">'+
                     '<div class="serve_block_detail">'+
                     '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题：<span>'+item.title+'</span> </p>'+
                     '<p class="serve_block_p">详情描述：<spanclass="serve_block_span">'+item.infos+'</span> </p>'+

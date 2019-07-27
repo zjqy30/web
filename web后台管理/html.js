@@ -24,11 +24,13 @@ window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
     '            <label for="name">性别：</label>\n' +
     '            <input type="text" class="form-control" id="ipt_sex" placeholder="请输入">\n' +
     '        </div>\n' +
+    '\n' +
     '        <button type="button" class="btn btn-default" style="color: white;\n' +
-    'background: #1890FF">查询</button>\n' +
+    '    background: #1890FF" id="xun">查询</button>\n' +
+    '        <!-- onclick="cx()" -->\n' +
     '    </form>\n' +
     '    <!-- 网红人员列表 -->\n' +
-    '    <table class="wh_table">\n' +
+    '    <table class="wh_table" id="content">\n' +
     '        <thead>\n' +
     '            <tr class="tr_heard">\n' +
     '                <th></th>\n' +
@@ -55,7 +57,6 @@ window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
     '                    <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>\n' +
     '                </div>\n' +
     '                <div class="modal-body" id="more">\n' +
-    '\n' +
     '                    <div class="layui-row" id="row">\n' +
     '                        <!-- 内容 -->\n' +
     '                    </div>\n' +
@@ -88,7 +89,24 @@ window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
     '    </div>\n' +
     '    <!-- 模态框-完 -->\n' +
     '    <!-- 分页 -->\n' +
-    '    <div id="demo2-1"></div>\n' +
+    '    <div class="my-btn-box">\n' +
+    '        <span class="fr">\n' +
+    '            <!-- 这里是分页，传入的参数page在下面的js中有定义 -->\n' +
+    '            <a href="javascript:" onclick="goodstable(1)">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>\n' +
+    '            </a>\n' +
+    '            <a href="javascript:" onclick="goodstable(page-1)">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>\n' +
+    '            </a>\n' +
+    '            <span id="span">/</span>\n' +
+    '            <a href="javascript:" onclick="goodstable(page+1)">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>\n' +
+    '            </a>\n' +
+    '            <!-- <a href="javascript:" onclick="goodstable(pageToti)">\n' +
+    '                    <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>\n' +
+    '                </a> -->\n' +
+    '        </span>\n' +
+    '    </div>\n' +
     '</div>';
 //商家审核
 window.templates['demo3.html'] = '<!-- 商家审核 -->\n' +
@@ -103,7 +121,7 @@ window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
     '    <!-- 查询 -->\n' +
     '    <form class="form-inline">\n' +
     '        <div class="form-group">\n' +
-    '            <label for="exampleInputName2">平台：</label>\n' +
+    '            <label for="exampleInputName2">所属行业：</label>\n' +
     '            <input type="text" class="form-control" id="sj_platName" placeholder="请输入">\n' +
     '        </div>\n' +
     '        <div class="form-group">\n' +
@@ -114,12 +132,12 @@ window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
     '            <label for="name">名字：</label>\n' +
     '            <input type="text" class="form-control" id="sj_wxName" placeholder="请输入">\n' +
     '        </div>\n' +
-    '        <button type="submit" class="btn btn-default" style="color: white;\n' +
-    'background: #1890FF">查询</button>\n' +
+    '        <button type="button" class="btn btn-default" style="color: white;\n' +
+    'background: #1890FF" onclick="sj_seach(page)">查询</button>\n' +
     '    </form>\n' +
     '    <!-- 网红人员列表 -->\n' +
     '    <div class="divs">\n' +
-    '        <table class="wh_table">\n' +
+    '        <table class="wh_table" id="content">\n' +
     '            <thead>\n' +
     '                <tr class="tr_heard">\n' +
     '                    <th></th>\n' +
@@ -178,7 +196,24 @@ window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
     '    </div>\n' +
     '    <!-- 模态框-完 -->\n' +
     '    <!-- 分页 -->\n' +
-    '    <div id="demo2-1"></div>\n' +
+    '    <div class="my-btn-box">\n' +
+    '        <span class="fr">\n' +
+    '            <!-- 这里是分页，传入的参数page在下面的js中有定义 -->\n' +
+    '            <a href="javascript:" onclick="goodstable(1)">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>\n' +
+    '            </a>\n' +
+    '            <a href="javascript:" onclick="goodstable(page-1)">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>\n' +
+    '            </a>\n' +
+    '            <span id="span">/</span>\n' +
+    '            <a href="javascript:" onclick="goodstable(page+1)">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>\n' +
+    '            </a>\n' +
+    '            <!-- <a href="javascript:" onclick="goodstable(pageToti)">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>\n' +
+    '            </a> -->\n' +
+    '        </span>\n' +
+    '    </div>\n' +
     '</div>';
 // <!-- 订单管理 -->
 window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
@@ -195,12 +230,15 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '        </div>\n' +
     '        <!-- Nav tabs -->\n' +
     '        <ul class="nav nav-tabs" role="tablist" id="dd_ul">\n' +
-    '            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"\n' +
+    '            <li role="presentation" class="tabbar active" tabtype=\'PY\'><a href="#home" aria-controls="home" role="tab"\n' +
     '                    data-toggle="tab">待审核</a></li>\n' +
-    '            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">派单中</a></li>\n' +
-    '            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">进行中</a>\n' +
+    '            <li role="presentation" class="tabbar" tabtype=\'AP\'><a href="#profile" aria-controls="profile" role="tab"\n' +
+    '                    data-toggle="tab">派单中</a></li>\n' +
+    '            <li role="presentation" class="tabbar" tabtype=\'LK\'><a href="#messages" aria-controls="messages" role="tab"\n' +
+    '                    data-toggle="tab">进行中</a>\n' +
     '            </li>\n' +
-    '            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">已完成</a>\n' +
+    '            <li role="presentation" class="tabbar" tabtype=\'FN\'><a href="#settings" aria-controls="settings" role="tab"\n' +
+    '                    data-toggle="tab">已完成</a>\n' +
     '            </li>\n' +
     '        </ul>\n' +
     '\n' +
@@ -211,6 +249,18 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '        <div role="tabpanel" class="tab-pane active" id="home">\n' +
     '            <div class="row" style="margin: 0" id="needData">\n' +
     '                <!-- 待审核内容 -->\n' +
+    '            </div>\n' +
+    '            <!-- 分页 -->\n' +
+    '            <div class="my-btn-box">\n' +
+    '                <span class="fr">\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                    </a>\n' +
+    '                    <span id="span"><span id="currPage1">1</span>/<span id="allPage1"></span></span>\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                    </a>\n' +
+    '                </span>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '        <!-- 派单中 -->\n' +
@@ -231,10 +281,20 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '                                    <!-- 抢单人员 -->\n' +
     '                                </tbody>\n' +
     '                            </table>\n' +
-    '                            <!-- <div id="demo2-1"></div> -->\n' +
     '                        </div>\n' +
     '                    </div>\n' +
     '                </div>\n' +
+    '            </div>\n' +
+    '            <div class="my-btn-box">\n' +
+    '                <span class="fr">\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                    </a>\n' +
+    '                    <span id="span"><span id="currPage2">1</span>/<span id="allPage2"></span></span>\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                    </a>\n' +
+    '                </span>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '        <!-- 进行中 -->\n' +
@@ -270,16 +330,40 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '                    <!--订单更多资料-模态框-->\n' +
     '                </div>\n' +
     '            </div>\n' +
-    '        </div>\n' +
-    '        <!-- 已完成 -->\n' +
-    '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
-    '            <div class="row" style="margin: 0" id="finish">\n' +
-    '                <!--已完成-->\n' +
+    '            <div class="my-btn-box">\n' +
+    '                <span class="fr">\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                    </a>\n' +
+    '                    <span id="span"><span id="currPage3">1</span>/<span id="allPage3"></span></span>\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                    </a>\n' +
+    '                </span>\n' +
     '            </div>\n' +
     '        </div>\n' +
+    
+    '    <!-- 已完成 -->\n' +
+    '    <div role="tabpanel" class="tab-pane" id="settings">\n' +
+    '        <div class="row" style="margin: 0" id="finish">\n' +
+    '            <!--已完成-->\n' +
+    '        </div>\n' +
+    '        <div class="my-btn-box">\n' +
+    '            <span class="fr">\n' +
+    '                <a href="javascript:">\n' +
+    '                    <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                </a>\n' +
+    '                <span id="span"><span id="currPage4">1</span>/<span id="allPage4"></span></span>\n' +
+    '                <a href="javascript:">\n' +
+    '                    <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                </a>\n' +
+    '            </span>\n' +
+    '        </div>\n' +
     '    </div>\n' +
+    '    </div>\n' +
+    '\n' +
     '</div>';
-// <!-- 纯佣订单 -->
+// <!-- 纯佣管理 Pure_rob-->
 window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
     '<link rel="stylesheet" href="css/dingdan.css">\n' +
     '<script src="js/cun.js"></script>\n' +
@@ -294,10 +378,12 @@ window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
     '        </div>\n' +
     '        <!-- Nav tabs -->\n' +
     '        <ul class="nav nav-tabs" role="tablist" id="dd_ul">\n' +
-    '            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"\n' +
+    '            <li role="presentation" class="tabbar active" tabtype=\'PY\'><a href="#home" aria-controls="home" role="tab"\n' +
     '                    data-toggle="tab">待审核</a></li>\n' +
-    '            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">派单中</a></li>\n' +
-    '            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">已完成</a>\n' +
+    '            <li role="presentation" class="tabbar" tabtype=\'AP\'><a href="#profile" aria-controls="profile" role="tab"\n' +
+    '                    data-toggle="tab">派单中</a></li>\n' +
+    '            <li role="presentation" class="tabbar" tabtype=\'FN\'><a href="#settings" aria-controls="settings" role="tab"\n' +
+    '                    data-toggle="tab">已完成</a>\n' +
     '            </li>\n' +
     '        </ul>\n' +
     '\n' +
@@ -307,90 +393,37 @@ window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
     '        <!-- 待审核 -->\n' +
     '        <div role="tabpanel" class="tab-pane active" id="home">\n' +
     '            <div class="row" style="margin: 0" id="homeData">\n' +
-    '                <div class="col-md-4" id="tab-content">\n' +
-    '                    <div class="dd_tab_detail" data-toggle="modal" data-target="#sjmyModal">\n' +
-    '                        <div class="dd_detail">\n' +
-    '                            <div class="dd_userImg">\n' +
-    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
-    '                            </div>\n' +
-    '                            <div class="dd_userText">\n' +
-    '                                <div class="dd_userName">你说什么就是什么ne</div>\n' +
-    '                                <div class="dd_userDe">\n' +
-    '                                    <span style="color: #ADADAD">发布时间</span>\n' +
-    '                                    <span style="margin-left: 10px;">2019-6-19</span>\n' +
-    '                                    <span style="color: #333333">18:00</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                            <div class="dd_price">\n' +
-    '                                <span style="color: #F03D37">1000元</span>\n' +
-    '                            </div>\n' +
-    '                        </div>\n' +
-    '                        <div class="dd_gn">\n' +
-    '                            <div class="dd_gn_first">\n' +
-    '                                <div>\n' +
-    '                                    <span class="first_gary">商品类型：</span><span class=\'first_3\'>鞋帽箱包</span>\n' +
-    '                                </div>\n' +
-    '                                <div style=\'float:right\'>\n' +
-    '                                    <span class="first_gary">粉丝要求：</span><span class=\'first_3\'>10万</span>\n' +
-    '                                </div>\n' +
-    '                                <div>\n' +
-    '                                    <span class="first_gary">达人平台：</span><span class=\'first_3\'>暂无要求</span>\n' +
-    '                                </div>\n' +
-    '                                <div style=\'float:right\'>\n' +
-    '                                    <span class="first_gary">佣金比例：</span><span class=\'first_3\'>30%</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                        </div>\n' +
-    '                    </div>\n' +
-    '                    <div class="dd_foot">\n' +
-    '                        <span style="border-right: 1px solid #dedede">通过</span>\n' +
-    '                        <span>拒绝</span>\n' +
-    '                    </div>\n' +
-    '                    <!--订单更多资料-模态框-->\n' +
-    '\n' +
-    '                </div>\n' +
+    '                <!-- 待审核内容 -->\n' +
+    '            </div>\n' +
+    '            <!-- 分页 -->\n' +
+    '            <div class="my-btn-box">\n' +
+    '                <span class="fr">\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                    </a>\n' +
+    '                    <span id="span"><span id="currPage1">1</span>/<span id="allPage1"></span></span>\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                    </a>\n' +
+    '                </span>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '        <!-- 派单中 -->\n' +
     '        <div role="tabpanel" class="tab-pane" id="profile">\n' +
     '            <div class="row" style="margin: 0" id="profileData">\n' +
-    '                <div class="col-md-4" id="tab-content">\n' +
-    '                    <div class="dd_tab_detail">\n' +
-    '                        <div class="dd_detail">\n' +
-    '                            <div class="dd_userImg">\n' +
-    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
-    '                            </div>\n' +
-    '                            <div class="dd_userText">\n' +
-    '                                <div class="dd_userName">你说什么就是什么ne</div>\n' +
-    '                                <div class="dd_userDe">\n' +
-    '                                    <span style="color: #ADADAD">发布时间</span>\n' +
-    '                                    <span style="margin-left: 10px;">2019-6-19</span>\n' +
-    '                                    <span style="color: #333333">18:00</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                        </div>\n' +
-    '                        <div class="dd_gn">\n' +
-    '                            <div class="dd_gn_first">\n' +
-    '                                <div>\n' +
-    '                                    <span class="first_gary">商品类型：</span><span class=\'first_3\'>鞋帽箱包</span>\n' +
-    '                                </div>\n' +
-    '                                <div style=\'float:right\'>\n' +
-    '                                    <span class="first_gary">粉丝要求：</span><span class=\'first_3\'>10万</span>\n' +
-    '                                </div>\n' +
-    '                                <div>\n' +
-    '                                    <span class="first_gary">达人平台：</span><span class=\'first_3\'>暂无要求</span>\n' +
-    '                                </div>\n' +
-    '                                <div style=\'float:right\'>\n' +
-    '                                    <span class="first_gary">佣金比例：</span><span class=\'first_3\'>30%</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                        </div>\n' +
-    '                    </div>\n' +
-    '                    <div class="dd_foot">\n' +
-    '                        <span style="border-right: 1px solid #dedede">删除</span>\n' +
-    '                        <span>结束</span>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
+    '                <!-- 派单中 -->\n' +
+    '            </div>\n' +
+    '            <!-- 分页 -->\n' +
+    '            <div class="my-btn-box">\n' +
+    '                <span class="fr">\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                    </a>\n' +
+    '                    <span id="span"><span id="currPage2">1</span>/<span id="allPage2"></span></span>\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                    </a>\n' +
+    '                </span>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '        <!-- 已完成 -->\n' +
@@ -398,50 +431,128 @@ window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
     '            <div class="row" style="margin: 0" id="settingsData">\n' +
     '                <!-- 已完成 -->\n' +
     '            </div>\n' +
+    '            <!-- 分页 -->\n' +
+    '            <div class="my-btn-box">\n' +
+    '                <span class="fr">\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                    </a>\n' +
+    '                    <span id="span"><span id="currPage3">1</span>/<span id="allPage3"></span></span>\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                    </a>\n' +
+    '                </span>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '</div>';
+// 纯佣管理-抢单管理
+window.templates['Pure_rob.html'] = '<!-- 抢单管理 -->\n' +
+    '<link rel="stylesheet" href="css/serve.css">\n' +
+    '<script src="js/Pure_rob.js"></script>\n' +
+    '<div class="serve_solid"></div>\n' +
+    '<div class="serve_content">\n' +
+    '    <div class="serve_foot">\n' +
+    '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
+    '            <div class="row" style="margin: 0" id="rob_ti">\n' +
+    '\n' +
+    '                <!--  小块  -->\n' +
+    '\n' +
+    '            </div>\n' +
     '        </div>\n' +
     '    </div>\n' +
     '</div>';
 //订单生成
 window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '<link rel="stylesheet" href="css/dings.css">\n' +
+    '<script src="js/dings.js"></script>\n' +
     '<div class="ds_solid"></div>\n' +
     '<div class="ds_content">\n' +
     '    <div class="ds_top">\n' +
     '        <p class="ds_text">订单生成</p>\n' +
-    '        <form class="form-horizontal">\n' +
-    '            <div class="form-group" id="ds_modal_center">\n' +
-    '                <label for="inputEmail3" class="col-sm-2 control-label">选择商家：</label>\n' +
-    // '                <div class="col-sm-10">\n' +
-    // '                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入" style="width: 50%">\n' +
-    // '                </div>\n' +
-    '<select class="form-control" style="width: 50%">' +
-    '<option>1</option>' +
-    '<option>2</option>' +
-    '<option>3</option>' +
-    '<option>4</option>' +
-    '<option>5</option>' +
-    '</select>' +
-    '            </div>\n' +
-    '            <div class="form-group" id="ds_modal_center">\n' +
-    '                <label for="inputPassword3" class="col-sm-2 control-label">选择网红：</label>\n' +
-    // '                <div class="col-sm-10">\n' +
-    // '                    <input type="text" class="form-control" id="inputPassword3" placeholder="请输入" style="width: 50%">\n' +
-    // '                </div>\n' +
-    '<select class="form-control" style="width: 50%">' +
-    '<option>1</option>' +
-    '<option>2</option>' +
-    '<option>3</option>' +
-    '<option>4</option>' +
-    '<option>5</option>' +
-    '</select>' +
-    '            </div>\n' +
-    '            <div class="form-group" id="ds_modal_center">\n' +
-    '                <div class="col-sm-offset-2 col-sm-10">\n' +
-    '                    <button type="submit" class="btn btn-default"\n' +
-    '                        style="background: #1890FF;color: white;">创建链接</button>\n' +
+    '        <!-- Button trigger modal -->\n' +
+    '        <button type="button" class="btn btn-primary" style="margin-left: 50%;">\n' +
+    '            请选择网红\n' +
+    '        </button>\n' +
+    '        <div class="col-sm-10" data-toggle="modal" data-target="#myModal">\n' +
+    '            <input type="text" class="form-control" id="wh_id" placeholder="请输入" style="width: 50%;margin: 2% 50%;">\n' +
+    '        </div>\n' +
+    '        <!-- Modal -->\n' +
+    '        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n' +
+    '            <div class="modal-dialog" role="document" style="width: 840px;">\n' +
+    '                <div class="modal-content">\n' +
+    '                    <div class="modal-header">\n' +
+    '                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span\n' +
+    '                                aria-hidden="true">&times;</span></button>\n' +
+    '                        <h4 class="modal-title" id="myModalLabel">更多网红</h4>\n' +
+    '                    </div>\n' +
+    '                    <div class="modal-body">\n' +
+    '                        <!-- 网红人员列表 -->\n' +
+    '                        <table class="wh_table" id="content">\n' +
+    '                            <thead>\n' +
+    '                                <tr class="tr_heard">\n' +
+    '                                    <th></th>\n' +
+    '                                    <th>姓名</th>\n' +
+    '                                    <th>平台</th>\n' +
+    '                                    <th>性别</th>\n' +
+    '                                    <th>粉丝数量</th>\n' +
+    '                                    <th>入驻时间</th>\n' +
+    '                                    <th>操作</th>\n' +
+    '                                </tr>\n' +
+    '                            </thead>\n' +
+    '                            <tbody id="red_tbody">\n' +
+    '                                <!-- 表格内容 -->\n' +
+    '                            </tbody>\n' +
+    '                        </table>\n' +
+    '                    </div>\n' +
     '                </div>\n' +
     '            </div>\n' +
-    '        </form>\n' +
+    '        </div>\n' +
+    '\n' +
+    '        <!-- Button trigger modal -->\n' +
+    '        <button type="button" class="btn btn-primary" style="margin-left: 50%;">\n' +
+    '            请选择商家\n' +
+    '        </button>\n' +
+    '        <div class="col-sm-10" data-toggle="modal" data-target="#sjmyModal">\n' +
+    '            <input type="text" class="form-control" id="sj_id" placeholder="请输入" style="width: 50%;margin: 2% 50%;">\n' +
+    '        </div>\n' +
+    '        <!-- Modal -->\n' +
+    '        <div class="modal fade" id="sjmyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n' +
+    '            <div class="modal-dialog" role="document" style="width: 840px;">\n' +
+    '                <div class="modal-content">\n' +
+    '                    <div class="modal-header">\n' +
+    '                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span\n' +
+    '                                aria-hidden="true">&times;</span></button>\n' +
+    '                        <h4 class="modal-title" id="myModalLabel">更多商家</h4>\n' +
+    '                    </div>\n' +
+    '                    <div class="modal-body">\n' +
+    '                        <!-- 网红人员列表 -->\n' +
+    '                        <table class="wh_table" id="content">\n' +
+    '                            <thead>\n' +
+    '                                <tr class="tr_heard">\n' +
+    '                                    <th></th>\n' +
+    '                                    <th>姓名</th>\n' +
+    '                                    <th>标题</th>\n' +
+    '                                    <th>订单描述</th>\n' +
+    '                                    <th>订单编号</th>\n' +
+    '                                    <th>操作</th>\n' +
+    '                                </tr>\n' +
+    '                            </thead>\n' +
+    '                            <tbody id="sjData">\n' +
+    '                                <!-- tabel表格 -->\n' +
+    '                            </tbody>\n' +
+    '                        </table>\n' +
+    '                    </div>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '        <div class="form-group" id="ds_modal_center">\n' +
+    '            <div class="col-sm-offset-2 col-sm-10" style="margin-left: 50%">\n' +
+    '                <button type="button" class="btn btn-default" style="background: #1890FF;color: white;"\n' +
+    '                    id="create">创建链接</button>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '\n' +
     '    </div>\n' +
     '</div>';
 // <!-- 服务类型 -->
@@ -576,7 +687,24 @@ window.templates['market.html'] = "<!-- 销售管理 -->\n" +
     "            </table>\n" +
     "        </div>\n" +
     "        <!-- 分页 -->\n" +
-    "        <div id=\"demo2-1\"></div>\n" +
+    "        <div class=\"my-btn-box\">\n" +
+    "            <span class=\"fr\">\n" +
+    "                <!-- 这里是分页，传入的参数page在下面的js中有定义 -->\n" +
+    "                <a href=\"javascript:\" onclick=\"goodstable(1)\">\n" +
+    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">首页</button>\n" +
+    "                </a>\n" +
+    "                <a href=\"javascript:\" onclick=\"goodstable(page-1)\">\n" +
+    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">上一页</button>\n" +
+    "                </a>\n" +
+    "                <span id=\"span\">/</span>\n" +
+    "                <a href=\"javascript:\" onclick=\"goodstable(page+1)\">\n" +
+    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">下一页</button>\n" +
+    "                </a>\n" +
+    "                <!-- <a href=\"javascript:\" onclick=\"goodstable(pageToti)\">\n" +
+    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">尾页</button>\n" +
+    "                </a> -->\n" +
+    "            </span>\n" +
+    "        </div>\n" +
     "        <!-- 邀请人员-模态框 -->\n" +
     "        <div class=\"modal fade\" id=\"myModalmore\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n" +
     "            style=\"z-index: 10\">\n" +
@@ -597,7 +725,24 @@ window.templates['market.html'] = "<!-- 销售管理 -->\n" +
     "                        </div>\n" +
     "\n" +
     "                        <!-- 分页 -->\n" +
-    "                        <!-- <div id=\"demo2-1\"></div> -->\n" +
+    "                        <!-- <div class=\"my-btn-box\">\n" +
+    "                            <span class=\"fr\">\n" +
+    "                                这里是分页，传入的参数page在下面的js中有定义\n" +
+    "                                <a href=\"javascript:\" onclick=\"please(1)\">\n" +
+    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">首页</button>\n" +
+    "                                </a>\n" +
+    "                                <a href=\"javascript:\" onclick=\"please(page-1)\">\n" +
+    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">上一页</button>\n" +
+    "                                </a>\n" +
+    "                                <span id=\"span\">/</span>\n" +
+    "                                <a href=\"javascript:\" onclick=\"please(page+1)\">\n" +
+    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">下一页</button>\n" +
+    "                                </a>\n" +
+    "                                <a href=\"javascript:\" onclick=\"goodstable(pageToti)\">\n" +
+    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">尾页</button>\n" +
+    "                                </a>\n" +
+    "                            </span>\n" +
+    "                        </div> -->\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -632,6 +777,7 @@ window.templates['refund.html'] = '<!-- 商家退款 -->\n' +
     '        </div>\n' +
     '    </div>\n' +
     '</div>';
+
 //标签管理
 window.templates['labels.html'] = "<!-- 标签管理 -->\n" +
     "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
@@ -663,15 +809,15 @@ window.templates['labels.html'] = "<!-- 标签管理 -->\n" +
     "            </li>\n" +
     "        </ul>\n" +
     "    </div>\n" +
-    "    <div class=\"tab-content\">\n" +
+    "    <div class=\"tab-content\"  style=\"height: 625px;\">\n" +
     "        <!-- 网红标签 -->\n" +
-    "        <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home\">\n" +
+    "        <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home\" type=\"1\">\n" +
     "            <div class=\"row\" style=\"margin: 0\" id=\"labels_row\">\n" +
     "        <!-- 网红标签 -->\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <!-- 网红平台 -->\n" +
-    "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"profile\">\n" +
+    "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"profile\" type=\"2\">\n" +
     "            <div class=\"row\" style=\"margin: 0\" id='labels_red'>\n" +
     "        <!-- 网红平台 -->\n" +
     "            </div>\n" +
@@ -747,29 +893,16 @@ window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
     "<div class=\"labels_content\">\n" +
     "    <div class=\"labels_top\" style=\"height: 320px;\">\n" +
     "        <p class=\"labels_text\">层级管理</p>\n" +
-    "        <!-- <form class=\"form-inline sjStory_form\">\n" +
-    "                                <div class=\"form-group\" id=\"form-group\">\n" +
-    "                                    <label for=\"exampleInputName2\">第一层级：</label>\n" +
-    "                                    <input type=\"text\" class=\"form-control\" id=\"one_val\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
-    "                                </div>\n" +
-    "                                <div class=\"form-group\" id=\"form-group\">\n" +
-    "                                    <label for=\"name\">第二层级：</label>\n" +
-    "                                    <input type=\"text\" class=\"form-control\" id=\"two_val\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
-    "                                </div>\n" +
-    "                                <div class=\"form-group\" id=\"form-group\">\n" +
-    "                                    <label for=\"exampleInputName2\">第三层级：</label>\n" +
-    "                                    <input type=\"text\" class=\"form-control\" id=\"three_val\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
-    "                                </div>\n" +
-    "                                <div class=\"form-group\" id=\"form-group\">\n" +
-    "                                    <label for=\"name\">标&nbsp;&nbsp;&nbsp; 签：</label>\n" +
-    "                                    <input type=\"text\" class=\"form-control\" id=\"all_val\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
-    "                                </div>\n" +
-    "                                <button type=\"button\" class=\"btn btn-default\"  id=\"all_click\" style=\"color: white;background: #1890FF;margin-left: 36%\">添加</button>\n" +
-    "                            </form> -->\n" +
     "        <form class=\"form-horizontal\">\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">新建标签：</label>\n" +
     "                <div class=\"col-sm-10\">\n" +
+    "                    <select id=\"one_li\" style=\"width: 50%;height:35px\">\n" +
+    "                        <option>请选择</option>\n" +
+    "                    </select>\n" +
+    "                    <select id=\"two_li\" style=\"width: 50%;height:35px\">\n" +
+    "                        <option>请选择</option>\n" +
+    "                    </select>\n" +
     "                    <input type=\"text\" class=\"form-control\" id=\"all_value\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -790,26 +923,21 @@ window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
     "            </li>\n" +
     "        </ul>\n" +
     "    </div>\n" +
-    "    <div class=\"tab-content\">\n" +
+    "    <div class=\"tab-content\" style=\"height: 578px;\">\n" +
     "        <!-- 第一层级 -->\n" +
-    "        <div role=\"tabpanel\" class=\"tab-pane active\" id=\"one\">\n" +
+    "        <div role=\"tabpanel\" class=\"tab-pane active\" id=\"one\" type='1'>\n" +
     "            <div class=\"row\" style=\"margin: 0\" id=\"one_list\">\n" +
-    "                <!-- <div class=\"col-md-2\" id=\"labels_content\">\n" +
-    "                                        <div class=\"labels_col_text\">\n" +
-    "                                            生活技巧\n" +
-    "                                        </div>\n" +
-    "                                        <button class=\"labels_col_del\">删除标签</button>\n" +
-    "                                    </div> -->\n" +
+    "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <!-- 第二层级 -->\n" +
-    "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"two\">\n" +
+    "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"two\" type='2'>\n" +
     "            <div class=\"row\" style=\"margin: 0\" id=\"two_list\">\n" +
     "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        <!-- 第三层级 -->\n" +
-    "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"three\">\n" +
+    "        <div role=\"tabpanel\" class=\"tab-pane\" id=\"three\" type='3'>\n" +
     "            <div class=\"row\" style=\"margin: 0\" id=\"three_list\">\n" +
     "\n" +
     "            </div>\n" +
@@ -876,12 +1004,13 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">选择类型：</label>\n" +
     "                <div class=\"col-sm-9\">\n" +
-    "                    <select class=\"form-control\" style=\"width: 68%\" id=\"banner_select\">\n" +
-    "                        <option>请选择</option>\n" +
-    "                        <option>轮播图</option>\n" +
-    "                        <option>H5链接</option>\n" +
-    "                        <option>富文本</option>\n" +
-    "                    </select>\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"lb\" placeholder=\"请输入\" style=\"width: 68%\">\n" +
+    "                    <!-- <select class=\"form-control\" style=\"width: 68%\" id=\"banner_select\">\n" +
+    "                            <option>请选择</option>\n" +
+    "                            <option id=\"lb\">轮播图</option>\n" +
+    "                            <option>H5链接</option>\n" +
+    "                            <option>富文本</option>\n" +
+    "                        </select> -->\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
@@ -899,7 +1028,7 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                <div class=\"col-sm-offset-2 col-sm-10\">\n" +
+    "                <div class=\"col-sm-10\" style=\'text-align:center\'>\n" +
     "                    <button type=\"button\" class=\"btn btn-default\" onclick=\"banner_success()\"\n" +
     "                        style=\"background: #1890FF;color: white;\">生成</button>\n" +
     "                </div>\n" +
@@ -911,29 +1040,18 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "        <div role=\"tabpanel\" class=\"tab-pane\">\n" +
     "            <div class=\"row\" style=\"margin: 0\" id=\"banner_list\">\n" +
     "                <!-- 小块 -->\n" +
-    "                <div class=\"col-md-4\" id=\"banner_content\">\n" +
-    "                    <div class=\"banner_number\">0</div>\n" +
-    "                    <div class=\"banner_block_detail\">\n" +
-    "                        <img src=\"images/hehua.jpg\" alt=\"\">\n" +
-    "                    </div>\n" +
-    "                    <div class=\"banner_block_foot\">\n" +
-    "                        <span id=\"banner_del\">删除</span>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
+    "                <!-- <div class=\"col-md-4\" id=\"banner_content\">\n" +
+    "                        <div class=\"banner_number\">0</div>\n" +
+    "                        <div class=\"banner_block_detail\">\n" +
+    "                            <img src=\"images/hehua.jpg\" alt=\"\">\n" +
+    "                        </div>\n" +
+    "                        <div class=\"banner_block_foot\">\n" +
+    "                            <span id=\"banner_del\">删除</span>\n" +
+    "                        </div>\n" +
+    "                    </div> -->\n" +
     "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>\n" +
-    "<script>\n" +
-    "    addimg_input.onchange = function () {\n" +
-    "        // console.log(this.files[0])\n" +
-    "        var F = new FileReader();\n" +
-    "        F.readAsDataURL(this.files[0]);\n" +
-    "        F.onload = function () {\n" +
-    "            banner_imgs.src = F.result;\n" +
-    "            banner_imgs.style.display = \"block\"\n" +
-    "        }\n" +
-    "    }\n" +
-    "</script>";
+    "</div>";
 // window.templates[index.html]=

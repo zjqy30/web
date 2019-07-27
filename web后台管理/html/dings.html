@@ -1,42 +1,92 @@
 <!-- 订单生成 -->
 <link rel="stylesheet" href="../css/dings.css">
+<script src="../js/dings.js"></script>
 <div class="ds_solid"></div>
 <div class="ds_content">
     <div class="ds_top">
         <p class="ds_text">订单生成</p>
-        <form class="form-horizontal">
-            <div class="form-group" id="ds_modal_center">
-                <label for="inputEmail3" class="col-sm-2 control-label">选择商家：</label>
-                <!-- <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入" style="width: 50%">
-                </div> -->
-                <select class="form-control" style="width: 50%">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-            </div>
-            <div class="form-group" id="ds_modal_center">
-                <label for="inputPassword3" class="col-sm-2 control-label">选择网红：</label>
-                <!-- <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPassword3" placeholder="请输入" style="width: 50%">
-                </div> -->
-                <select class="form-control" style="width: 50%">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-            </div>
-            <div class="form-group" id="ds_modal_center">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default"
-                        style="background: #1890FF;color: white;">创建链接</button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" style="margin-left: 50%;">
+            请选择网红
+        </button>
+        <div class="col-sm-10" data-toggle="modal" data-target="#myModal">
+            <input type="text" class="form-control" id="wh_id" placeholder="请输入" style="width: 50%;margin: 2% 50%;">
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document" style="width: 840px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">更多网红</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 网红人员列表 -->
+                        <table class="wh_table" id="content">
+                            <thead>
+                                <tr class="tr_heard">
+                                    <th></th>
+                                    <th>姓名</th>
+                                    <th>平台</th>
+                                    <th>性别</th>
+                                    <th>粉丝数量</th>
+                                    <th>入驻时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="red_tbody">
+                                <!-- 表格内容 -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </form>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" style="margin-left: 50%;">
+            请选择商家
+        </button>
+        <div class="col-sm-10" data-toggle="modal" data-target="#sjmyModal">
+            <input type="text" class="form-control" id="sj_id" placeholder="请输入" style="width: 50%;margin: 2% 50%;">
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="sjmyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document" style="width: 840px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">更多商家</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 网红人员列表 -->
+                        <table class="wh_table" id="content">
+                            <thead>
+                                <tr class="tr_heard">
+                                    <th></th>
+                                    <th>姓名</th>
+                                    <th>标题</th>
+                                    <th>订单描述</th>
+                                    <th>订单编号</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sjData">
+                                <!-- tabel表格 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" id="ds_modal_center">
+            <div class="col-sm-offset-2 col-sm-10" style="margin-left: 50%">
+                <button type="button" class="btn btn-default" style="background: #1890FF;color: white;"
+                    id="create">创建链接</button>
+            </div>
+        </div>
+
     </div>
 </div>
