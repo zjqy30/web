@@ -1,4 +1,4 @@
-var globel = 'http://192.168.0.166:8080';
+var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token')
 
 // var type = status;
@@ -247,8 +247,10 @@ function check() {
                     '</p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +
-                    '<p class="layui-col-md12-p">佣金比例：' +
+                    '<p class="layui-col-md12-p">佣金比例：' +//serverProfitRatio
                     '<span class="dd_layui_span-span">' + item.profitRatio + '%</span>' +
+                    '<span class="dd_layui_span-span"> - </span>' +
+                    '<span class="dd_layui_span-span">' + item.serverProfitRatio + '%</span>' +
                     '</p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +
@@ -447,6 +449,8 @@ function single() {
                     '<div class="layui-col-md12">' +
                     '<p class="layui-col-md12-p">佣金比例：' +
                     '<span class="dd_layui_span-span">' + item.profitRatio + '%</span>' +
+                    '<span class="dd_layui_span-span"> - </span>' +
+                    '<span class="dd_layui_span-span">' + item.serverProfitRatio + '%</span>' +
                     '</p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +
@@ -620,8 +624,6 @@ function fanish() {
                     '<p class="layui-col-md12-p">' +
                     '需求标签：' +
                     '<span class="layui_span">' + item.starTag + '</span>' +
-                    // '<span class="layui_span">三农</span>' +
-                    // '<span class="layui_span">美女</span>' +
                     ' </p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +
@@ -642,6 +644,8 @@ function fanish() {
                     '<div class="layui-col-md12">' +
                     '<p class="layui-col-md12-p">佣金比例：' +
                     '<span class="dd_layui_span-span">' + item.profitRatio + '%</span>' +
+                    '<span class="dd_layui_span-span"> - </span>' +
+                    '<span class="dd_layui_span-span">' + item.serverProfitRatio + '%</span>' +
                     '</p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +

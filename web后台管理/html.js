@@ -14,20 +14,19 @@ window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
     '    <form class="form-inline">\n' +
     '        <div class="form-group">\n' +
     '            <label for="exampleInputName2">平台：</label>\n' +
-    '            <input type="text" class="form-control" id="ipt_platName" placeholder="请输入">\n' +
+    '            <input type="text" class="form-control" id="ipt_platName" placeholder="请输入平台">\n' +
     '        </div>\n' +
     '        <div class="form-group">\n' +
     '            <label for="exampleInputEmail2">名字：</label>\n' +
-    '            <input type="text" class="form-control" id="ipt_wxName" placeholder="请输入">\n' +
+    '            <input type="text" class="form-control" id="ipt_wxName" placeholder="请输入名字">\n' +
     '        </div>\n' +
     '        <div class="form-group">\n' +
     '            <label for="name">性别：</label>\n' +
-    '            <input type="text" class="form-control" id="ipt_sex" placeholder="请输入">\n' +
+    '            <input type="text" class="form-control" id="ipt_sex" placeholder="请输入性别">\n' +
     '        </div>\n' +
     '\n' +
     '        <button type="button" class="btn btn-default" style="color: white;\n' +
-    '    background: #1890FF" id="xun">查询</button>\n' +
-    '        <!-- onclick="cx()" -->\n' +
+    'background: #1890FF" id="xun">查询</button>\n' +
     '    </form>\n' +
     '    <!-- 网红人员列表 -->\n' +
     '    <table class="wh_table" id="content">\n' +
@@ -61,29 +60,6 @@ window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
     '                        <!-- 内容 -->\n' +
     '                    </div>\n' +
     '                </div>\n' +
-    '                <!--  -->\n' +
-    '            </div>\n' +
-    '        </div>\n' +
-    '    </div>\n' +
-    '    <!-- 二级模态框 整个模态框要跟第一个模态框同级 Modal -->\n' +
-    '    <div class="modal fade model" id="myModal1" tabindex="1" role="dialog" aria-labelledby="myModalLabel"\n' +
-    '        style="z-index: 100">\n' +
-    '        <div class="modal-dialog" role="document">\n' +
-    '            <div class="modal-content">\n' +
-    '                <div class="modal-header">\n' +
-    '                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\n' +
-    '\n' +
-    '                    <h4 class="modal-title" id="myModalLabel">查看大图</h4>\n' +
-    '                </div>\n' +
-    '                <div class="modal-body">\n' +
-    '                    <div class="more_cardID">\n' +
-    '                        <P class="cardText">查看大图:</P>\n' +
-    '                        <img src="images/hehua.jpg" alt="">\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
-    '                <div class="modal-footer">\n' +
-    '                    <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>\n' +
-    '                </div>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '    </div>\n' +
@@ -91,20 +67,13 @@ window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
     '    <!-- 分页 -->\n' +
     '    <div class="my-btn-box">\n' +
     '        <span class="fr">\n' +
-    '            <!-- 这里是分页，传入的参数page在下面的js中有定义 -->\n' +
-    '            <a href="javascript:" onclick="goodstable(1)">\n' +
-    '                <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>\n' +
+    '            <a href="javascript:">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
     '            </a>\n' +
-    '            <a href="javascript:" onclick="goodstable(page-1)">\n' +
-    '                <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>\n' +
+    '            <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>\n' +
+    '            <a href="javascript:">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
     '            </a>\n' +
-    '            <span id="span">/</span>\n' +
-    '            <a href="javascript:" onclick="goodstable(page+1)">\n' +
-    '                <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>\n' +
-    '            </a>\n' +
-    '            <!-- <a href="javascript:" onclick="goodstable(pageToti)">\n' +
-    '                    <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>\n' +
-    '                </a> -->\n' +
     '        </span>\n' +
     '    </div>\n' +
     '</div>';
@@ -122,18 +91,18 @@ window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
     '    <form class="form-inline">\n' +
     '        <div class="form-group">\n' +
     '            <label for="exampleInputName2">所属行业：</label>\n' +
-    '            <input type="text" class="form-control" id="sj_platName" placeholder="请输入">\n' +
+    '            <input type="text" class="form-control" id="sj_platName" placeholder="请输入所属行业">\n' +
     '        </div>\n' +
     '        <div class="form-group">\n' +
     '            <label for="exampleInputEmail2">性别：</label>\n' +
-    '            <input type="text" class="form-control" id="sj_sex" placeholder="请输入">\n' +
+    '            <input type="text" class="form-control" id="sj_sex" placeholder="请输入性别">\n' +
     '        </div>\n' +
     '        <div class="form-group">\n' +
     '            <label for="name">名字：</label>\n' +
-    '            <input type="text" class="form-control" id="sj_wxName" placeholder="请输入">\n' +
+    '            <input type="text" class="form-control" id="sj_wxName" placeholder="请输入名字">\n' +
     '        </div>\n' +
     '        <button type="button" class="btn btn-default" style="color: white;\n' +
-    'background: #1890FF" onclick="sj_seach(page)">查询</button>\n' +
+    'background: #1890FF" id="sj_xun">查询</button>\n' +
     '    </form>\n' +
     '    <!-- 网红人员列表 -->\n' +
     '    <div class="divs">\n' +
@@ -198,20 +167,13 @@ window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
     '    <!-- 分页 -->\n' +
     '    <div class="my-btn-box">\n' +
     '        <span class="fr">\n' +
-    '            <!-- 这里是分页，传入的参数page在下面的js中有定义 -->\n' +
-    '            <a href="javascript:" onclick="goodstable(1)">\n' +
-    '                <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>\n' +
+    '            <a href="javascript:">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
     '            </a>\n' +
-    '            <a href="javascript:" onclick="goodstable(page-1)">\n' +
-    '                <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>\n' +
+    '            <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>\n' +
+    '            <a href="javascript:">\n' +
+    '                <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
     '            </a>\n' +
-    '            <span id="span">/</span>\n' +
-    '            <a href="javascript:" onclick="goodstable(page+1)">\n' +
-    '                <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>\n' +
-    '            </a>\n' +
-    '            <!-- <a href="javascript:" onclick="goodstable(pageToti)">\n' +
-    '                <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>\n' +
-    '            </a> -->\n' +
     '        </span>\n' +
     '    </div>\n' +
     '</div>';
@@ -224,7 +186,7 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '    <div class="dd_top">\n' +
     '        <p class="dd_text">搜索订单</p>\n' +
     '        <div class="input-group" id="input_group">\n' +
-    '            <input type="text" class="form-control" placeholder="请输入" aria-describedby="basic-addon2" id="dd_ipt"\n' +
+    '            <input type="text" class="form-control" placeholder="请输入商家名" aria-describedby="basic-addon2" id="dd_ipt"\n' +
     '                style="height: 49px">\n' +
     '            <span class="input-group-addon" id="basic-addon2">搜索</span>\n' +
     '        </div>\n' +
@@ -267,23 +229,6 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '        <div role="tabpanel" class="tab-pane" id="profile">\n' +
     '            <div class="row" style="margin: 0" id="paiData">\n' +
     '                <!-- 抢单人员 modal -->\n' +
-    '                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"\n' +
-    '                    aria-labelledby="myLargeModalLabel">\n' +
-    '                    <div class="modal-dialog modal-lg" role="document">\n' +
-    '                        <div class="modal-content" id="modal-content">\n' +
-    '                            <div class="modal-header">\n' +
-    '                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span\n' +
-    '                                        aria-hidden="true">&times;</span></button>\n' +
-    '                                <h4 class="modal-title" id="myModalLabel">抢单人员</h4>\n' +
-    '                            </div>\n' +
-    '                            <table class="dd_table wh_table">\n' +
-    '                                <tbody id="robData">\n' +
-    '                                    <!-- 抢单人员 -->\n' +
-    '                                </tbody>\n' +
-    '                            </table>\n' +
-    '                        </div>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
     '            </div>\n' +
     '            <div class="my-btn-box">\n' +
     '                <span class="fr">\n' +
@@ -300,36 +245,9 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '        <!-- 进行中 -->\n' +
     '        <div role="tabpanel" class="tab-pane" id="messages">\n' +
     '            <div class="row" style="margin: 0" id="unway">\n' +
-    '                <div class="col-md-4" id="tab-content">\n' +
-    '                    <!--订单更多资料-模态框(仅写了一个模态框)-->\n' +
-    '                    <div class="dd_tab_detail" data-toggle="modal" data-target="#sjing">\n' +
-    '                        <div class="dd_detail">\n' +
-    '                            <div class="dd_userImg">\n' +
-    '                                <img class="dd_img" src="images/hehua.jpg" alt="">\n' +
-    '                            </div>\n' +
-    '                            <div class="dd_userText">\n' +
-    '                                <div class="dd_userName">你说什么就是什么</div>\n' +
-    '                                <div class="dd_userDe">\n' +
-    '                                    <span>快手</span>\n' +
-    '                                    <span style="margin-left: 10px;">短视频直播推广</span>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                            <div class="dd_price">\n' +
-    '                                <span style="color: #F03D37">1000元</span>\n' +
-    '                            </div>\n' +
-    '                        </div>\n' +
-    '                        <div class="dd_gn">\n' +
-    '                            <p>在中台产品的研发过程中，会出现不同的 设计规范练习方式，但其中往往存在很帅 类似的问题。我们还是要多多注意谢谢规\n' +
-    '                                范一些东西还是要注意细节。</p>\n' +
-    '                        </div>\n' +
-    '                    </div>\n' +
-    '                    <div class="dd_foot">\n' +
-    '                        <span style="border-right: 1px solid #dedede">恢复订单</span>\n' +
-    '                        <span>结束订单</span>\n' +
-    '                    </div>\n' +
-    '                    <!--订单更多资料-模态框-->\n' +
-    '                </div>\n' +
+    '                <!-- 进行中 -->\n' +
     '            </div>\n' +
+    '            <!-- 分页 -->\n' +
     '            <div class="my-btn-box">\n' +
     '                <span class="fr">\n' +
     '                    <a href="javascript:">\n' +
@@ -342,26 +260,24 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '                </span>\n' +
     '            </div>\n' +
     '        </div>\n' +
-    
-    '    <!-- 已完成 -->\n' +
-    '    <div role="tabpanel" class="tab-pane" id="settings">\n' +
-    '        <div class="row" style="margin: 0" id="finish">\n' +
-    '            <!--已完成-->\n' +
-    '        </div>\n' +
-    '        <div class="my-btn-box">\n' +
-    '            <span class="fr">\n' +
-    '                <a href="javascript:">\n' +
-    '                    <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
-    '                </a>\n' +
-    '                <span id="span"><span id="currPage4">1</span>/<span id="allPage4"></span></span>\n' +
-    '                <a href="javascript:">\n' +
-    '                    <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
-    '                </a>\n' +
-    '            </span>\n' +
+    '        <!-- 已完成 -->\n' +
+    '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
+    '            <div class="row" style="margin: 0" id="finish">\n' +
+    '                <!--已完成-->\n' +
+    '            </div>\n' +
+    '            <div class="my-btn-box">\n' +
+    '                <span class="fr">\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                    </a>\n' +
+    '                    <span id="span"><span id="currPage4">1</span>/<span id="allPage4"></span></span>\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                    </a>\n' +
+    '                </span>\n' +
+    '            </div>\n' +
     '        </div>\n' +
     '    </div>\n' +
-    '    </div>\n' +
-    '\n' +
     '</div>';
 // <!-- 纯佣管理 Pure_rob-->
 window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
@@ -372,7 +288,7 @@ window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
     '    <div class="dd_top">\n' +
     '        <p class="dd_text">搜索订单</p>\n' +
     '        <div class="input-group" id="input_group">\n' +
-    '            <input type="text" class="form-control" placeholder="请输入" aria-describedby="basic-addon2" id="cun_ipt"\n' +
+    '            <input type="text" class="form-control" placeholder="请输入订单名称" aria-describedby="basic-addon2" id="cun_ipt"\n' +
     '                style="height: 49px">\n' +
     '            <span class="input-group-addon" id="basic-addon2">搜索</span>\n' +
     '        </div>\n' +
@@ -475,7 +391,7 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '            请选择网红\n' +
     '        </button>\n' +
     '        <div class="col-sm-10" data-toggle="modal" data-target="#myModal">\n' +
-    '            <input type="text" class="form-control" id="wh_id" placeholder="请输入" style="width: 50%;margin: 2% 50%;">\n' +
+    '            <input type="text" class="form-control" id="wh_id" placeholder="请选择网红" style="width: 50%;margin: 2% 50%;">\n' +
     '        </div>\n' +
     '        <!-- Modal -->\n' +
     '        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n' +
@@ -487,7 +403,6 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '                        <h4 class="modal-title" id="myModalLabel">更多网红</h4>\n' +
     '                    </div>\n' +
     '                    <div class="modal-body">\n' +
-    '                        <!-- 网红人员列表 -->\n' +
     '                        <table class="wh_table" id="content">\n' +
     '                            <thead>\n' +
     '                                <tr class="tr_heard">\n' +
@@ -504,6 +419,18 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '                                <!-- 表格内容 -->\n' +
     '                            </tbody>\n' +
     '                        </table>\n' +
+    '                        <!-- 分页 -->\n' +
+    '                        <div class="my-btn-box">\n' +
+    '                            <span class="fr">\n' +
+    '                                <a href="javascript:">\n' +
+    '                                    <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                                </a>\n' +
+    '                                <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>\n' +
+    '                                <a href="javascript:">\n' +
+    '                                    <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                                </a>\n' +
+    '                            </span>\n' +
+    '                        </div>\n' +
     '                    </div>\n' +
     '                </div>\n' +
     '            </div>\n' +
@@ -514,7 +441,7 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '            请选择商家\n' +
     '        </button>\n' +
     '        <div class="col-sm-10" data-toggle="modal" data-target="#sjmyModal">\n' +
-    '            <input type="text" class="form-control" id="sj_id" placeholder="请输入" style="width: 50%;margin: 2% 50%;">\n' +
+    '            <input type="text" class="form-control" id="sj_id" placeholder="请选择商家订单" style="width: 50%;margin: 2% 50%;">\n' +
     '        </div>\n' +
     '        <!-- Modal -->\n' +
     '        <div class="modal fade" id="sjmyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n' +
@@ -526,7 +453,6 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '                        <h4 class="modal-title" id="myModalLabel">更多商家</h4>\n' +
     '                    </div>\n' +
     '                    <div class="modal-body">\n' +
-    '                        <!-- 网红人员列表 -->\n' +
     '                        <table class="wh_table" id="content">\n' +
     '                            <thead>\n' +
     '                                <tr class="tr_heard">\n' +
@@ -542,6 +468,18 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '                                <!-- tabel表格 -->\n' +
     '                            </tbody>\n' +
     '                        </table>\n' +
+    '                        <!-- 分页 -->\n' +
+    '                        <div class="my-btn-box">\n' +
+    '                            <span class="fr">\n' +
+    '                                <a href="javascript:">\n' +
+    '                                    <button class="layui-btn layui-btn-primary layui-btn-small last1">上一页</button>\n' +
+    '                                </a>\n' +
+    '                                <span id="span"><span id="currPage1">1</span>/<span id="allPage1"></span></span>\n' +
+    '                                <a href="javascript:">\n' +
+    '                                    <button class="layui-btn layui-btn-primary layui-btn-small next1">下一页</button>\n' +
+    '                                </a>\n' +
+    '                            </span>\n' +
+    '                        </div>\n' +
     '                    </div>\n' +
     '                </div>\n' +
     '            </div>\n' +
@@ -552,7 +490,6 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '                    id="create">创建链接</button>\n' +
     '            </div>\n' +
     '        </div>\n' +
-    '\n' +
     '    </div>\n' +
     '</div>';
 // <!-- 服务类型 -->
@@ -689,20 +626,13 @@ window.templates['market.html'] = "<!-- 销售管理 -->\n" +
     "        <!-- 分页 -->\n" +
     "        <div class=\"my-btn-box\">\n" +
     "            <span class=\"fr\">\n" +
-    "                <!-- 这里是分页，传入的参数page在下面的js中有定义 -->\n" +
-    "                <a href=\"javascript:\" onclick=\"goodstable(1)\">\n" +
-    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">首页</button>\n" +
+    "                <a href=\"javascript:\">\n" +
+    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small last\">上一页</button>\n" +
     "                </a>\n" +
-    "                <a href=\"javascript:\" onclick=\"goodstable(page-1)\">\n" +
-    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">上一页</button>\n" +
+    "                <span id=\"span\"><span id=\"currPage\">1</span>/<span id=\"allPage\"></span></span>\n" +
+    "                <a href=\"javascript:\">\n" +
+    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small next\">下一页</button>\n" +
     "                </a>\n" +
-    "                <span id=\"span\">/</span>\n" +
-    "                <a href=\"javascript:\" onclick=\"goodstable(page+1)\">\n" +
-    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">下一页</button>\n" +
-    "                </a>\n" +
-    "                <!-- <a href=\"javascript:\" onclick=\"goodstable(pageToti)\">\n" +
-    "                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">尾页</button>\n" +
-    "                </a> -->\n" +
     "            </span>\n" +
     "        </div>\n" +
     "        <!-- 邀请人员-模态框 -->\n" +
@@ -723,26 +653,18 @@ window.templates['market.html'] = "<!-- 销售管理 -->\n" +
     "                                </tbody>\n" +
     "                            </table>\n" +
     "                        </div>\n" +
-    "\n" +
     "                        <!-- 分页 -->\n" +
-    "                        <!-- <div class=\"my-btn-box\">\n" +
+    "                        <div class=\"my-btn-box\">\n" +
     "                            <span class=\"fr\">\n" +
-    "                                这里是分页，传入的参数page在下面的js中有定义\n" +
-    "                                <a href=\"javascript:\" onclick=\"please(1)\">\n" +
-    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">首页</button>\n" +
+    "                                <a href=\"javascript:\">\n" +
+    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small last1\">上一页</button>\n" +
     "                                </a>\n" +
-    "                                <a href=\"javascript:\" onclick=\"please(page-1)\">\n" +
-    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">上一页</button>\n" +
-    "                                </a>\n" +
-    "                                <span id=\"span\">/</span>\n" +
-    "                                <a href=\"javascript:\" onclick=\"please(page+1)\">\n" +
-    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">下一页</button>\n" +
-    "                                </a>\n" +
-    "                                <a href=\"javascript:\" onclick=\"goodstable(pageToti)\">\n" +
-    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small\">尾页</button>\n" +
+    "                                <span id=\"span\"><span id=\"currPage1\">1</span>/<span id=\"allPage1\"></span></span>\n" +
+    "                                <a href=\"javascript:\">\n" +
+    "                                    <button class=\"layui-btn layui-btn-primary layui-btn-small next1\">下一页</button>\n" +
     "                                </a>\n" +
     "                            </span>\n" +
-    "                        </div> -->\n" +
+    "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -897,13 +819,13 @@ window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">新建标签：</label>\n" +
     "                <div class=\"col-sm-10\">\n" +
-    "                    <select id=\"one_li\" style=\"width: 50%;height:35px\">\n" +
+    "                    <select id=\"one_li\" style=\"width: 70%;height:35px\">\n" +
     "                        <option>请选择</option>\n" +
     "                    </select>\n" +
-    "                    <select id=\"two_li\" style=\"width: 50%;height:35px\">\n" +
+    "                    <select id=\"two_li\" style=\"width: 70%;height:35px\">\n" +
     "                        <option>请选择</option>\n" +
     "                    </select>\n" +
-    "                    <input type=\"text\" class=\"form-control\" id=\"all_value\" placeholder=\"请输入\" style=\"width: 50%\">\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"all_value\" placeholder=\"请输入\" style=\"width: 70%\">\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
@@ -1007,9 +929,9 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "                    <input type=\"text\" class=\"form-control\" id=\"lb\" placeholder=\"请输入\" style=\"width: 68%\">\n" +
     "                    <!-- <select class=\"form-control\" style=\"width: 68%\" id=\"banner_select\">\n" +
     "                            <option>请选择</option>\n" +
-    "                            <option id=\"lb\">轮播图</option>\n" +
-    "                            <option>H5链接</option>\n" +
-    "                            <option>富文本</option>\n" +
+    "                            <option value=\"1\" id=\"lb\">轮播图</option>\n" +
+    "                            <option value=\"2\">H5链接</option>\n" +
+    "                            <option value=\"3\">富文本</option>\n" +
     "                        </select> -->\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -1021,14 +943,15 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "                    <img src=\"\" alt=\"\" id=\"banner_imgs\">\n" +
     "                </div>\n" +
     "            </div>\n" +
+    "            <!-- <div class=\"form-group\" id=\"ds_modal_center\">\n" +
+    "                                    <label for=\"inputh5\" class=\"col-sm-3 control-label\">H5链接：</label>\n" +
+    "                                    <div class=\"col-sm-9\">\n" +
+    "                                        <input type=\"text\" class=\"form-control\" id=\"inputh5\" placeholder=\"请输入\"\n" +
+    "                                            style=\"width: 68%\">\n" +
+    "                                    </div>\n" +
+    "                                </div> -->\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                <label for=\"inputh5\" class=\"col-sm-3 control-label\">H5链接：</label>\n" +
-    "                <div class=\"col-sm-9\">\n" +
-    "                    <input type=\"text\" class=\"form-control\" id=\"inputh5\" placeholder=\"请输入\" style=\"width: 68%\">\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                <div class=\"col-sm-10\" style=\'text-align:center\'>\n" +
+    "                <div class=\"col-sm-10\" style=\"text-align: center;\">\n" +
     "                    <button type=\"button\" class=\"btn btn-default\" onclick=\"banner_success()\"\n" +
     "                        style=\"background: #1890FF;color: white;\">生成</button>\n" +
     "                </div>\n" +

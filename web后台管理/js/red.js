@@ -1,4 +1,4 @@
-var globel = 'http://192.168.0.166:8080';
+var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token')
 
 // 获取网红提现列表
@@ -15,6 +15,7 @@ $.ajax({
         console.log(data)
         var list=data.data.pageData;
         $.each(list,function(index,item){
+            var id=item.id;
             $("#red_ti").append(
                 '<div class="col-md-4" id="serve_content">'+
                    ' <div class="serve_block_detail">'+
@@ -26,8 +27,8 @@ $.ajax({
                         '<p>银行卡号：<span>'+item.cradNumber+'</span> </p>'+
                     '</div>'+
                     '<div class="dd_foot">'+
-                        // '<span style="border-right: 1px solid #dedede">通过</span>'+
-                        // '<span>拒绝</span>'+
+                        '<span style="border-right: 1px solid #dedede" onclick="red_pass(\''+id+'\')">通过</span>'+
+                        '<span onclick="red_nopass(\''+id+'\')">拒绝</span>'+
                     '</div>'+
                ' </div>'
             )
@@ -35,3 +36,49 @@ $.ajax({
     }
 })
 
+// 通过
+function red_pass(id){
+    var passData={
+        'token':token,
+        'id':id,
+        'ifPass':'pass'
+    }
+    $.ajax({
+        url: globel + "/hone/backend/withDraw/operate",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(passData),
+        success: function (data) {
+            console.log(data);
+            if(data.errorCode=='0'){
+                alert('提现成功!')
+            }else{
+                alert('提现失败!')
+            }
+        }
+    })
+}
+// 拒绝
+function red_nopass(id){
+    var passData={
+        'token':token,
+        'id':id,
+        'ifPass':'nopass'
+    }
+    $.ajax({
+        url: globel + "/hone/backend/withDraw/operate",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(passData),
+        success: function (data) {
+            console.log(data)
+            if(data.errorCode=='0'){
+                alert('提现已拒绝!')
+            }else{
+                alert('提现拒绝失败!')
+            }
+        }
+    })
+}

@@ -10,7 +10,7 @@
             请选择网红
         </button>
         <div class="col-sm-10" data-toggle="modal" data-target="#myModal">
-            <input type="text" class="form-control" id="wh_id" placeholder="请输入" style="width: 50%;margin: 2% 50%;">
+            <input type="text" class="form-control" id="wh_id" placeholder="请选择网红" style="width: 50%;margin: 2% 50%;">
         </div>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -22,6 +22,8 @@
                         <h4 class="modal-title" id="myModalLabel">更多网红</h4>
                     </div>
                     <div class="modal-body">
+                        <!-- <input type="text" placeholder="请输入选择的网红" id="wh_ipt">
+                            <button id="wh_seach">搜索</button> -->
                         <!-- 网红人员列表 -->
                         <table class="wh_table" id="content">
                             <thead>
@@ -39,6 +41,18 @@
                                 <!-- 表格内容 -->
                             </tbody>
                         </table>
+                        <!-- 分页 -->
+                        <div class="my-btn-box">
+                            <span class="fr">
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                                </a>
+                                <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                                </a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,7 +63,7 @@
             请选择商家
         </button>
         <div class="col-sm-10" data-toggle="modal" data-target="#sjmyModal">
-            <input type="text" class="form-control" id="sj_id" placeholder="请输入" style="width: 50%;margin: 2% 50%;">
+            <input type="text" class="form-control" id="sj_id" placeholder="请选择商家订单" style="width: 50%;margin: 2% 50%;">
         </div>
         <!-- Modal -->
         <div class="modal fade" id="sjmyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -61,6 +75,8 @@
                         <h4 class="modal-title" id="myModalLabel">更多商家</h4>
                     </div>
                     <div class="modal-body">
+                        <!-- <input type="text" placeholder="请输入选择的订单" id="sj_ipt">
+                                <button id="sj_seach">搜索</button> -->
                         <!-- 网红人员列表 -->
                         <table class="wh_table" id="content">
                             <thead>
@@ -77,6 +93,18 @@
                                 <!-- tabel表格 -->
                             </tbody>
                         </table>
+                        <!-- 分页 -->
+                        <div class="my-btn-box">
+                            <span class="fr">
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small last1">上一页</button>
+                                </a>
+                                <span id="span"><span id="currPage1">1</span>/<span id="allPage1"></span></span>
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small next1">下一页</button>
+                                </a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,6 +115,5 @@
                     id="create">创建链接</button>
             </div>
         </div>
-
     </div>
 </div>

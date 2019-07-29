@@ -1,49 +1,106 @@
-var globel = 'http://192.168.0.166:8080';
+var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token')
 
-// 获取商家人员列表
-var sj_industry = $("#sj_platName").val();
-var sj_sex = $("#sj_sex").val();
-var sj_wxName = $("#sj_wxName").val();
-var page = page ? page : 1;
-var pageSize = 7;
+var sj_wxName = '';
+var sj_industry = "";
+var sj_sex = "";
 
-var sj_data = {
-    'token': token,
-    'pageNumber': page,//页数
-    'pageSize': pageSize,//页面值
-    'orderBy': 'createDate desc',
-    'industry': sj_industry,//平台名
-    'wxName': sj_wxName,
-    'sex': sj_sex
-}
-$.ajax({
-    url: globel + "/hone/backend/userBasic/seller/list",
-    dataType: 'json',
-    type: "post",
-    contentType: "application/json",
-    data: JSON.stringify(sj_data),
-    success: function (data) {
-        console.log('商家人员列表', data)
-        var list = data.data.pageData.list;
-        $.each(list, function (index, item) {
-            var id = item.id;
-            $("#sjData").append(
-                '<tr>' +
-                '<td><img src="' + item.headPic + '" alt=""></td>' +
-                '<td class="tabel_name">' + item.wxName + '</td>' +
-                '<td>' + (item.sex == 2 ? '女' : '男') + '</td>' +
-                '<td>' + item.industry + '</td>' +
-                '<td>' + item.createDate + '</td>' +
-                '<td>' +
-                '<button class="wh_table_btn right" onclick="red_more(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">更多资料</button>' +
-                '<button class="wh_table_btn" onclick="red_del(\'' + id + '\')">删除资料</button>' +
-                '</td>' +
-                '</tr> '
-            )
-        })
-    }
+sj_industry = $("#sj_platName").val();
+sj_sex = $("#sj_sex").val();
+sj_wxName = $("#sj_wxName").val();
+var currPage = parseInt($('#currPage').text()); // 初始页
+var pageSize = 8;//页面数
+var allPage = 0;//总页面
+
+sj_lists()
+listenerDom();
+
+// 搜索
+$('#sj_xun').click(function () {
+    currPage = 1; // 初始页
+    $('#currPage').text(currPage); // 初始页
+    sj_industry = $("#sj_platName").val();
+    sj_sex = $("#sj_sex").val();
+    sj_wxName = $("#sj_wxName").val();
+    sj_lists()
 })
+function listenerDom() {
+    // 上一页
+    $('.last').click(function () {
+        if (currPage == 1 || currPage == 0) {
+            alert('这是第一页');
+        } else {
+            currPage--;
+            $('#currPage').text(currPage);
+            sj_lists();
+        }
+    })
+
+    // 点击下一页
+    $('.next').click(function () {
+        if (currPage == allPage) {
+            alert('这是最后一页');
+        } else {
+            currPage++;
+            $('#currPage').text(currPage);
+            sj_lists();
+        }
+    })
+
+}
+
+// 获取商家人员列表
+function sj_lists() {
+    var sj_data = {
+        'token': token,
+        'pageNumber': currPage,//页数
+        'pageSize': pageSize,//页面值
+        'orderBy': 'createDate desc',
+        'industry': sj_industry,//平台名
+        'wxName': sj_wxName,
+        'sex': sj_sex
+    }
+    $.ajax({
+        url: globel + "/hone/backend/userBasic/seller/list",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(sj_data),
+        success: function (data) {
+            console.log('商家人员列表', data)
+            var list = data.data.pageData.list;
+            // 渲染前先清空
+            $("#sjData").html('');
+             // 总页数
+             allPage = parseInt(data.data.pageData.totalCount) / pageSize;
+             allPage = Math.ceil(allPage);
+             $('#allPage').text(allPage);
+             // 非空判断
+             if (list.length == 0) {
+                 currPage = 0
+                 $('#currPage').text(currPage);
+                 return false;
+             }
+            $.each(list, function (index, item) {
+                var id = item.id;
+                $("#sjData").append(
+                    '<tr>' +
+                    '<td><img src="' + item.headPic + '" alt=""></td>' +
+                    '<td class="tabel_name">' + item.wxName + '</td>' +
+                    '<td>' + (item.sex == 2 ? '女' : '男') + '</td>' +
+                    '<td>' + item.industry + '</td>' +
+                    '<td>' + item.createDate + '</td>' +
+                    '<td>' +
+                    '<button class="wh_table_btn right" onclick="red_more(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">更多资料</button>' +
+                    '<button class="wh_table_btn" onclick="red_del(\'' + id + '\')">删除资料</button>' +
+                    '</td>' +
+                    '</tr> '
+                )
+            })
+        }
+    })
+}
+
 // 更多资料(点击之后不能刷新，点击下一个还是上一个信息，必须手动刷新才行)
 function red_more(id) {
     var more = {
@@ -59,9 +116,10 @@ function red_more(id) {
         success: function (data) {
             console.log('网红详情列表', data)
             var list = data.data.userInfo;
-            console.log(list)
+            console.log('list', list.id)
             // debugger
             $("#row").append(
+                '<div class="layui-row">' +
                 '<P class="cardText">基本信息：</P>' +
                 '<div class="layui-col-md4" id="md4">' +
                 '<div class="grid-demo">' +
@@ -110,7 +168,6 @@ function red_more(id) {
                 '<span class="color_black">身份证号码：</span>' +
                 '<span class="color_gray">' + list.idCardNumber + '</span>' +
                 '</div>' +
-
                 '</div>' +
                 '<div class="layui-col-md12">' +
                 '<div class="more_cardID cardid">' +
@@ -125,6 +182,7 @@ function red_more(id) {
                 '<P class="cardText">身份证正/反面照：</P>' +
                 ' <img class="cardidImg" src="' + list.idCardUpPic + '" alt="" data-toggle="modal" data-target="#myModal1">' +
                 '<img class="cardidImg" style="margin: 0" src="' + list.idCardDownPic + '" alt="" data-toggle="modal" data-target="#myModal1">' +
+                '</div>' +
                 '</div>' +
                 '</div>'
             )
@@ -148,123 +206,6 @@ function red_del(id) {
         success: function (data) {
             console.log('删除资料', data)
             window.location.reload()//实时刷新
-        }
-    })
-}
-
-
-// 分页
-var sj_industry = $("#sj_platName").val();
-var sj_sex = $("#sj_sex").val();
-var sj_wxName = $("#sj_wxName").val();
-var page = page ? page : 1;
-var pageSize = 7;
-
-function goodstable(p) {
-    var sj_data = {
-        'token': token,
-        'pageNumber': page,//页数
-        'pageSize': pageSize,//页面值
-        'orderBy': 'createDate desc',
-        'industry': sj_industry,//平台名
-        'wxName': sj_wxName,
-        'sex': sj_sex
-    }
-    page = p
-    $.ajax({
-        url: globel + "/hone/backend/userBasic/seller/list",
-        dataType: 'json',
-        type: "post",
-        contentType: "application/json",
-        data: JSON.stringify(sj_data),
-        success: function (data) {
-            console.log('分页', data)
-            // 总条数
-            var totalCount = data.data.pageData.totalCount;
-            var list = data.data.pageData.list;
-            //  页数
-            pageToti = Math.ceil(totalCount / pageSize);
-            console.log(pageToti);
-
-            if (p >= 0 && p <= pageToti + 1) {
-                p = 1
-                // 添加页数
-                document.getElementById("span").innerHTML = page + "/" + pageToti;
-                $("#content").find("tbody").empty()
-                $.each(list, function (index, item) {
-                    var id = item.id;
-                    $("#sjData").append(
-                        '<tr>' +
-                        '<td><img src="' + item.headPic + '" alt=""></td>' +
-                        '<td class="tabel_name">' + item.wxName + '</td>' +
-                        '<td>' + (item.sex == 2 ? '女' : '男') + '</td>' +
-                        '<td>' + item.industry + '</td>' +
-                        '<td>' + item.createDate + '</td>' +
-                        '<td>' +
-                        '<button class="wh_table_btn right" onclick="red_more(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">更多资料</button>' +
-                        '<button class="wh_table_btn" onclick="red_del(\'' + id + '\')">删除资料</button>' +
-                        '</td>' +
-                        '</tr> '
-                    )
-                })
-            }
-        }
-    })
-}
-
-
-
-// 查询
-function sj_seach(p) {
-    var sj_industry = $("#sj_platName").val();
-    var sj_sex = $("#sj_sex").val();
-    var sj_wxName = $("#sj_wxName").val();
-    var sex = sj_sex == '女' ? '2' : '1'
-    var sj_data = {
-        'token': token,
-        'pageNumber': page,//页数
-        'pageSize': pageSize,//页面值
-        'orderBy': 'createDate desc',
-        'industry': sj_industry,//行业
-        'wxName': sj_wxName,
-        'sex': sex
-    }
-    page=p
-    $.ajax({
-        url: globel + "/hone/backend/userBasic/seller/list",
-        dataType: 'json',
-        type: "post",
-        contentType: "application/json",
-        data: JSON.stringify(sj_data),
-        success: function (data) {
-            console.log('cc', data)
-            // 总条数
-            var totalCount = data.data.pageData.totalCount;
-             //  页数
-            pageToti = Math.ceil(totalCount / pageSize);
-            var list = data.data.pageData.list;
-            if (p >= 0 && p <= pageToti + 1) {
-                //  页数
-             pageToti = Math.ceil(totalCount / pageSize);
-                $("#content").find("tbody").empty()
-                $.each(list, function (index, item) {
-                    var id = item.id;
-                    $("#sjData").append(
-                        '<tr>' +
-                        '<td><img src="' + item.headPic + '" alt=""></td>' +
-                        '<td class="tabel_name">' + item.wxName + '</td>' +
-                        '<td>' + (item.sex == 2 ? '女' : '男') + '</td>' +
-                        '<td>' + item.industry + '</td>' +
-                        '<td>' + item.createDate + '</td>' +
-                        '<td>' +
-                        '<button class="wh_table_btn right" onclick="red_more(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">更多资料</button>' +
-                        '<button class="wh_table_btn" onclick="red_del(\'' + id + '\')">删除资料</button>' +
-                        '</td>' +
-                        '</tr> '
-                    )
-                })
-            }
-            // window.location.reload()//需要手动刷新
         }
     })
 }

@@ -41,20 +41,13 @@
         <!-- 分页 -->
         <div class="my-btn-box">
             <span class="fr">
-                <!-- 这里是分页，传入的参数page在下面的js中有定义 -->
-                <a href="javascript:" onclick="goodstable(1)">
-                    <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>
+                <a href="javascript:">
+                    <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
                 </a>
-                <a href="javascript:" onclick="goodstable(page-1)">
-                    <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>
+                <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>
+                <a href="javascript:">
+                    <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
                 </a>
-                <span id="span">/</span>
-                <a href="javascript:" onclick="goodstable(page+1)">
-                    <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>
-                </a>
-                <!-- <a href="javascript:" onclick="goodstable(pageToti)">
-                    <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>
-                </a> -->
             </span>
         </div>
         <!-- 邀请人员-模态框 -->
@@ -75,26 +68,18 @@
                                 </tbody>
                             </table>
                         </div>
-
                         <!-- 分页 -->
-                        <!-- <div class="my-btn-box">
+                        <div class="my-btn-box">
                             <span class="fr">
-                                这里是分页，传入的参数page在下面的js中有定义
-                                <a href="javascript:" onclick="please(1)">
-                                    <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small last1">上一页</button>
                                 </a>
-                                <a href="javascript:" onclick="please(page-1)">
-                                    <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>
-                                </a>
-                                <span id="span">/</span>
-                                <a href="javascript:" onclick="please(page+1)">
-                                    <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>
-                                </a>
-                                <a href="javascript:" onclick="goodstable(pageToti)">
-                                    <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>
+                                <span id="span"><span id="currPage1">1</span>/<span id="allPage1"></span></span>
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small next1">下一页</button>
                                 </a>
                             </span>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

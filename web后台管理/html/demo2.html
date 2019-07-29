@@ -17,8 +17,7 @@
         </div>
 
         <button type="button" class="btn btn-default" style="color: white;
-    background: #1890FF" id="xun">查询</button>
-        <!-- onclick="cx()" -->
+background: #1890FF" id="xun">查询</button>
     </form>
     <!-- 网红人员列表 -->
     <table class="wh_table" id="content">
@@ -52,29 +51,6 @@
                         <!-- 内容 -->
                     </div>
                 </div>
-                <!--  -->
-            </div>
-        </div>
-    </div>
-    <!-- 二级模态框 整个模态框要跟第一个模态框同级 Modal -->
-    <div class="modal fade model" id="myModal1" tabindex="1" role="dialog" aria-labelledby="myModalLabel"
-        style="z-index: 100">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-
-                    <h4 class="modal-title" id="myModalLabel">查看大图</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="more_cardID">
-                        <P class="cardText">查看大图:</P>
-                        <img src="images/hehua.jpg" alt="">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-                </div>
             </div>
         </div>
     </div>
@@ -82,20 +58,13 @@
     <!-- 分页 -->
     <div class="my-btn-box">
         <span class="fr">
-            <!-- 这里是分页，传入的参数page在下面的js中有定义 -->
-            <a href="javascript:" onclick="goodstable(1)">
-                <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>
+            <a href="javascript:">
+                <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
             </a>
-            <a href="javascript:" onclick="goodstable(page-1)">
-                <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>
+            <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>
+            <a href="javascript:">
+                <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
             </a>
-            <span id="span">1/18</span>
-            <a href="javascript:" onclick="goodstable(page+1)">
-                <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>
-            </a>
-            <!-- <a href="javascript:" onclick="goodstable(pageToti)">
-                    <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>
-                </a> -->
         </span>
     </div>
 </div>

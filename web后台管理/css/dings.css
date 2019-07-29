@@ -6,6 +6,13 @@
 .ds_content{
     width: 100%;
 }
+@media(max-height:800px){
+    .ds_content{
+        overflow-y: auto;
+        height: 600px;
+        width: 100%;
+    }
+}
 .ds_top{
     background: white;
     width: 100%;

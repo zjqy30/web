@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -40,15 +41,6 @@
         .bgColor {
             background: #1980ff;
         }
-
-        /* .active{
-            color: white;
-            background: #1980ff
-        } */
-        /* .on{
-            color: #333333;
-            background: white;
-        } */
     </style>
 </head>
 
@@ -224,95 +216,76 @@
             <div class="main_content">
                 <div id="target_main">
                     <!-- ----------------------------------- -->
-                    <!-- 纯佣订单 -->
-                    <!-- <link rel="stylesheet" href="../css/dingdan.css">
-                    <script src="../js/cun.js"></script> -->
-                    <div class="dd_solid"></div>
-                    <div class="dd_content">
-                        <div class="dd_top">
-                            <p class="dd_text">搜索订单</p>
-                            <div class="input-group" id="input_group">
-                                <input type="text" class="form-control" placeholder="请输入"
-                                    aria-describedby="basic-addon2" id="cun_ipt" style="height: 49px">
-                                <span class="input-group-addon" id="basic-addon2">搜索</span>
+                    <!-- 网红管理-人员查看 -->
+                    <!-- <script src="../js/demo2.js"></script> -->
+                    <div class="wh_content">
+                        <!-- 查询 -->
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="exampleInputName2">平台：</label>
+                                <input type="text" class="form-control" id="ipt_platName" placeholder="请输入">
                             </div>
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist" id="dd_ul">
-                                <li role="presentation" class="tabbar active" tabtype='PY'><a href="#home"
-                                        aria-controls="home" role="tab" data-toggle="tab">待审核</a></li>
-                                <li role="presentation" class="tabbar" tabtype='AP'><a href="#profile"
-                                        aria-controls="profile" role="tab" data-toggle="tab">派单中</a></li>
-                                <li role="presentation" class="tabbar" tabtype='FN'><a href="#settings"
-                                        aria-controls="settings" role="tab" data-toggle="tab">已完成</a>
-                                </li>
-                            </ul>
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">名字：</label>
+                                <input type="text" class="form-control" id="ipt_wxName" placeholder="请输入">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">性别：</label>
+                                <input type="text" class="form-control" id="ipt_sex" placeholder="请输入">
+                            </div>
 
+                            <button type="button" class="btn btn-default" style="color: white;
+background: #1890FF" id="xun">查询</button>
+                        </form>
+                        <!-- 网红人员列表 -->
+                        <table class="wh_table" id="content">
+                            <thead>
+                                <tr class="tr_heard">
+                                    <th></th>
+                                    <th>姓名</th>
+                                    <th>平台</th>
+                                    <th>性别</th>
+                                    <th>粉丝数量</th>
+                                    <th>入驻时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="red_tbody">
+                                <!-- 表格内容 -->
+                            </tbody>
+                        </table>
+                        <!-- 网红人员更多资料-模态框 Modal -->
+                        <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" style="z-index: 10">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>
+                                    </div>
+                                    <div class="modal-body" id="more">
+                                        <div class="layui-row" id="row">
+                                            <!-- 内容 -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <!-- 待审核 -->
-                            <div role="tabpanel" class="tab-pane active" id="home">
-                                <div class="row" style="margin: 0" id="homeData">
-                                    <!-- 待审核内容 -->
-                                </div>
-                                <!-- 分页 -->
-                                <div class="my-btn-box">
-                                    <span class="fr">
-                                        <a href="javascript:">
-                                            <button
-                                                class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
-                                        </a>
-                                        <span id="span"><span id="currPage1">1</span>/<span id="allPage1"></span></span>
-                                        <a href="javascript:">
-                                            <button
-                                                class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- 派单中 -->
-                            <div role="tabpanel" class="tab-pane" id="profile">
-                                <div class="row" style="margin: 0" id="profileData">
-                                    <!-- 派单中 -->
-                                </div>
-                                <!-- 分页 -->
-                                <div class="my-btn-box">
-                                    <span class="fr">
-                                        <a href="javascript:">
-                                            <button
-                                                class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
-                                        </a>
-                                        <span id="span"><span id="currPage2">1</span>/<span id="allPage2"></span></span>
-                                        <a href="javascript:">
-                                            <button
-                                                class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- 已完成 -->
-                            <div role="tabpanel" class="tab-pane" id="settings">
-                                <div class="row" style="margin: 0" id="settingsData">
-                                    <!-- 已完成 -->
-                                </div>
-                                <!-- 分页 -->
-                                <div class="my-btn-box">
-                                    <span class="fr">
-                                        <a href="javascript:">
-                                            <button
-                                                class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
-                                        </a>
-                                        <span id="span"><span id="currPage3">1</span>/<span id="allPage3"></span></span>
-                                        <a href="javascript:">
-                                            <button
-                                                class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
+                        <!-- 模态框-完 -->
+                        <!-- 分页 -->
+                        <div class="my-btn-box">
+                            <span class="fr">
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                                </a>
+                                <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                                </a>
+                            </span>
                         </div>
                     </div>
-
                     <!-- ----------------------------------- -->
                 </div>
             </div>
@@ -323,23 +296,6 @@
 <script type='text/javaScript'></script>
 <script src="html.js"></script>
 <script src="index.js"></script>
-<!-- <script src="js/dingdan.js"></script> -->
-<script src="js/cun.js"></script>
-<!-- <script src="js/refund.js"></script> -->
-<!-- <script src="js/pure_rob.js"></script> -->
-<!-- <script src="js/dings.js"></script> -->
-<!-- <script src="js/demo4.js"></script> -->
-<!-- <script src="js/demo3.js"></script> -->
-<!-- <script src="js/demo2.js"></script> -->
-<!-- <script src="js/demo1.js"></script> -->
-<!-- <script src="js/banner.js"></script> -->
-<!-- <script src="js/sjindex.js"></script> -->
-<!-- <script src="js/market.js"></script> -->
-<!-- <script src="js/red.js"></script> -->
-<!-- <script src="js/serveType.js"></script> -->
-<!-- <script src="js/serve.js"></script> -->
-<!-- <script src="js/labels.js"></script> -->
-<!-- <script src="js/product.js"></script> -->
-<!-- <script src="js/announcement.js"></script> -->
+<script src="js/demo2.js"></script>
 <script src="layui/layui.all.js"></script>
 </html>

@@ -15,10 +15,28 @@ body{
 }
 .left_bar{
     background-color: #002140;
+    color: #a4afb8;
     width: 230px;
     float: left;
+    /* height: 955px; */
     height: 100%;
-    color: #a4afb8;;
+    overflow-y:auto;
+}
+@media (max-height:50px)and(max-height:800px){
+    .left_bar{
+        background-color: #002140;
+        color: #a4afb8;
+        width: 230px;
+        float: left;
+        height: 815px;
+        overflow-y:auto;
+    }
+    .my-btn-box {
+        position: absolute;
+        bottom: 0;
+        left: 100px;
+        width: 100%;
+    }
 }
 .left_img{
     text-align: center;
@@ -227,12 +245,32 @@ body{
     /* width: 1690px; */
     width: 100%;
     border-radius: 4px;
+    
 }
 #target_main{
+    position: relative;
     width:100%;
     height:100%;
     overflow: hidden;
 }
+@media (max-height:50px)and(max-height:800px){
+    .main_content{
+        background-color: #F0F2F5;
+        /* height: calc(100% - 50px); */
+        /* width: 1690px; */
+        width: 100%;
+        border-radius: 4px;
+        overflow-y:auto;
+        
+    }
+    #target_main{
+        position: relative;
+        width:100%;
+        height:100%;
+        overflow: hidden;
+    }
+}
+
 
 /* 网红审核 网红信息排列 */
 .content_row{
@@ -287,10 +325,20 @@ body{
 /* 网红-人员查看 */
 .wh_content{
     width: 96%;
-    height: 93%;
+    /* height: 93%; */
     margin: 2%;
    background: white;
    padding: 36px;
+}
+@media(max-height:800px){
+    .wh_content{
+        width: 96%;
+        height: 510px;
+        margin: 2%;
+       background: white;
+       padding: 36px;
+       overflow-y:auto;
+    }
 }
 .form-group{
     padding-right: 20px;
@@ -375,7 +423,7 @@ body{
  float: right;
 }
 
-
+/* wh_content */
 /* 商家审核 */
 .layui-col-md4,.layui-col-md6,.layui-col-md12,.layui-col-md9,.layui-col-md3{
     font-size: 14px;
@@ -409,7 +457,7 @@ body{
 /* 分页 */
 .my-btn-box{
     position: absolute;
-    bottom: 30px;
-    left: 255px;
+    bottom: 0px;
+    left: 55px;
     width: 100%;
 }

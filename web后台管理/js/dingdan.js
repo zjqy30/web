@@ -1,5 +1,5 @@
 // 订单管理（需求管理）
-var globel = 'http://192.168.0.166:8080';
+var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token')
 var type = 'AP';
 var wxName = '';
@@ -76,7 +76,6 @@ function listenerDom() {
                     $('#currPage1').text(currPage1);
                     getPYList();
                 }
-
                 break;
             case 'AP':
                 if (currPage2 == 1 || currPage2 == 0) {
@@ -86,7 +85,6 @@ function listenerDom() {
                     $('#currPage2').text(currPage2);
                     getAPList();
                 }
-
                 break;
             case 'LK':
                 if (currPage3 == 1 || currPage3 == 0) {
@@ -96,7 +94,6 @@ function listenerDom() {
                     $('#currPage3').text(currPage3);
                     getLKList();
                 }
-
                 break;
             case 'FN':
                 if (currPage4 == 1 || currPage4 == 0) {
@@ -106,11 +103,8 @@ function listenerDom() {
                     $('#currPage4').text(currPage4);
                     getFNList();
                 }
-
                 break;
         }
-
-
     })
 
     // 点击下一页
@@ -125,7 +119,6 @@ function listenerDom() {
                     $('#currPage1').text(currPage1);
                     getPYList();
                 }
-
                 break;
             case 'AP':
                 if (currPage2 == allPage2) {
@@ -135,7 +128,6 @@ function listenerDom() {
                     $('#currPage2').text(currPage2);
                     getAPList();
                 }
-
                 break;
             case 'LK':
                 if (currPage3 == allPage3) {
@@ -145,7 +137,6 @@ function listenerDom() {
                     $('#currPage3').text(currPage3);
                     getLKList();
                 }
-
                 break;
             case 'FN':
                 if (currPage4 == allPage4) {
@@ -155,10 +146,8 @@ function listenerDom() {
                     $('#currPage4').text(currPage4);
                     getFNList();
                 }
-
                 break;
         }
-
     })
 
 }
@@ -193,17 +182,23 @@ function getPYList() {
                 $('#currPage1').text(currPage1);
                 return false;
             }
-            
+
             $.each(needList, function (index, item) {
                 var id = item.id;
+                // 循环标签
                 var tags = item.tags;
-                console.log('tags', tags)
                 var tt = tags.split(",")
-                console.log(tt)
+                var tagsHtml = '';
+                 for(var i=0;i<tt.length;i++){
+                     tagsHtml +=  '<span class="layui_span">' + tt[i] + '</span>';
+                 }
+                //循环图片
                 var str = item.pics
                 var img = str.split(",");
-                console.log('商品图片', img)
-
+                var images="";
+                for(var i=0;i<img.length;i++){
+                    images +=  '<img style="width:98%" src="' + img[i] + '" alt="">';
+                }
                 $("#needData").append(
                     '<div class="col-md-4" id="tab-content">' +
                     '<div class="dd_tab_detail" data-toggle="modal" data-target="#sjmyModal' + index + '">' +
@@ -250,12 +245,7 @@ function getPYList() {
                     '<div class="layui-col-md12">' +
                     '<p>' +
                     '需求标签：' +
-                    '<span class="layui_span">' + tt[0] + '</span>' +
-                    '<span class="layui_span">' + tt[1] + '</span>' +
-                    '<span class="layui_span">' + tt[2] + '</span>' +
-                    '<span class="layui_span">' + tt[3] + '</span>' +
-                    '<span class="layui_span">' + tt[4] + '</span>' +
-                    '<span class="layui_span">' + tt[5] + '</span>' +
+                     tagsHtml+
                     '</p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +
@@ -263,12 +253,7 @@ function getPYList() {
                     '</div>' +
                     '<div class="layui-col-md12">' +
                     '<p>商品图片：</p>' +
-                    '<img style="width:98%" src="' + img[0] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[1] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[2] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[3] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[4] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[5] + '" alt="">' +
+                    images +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -299,10 +284,10 @@ function pass(id) {
             console.log('通过', data)
             if (data.errorCode == 0) {
                 alert('审核通过！')
-                window.location.reload()//实时刷新
             } else {
                 alert('审核未通过！')
             }
+            window.location.reload()//实时刷新
         }
     })
 }
@@ -325,12 +310,12 @@ function nopass(id) {
             } else {
                 alert('审核拒绝失败！')
             }
+            window.location.reload()//实时刷新
         }
     })
 }
 
-// 派单中需求列表(标签，商品图片都是多个，重新写)
-
+// 派单中需求列表
 function getAPList() {
     var need_data = {
         'token': token,
@@ -360,10 +345,20 @@ function getAPList() {
             }
             $.each(needList, function (index, item) {
                 var id = item.id;
+                // 循环标签
                 var tags = item.tags;
-
+                var tt = tags.split(",")
+                var tagsHtml = '';
+                 for(var i=0;i<tt.length;i++){
+                     tagsHtml +=  '<span class="layui_span">' + tt[i] + '</span>';
+                 }
+                //循环图片
                 var str = item.pics
                 var img = str.split(",");
+                var images="";
+                for(var i=0;i<img.length;i++){
+                    images +=  '<img style="width:98%" src="' + img[i] + '" alt="">';
+                }
 
                 $("#paiData").append(
                     '<div class="col-md-4" id="tab-content">' +
@@ -389,8 +384,8 @@ function getAPList() {
                     '</div>' +
                     '<!-- 抢单人员-模态框 -->' +
                     '<div class="dd_foot">' +
-                    '<span style="border-right: 1px solid #dedede" id="rob_del" onclick="rob(\'' + id + '\',this)" data-toggle="modal" data-target=".bs-example-modal-lg">抢单人员</span>' +
-                    '<span id="rob_del" onclick="rob_del(\'' + id + '\',this)">删除订单</span>' +
+                    '<span style="border-right: 1px solid #dedede" class="rob_del" onclick="rob(\'' + id + '\',this)" data-toggle="modal" data-target=".bs-example-modal-lg' + index + '">抢单人员</span>' +
+                    '<span class="rob_del" onclick="rob_del(\'' + id + '\',this)">删除订单</span>' +
                     '</div>' +
                     '<!--订单更多资料-模态框-->' +
                     ' <!-- 商家更多资料 -->' +
@@ -409,9 +404,7 @@ function getAPList() {
                     '<div class="layui-col-md12">' +
                     '<p>' +
                     '需求标签：' +
-                    '<span class="layui_span">' + item.tags + '</span>' +
-                    // '<span class="layui_span">三农</span>' +
-                    // '<span class="layui_span">美女</span>' +
+                      tagsHtml+
                     '</p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +
@@ -428,12 +421,7 @@ function getAPList() {
                     '</div>' +
                     '<div class="layui-col-md12">' +
                     '<p>商品图片：</p>' +
-                    '<img style="width:98%" src="' + img[0] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[1] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[2] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[3] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[4] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[5] + '" alt="">' +
+                     images +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -441,7 +429,23 @@ function getAPList() {
                     '</div>' +
                     '</div>' +
                     '<!-- 完 -->' +
-                    ' </div>'
+                    ' </div>' +
+                    // 抢单人员列表
+                    '<div class="modal fade bs-example-modal-lg' + index + '" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">' +
+                    '<div class="modal-dialog modal-lg" role="document">' +
+                    '<div class="modal-content" id="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                    '<h4 class="modal-title" id="myModalLabel">抢单人员</h4>' +
+                    '</div>' +
+                    '<table class="dd_table wh_table">' +
+                    '<tbody id="robData">' +
+                    '<!-- 抢单人员 -->' +
+                    '</tbody>' +
+                    '</table>' +
+                    ' </div>' +
+                    '</div>' +
+                    '</div>'
                 )
             })
         }
@@ -450,7 +454,6 @@ function getAPList() {
 
 // 抢单人员
 function rob(id, that) {
-    // $(that).attr('disabled',1)//按钮只能点击一次
     $(that).css({ background: "#1890FF", color: "white" })
     var rob_data = {
         'token': token,
@@ -465,7 +468,7 @@ function rob(id, that) {
         contentType: "application/json",
         data: JSON.stringify(rob_data),
         success: function (data) {
-            console.log('抢单人员', data)
+            // console.log('抢单人员', data)
             var robList = data.data.pageData.list;
             $.each(robList, function (index, item) {
                 $("#robData").append(
@@ -497,7 +500,7 @@ function rob_del(id, that) {
         contentType: "application/json",
         data: JSON.stringify(rob_del),
         success: function (data) {
-            console.log('删除订单', data);
+            // console.log('删除订单', data);
             if (data.errorCode == 0) {
                 alert("删除成功")
             } else {
@@ -509,7 +512,6 @@ function rob_del(id, that) {
 }
 
 // 进行中列表展示
-
 function getLKList() {
     var need_data = {
         'token': token,
@@ -537,15 +539,23 @@ function getLKList() {
                 $('#currPage3').text(currPage3);
                 return false;
             }
-           
-           
+
             $.each(needList, function (index, item) {
                 var id = item.id;
+                // 循环标签
                 var tags = item.tags;
                 var tt = tags.split(",")
-
+                var tagsHtml = '';
+                 for(var i=0;i<tt.length;i++){
+                     tagsHtml +=  '<span class="layui_span">' + tt[i] + '</span>';
+                 }
+                //循环图片
                 var str = item.pics
                 var img = str.split(",");
+                var images="";
+                for(var i=0;i<img.length;i++){
+                    images +=  '<img style="width:98%" src="' + img[i] + '" alt="">';
+                }
                 $("#unway").append(
                     '<div class="col-md-4" id="tab-content">' +
                     '<div class="dd_tab_detail" data-toggle="modal" data-target="#sjing' + index + '">' +
@@ -592,9 +602,7 @@ function getLKList() {
                     '<div class="layui-col-md12">' +
                     '<p>' +
                     '需求标签：' +
-                    '<span class="layui_span">' + tt[index] + '</span>' +
-                    // '<span class="layui_span">三农</span>' +
-                    // '<span class="layui_span">美女</span>' +
+                    tagsHtml+
                     '</p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +
@@ -611,12 +619,7 @@ function getLKList() {
                     '</div>' +
                     '<div class="layui-col-md12">' +
                     '<p>商品图片：</p>' +
-                    '<img style="width:98%" src="' + img[0] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[1] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[2] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[3] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[4] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[5] + '" alt="">' +
+                     images +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -644,18 +647,18 @@ function ipass(id) {
         contentType: "application/json",
         data: JSON.stringify(ing_data),
         success: function (data) {
-            console.log('恢复订单', data);
+            // console.log('恢复订单', data);
             if (data.errorCode == 0) {
                 alert("恢复订单成功")
             } else {
                 alert("恢复订单失败")
             }
+            window.location.reload()
         }
     })
 }
 // 进行中结束订单
 function noipass(id) {
-
     var ing_data = {
         'token': token,
         'id': id
@@ -667,12 +670,13 @@ function noipass(id) {
         contentType: "application/json",
         data: JSON.stringify(ing_data),
         success: function (data) {
-            console.log('结束订单', data);
+            // console.log('结束订单', data);
             if (data.errorCode == 0) {
                 alert("订单已结束！")
             } else {
                 alert("结束订单失败")
             }
+            window.location.reload()
         }
     })
 }
@@ -700,23 +704,31 @@ function getFNList() {
             allPage4 = parseInt(data.data.pageData.totalCount) / pageSize;
             allPage4 = Math.ceil(allPage4);
             $('#allPage4').text(allPage4);
-
             if (fiList.length == 0) {
                 currPage4 = 0
                 $('#currPage4').text(currPage4);
                 return false;
             }
-           
-           
+
             $.each(fiList, function (index, item) {
                 var id = item.id;
+                // 循环标签
                 var tags = item.tags;
-
+                var tt = tags.split(",")
+                var tagsHtml = '';
+                 for(var i=0;i<tt.length;i++){
+                     tagsHtml +=  '<span class="layui_span">' + tt[i] + '</span>';
+                 }
+                //循环图片
                 var str = item.pics
                 var img = str.split(",");
+                var images="";
+                for(var i=0;i<img.length;i++){
+                    images +=  '<img style="width:98%" src="' + img[i] + '" alt="">';
+                }
                 $("#finish").append(
                     '<div class="col-md-4" id="tab-content">' +
-                    '<div class="dd_tab_detail" data-toggle="modal" data-target="#sjachieve' + index + '">' +
+                    '<div class="dd_tab_detail">' +
                     '<div class="dd_detail">' +
                     '<div class="dd_userImg">' +
                     '<img class="dd_img" src="' + item.headPic + '" alt="">' +
@@ -737,7 +749,7 @@ function getFNList() {
                     '</div>' +
                     '</div>' +
                     '<div class="dd_foot">' +
-                    '<span id="dd_foot_detail"data-toggle="modal" data-target="#sjachieve">订单详情</span>' +
+                    '<span id="dd_foot_detail" data-toggle="modal" data-target="#sjachieve' + index + '">订单详情</span>' +
                     '</div>' +
                     '<!--订单更多资料-模态框-->' +
                     '<!-- 商家更多资料 -->' +
@@ -759,9 +771,7 @@ function getFNList() {
                     '<div class="layui-col-md12">' +
                     '<p>' +
                     '需求标签：' +
-                    '<span class="layui_span">' + item.tags + '</span>' +
-                    // '<span class="layui_span">三农</span>' +
-                    // '<span class="layui_span">美女</span>' +
+                    tagsHtml+
                     '</p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +
@@ -781,12 +791,7 @@ function getFNList() {
                     '</div>' +
                     '<div class="layui-col-md12">' +
                     '<p>商品图片：</p>' +
-                    '<img style="width:98%" src="' + img[0] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[1] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[2] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[3] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[4] + '" alt="">' +
-                    '<img style="width:98%" src="' + img[5] + '" alt="">' +
+                     images +
                     '</div>' +
                     '</div>' +
                     '</div>' +

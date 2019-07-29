@@ -6,6 +6,13 @@
 .serve_content{
     width: 100%;
 }
+@media(max-height:800px){
+    .serve_content{
+        overflow-y: auto;
+        height:510px;
+        width: 100%;
+    }
+}
 .serve_top{
     background: white;
     width: 100%;

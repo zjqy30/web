@@ -16,7 +16,7 @@
             <input type="text" class="form-control" id="sj_wxName" placeholder="请输入">
         </div>
         <button type="button" class="btn btn-default" style="color: white;
-background: #1890FF" onclick="sj_seach(page)">查询</button>
+background: #1890FF" id="sj_xun">查询</button>
     </form>
     <!-- 网红人员列表 -->
     <div class="divs">
@@ -81,20 +81,13 @@ background: #1890FF" onclick="sj_seach(page)">查询</button>
     <!-- 分页 -->
     <div class="my-btn-box">
         <span class="fr">
-            <!-- 这里是分页，传入的参数page在下面的js中有定义 -->
-            <a href="javascript:" onclick="goodstable(1)">
-                <button class="layui-btn layui-btn-primary layui-btn-small">首页</button>
+            <a href="javascript:">
+                <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
             </a>
-            <a href="javascript:" onclick="goodstable(page-1)">
-                <button class="layui-btn layui-btn-primary layui-btn-small">上一页</button>
+            <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>
+            <a href="javascript:">
+                <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
             </a>
-            <span id="span">/</span>
-            <a href="javascript:" onclick="goodstable(page+1)">
-                <button class="layui-btn layui-btn-primary layui-btn-small">下一页</button>
-            </a>
-            <!-- <a href="javascript:" onclick="goodstable(pageToti)">
-                <button class="layui-btn layui-btn-primary layui-btn-small">尾页</button>
-            </a> -->
         </span>
     </div>
 </div>

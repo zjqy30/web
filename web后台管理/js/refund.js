@@ -1,4 +1,4 @@
-var globel = 'http://192.168.0.166:8080';
+var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token')
 
 // 退款列表
@@ -14,7 +14,7 @@ $.ajax({
     contentType: "application/json",
     data: JSON.stringify(redata),
     success: function (data) {
-        // console.log('退款列表', data)
+        console.log('退款列表', data)
         var list = data.data.pageData.list;
         console.log('list列表', list)
         var arr;
@@ -26,7 +26,7 @@ $.ajax({
             arr = item.pics.split(",");
             $("#refund").append(
                 '<div class="col-md-4" id="refund-content">' +
-                '<div class="refund_tab_detail" data-toggle="modal" data-target="#refundModal">' +
+                '<div class="refund_tab_detail" data-toggle="modal" data-target="#refundModal'+index+'">' +
                 '<div class="refund_detail">' +
                 '<div class="refund_userImg">' +
                 ' <img class="refund_img" src="' + item.headPic + '" alt="">' +
@@ -47,11 +47,11 @@ $.ajax({
                 '</div>' +
                 '</div>' +
                 '<div class="refund_foot">' +
-                '<span class="re_del" style="border-right: 1px solid #dedede" onclick="tui(\'' + id + '\',this)">退款</span>' +
+                '<span class="re_del" style="border-right: 1px solid #dedede" onclick="tui(\'' + id + '\',this)">通过</span>' +
                 '<span class="re_del"  onclick="no(\'' + id + '\',this)">拒绝</span>' +
                 '</div>' +
                 '<!--订单更多资料-模态框-->' +
-                '<div class="modal fade" id="refundModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+                '<div class="modal fade" id="refundModal'+index+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
                 '<div class="modal-dialog" role="document">' +
                 '<div class="modal-content">' +
                 '<div class="modal-header">' +

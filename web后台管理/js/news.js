@@ -1,4 +1,4 @@
-var globel = 'http://192.168.0.166:8080';
+var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token');
 
 news();
@@ -15,7 +15,7 @@ function news(){
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function (data) {
-            console.log('消息列表', data)
+            // console.log('消息列表', data)
             var list = data.data.messageList
             if(!list){
                 $("#new_body").hide()
