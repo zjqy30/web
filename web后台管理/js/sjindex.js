@@ -7,13 +7,13 @@ sjindex1();
 sjindex2();
 sjindex3();
 // 获取第一层级标签列表
-function sjindex1(){
+function sjindex1() {
     var sj_data = {
         'token': token,
         'type': '1',
-        'pid':''
+        'pid': ''
     }
-    
+
     $.ajax({
         url: globel + "/hone/backend/dict/sellerTagList",
         dataType: 'json',
@@ -31,7 +31,7 @@ function sjindex1(){
                     '<button class="labels_col_del" onclick="label_oneid(\'' + oneId + '\')">删除标签</button>' +
                     '</div>'
                 )
-    
+
             })
         }
     })
@@ -60,11 +60,11 @@ function label_oneid(oneId) {
 }
 
 // 获取第二层级标签列表
-function sjindex2(){
+function sjindex2() {
     var sj_data = {
         'token': token,
         'type': '2',
-        'pid':selectedId1
+        'pid': selectedId1
     }
     $.ajax({
         url: globel + "/hone/backend/dict/sellerTagList",
@@ -112,11 +112,11 @@ function label_oneid2(oneId) {
 }
 
 // 获取第三层级标签列表
-function sjindex3(){
+function sjindex3() {
     var sj_data = {
         'token': token,
         'type': '3',
-        'pid':selectedId2
+        'pid': selectedId2
     }
     $.ajax({
         url: globel + "/hone/backend/dict/sellerTagList",
@@ -162,10 +162,10 @@ function label_oneid3(oneId) {
     })
 }
 
-
 // 下拉框获取第一层级标签列表
-$("#one_li").click(function () {
-    console.log('点击')
+// $("#one_li").click(function () {
+    one_li();
+function one_li() {
     var sj_data = {
         'token': token,
         'type': '1',
@@ -178,30 +178,30 @@ $("#one_li").click(function () {
         contentType: "application/json",
         data: JSON.stringify(sj_data),
         success: function (data) {
-            console.log('一级层级', data)
+            console.log('一级', data)
             var oneList = data.data.dictList;
-            $("#one_li").html('');
+            $("#one_li").html('<option>请选择</option>');
             $.each(oneList, function (index, item) {
                 var oneId = item.id;
                 $("#one_li").append(
-                    '<option value="'+oneId+'">'+
-                    '<p>'+item.dictValue +'</p>'+
-                    // '<p>'+ oneId +'</p>'+
-                    '</option>'
+                    '<option  value="' + oneId + '">' + item.dictValue + '</option>'
                 )
-                
             })
         }
     })
+}
+// 第一级下拉监听
+$('#one_li').change(function () {
+    selectedId1 = $('#one_li option:selected').val();
 })
+
 // 下拉框获取第二层级标签列表
-$("#two_li").click(function () {
+$("#_li").parent().click(function () {
     var sj_data = {
         'token': token,
         'type': '2',
-        'pid':selectedId1
+        'pid': selectedId1
     }
-    console.log('第一',two)
     $.ajax({
         url: globel + "/hone/backend/dict/sellerTagList",
         dataType: 'json',
@@ -209,25 +209,21 @@ $("#two_li").click(function () {
         contentType: "application/json",
         data: JSON.stringify(sj_data),
         success: function (data) {
-            console.log('一级层级', data)
+            console.log('二级', data)
             var oneList = data.data.dictList;
-            $("#two_li").html('');
+            $("#two_li").empty();
+            // $("#two_li").html('');
             $.each(oneList, function (index, item) {
                 var oneId = item.id;
                 $("#two_li").append(
-                    '<option  value="'+oneId+'">' + item.dictValue + '</option>'
+                    '<option  value="' + oneId + '">' + item.dictValue + '</option>'
                 )
-
             })
         }
     })
 })
-// 第一级下拉监听
-$('#one_li').change(function(){
-    selectedId1 = $('#one_li option:selected').val();
-})
 // 第二级下拉监听
-$('#two_li').change(function(){
+$('#two_li').change(function () {
     selectedId2 = $('#two_li option:selected').val();
 })
 
@@ -237,7 +233,7 @@ $("#all_click").click(function () {
     $(".tab-pane").each(function (e, ele) {
         console.log(e);
         if ($(this).hasClass('active')) {
-            
+
             var type = $(this).attr('type');
             if (type == '1') {
                 var all_value = $("#all_value").val()

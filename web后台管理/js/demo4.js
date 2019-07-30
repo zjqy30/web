@@ -22,6 +22,11 @@ $('#sj_xun').click(function () {
     sj_industry = $("#sj_platName").val();
     sj_sex = $("#sj_sex").val();
     sj_wxName = $("#sj_wxName").val();
+    if(sj_sex=="女"){
+        sj_sex=2;
+      }else if(sj_sex=='男'){
+        sj_sex=1;
+      }
     sj_lists()
 })
 function listenerDom() {
@@ -116,6 +121,7 @@ function red_more(id) {
         success: function (data) {
             console.log('网红详情列表', data)
             var list = data.data.userInfo;
+            $("#row").html("")//清空上一个模态框的内容
             console.log('list', list.id)
             // debugger
             $("#row").append(

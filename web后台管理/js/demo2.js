@@ -21,6 +21,11 @@ $('#xun').click(function () {
     platName = $("#ipt_platName").val();
     wxName = $("#ipt_wxName").val();
     sex = $("#ipt_sex").val();
+    if(sex=="女"){
+      sex=2;
+    }else if(sex=='男'){
+      sex=1;
+    }
     wh_list()
 })
 function listenerDom() {
@@ -103,7 +108,7 @@ function wh_list() {
         }
     })
 }
-// 更多资料(点击之后不能刷新，点击下一个还是上一个信息，必须手动刷新才行)
+// 更多资料
 function red_more(id) {
     var more = {
         'token': token,
@@ -118,10 +123,9 @@ function red_more(id) {
         success: function (data) {
             console.log('网红详情列表', data)
             var list = data.data.userInfo;
-            console.log(list)
+            $("#row").html('')//清空上一个模态框的内容
             var str = list.personalImgs;
             var img = str.split(",");
-            console.log('形象照', img);
             for (var i = 0; i < img.length; i++) {
                 // debugger
                 $("#row").append(
@@ -135,7 +139,7 @@ function red_more(id) {
                     '<div class="layui-col-md4 md4">' +
                     '<div class="grid-demo">' +
                     '<span class="color_black">性别：</span>' +
-                    '<span class="color_gray">' + (list.sex == 1 ? "女" : "男") + '</span>' +
+                    '<span class="color_gray">' + (list.sex == 2 ? "女" : "男") + '</span>' +
                     '</div>' +
                     '</div>' +
                     '<div class="layui-col-md4 md4">' +

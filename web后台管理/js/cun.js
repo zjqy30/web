@@ -427,8 +427,6 @@ function single() {
                     '<p class="layui-col-md12-p">' +
                     '需求标签：' +
                     '<span class="layui_span">' + item.starTag + '</span>' +
-                    // '<span class="layui_span">三农</span>' +
-                    // '<span class="layui_span">美女</span>' +
                     ' </p>' +
                     '</div>' +
                     '<div class="layui-col-md12">' +

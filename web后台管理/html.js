@@ -365,7 +365,7 @@ window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
 // 纯佣管理-抢单管理
 window.templates['Pure_rob.html'] = '<!-- 抢单管理 -->\n' +
     '<link rel="stylesheet" href="css/serve.css">\n' +
-    '<script src="js/Pure_rob.js"></script>\n' +
+    '<script src="js/pure_rob.js"></script>\n' +
     '<div class="serve_solid"></div>\n' +
     '<div class="serve_content">\n' +
     '    <div class="serve_foot">\n' +
@@ -374,6 +374,18 @@ window.templates['Pure_rob.html'] = '<!-- 抢单管理 -->\n' +
     '\n' +
     '                <!--  小块  -->\n' +
     '\n' +
+    '            </div>\n' +
+    '            <!-- 分页 -->\n' +
+    '            <div class="my-btn-box">\n' +
+    '                <span class="fr">\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '                    </a>\n' +
+    '                    <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>\n' +
+    '                    <a href="javascript:">\n' +
+    '                        <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '                    </a>\n' +
+    '                </span>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '    </div>\n' +
@@ -823,7 +835,7 @@ window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
     "                        <option>请选择</option>\n" +
     "                    </select>\n" +
     "                    <select id=\"two_li\" style=\"width: 70%;height:35px\">\n" +
-    "                        <option>请选择</option>\n" +
+    "                        <option id='_li'>请选择</option>\n" +
     "                    </select>\n" +
     "                    <input type=\"text\" class=\"form-control\" id=\"all_value\" placeholder=\"请输入\" style=\"width: 70%\">\n" +
     "                </div>\n" +
@@ -924,7 +936,7 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "        <p class=\"labels_text\">轮播图管理</p>\n" +
     "        <form class=\"form-horizontal\">\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">选择类型：</label>\n" +
+    "                <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">标题：</label>\n" +
     "                <div class=\"col-sm-9\">\n" +
     "                    <input type=\"text\" class=\"form-control\" id=\"lb\" placeholder=\"请输入\" style=\"width: 68%\">\n" +
     "                    <!-- <select class=\"form-control\" style=\"width: 68%\" id=\"banner_select\">\n" +
