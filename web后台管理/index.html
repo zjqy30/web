@@ -42,8 +42,29 @@
         .bgColor {
             background: #1980ff;
         }
-        #one_li:hover{
+
+        #one_li:hover {
             height: 100px;
+        }
+
+        .ds_color {
+            color: #333;
+            background: #dedede;
+        }
+
+        .p {
+            width: 317px;
+            height: 100px;
+            overflow-y: auto;
+            display: none;
+            z-index: 100;
+            background: white;
+            box-shadow: 1px 1px 5px #333;
+        }
+
+        .sel_p {
+            margin: 8px 0 10px;
+            text-indent: 1em;
         }
     </style>
 </head>
@@ -219,67 +240,74 @@
             <!-- 这是网页主内容区域 -->
             <div class="main_content">
                 <div id="target_main">
-                    <!-- ----------------------------------- -->
-                    <!-- 商家内幕-层级管理 -->
-                    <!-- <link rel="stylesheet" href="../css/labels.css">
-<link rel="stylesheet" href="../css/sjStory.css"> -->
-                    <!-- <script src="../js/sjindex.js"></script> -->
-                    <div class="labels_solid"></div>
-                    <div class="labels_content">
-                        <div class="labels_top" style="height: 320px;">
-                            <p class="labels_text">层级管理</p>
-                            <form class="form-horizontal">
-                                <div class="form-group" id="ds_modal_center">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">新建标签：</label>
-                                    <div class="col-sm-10">
-                                        <select id="one_li" style="width: 70%;height:35px">
-                                            <option>请选择</option>
-                                        </select>
-                                        <select id="two_li"  style="width: 70%;height:35px">
-                                            <option id="_li">请选择</option>
-                                        </select>
-                                        <input type="text" class="form-control" id="all_value" placeholder="请输入"
-                                            style="width:70%">
+                    <!-- 网红管理-人员查看 -->
+                    <!-- <script src="../js/demo2.js"></script> -->
+                    <div class="wh_content">
+                        <!-- 查询 -->
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="exampleInputName2">平台：</label>
+                                <input type="text" class="form-control" id="ipt_platName" placeholder="请输入">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">名字：</label>
+                                <input type="text" class="form-control" id="ipt_wxName" placeholder="请输入">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">性别：</label>
+                                <input type="text" class="form-control" id="ipt_sex" placeholder="请输入">
+                            </div>
+
+                            <button type="button" class="btn btn-default" style="color: white;
+background: #1890FF" id="xun">查询</button>
+                        </form>
+                        <!-- 网红人员列表 -->
+                        <table class="wh_table" id="content">
+                            <thead>
+                                <tr class="tr_heard">
+                                    <th></th>
+                                    <th>姓名</th>
+                                    <th>平台</th>
+                                    <th>性别</th>
+                                    <th>粉丝数量</th>
+                                    <th>入驻时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="red_tbody">
+                                <!-- 表格内容 -->
+                            </tbody>
+                        </table>
+                        <!-- 网红人员更多资料-模态框 Modal -->
+                        <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" style="z-index: 10">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel"> 更多资料</h4>
+                                    </div>
+                                    <div class="modal-body" id="more">
+                                        <div class="layui-row" id="row">
+                                            <!-- 内容 -->
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group" id="ds_modal_center">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="button" class="btn btn-default" id="all_click"
-                                            style="background: #1890FF;color: white;">生成</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist" id="all_ul" style="margin-top: 44px;">
-                                <li role="presentation" class="active" id="active"><a href="#one" aria-controls="home"
-                                        role="tab" data-toggle="tab">第一层级</a></li>
-                                <li role="presentation"><a href="#two" aria-controls="profile" role="tab"
-                                        data-toggle="tab">第二层级</a>
-                                </li>
-                                <li role="presentation"><a href="#three" aria-controls="profile" role="tab"
-                                        data-toggle="tab">第三层级</a>
-                                </li>
-                            </ul>
+                            </div>
                         </div>
-                        <div class="tab-content" style="height: 578px;">
-                            <!-- 第一层级 -->
-                            <div role="tabpanel" class="tab-pane active" id="one" type='1'>
-                                <div class="row" style="margin: 0" id="one_list">
-
-                                </div>
-                            </div>
-                            <!-- 第二层级 -->
-                            <div role="tabpanel" class="tab-pane" id="two" type='2'>
-                                <div class="row" style="margin: 0" id="two_list">
-
-                                </div>
-                            </div>
-                            <!-- 第三层级 -->
-                            <div role="tabpanel" class="tab-pane" id="three" type='3'>
-                                <div class="row" style="margin: 0" id="three_list">
-
-                                </div>
-                            </div>
+                        <!-- 模态框-完 -->
+                        <!-- 分页 -->
+                        <div class="my-btn-box">
+                            <span class="fr">
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>
+                                </a>
+                                <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>
+                                <a href="javascript:">
+                                    <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>
+                                </a>
+                            </span>
                         </div>
                     </div>
                     <!-- ----------------------------------- -->
@@ -292,8 +320,8 @@
 <script type='text/javaScript'></script>
 <script src="html.js"></script>
 <script src="index.js"></script>
-<script src="js/sjindex.js"></script>
-<!-- <script src="js/demo2.js"></script> -->
+<!-- <script src="js/sjindex.js"></script> -->
+<script src="js/demo2.js"></script>
 <script src="layui/layui.all.js"></script>
 
 </html>

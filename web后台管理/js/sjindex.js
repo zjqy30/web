@@ -87,7 +87,6 @@ function sjindex2() {
         }
     })
 }
-
 // //二级层级删除
 function label_oneid2(oneId) {
     var o_data = {
@@ -106,7 +105,7 @@ function label_oneid2(oneId) {
             } else {
                 alert("二级标签删除失败!")
             }
-            // window.location.reload();
+            window.location.reload();
         }
     })
 }
@@ -157,7 +156,7 @@ function label_oneid3(oneId) {
             } else {
                 alert("三级标签删除失败!")
             }
-            // window.location.reload();
+            window.location.reload();
         }
     })
 }
@@ -195,8 +194,14 @@ $('#one_li').change(function () {
     selectedId1 = $('#one_li option:selected').val();
 })
 
+
 // 下拉框获取第二层级标签列表
-$("#_li").parent().click(function () {
+$("#two_li").click(function () {
+    $(".p").css({display:"block"})
+    two_li()
+})
+// two_li()
+function two_li(){
     var sj_data = {
         'token': token,
         'type': '2',
@@ -211,27 +216,31 @@ $("#_li").parent().click(function () {
         success: function (data) {
             console.log('二级', data)
             var oneList = data.data.dictList;
-            $("#two_li").empty();
-            // $("#two_li").html('');
+            $(".p").empty();
             $.each(oneList, function (index, item) {
                 var oneId = item.id;
-                $("#two_li").append(
-                    '<option  value="' + oneId + '">' + item.dictValue + '</option>'
+                var pid=item.pid;
+                var vall=item.dictValue;
+                $(".p").append(
+                    '<p class="sel_p" onclick="options(\''+oneId+'\',\''+vall+'\')">' + item.dictValue + '</p>'
                 )
             })
         }
     })
-})
-// 第二级下拉监听
-$('#two_li').change(function () {
-    selectedId2 = $('#two_li option:selected').val();
-})
+}
+// 点击p赋值
+function options(oneId,vall){
+    // console.log(oneId,vall)
+    $("#two_li").val(vall);
+    $(".p").css({display:"none"})
+    selectedId2=oneId;
+}
 
 // 创建层级标签
 $("#all_click").click(function () {
     var tab = $(".tab-pane").hasClass('active');
     $(".tab-pane").each(function (e, ele) {
-        console.log(e);
+        // console.log(e);
         if ($(this).hasClass('active')) {
 
             var type = $(this).attr('type');
@@ -256,6 +265,7 @@ $("#all_click").click(function () {
                         } else {
                             alert("一级标签创建失败！")
                         }
+                        window.location.reload()
                     }
                 })
             } else if (type == '2') {
@@ -279,6 +289,7 @@ $("#all_click").click(function () {
                         } else {
                             alert("二级标签创建失败！")
                         }
+                        window.location.reload()
                     }
                 })
             } else {
@@ -303,6 +314,7 @@ $("#all_click").click(function () {
                         } else {
                             alert("三级标签创建失败！")
                         }
+                        // window.location.reload()
                     }
                 })
             }

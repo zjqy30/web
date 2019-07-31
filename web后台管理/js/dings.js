@@ -134,7 +134,7 @@ function wanghong(){
                     '<td class="list_one">' + item.platName + '</td>' +
                     '<td class="list_one">' + (item.sex == 2 ? '女' : '男') + '</td>' +
                     '<td>' + item.fansNums + '</td>' +
-                    '<td>' + item.createDate + '</td>' +
+                    // '<td>' + item.createDate + '</td>' +
                     '<td>' +
                     '<button class="wh_table_btn" onclick="red_more(\'' + name + '\',this,\'' + id + '\')">就他了</button>' +
                     '</td>' +
@@ -199,12 +199,9 @@ var wh;
 function red_more(name, that, starid) {
     console.log(name)
     $(that).css({ color: '#333', background: '#dedede' })
-    //    $(that).removeClass('ds_color');
-    //    $(that).siblings().addClass('ds_color');
     $("#wh_id").val(name)
     wh = starid;
     return starid
-
 }
 // 选择商家订单
 var sj;

@@ -423,7 +423,7 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '                                    <th>平台</th>\n' +
     '                                    <th>性别</th>\n' +
     '                                    <th>粉丝数量</th>\n' +
-    '                                    <th>入驻时间</th>\n' +
+    // '                                    <th>入驻时间</th>\n' +
     '                                    <th>操作</th>\n' +
     '                                </tr>\n' +
     '                            </thead>\n' +
@@ -758,18 +758,6 @@ window.templates['labels.html'] = "<!-- 标签管理 -->\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>\n" ;
-    // "<script>\n" +
-    // "    // 标签上传图片\n" +
-    // "    ipt.onchange = function () {\n" +
-    // "        // console.log(this.files[0])\n" +
-    // "        var F = new FileReader();\n" +
-    // "        F.readAsDataURL(this.files[0]);\n" +
-    // "        F.onload = function () {\n" +
-    // "            labes_img.src = F.result;\n" +
-    // "            labes_img.style.display = \"block\";\n" +
-    // "        }\n" +
-    // "    }\n" +
-    // "</script>";
 
 //公告管理
 window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
@@ -802,13 +790,6 @@ window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
     "            <div class=\"row\" style=\"margin: 0\">\n" +
     "\n" +
     "                <div id=\"ann_content\">\n" +
-    "                    <!-- <div class=\"col-md-4\" id=\"labels_contents\">\n" +
-    "                            <p class=\"col_md_4\">公告1</p>\n" +
-    "                            <div class=\"col_md_4_text\">\n" +
-    "                                生活技巧生活技巧生活技巧生活巧生活技巧\n" +
-    "                            </div>\n" +
-    "                            <button class=\"labels_col_del\">删除公告</button>\n" +
-    "                        </div> -->\n" +
     "                </div>\n" +
     "\n" +
     "            </div>\n" +
@@ -816,11 +797,8 @@ window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
     "\n" +
     "    </div>\n" +
     "</div>";
-// 商家内幕-内幕管理
-// window.templates['sjStory.html'] = "";
 //商家内幕-层级管理
-window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
-    "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
+window.templates['sjindex.html'] = "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
     "<link rel=\"stylesheet\" href=\"css/sjStory.css\">\n" +
     "<script src=\"js/sjindex.js\"></script>\n" +
     "<div class=\"labels_solid\"></div>\n" +
@@ -834,10 +812,14 @@ window.templates['sjindex.html'] = "<!-- 商家内幕-层级管理 -->\n" +
     "                    <select id=\"one_li\" style=\"width: 70%;height:35px\">\n" +
     "                        <option>请选择</option>\n" +
     "                    </select>\n" +
-    "                    <select id=\"two_li\" style=\"width: 70%;height:35px\">\n" +
-    "                        <option id='_li'>请选择</option>\n" +
-    "                    </select>\n" +
-    "                    <input type=\"text\" class=\"form-control\" id=\"all_value\" placeholder=\"请输入\" style=\"width: 70%\">\n" +
+    "                    <div id=\"ipts\">\n" +
+    "                        <input type=\"text\" value=\"\" class=\"form-control\" id=\"two_li\" autocomplete=\"off\"\n" +
+    "                            placeholder=\"请输入\" style=\"width:70%\">\n" +
+    "                        <div class=\"p\">\n" +
+    "                            <!-- p -->\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"all_value\" placeholder=\"请输入\" style=\"width:70%\">\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
@@ -913,12 +895,6 @@ window.templates['product.html'] = '<!-- 商品类型 -->\n' +
     '        <div role="tabpanel" class="tab-pane active" id="home">\n' +
     '            <div class="row" style="margin: 0">\n' +
     '                <div id="pro_content">\n' +
-    '                    <!-- <div class="col-md-2" id="labels_content">\n' +
-    '                                            <div class="labels_col_text">\n' +
-    '                                                生活技巧\n' +
-    '                                            </div>\n' +
-    '                                            <button class="labels_col_del">删除标签</button>\n' +
-    '                                        </div> -->\n' +
     '                </div>\n' +
     '            </div>\n' +
     '        </div>\n' +
@@ -939,12 +915,6 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "                <label for=\"inputEmail3\" class=\"col-sm-3 control-label\">标题：</label>\n" +
     "                <div class=\"col-sm-9\">\n" +
     "                    <input type=\"text\" class=\"form-control\" id=\"lb\" placeholder=\"请输入\" style=\"width: 68%\">\n" +
-    "                    <!-- <select class=\"form-control\" style=\"width: 68%\" id=\"banner_select\">\n" +
-    "                            <option>请选择</option>\n" +
-    "                            <option value=\"1\" id=\"lb\">轮播图</option>\n" +
-    "                            <option value=\"2\">H5链接</option>\n" +
-    "                            <option value=\"3\">富文本</option>\n" +
-    "                        </select> -->\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
@@ -955,13 +925,6 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "                    <img src=\"\" alt=\"\" id=\"banner_imgs\">\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "            <!-- <div class=\"form-group\" id=\"ds_modal_center\">\n" +
-    "                                    <label for=\"inputh5\" class=\"col-sm-3 control-label\">H5链接：</label>\n" +
-    "                                    <div class=\"col-sm-9\">\n" +
-    "                                        <input type=\"text\" class=\"form-control\" id=\"inputh5\" placeholder=\"请输入\"\n" +
-    "                                            style=\"width: 68%\">\n" +
-    "                                    </div>\n" +
-    "                                </div> -->\n" +
     "            <div class=\"form-group\" id=\"ds_modal_center\">\n" +
     "                <div class=\"col-sm-10\" style=\"text-align: center;\">\n" +
     "                    <button type=\"button\" class=\"btn btn-default\" onclick=\"banner_success()\"\n" +
@@ -975,18 +938,8 @@ window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
     "        <div role=\"tabpanel\" class=\"tab-pane\">\n" +
     "            <div class=\"row\" style=\"margin: 0\" id=\"banner_list\">\n" +
     "                <!-- 小块 -->\n" +
-    "                <!-- <div class=\"col-md-4\" id=\"banner_content\">\n" +
-    "                        <div class=\"banner_number\">0</div>\n" +
-    "                        <div class=\"banner_block_detail\">\n" +
-    "                            <img src=\"images/hehua.jpg\" alt=\"\">\n" +
-    "                        </div>\n" +
-    "                        <div class=\"banner_block_foot\">\n" +
-    "                            <span id=\"banner_del\">删除</span>\n" +
-    "                        </div>\n" +
-    "                    </div> -->\n" +
-    "\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>";
-// window.templates[index.html]=
+// window.templates[index.html]='';
