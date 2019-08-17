@@ -5,7 +5,19 @@ window.templates['demo1.html'] = '<!-- 网红管理-网红审核 -->\n' +
     '<script src="js/demo1.js"></script>\n' +
     '<div id="red_sh" style="width: 100%;height:100%;">   \n' +
     '  <!-- 内容 -->\n' +
-    '</div>';
+    '</div>'+
+    '<!-- 分页 -->'  +
+    '<div class="my-btn-box">' +
+       '<span class="fr">'+
+           '<a href="javascript:">'+
+               '<button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>'+
+           '</a>'+
+           '<span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>'+
+           '<a href="javascript:">'+
+               '<button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>'+
+           '</a>'+
+       '</span>'+
+   '</div>'
 // <!--网红审核-人员查看  -->
 window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
     '<script src="js/demo2.js"></script>\n' +
@@ -82,7 +94,19 @@ window.templates['demo3.html'] = '<!-- 商家审核 -->\n' +
     '<script src="js/demo3.js"></script>\n' +
     '<div id="sjDate">\n' +
     '    <!-- 内容 -->\n' +
-    '</div>'
+    '</div>'+
+    // '<!-- 分页 -->\n' +
+    '<div class="my-btn-box">\n' +
+    '    <span class="fr">\n' +
+    '        <a href="javascript:">\n' +
+    '            <button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>\n' +
+    '        </a>\n' +
+    '        <span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>\n' +
+    '        <a href="javascript:">\n' +
+    '            <button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>\n' +
+    '        </a>\n' +
+    '    </span>\n' +
+    '</div>';
 // <!--商家审核-人员查看  -->
 window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
     '<script src="js/demo4.js"></script>\n' +
@@ -632,6 +656,7 @@ window.templates['market.html'] = "<!-- 销售管理 -->\n" +
     "                </thead>\n" +
     "                <tbody id=\"red_ti\">\n" +
     "                    <!-- 销售人员 -->\n" +
+    "                    <div class='models'></div>\n" +
     "                </tbody>\n" +
     "            </table>\n" +
     "        </div>\n" +
@@ -709,6 +734,18 @@ window.templates['refund.html'] = '<!-- 商家退款 -->\n' +
     '        <div class="row" style="margin: 0" id="refund">\n' +
     '            <!--商家退款   -->\n' +
     '        </div>\n' +
+    '<!-- 分页 -->'  +
+    '<div class="my-btn-box">' +
+       '<span class="fr">'+
+           '<a href="javascript:">'+
+               '<button class="layui-btn layui-btn-primary layui-btn-small last">上一页</button>'+
+           '</a>'+
+           '<span id="span"><span id="currPage">1</span>/<span id="allPage"></span></span>'+
+           '<a href="javascript:">'+
+               '<button class="layui-btn layui-btn-primary layui-btn-small next">下一页</button>'+
+           '</a>'+
+       '</span>'+
+    '</div>'+    
     '    </div>\n' +
     '</div>';
 

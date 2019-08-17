@@ -35,11 +35,16 @@ var headPic=localStorage.getItem("headPic")
 var username = localStorage.getItem('username')
 var id = localStorage.getItem('id')
 
-$("#login_out").append(
-    '<img src="'+(headPic?headPic:images/hehua.jpg)+'" alt="">' +
-    '<p>'+username+'</p>' +
-    '<i class="fa fa-caret-down" aria-hidden="true"></i>'
-)
+if(token){
+    $("#login_out").append(
+        '<img src="'+(headPic?headPic:images/hehua.jpg)+'" alt="">' +
+        '<p>'+username+'</p>' +
+        '<i class="fa fa-caret-down" aria-hidden="true"></i>'
+    )
+}else{
+    location.href="login.html"
+}
+
 // 退出登陆
 function ligin_out() {
     var result = confirm("确定要退出吗？");

@@ -74,6 +74,7 @@ function market(){
             var list = data.data.pageData.list;
             // 渲染前先清空
             $("#red_ti").html('');
+            $(".models").html('');
              // 总页数
              allPage = parseInt(data.data.pageData.totalCount) / pageSize;
              allPage = Math.ceil(allPage);
@@ -86,8 +87,6 @@ function market(){
              }
             console.log('销售人员列表', list)
             $.each(list, function (index, item) {
-                // console.log('邀请',item.id)
-                // yid=item.id;
                 var id = list[index].id
                 $("#red_ti").append(
                     '<tr>' +
@@ -96,13 +95,30 @@ function market(){
                     '<td>男</td>' +
                     '<td>' + item.inviteNums + '</td>' +
                     '<td>' + item.userCode + '</td>' +
-                    '<td><img src="'+item.qrcodeUrl+'" alt=""></td>' +
-                    // '<td class="market_btn" style="color:#1890ff;">' + item.qrcodeUrl + '</td>' +
+                    '<td><img src="' + item.qrcodeUrl + '" alt="" data-toggle="modal" data-target="#myModal1' + index + '"></td>' +
                     '<td>' +
                     '<button class="market_table_btn right" onclick="please(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">邀请人员</button>' +
                     '<button class="market_table_btn" onclick="market_del(\'' + id + '\')">删除资料</button>' +
                     ' </td>' +
                     '</tr>'
+                )
+                $(".models").append(
+                    ' <div class="modal fade" id="myModal1' + index + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                    '<h4 class="modal-title" id="myModalLabel">' + item.marketName + '</h4>' +
+                    '</div>' +
+                    ' <div class="modal-body">' +
+                    '<img src="' + item.qrcodeUrl + '" alt="">' +
+                    '</div>' +
+                    '<div class="modal-footer">' +
+                    '<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
                 )
             })
         }
