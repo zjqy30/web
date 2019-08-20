@@ -58,8 +58,8 @@ window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
     '        </tbody>\n' +
     '    </table>\n' +
     '    <!-- 网红人员更多资料-模态框 Modal -->\n' +
-    '    <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"\n' +
-    '        style="z-index: 10">\n' +
+    '    <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog"\n' +
+    '        aria-labelledby="myModalLabel" style="z-index: 10;overflow-y:auto">\n' +
     '        <div class="modal-dialog" role="document">\n' +
     '            <div class="modal-content">\n' +
     '                <div class="modal-header">\n' +
@@ -148,7 +148,7 @@ window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
     '    </div>\n' +
     '    <!-- 网红人员更多资料-模态框 Modal -->\n' +
     '    <div class="modal fade" id="myModalmore" tabindex="-1" role="dialog"\n' +
-    '        aria-labelledby="myModalLabel" style="z-index: 10">\n' +
+    '        aria-labelledby="myModalLabel" style="z-index: 10;overflow-y:auto">\n' +
     '        <div class="modal-dialog" role="document">\n' +
     '            <div class="modal-content">\n' +
     '                <div class="modal-header">\n' +

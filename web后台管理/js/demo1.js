@@ -67,33 +67,8 @@ function WHList() {
                 arr = img.split(",")
                 // console.log('形象照',arr);//每个人的形象照数组
                 // 形象照
-                if (arr.length == 5) {
-                    html = '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index + 1] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index + 2] + '" alt="">'
-                } else if (arr.length == 1) {
-                    html = '<img class="cardImg" src="' + arr[0] + '" alt="">'
-                } else if (arr.length == 2) {
-                    html = '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index] + '" alt="">'
-                } else if (arr.length == 3) {
-                    html = '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index] + '" alt="">'
-                } else if (arr.length == 4) {
-                    html = '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index + 1] + '" alt="">'
-                } else {
-                    html = '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index + 1] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index + 2] + '" alt="">' +
-                        '<img class="cardImg" src="' + arr[index + 3] + '" alt="">'
+                for (var i = 0; i < arr.length; i++) {
+                    html += '<img class="cardImg" src="' + arr[i] + '" alt="" style="width:200px;">'
                 }
                 $("#red_sh").append(
                     '<div class="content_row" id="content_row">' +
@@ -201,8 +176,8 @@ function WHList() {
                     '<img class="cardImg" src="' + item.platformImgs + '" alt="" data-toggle="modal" data-target="#myModal4' + index + '">' +
                     '</div>' +
                     '</div>' +
-                    '<button type="button" id="pass" class="btn btn_green" style="margin: 10% 10px 10% 36%;">通过</button>' +
-                    '<button type="button" id="nopass" class="btn btn-default">拒绝</button>' +
+                    '<button type="button" id="pass" onclick="pass(\''+id+'\')" class="btn btn_green" style="margin: 10% 10px 10% 36%;">通过</button>' +
+                    '<button type="button" id="nopass" onclick="nopass(\''+id+'\')" class="btn btn-default">拒绝</button>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -288,60 +263,59 @@ function WHList() {
                     '</div>' +
                     '</div>'
                 )
-                // 审核通过
-                $("#pass").click(function () {
-                    console.log(123)
-                    var pass_data = {
-                        'token': token,
-                        'appletUserId': id,//用户ID
-                        'ifPass': 'pass'//过或不过
-                    }
-                    $.ajax({
-                        url: globel + "/hone/backend/userBasic/starApproveOperate",
-                        dataType: 'json',
-                        type: "post",
-                        contentType: "application/json",
-                        data: JSON.stringify(pass_data),
-                        success: function (data) {
-                            console.log('审核通过', data)
-                            if (data.errorCode == 0) {
-                                alert("审核通过")
-                            } else {
-                                alert("审核未通过")
-                            }
-                            window.location.reload();
-                        }
-                    })
-                })
-                // 审核未通过
-                $("#nopass").click(function () {
-                    console.log(123)
-                    var nopass_data = {
-                        'token': token,
-                        'appletUserId': id,//用户ID
-                        'ifPass': 'nopass'//过或不过
-                    }
-                    $.ajax({
-                        url: globel + "/hone/backend/userBasic/starApproveOperate",
-                        dataType: 'json',
-                        type: "post",
-                        contentType: "application/json",
-                        data: JSON.stringify(nopass_data),
-                        success: function (data) {
-                            console.log('拒绝', data)
-                            if (data.errorCode == 0) {
-                                alert("审核已拒绝")
-                            } else {
-                                alert("审核拒绝失败")
-                            }
-                            // window.location.reload();
-                        }
-
-                    })
-                })
             })
         }
     })
 }
 
+// 审核通过
+function pass(id) {
+    console.log(123)
+    var pass_data = {
+        'token': token,
+        'appletUserId': id,//用户ID
+        'ifPass': 'pass'//过或不过
+    }
+    $.ajax({
+        url: globel + "/hone/backend/userBasic/starApproveOperate",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(pass_data),
+        success: function (data) {
+            console.log('审核通过', data)
+            if (data.errorCode == 0) {
+                alert("审核通过")
+            } else {
+                alert("审核未通过")
+            }
+            window.location.reload();
+        }
+    })
+}
+// 审核未通过
+function nopass(id) {
+    console.log(123)
+    var nopass_data = {
+        'token': token,
+        'appletUserId': id,//用户ID
+        'ifPass': 'nopass'//过或不过
+    }
+    $.ajax({
+        url: globel + "/hone/backend/userBasic/starApproveOperate",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(nopass_data),
+        success: function (data) {
+            console.log('拒绝', data)
+            if (data.errorCode == 0) {
+                alert("审核已拒绝")
+            } else {
+                alert("审核拒绝失败")
+            }
+            // window.location.reload();
+        }
 
+    })
+}

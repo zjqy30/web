@@ -106,7 +106,7 @@ function sj_lists() {
     })
 }
 
-// 更多资料(点击之后不能刷新，点击下一个还是上一个信息，必须手动刷新才行)
+// 更多资料
 function red_more(id) {
     var more = {
         'token': token,
@@ -178,25 +178,109 @@ function red_more(id) {
                 '<div class="layui-col-md12">' +
                 '<div class="more_cardID cardid">' +
                 '<P class="cardText">手持身份证照：</P>' +
-                '<img class="cardidImg" src="' + list.idCardPic + '" alt="" data-toggle="modal" data-target="#myModal1">' +
+                '<img class="cardidImg" src="' + list.idCardPic + '" alt="" data-toggle="modal" data-target="#myModal1'+1+'">' +
                 '</div>' +
                 '<div class="more_cardID cardid">' +
                 '<P class="cardText">营业执照：</P>' +
-                '<img class="cardidImg" src="' + list.businessLicense + '" alt="" data-toggle="modal" data-target="#myModal1">' +
+                '<img class="cardidImg" src="' + list.businessLicense + '" alt="" data-toggle="modal" data-target="#myModal4'+4+'">' +
                 '</div>' +
                 '<div class="more_cardID cardid">' +
                 '<P class="cardText">身份证正/反面照：</P>' +
-                ' <img class="cardidImg" src="' + list.idCardUpPic + '" alt="" data-toggle="modal" data-target="#myModal1">' +
-                '<img class="cardidImg" style="margin: 0" src="' + list.idCardDownPic + '" alt="" data-toggle="modal" data-target="#myModal1">' +
+                ' <img class="cardidImg" src="' + list.idCardUpPic + '" alt="" data-toggle="modal" data-target="#myModal2'+2+'">' +
+                '<img class="cardidImg" style="margin: 0" src="' + list.idCardDownPic + '" alt="" data-toggle="modal" data-target="#myModal3'+3+'">' +
                 '</div>' +
                 '</div>' +
-                '</div>'
+                '</div>'+
+                '<!-- 二级模态框 -->' +
+                    '<!-- 手持身份证照 -->' +
+                    '<div class="modal fade" id="myModal1' + 1 + '" tabindex="1" role="dialog" style="margin-left: -18px;" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" onclick="methodName()"><span aria-hidden="true">&times;</span></button>' +
+                    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
+                    '</div>' +
+                    ' <div class="modal-body">' +
+                    '<div class="more_cardID">' +
+                    '<P class="cardText">手持身份证照：</P>' +
+                    '<img src="' + list.idCardPic + '" alt="" style="width:100%;">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- 二级模态框 -->' +
+                    '<!-- 身份证正面 -->' +
+                    '<div class="modal fade" id="myModal2' + 2 + '" tabindex="1" role="dialog" style="margin-left: -18px;" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" onclick="methodName2()" aria-hidden="true">×</button>' +
+                    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
+                    '</div>' +
+                    ' <div class="modal-body">' +
+                    '<div class="more_cardID">' +
+                    '<P class="cardText">身份证正面照：</P>' +
+                    '<img src="' + list.idCardUpPic + '" alt="" style="width:100%;">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- 二级模态框 -->' +
+                    '<!-- 身份证反面 -->' +
+                    '<div class="modal fade" id="myModal3' + 3 + '" tabindex="1" role="dialog" style="margin-left: -18px;" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" onclick="methodName3()" aria-hidden="true">×</button>' +
+                    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
+                    '</div>' +
+                    ' <div class="modal-body">' +
+                    '<div class="more_cardID">' +
+                    '<P class="cardText">身份证反面：</P>' +
+                    '<img src="' + list.idCardDownPic + '" alt="" style="width:100%;">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- 二级模态框 -->' +
+                    '<!-- 营业执照 -->' +
+                    '<div class="modal fade" id="myModal4' + 4 + '" tabindex="1" role="dialog" style="margin-left: -18px;" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" onclick="methodName4()" aria-hidden="true">×</button>' +
+                    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
+                    '</div>' +
+                    ' <div class="modal-body">' +
+                    '<div class="more_cardID">' +
+                    '<P class="cardText">营业执照：</P>' +
+                    '<img src="' + list.businessLicense + '" alt="" style="width:100%;">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
             )
 
         }
     })
 }
-// 删除资料（可以刷新，但是是全局，不是仅仅当前页面）
+function methodName(){
+    $('#myModal1' + 1 + '').modal('toggle')
+}
+function methodName2(){
+    $('#myModal2' + 2 + '').modal('toggle')
+}
+function methodName3(){
+    $('#myModal3' + 3 + '').modal('toggle')
+}
+function methodName4(){
+    $('#myModal4' + 4 + '').modal('toggle')
+}
+// 删除资料
 function red_del(id) {
     console.log(123)
     var del = {
@@ -211,6 +295,11 @@ function red_del(id) {
         data: JSON.stringify(del),
         success: function (data) {
             console.log('删除资料', data)
+            if(data.errorCode==0){
+                alert("删除成功!")
+            }else{
+                alert("删除失败!")
+            }
             window.location.reload()//实时刷新
         }
     })

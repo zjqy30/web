@@ -142,8 +142,8 @@ function SJList(){
                                             '<img class="cardImg" src="'+item.idCardDownPic+'" alt="" data-toggle="modal" data-target="#myModal4'+index+'">'+
                                         '</div>'+
                                     '</div>'+
-                                    '<button type="button" id="pass" class="btn btn_green" style="margin: 10% 10px 10% 36%;">通过</button>'+
-                                    '<button type="button" id="nopass" class="btn btn-default">拒绝</button>'+
+                                    '<button type="button" id="pass" onclick="pass(\''+id+'\')" class="btn btn_green" style="margin: 10% 10px 10% 36%;">通过</button>'+
+                                    '<button type="button" id="nopass" onclick="nopass(\''+id+'\')" class="btn btn-default">拒绝</button>'+
                                 '</div>'+
                             '</div>'+
                          '</div>'+
@@ -163,8 +163,6 @@ function SJList(){
                                                     '<img src="'+item.idCardPic+'" alt="" style="width:100%;">'+
                                                 '</div>'+
                                             '</div>'+
-                                           ' <div class="modal-footer">确定</button>'+
-                                            '</div>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
@@ -182,8 +180,6 @@ function SJList(){
                                                     '<P class="cardText">营业执照：</P>'+
                                                     '<img src="'+item.businessLicense+'" alt="" style="width:100%;">'+
                                                 '</div>'+
-                                            '</div>'+
-                                           ' <div class="modal-footer">确定</button>'+
                                             '</div>'+
                                         '</div>'+
                                     '</div>'+
@@ -203,8 +199,6 @@ function SJList(){
                                                     '<img src="'+item.idCardUpPic+'" alt="" style="width:100%;">'+
                                                 '</div>'+
                                             '</div>'+
-                                           ' <div class="modal-footer">确定</button>'+
-                                            '</div>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
@@ -223,64 +217,61 @@ function SJList(){
                                                     '<img src="'+item.idCardDownPic+'" alt="" style="width:100%;">'+
                                                 '</div>'+
                                             '</div>'+
-                                           ' <div class="modal-footer">确定</button>'+
-                                            '</div>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'
     
-                    
                 )
-                // 审核通过
-                $("#pass").click(function(){
-                    console.log(123)
-                    var pass_data={
-                        'token':token,
-                        'appletUserId':id,//用户ID
-                        'ifPass': 'pass'//过或不过
-                    }
-                    $.ajax({
-                        url: globel + "/hone/backend/userBasic/sellerApproveOperate",
-                        dataType: 'json',
-                        type: "post",
-                        contentType: "application/json",
-                        data: JSON.stringify(pass_data),
-                        success: function (data) {
-                            if(data.errorCode==0){
-                                alert("审核通过")
-                            }else{
-                                alert("审核未通过")
-                            }
-                            window.location.reload();
-                        }
-                    })
-                })
-                // 审核未通过
-                $("#nopass").click(function(){
-                    console.log(123)
-                    var nopass_data={
-                        'token':token,
-                        'appletUserId':id,//用户ID
-                        'ifPass': 'nopass'//过或不过
-                    }
-                    $.ajax({
-                        url: globel + "/hone/backend/userBasic/sellerApproveOperate",
-                        dataType: 'json',
-                        type: "post",
-                        contentType: "application/json",
-                        data: JSON.stringify(nopass_data),
-                        success: function (data) {
-                            if(data.errorCode==0){
-                                alert("审核已拒绝")
-                            }else{
-                                alert("审核拒绝失败")
-                            }
-                            window.location.reload();
-                        }
-                        
-                    })
-                })
+                
             })
+        }
+    })
+}
+// 审核通过
+function pass(id){
+    console.log(123)
+    var pass_data={
+        'token':token,
+        'appletUserId':id,//用户ID
+        'ifPass': 'pass'//过或不过
+    }
+    $.ajax({
+        url: globel + "/hone/backend/userBasic/sellerApproveOperate",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(pass_data),
+        success: function (data) {
+            if(data.errorCode==0){
+                alert("审核通过")
+            }else{
+                alert("审核未通过")
+            }
+            window.location.reload();
+        }
+    })
+}
+// 审核拒绝
+function nopass(id){
+    console.log(456)
+    var nopass_data={
+        'token':token,
+        'appletUserId':id,//用户ID
+        'ifPass': 'nopass'//过或不过
+    }
+    $.ajax({
+        url: globel + "/hone/backend/userBasic/sellerApproveOperate",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(nopass_data),
+        success: function (data) {
+            if(data.errorCode==0){
+                alert("审核已拒绝")
+            }else{
+                alert("审核拒绝失败")
+            }
+            window.location.reload();
         }
     })
 }

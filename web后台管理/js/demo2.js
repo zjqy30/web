@@ -21,10 +21,10 @@ $('#xun').click(function () {
     platName = $("#ipt_platName").val();
     wxName = $("#ipt_wxName").val();
     sex = $("#ipt_sex").val();
-    if(sex=="女"){
-      sex=2;
-    }else if(sex=='男'){
-      sex=1;
+    if (sex == "女") {
+        sex = 2;
+    } else if (sex == '男') {
+        sex = 1;
     }
     wh_list()
 })
@@ -75,17 +75,17 @@ function wh_list() {
             var lists = data.data.pageData.list;
             // 渲染前先清空
             $("#red_tbody").html('');
-             // 总页数
-             allPage = parseInt(data.data.pageData.totalCount) / pageSize;
-             allPage = Math.ceil(allPage);
-             $('#allPage').text(allPage);
-             // 非空判断
-             if (lists.length == 0) {
-                 currPage = 0
-                 $('#currPage').text(currPage);
-                 return false;
-             }
- 
+            // 总页数
+            allPage = parseInt(data.data.pageData.totalCount) / pageSize;
+            allPage = Math.ceil(allPage);
+            $('#allPage').text(allPage);
+            // 非空判断
+            if (lists.length == 0) {
+                currPage = 0
+                $('#currPage').text(currPage);
+                return false;
+            }
+
             $.each(lists, function (index, item) {
                 var id = item.id;
                 var img = item.headPic
@@ -124,110 +124,203 @@ function red_more(id) {
             console.log('网红详情列表', data)
             var list = data.data.userInfo;
             $("#row").html('')//清空上一个模态框的内容
+            var html = '';
             var str = list.personalImgs;
             var img = str.split(",");
             for (var i = 0; i < img.length; i++) {
-                // debugger
-                $("#row").append(
-                    '<P class="cardText">基本信息：</P>' +
-                    '<div class="layui-col-md4 md4">' +
-                    '<div class="grid-demo">' +
-                    '<span class="color_black">姓名：</span>' +
-                    '<span class="color_gray">' + list.wxName + '</span>' +
+                html += '<img class="cardImg" src="' + img[i] + '" alt="" style="width:200px;">'
+            }
+            // debugger
+            $("#row").append(
+                '<P class="cardText">基本信息：</P>' +
+                '<div class="layui-col-md4 md4">' +
+                '<div class="grid-demo">' +
+                '<span class="color_black">姓名：</span>' +
+                '<span class="color_gray">' + list.wxName + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md4 md4">' +
+                '<div class="grid-demo">' +
+                '<span class="color_black">性别：</span>' +
+                '<span class="color_gray">' + (list.sex == 2 ? "女" : "男") + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md4 md4">' +
+                '<div class="grid-demo">' +
+                '<span class="color_black">年龄：</span>' +
+                '<span class="color_gray">' + list.age + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md4 md4">' +
+                '<div class="grid-demo">' +
+                '<span class="color_black">店铺：</span>' +
+                '<span class="color_gray">' + list.hasShop + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md4 md4">' +
+                '<div class="grid-demo">' +
+                '<span class="color_black">平台ID：</span>' +
+                '<span class="color_gray text">' + list.id + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md4 md4">' +
+                '<div class="grid-demo">' +
+                '<span class="color_black">平台：</span>' +
+                '<span class="color_gray">' + list.platFormName + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md4 md4">' +
+                '<div class="grid-demo">' +
+                '<span class="color_black">手机号：</span>' +
+                '<span class="color_gray">' + list.phoneNo + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md4 md4">' +
+                '<div class="grid-demo">' +
+                '<span class="color_black">邀请人：</span>' +
+                '<span class="color_gray">' + list.marketer + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md4 md4">' +
+                '<div class="grid-demo grid-demo-bg1">' +
+                '<span class="color_black">粉丝量：</span>' +
+                '<span class="color_gray">' + list.fansNums + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md12 md4">' +
+                '<div class="grid-demo grid-demo-bg1">' +
+                '<span class="color_black">申请时间：</span>' +
+                '<span class="color_gray">' + list.createDate + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md12 md4">' +
+                '<div class="grid-demo grid-demo-bg1">' +
+                '<span class="color_black">居住地址：</span>' +
+                '<span class="color_gray">' + list.country + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md9 md4">' +
+                '<div class="grid-demo grid-demo-bg1">' +
+                '<span class="color_black">身份证号码：</span>' +
+                '<span class="color_gray">' + list.idCardNumber + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="layui-col-md12">' +
+                '<div class="more_cardID cardid">' +
+                '<P class="cardText">手持身份证照：</P>' +
+                '<img class="cardidImg" src="' + list.idCardPic + '" alt="" data-toggle="modal" data-target="#myModal1'+1+'">' +
+                '</div>' +
+                '<div class="more_cardID cardid">' +
+                '<P class="cardText">身份证正/反面照：</P>' +
+                ' <img class="cardidImg" src="' + list.idCardUpPic + '" alt="" data-toggle="modal" data-target="#myModal2'+2+'">' +
+                '<img class="cardidImg" style="margin: 0" src="' + list.idCardDownPic + '" alt="" data-toggle="modal" data-target="#myModal3'+3+'">' +
+                '</div>' +
+                '<div class="more_cardID cardid" style="width:561px">' +
+                '<P class="cardText">形象照：</P>' + html +
+                // '<img class="cardidImg" src="' + img[i] + '" alt="" data-toggle="modal" data-target="#myModal1">' +
+                '</div>' +
+                '<div class="more_cardID cardid">' +
+                '<P class="cardText">平台截图：</P>' +
+                '<img class="cardidImg" src="' + list.platformImgs + '" alt="" data-toggle="modal" data-target="#myModal4'+4+'">' +
+                '</div>' +
+                '</div>'+
+                '<!-- 二级模态框 -->' +
+                    '<!-- 手持身份证照 -->' +
+                    '<div class="modal fade" id="myModal1' + 1 + '" tabindex="1" role="dialog" style="margin-left: -18px;" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" onclick="methodName()" aria-hidden="true">×</button>' +
+                    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
                     '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md4 md4">' +
-                    '<div class="grid-demo">' +
-                    '<span class="color_black">性别：</span>' +
-                    '<span class="color_gray">' + (list.sex == 2 ? "女" : "男") + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md4 md4">' +
-                    '<div class="grid-demo">' +
-                    '<span class="color_black">年龄：</span>' +
-                    '<span class="color_gray">' + list.age + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md4 md4">' +
-                    '<div class="grid-demo">' +
-                    '<span class="color_black">店铺：</span>' +
-                    '<span class="color_gray">' + list.hasShop + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md4 md4">' +
-                    '<div class="grid-demo">' +
-                    '<span class="color_black">平台ID：</span>' +
-                    '<span class="color_gray text">' + list.id + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md4 md4">' +
-                    '<div class="grid-demo">' +
-                    '<span class="color_black">平台：</span>' +
-                    '<span class="color_gray">' + list.platFormName + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md4 md4">' +
-                    '<div class="grid-demo">' +
-                    '<span class="color_black">手机号：</span>' +
-                    '<span class="color_gray">' + list.phoneNo + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md4 md4">' +
-                    '<div class="grid-demo">' +
-                    '<span class="color_black">邀请人：</span>' +
-                    '<span class="color_gray">' + list.marketer + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md4 md4">' +
-                    '<div class="grid-demo grid-demo-bg1">' +
-                    '<span class="color_black">粉丝量：</span>' +
-                    '<span class="color_gray">' + list.fansNums + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md12 md4">' +
-                    '<div class="grid-demo grid-demo-bg1">' +
-                    '<span class="color_black">申请时间：</span>' +
-                    '<span class="color_gray">' + list.createDate + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md12 md4">' +
-                    '<div class="grid-demo grid-demo-bg1">' +
-                    '<span class="color_black">居住地址：</span>' +
-                    '<span class="color_gray">' + list.country + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md9 md4">' +
-                    '<div class="grid-demo grid-demo-bg1">' +
-                    '<span class="color_black">身份证号码：</span>' +
-                    '<span class="color_gray">' + list.idCardNumber + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="layui-col-md12">' +
-                    '<div class="more_cardID cardid">' +
+                    ' <div class="modal-body">' +
+                    '<div class="more_cardID">' +
                     '<P class="cardText">手持身份证照：</P>' +
-                    '<img class="cardidImg" src="' + list.idCardPic + '" alt="" data-toggle="modal" data-target="#myModal1">' +
+                    '<img src="' + list.idCardPic + '" alt="" style="width:100%;">' +
                     '</div>' +
-                    '<div class="more_cardID cardid">' +
-                    '<P class="cardText">身份证正/反面照：</P>' +
-                    ' <img class="cardidImg" src="' + list.idCardUpPic + '" alt="" data-toggle="modal" data-target="#myModal1">' +
-                    '<img class="cardidImg" style="margin: 0" src="' + list.idCardDownPic + '" alt="" data-toggle="modal" data-target="#myModal1">' +
                     '</div>' +
-                    '<div class="more_cardID cardid">' +
-                    '<P class="cardText">形象照：</P>' +
-                    '<img class="cardidImg" src="' + img[i] + '" alt="" data-toggle="modal" data-target="#myModal1">' +
+                    ' <div class="modal-footer">确定</button>' +
                     '</div>' +
-                    '<div class="more_cardID cardid">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- 二级模态框 -->' +
+                    '<!-- 身份证正面 -->' +
+                    '<div class="modal fade" id="myModal2' + 2 + '" tabindex="1" role="dialog" style="margin-left: -18px;" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" onclick="methodName2()" aria-hidden="true">×</button>' +
+                    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
+                    '</div>' +
+                    ' <div class="modal-body">' +
+                    '<div class="more_cardID">' +
+                    '<P class="cardText">身份证正面照：</P>' +
+                    '<img src="' + list.idCardUpPic + '" alt="" style="width:100%;">' +
+                    '</div>' +
+                    '</div>' +
+                    ' <div class="modal-footer">确定</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- 二级模态框 -->' +
+                    '<!-- 身份证反面 -->' +
+                    '<div class="modal fade" id="myModal3' + 3 + '" tabindex="1" role="dialog" style="margin-left: -18px;" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" onclick="methodName3()" aria-hidden="true">×</button>' +
+                    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
+                    '</div>' +
+                    ' <div class="modal-body">' +
+                    '<div class="more_cardID">' +
+                    '<P class="cardText">身份证反面：</P>' +
+                    '<img src="' + list.idCardDownPic + '" alt="" style="width:100%;">' +
+                    '</div>' +
+                    '</div>' +
+                    ' <div class="modal-footer">确定</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<!-- 二级模态框 -->' +
+                    '<!-- 平台截图 -->' +
+                    '<div class="modal fade" id="myModal4' + 4 + '" tabindex="1" role="dialog" style="margin-left: -18px;" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" onclick="methodName4()" aria-hidden="true">×</button>' +
+                    '<h4 class="modal-title" id="myModalLabel">查看大图</h4>' +
+                    '</div>' +
+                    ' <div class="modal-body">' +
+                    '<div class="more_cardID">' +
                     '<P class="cardText">平台截图：</P>' +
-                    '<img class="cardidImg" src="' + list.platformImgs + '" alt="" data-toggle="modal" data-target="#myModal1">' +
+                    '<img src="' + list.platformImgs + '" alt="" style="width:100%;">' +
+                    '</div>' +
+                    '</div>' +
+                    ' <div class="modal-footer">确定</button>' +
+                    '</div>' +
+                    '</div>' +
                     '</div>' +
                     '</div>'
-                )
-                break;
-            }
+            )
         }
     })
 }
-// 删除资料（可以刷新，但是是全局，不是仅仅当前页面）
+function methodName(){
+    $('#myModal1' + 1 + '').modal('toggle')
+}
+function methodName2(){
+    $('#myModal2' + 2 + '').modal('toggle')
+}
+function methodName3(){
+    $('#myModal3' + 3 + '').modal('toggle')
+}
+function methodName4(){
+    $('#myModal4' + 4 + '').modal('toggle')
+}
+// 删除资料
 function red_del(id) {
     console.log(123)
     var del = {
