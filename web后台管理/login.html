@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-   
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,9 +39,14 @@
 <script src="jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="./js/jQuery.md5.js"></script>
-
 <script type="text/javascript">
- var globel = 'https://hongonew.com';
+
+    // 正式版
+    var globel = 'https://hongonew.com';
+    // 测试版
+    // var globel = 'http://192.168.0.166:8080';
+    window.localStorage.setItem('globel', globel);
+
     // 获取焦点
     $("#user").focus();
 
@@ -58,7 +63,6 @@
             // console.log('加密后的密码', md5pwd);
             sign(username, md5pwd)
         }
-
     }
 
     function sign(username, md5pwd) {
@@ -76,28 +80,23 @@
             contentType: "application/json",
             data: JSON.stringify(datas),
             success: function (data) {
-                console.log(data);
                 // 存储用户信息（返回）
                 var token = data.data.token;
                 var headPic = data.data.user.headPic;
                 var username = data.data.user.username;
                 var id = data.data.user.id;
-                window.localStorage.setItem("token",token);
-                window.localStorage.setItem("headPic",headPic);
-                window.localStorage.setItem("username",username);
-                window.localStorage.setItem("id",id);
-                console.log(token,headPic,username,id)
-                
-                window.open('index.html') //跳转页面
-  
+                window.localStorage.setItem("token", token);
+                window.localStorage.setItem("headPic", headPic);
+                window.localStorage.setItem("username", username);
+                window.localStorage.setItem("id", id);
+
+                window.location.href='index.html';//在本页面窗口打开新页面
             },
-            err:function(){
-                console.log('网络错误！')
+            err: function () {
+                alert('网络错误！')
             }
         })
     }
-
-
 </script>
 
 </html>

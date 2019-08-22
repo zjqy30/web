@@ -1,5 +1,5 @@
-var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token');
+var globel = localStorage.getItem('globel')
 
 news();
 // 获取消息列表
@@ -15,7 +15,6 @@ function news(){
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function (data) {
-            // console.log('消息列表', data)
             var list = data.data.messageList
             if(!list){
                 $("#new_body").hide()

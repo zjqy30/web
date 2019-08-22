@@ -1,4 +1,3 @@
-
 // 侧边栏的js
 var staut = 1
 function this_show(that) {
@@ -15,9 +14,8 @@ function this_show(that) {
 //切换页面
 function target(str) {
     str = str + '.html'
-    $('#target_main').html(window.templates[str]);
+    $('#target_main').html(window.templates[str]); 
 }
-
 // 点击切换颜色(父)
 $("#left_ul li").on('click', function () {
     $("#left_ul li").removeClass("color");
@@ -34,7 +32,7 @@ var token = localStorage.getItem('token')
 var headPic=localStorage.getItem("headPic")
 var username = localStorage.getItem('username')
 var id = localStorage.getItem('id')
-
+console.log(token);
 if(token){
     $("#login_out").append(
         '<img src="'+(headPic?headPic:images/hehua.jpg)+'" alt="">' +

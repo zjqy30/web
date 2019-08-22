@@ -1,5 +1,7 @@
-var globel = 'https://hongonew.com';
+// var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token')
+var globel = localStorage.getItem('globel')
+var market_name = $("#market_name").val();
 
 var currPage = parseInt($('#currPage').text()); // 初始页
 var currPage1 = parseInt($('#currPage1').text()); // 初始页
@@ -22,8 +24,7 @@ function listenerDom(){
             $('#currPage').text(currPage);
             market();
         }
-    })
-    
+    }) 
     // 点击下一页
     $('.next').click(function () {
         if (currPage == allPage) {
@@ -34,8 +35,6 @@ function listenerDom(){
             market();
         }
     })
-    
-
 }
 function next_li(){
     $('.last1').click(function () {
@@ -54,6 +53,73 @@ function next_li(){
             currPage1++;
             $('#currPage1').text(currPage1);
             please(yid)
+        }
+    })
+}
+// 局部刷新
+function zhi(){
+    $("#market_name").val('');
+    var type_data = {
+        'token': token,
+        'pageNumber': currPage,//页数
+        'pageSize': pageSize //页面值
+    }
+    $.ajax({
+        url: globel + "/hone/backend/marketer/list",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(type_data),
+        success: function (data) {
+            var list = data.data.pageData.list;
+            // 渲染前先清空
+            $("#red_ti").html('');
+            $(".models").html('');
+             // 总页数
+             allPage = parseInt(data.data.pageData.totalCount) / pageSize;
+             allPage = Math.ceil(allPage);
+             $('#allPage').text(allPage);
+             // 非空判断
+             if (list.length == 0) {
+                 currPage = 0
+                 $('#currPage').text(currPage);
+                 return false;
+             }
+            $.each(list, function (index, item) {
+                var id = list[index].id
+                $("#red_ti").append(
+                    '<tr>' +
+                    '<td><img src="images/hehua.jpg" alt=""></td>' +
+                    '<td class="market_name">' + item.marketName + '</td>' +
+                    '<td>男</td>' +
+                    '<td>' + item.inviteNums + '</td>' +
+                    '<td>' + item.userCode + '</td>' +
+                    '<td><img src="' + item.qrcodeUrl + '" alt="" data-toggle="modal" data-target="#myModal1' + index + '"></td>' +
+                    '<td>' +
+                    '<button class="market_table_btn right" onclick="please(\'' + id + '\')" data-toggle="modal" data-target="#myModalmore">邀请人员</button>' +
+                    '<button class="market_table_btn" onclick="market_del(\'' + id + '\')">删除资料</button>' +
+                    ' </td>' +
+                    '</tr>'
+                )
+                $(".models").append(
+                    ' <div class="modal fade" id="myModal1' + index + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+                    '<div class="modal-dialog" role="document">' +
+                    ' <div class="modal-content">' +
+                    '<div class="modal-header">' +
+                    '<button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                    '<h4 class="modal-title" id="myModalLabel">' + item.marketName + '</h4>' +
+                    '</div>' +
+                    ' <div class="modal-body">' +
+                    '<img src="' + item.qrcodeUrl + '" alt="">' +
+                    '</div>' +
+                    '<div class="modal-footer">' +
+                    '<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                )
+            })
         }
     })
 }
@@ -85,7 +151,6 @@ function market(){
                  $('#currPage').text(currPage);
                  return false;
              }
-            console.log('销售人员列表', list)
             $.each(list, function (index, item) {
                 var id = list[index].id
                 $("#red_ti").append(
@@ -142,7 +207,6 @@ function please(id) {
         contentType: "application/json",
         data: JSON.stringify(market_data),
         success: function (data) {
-            console.log('邀请人员', data)
             var please_list = data.data.pageData.list;
             // 渲染前先清空
             $("#market_red").html('');
@@ -156,7 +220,6 @@ function please(id) {
                  $('#currPage1').text(currPage1);
                  return false;
              }
-            console.log(please_list)
             if (please_list) {
                 $.each(please_list, function (index, item) {
                     $("#market_red").append(
@@ -190,14 +253,13 @@ function market_del(id) {
         contentType: "application/json",
         data: JSON.stringify(market_del),
         success: function (data) {
-            console.log('删除', data)
+            // console.log('删除', data)
             if (data.errorCode == 0) {
                 alert("删除成功！")
-                window.location.reload()
             } else {
                 alert("删除失败！")
             }
-
+            zhi()
         }
     })
 }
@@ -216,7 +278,6 @@ function market_btn() {
         contentType: "application/json",
         data: JSON.stringify(mar_data),
         success: function (data) {
-            console.log('创建销售人员', data)
             var liss = data.data.hoMarketer;
             $("#red_ti").append(
                 '<tr>' +
@@ -225,7 +286,6 @@ function market_btn() {
                 '<td>男</td>' +
                 '<td>' + liss.inviteNums + '</td>' +
                 '<td>' + liss.userCode + '</td>' +
-                // '<td><img src="'+item.qrcodeUrl+'" alt=""></td>' +
                 '<td class="market_btn" style="color:#1890ff;">' + liss.qrcodeUrl + '</td>' +
                 '<td>' +
                 '<button class="market_table_btn right" data-toggle="modal" data-target="#myModalmore">邀请人员</button>' +
@@ -233,8 +293,8 @@ function market_btn() {
                 ' </td>' +
                 '</tr>'
             )
-            window.location.reload()
             market_name = ""
+            zhi()
         }
     })
 }

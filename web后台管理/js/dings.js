@@ -1,19 +1,15 @@
-var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token')
+var globel = localStorage.getItem('globel')
+
 var platName = '';
 var wxName = '';
 var sex = '';
 var ipt = '';
-// var wh_ipt;
-// var sj_ipt;
-
 
 platName = $("#ipt_platName").val();
 wxName = $("#ipt_wxName").val();
 sex = $("#ipt_sex").val();
 ipt = $("#dd_ipt").val();
-// wh_ipt=$("#sj_ipt").val();
-// sj_ipt=$("#sj_ipt").val();
 var currPage = parseInt($('#currPage').text()); // 初始页
 var currPage1 = parseInt($('#currPage1').text()); // 初始页
 var pageSize = 8;//页面数
@@ -24,25 +20,7 @@ wanghong();
 dingdan(); 
 listenerDom();
 sj_next()
-// 搜索
-// $('#wh_seach').click(function () {
-//     currPage = 1; // 初始页
-//     $('#currPage').text(currPage); // 初始页
-//     // sj_industry = $("#sj_platName").val();
-//     // sj_sex = $("#sj_sex").val();
-//     // sj_wxName = $("#sj_wxName").val();
-//     wh_ipt=$("#sj_ipt").val();
-//     console.log(wh_ipt)
-//     wanghong();
-// })
-// 搜索
-// $('#sj_seach').click(function () {
-//     currPage1 = 1; // 初始页
-//     $('#currPage1').text(currPage1); // 初始页
-//     // ipt = $("#dd_ipt").val();
-//     sj_ipt=$("#sj_ipt").val();
-//     dingdan();
-// })
+
 function listenerDom() {
     // 上一页
     $('.last').click(function () {
@@ -54,8 +32,6 @@ function listenerDom() {
             wanghong();
         }
     })
-    
-
     // 点击下一页
     $('.next').click(function () {
         if (currPage == allPage) {
@@ -66,8 +42,6 @@ function listenerDom() {
             wanghong();
         }
     })
-    
-
 }
 function sj_next(){
     $('.last1').click(function () {
@@ -89,7 +63,6 @@ function sj_next(){
         }
     })
 }
-
 // 获取网红人员列表
 function wanghong(){
     var red_data = {
@@ -108,7 +81,6 @@ function wanghong(){
         contentType: "application/json",
         data: JSON.stringify(red_data),
         success: function (data) {
-            console.log('网红列表', data)
             var list = data.data.pageData.list;
             // 渲染前先清空
             $("#red_tbody").html('');
@@ -134,7 +106,6 @@ function wanghong(){
                     '<td class="list_one">' + item.platName + '</td>' +
                     '<td class="list_one">' + (item.sex == 2 ? '女' : '男') + '</td>' +
                     '<td>' + item.fansNums + '</td>' +
-                    // '<td>' + item.createDate + '</td>' +
                     '<td>' +
                     '<button class="wh_table_btn" onclick="red_more(\'' + name + '\',this,\'' + id + '\')">就他了</button>' +
                     '</td>' +
@@ -161,7 +132,6 @@ function dingdan() {
         contentType: "application/json",
         data: JSON.stringify(need_data),
         success: function (data) {
-            console.log('派单中需求列表', data)
             var needList = data.data.pageData.list;
             // 渲染前先清空
             $("#sjData").html('');
@@ -206,7 +176,6 @@ function red_more(name, that, starid) {
 // 选择商家订单
 var sj;
 function sj_more(name, that, offerid) {
-    console.log(name)
     $(that).css({ color: '#333', background: '#dedede' })
     $("#sj_id").val(name)
     sj = offerid;
@@ -219,7 +188,6 @@ $("#create").click(function () {
 })
 
 function create(sj, wh) {
-    console.log(sj, wh)
     var data = {
         'token': token,
         'offerId': sj,
@@ -232,7 +200,12 @@ function create(sj, wh) {
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function (data) {
-            console.log('列表', data)
+            // console.log('列表', data)
+            if(data.errorCode==0){
+                alert("链接创建成功!")
+            }else{
+                alert("链接创建失败!")
+            }
         }
     })
 }

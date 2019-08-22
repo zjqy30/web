@@ -1,6 +1,38 @@
-var globel = 'https://hongonew.com';
 var token = localStorage.getItem('token')
+var globel = localStorage.getItem('globel')
 
+function zhi(){
+    $("#ann_value").val("");
+    var creat = {
+        'token': token
+    }
+    $.ajax({
+        url: globel + "/hone/backend/sysNotice/list",
+        dataType: 'json',
+        type: "post",
+        contentType: "application/json",
+        data: JSON.stringify(creat),
+        success: function (data) {
+            var list = data.data.systemNoticeList;
+            $("#ann_content").html("");
+            // 如果网红列表有数据
+            if (list) {
+                $.each(list, function (index, item) {
+                    var id = item.id;
+                    $("#ann_content").append(
+                        '<div class="col-md-4" id="labels_contents">' +
+                        '<p class="col_md_4">公告' + (index + 1) + '</p>' +
+                        '<div class="col_md_4_text">' +
+                        '' + item.message + '' +
+                        ' </div>' +
+                        '<button class="labels_col_del" onclick=ann_del(\'' + id + '\')>删除公告</button>' +
+                        '</div>'
+                    )
+                })
+            }
+        }
+    })
+}
 // 获取公告列表
 var creat = {
     'token': token
@@ -12,12 +44,9 @@ $.ajax({
     contentType: "application/json",
     data: JSON.stringify(creat),
     success: function (data) {
-        console.log('公告', data)
-        console.log(data.data.systemNoticeList)
         var list = data.data.systemNoticeList;
         // 如果网红列表有数据
         if (list) {
-            // var list=data.data.systemNoticeList
             $.each(list, function (index, item) {
                 var id = item.id;
                 $("#ann_content").append(
@@ -54,10 +83,8 @@ $.ajax({
                     contentType: "application/json",
                     data: JSON.stringify(creat),
                     success: function (data) {
-                        console.log("创建公告", data);
                         var list = data.data.systemNoticeList
                         $.each(list, function (index, item) {
-                            var id = item.id;
                             $("#ann_content").append(
                                 '<div class="col-md-4" id="labels_contents">' +
                                 '<p class="col_md_4">公告' + item[index + 1] + '</p>' +
@@ -68,7 +95,8 @@ $.ajax({
                                 '</div>'
                             )
                         })
-                        window.location.reload()//实时刷新
+                        zhi()
+                        // window.location.reload()//实时刷新
                     },
                     err: function () {
                         console.log('网络错误！')
@@ -96,7 +124,8 @@ function ann_del(id) {
             }else{
                 alert("删除失败！")
             }
-            window.location.reload()//实时刷新
+            // window.location.reload()//实时刷新
+            zhi()
         }
     })
 }
