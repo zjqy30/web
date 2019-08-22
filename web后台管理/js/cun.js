@@ -152,9 +152,6 @@ function zhi(){
         data: JSON.stringify(data),
         success: function (data) {
             var list = data.data.pageData.list;
-            if(list==''){
-                $("#homeData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             // 渲染前先清空
             $("#homeData").html('');
             // 总页数
@@ -282,7 +279,6 @@ function zhi(){
                 )
             })
         }
-        }
     })
     // 派单中
     var data = {
@@ -301,9 +297,6 @@ function zhi(){
         success: function (data) {
             // console.log('派单列表',data);
             var list = data.data.pageData.list;
-            if(list==''){
-                $("#profileData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             // 渲染前先清空
             $("#profileData").html('');
             // 总页数
@@ -431,7 +424,6 @@ function zhi(){
                 )
             })
         }
-        }
     })
     // 已完成
     var data = {
@@ -451,9 +443,9 @@ function zhi(){
         success: function (data) {//成功回调函数
             // 拿到数据进行页面渲染
             var list = data.data.pageData.list;
-            if(list==''){
-                $("#settingsData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
+            // if(list==''){
+            //     $("#settingsData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
+            // }else{
             // 渲染前先清空
             $("#settingsData").html('');
             // 总页数
@@ -579,7 +571,7 @@ function zhi(){
                     ' </div>'
                 )
             })
-        }
+        // }
         }
     })
 }
@@ -602,9 +594,6 @@ function check() {
         data: JSON.stringify(data),
         success: function (data) {
             var list = data.data.pageData.list;
-            if(list==''){
-                $("#homeData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             // 渲染前先清空
             $("#homeData").html('');
             // 总页数
@@ -731,7 +720,6 @@ function check() {
                     '</div>'
                 )
             })
-        }
         }
     })
 }
@@ -809,9 +797,6 @@ function single() {
         success: function (data) {
             // console.log('派单列表',data);
             var list = data.data.pageData.list;
-            if(list==''){
-                $("#profileData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             // 渲染前先清空
             $("#profileData").html('');
             // 总页数
@@ -939,7 +924,6 @@ function single() {
                 )
             })
         }
-        }
     })
 }
 // 派单中-删除
@@ -1013,9 +997,6 @@ function fanish() {
         success: function (data) {//成功回调函数
             // 拿到数据进行页面渲染
             var list = data.data.pageData.list;
-            if(list==''){
-                $("#settingsData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             // 渲染前先清空
             $("#settingsData").html('');
             // 总页数
@@ -1141,7 +1122,6 @@ function fanish() {
                     ' </div>'
                 )
             })
-        }
         }
     })
 }

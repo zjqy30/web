@@ -21,7 +21,7 @@ window.templates['demo1.html'] = '<!-- 网红管理-网红审核 -->\n' +
    '</div>'
 // <!--网红审核-人员查看  -->
 window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
-'<input type="button" onclick="zhi()" value="刷新"/>'+
+'<input type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="zhi()" value="刷新"/>'+
     '<script src="js/demo2.js"></script>\n' +
     '<div class="wh_content">\n' +
     '    <!-- 查询 -->\n' +
@@ -112,7 +112,7 @@ window.templates['demo3.html'] = '<!-- 商家审核 -->\n' +
     '</div>';
 // <!--商家审核-人员查看  -->
 window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
-'<input type="button" onclick="zhi()" value="刷新"/>'+
+'<input type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="zhi()" value="刷新"/>'+
     '<script src="js/demo4.js"></script>\n' +
     '<div class="wh_content">\n' +
     '    <!-- 查询 -->\n' +
@@ -207,7 +207,7 @@ window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
     '</div>';
 // <!-- 订单管理 -->
 window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
-'<input type="button" onclick="zhi()" value="刷新"/>'+
+'<input type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="zhi()" value="刷新"/>'+
     '<link rel="stylesheet" href="css/dingdan.css">\n' +
     '<script src="js/dingdan.js"></script>\n' +
     '<div class="dd_solid"></div>\n' +
@@ -310,7 +310,7 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '</div>';
 // <!-- 纯佣管理 Pure_rob-->
 window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
-'<input type="button" onclick="zhi()" value="刷新"/>'+
+'<input type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="zhi()" value="刷新"/>'+
     '<link rel="stylesheet" href="css/dingdan.css">\n' +
     '<script src="js/cun.js"></script>\n' +
     '<div class="dd_solid"></div>\n' +
@@ -850,7 +850,7 @@ window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
     "    </div>\n" +
     "</div>";
 //商家内幕-层级管理
-window.templates['sjindex.html'] = '<input type="button" onclick="zhi()" value="刷新"/>'+
+window.templates['sjindex.html'] = '<input type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="zhi()" value="刷新"/>'+
    "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
     "<link rel=\"stylesheet\" href=\"css/sjStory.css\">\n" +
     "<script src=\"js/sjindex.js\"></script>\n" +
@@ -915,7 +915,7 @@ window.templates['sjindex.html'] = '<input type="button" onclick="zhi()" value="
     "</div>";
 // <!-- 商品类型 -->
 window.templates['product.html'] = '<!-- 商品类型 -->\n' +
-'<input type="button" onclick="zhi()" value="刷新"/>'+
+'<input type="button"  onclick="zhi()" value="刷新" style="display:none"/>'+
     '<link rel="stylesheet" href="css/labels.css">\n' +
     '<script src="jquery.min.js"></script>\n' +
     '<script src="js/product.js"></script>\n' +
@@ -957,7 +957,7 @@ window.templates['product.html'] = '<!-- 商品类型 -->\n' +
     '</div>';
 // 轮播图管理
 window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
-'<input type="button" onclick="zhi()" value="刷新" />'+
+'<input type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="zhi()" value="刷新" />'+
     "<!-- 把css写在labels.css里面了 -->\n" +
     "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
     "<script src=\"js/banner.js\"></script>\n" +

@@ -32,7 +32,7 @@ var token = localStorage.getItem('token')
 var headPic=localStorage.getItem("headPic")
 var username = localStorage.getItem('username')
 var id = localStorage.getItem('id')
-console.log(token);
+// console.log(token);
 if(token){
     $("#login_out").append(
         '<img src="'+(headPic?headPic:images/hehua.jpg)+'" alt="">' +
@@ -40,7 +40,7 @@ if(token){
         '<i class="fa fa-caret-down" aria-hidden="true"></i>'
     )
 }else{
-    location.href="login.html"
+    window.location.href='login.html';//在本页面窗口打开新页面
 }
 
 // 退出登陆
@@ -48,7 +48,8 @@ function ligin_out() {
     var result = confirm("确定要退出吗？");
     if (result) {
         localStorage.clear()//清除所有缓存
-        window.open('login.html') //跳转页面
+        // window.open('login.html') //跳转页面
+        window.location.href='login.html';//在本页面窗口打开新页面
     }
 }
 

@@ -176,9 +176,6 @@ function zhi(){
         data: JSON.stringify(need_data),
         success: function (data) {
             var needList = data.data.pageData.list;
-            if(needList==''){
-                $("#needData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             // 渲染前先清空
             $("#needData").html('');
             // 总页数
@@ -275,7 +272,6 @@ function zhi(){
                 )
             })
         }
-        }
     })
     // 派单中需求列表
     var need_data = {
@@ -293,9 +289,6 @@ function zhi(){
         data: JSON.stringify(need_data),
         success: function (data) {
             var needList = data.data.pageData.list;
-            if(needList==''){
-                $("#paiData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             $("#paiData").html('');
             // 总页数
             allPage2 = parseInt(data.data.pageData.totalCount) / pageSize;
@@ -414,7 +407,6 @@ function zhi(){
                 )
             })
         }
-        }
     })
     //进行中列表展示 
     var need_data = {
@@ -432,9 +424,6 @@ function zhi(){
         data: JSON.stringify(need_data),
         success: function (data) {
             var needList = data.data.pageData.list;
-            if(needList==''){
-                $("#unway").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             $("#unway").html('');
             // 总页数
             allPage3 = parseInt(data.data.pageData.totalCount) / pageSize;
@@ -537,7 +526,6 @@ function zhi(){
                 )
             })
         }
-        }
     })
     //已完成列表展示 
     var fn_data = {
@@ -555,9 +543,6 @@ function zhi(){
         data: JSON.stringify(fn_data),
         success: function (data) {
             var fiList = data.data.pageData.list;
-            if(fiList==''){
-                $("#finish").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             $("#finish").html('');
             // 总页数
             allPage4 = parseInt(data.data.pageData.totalCount) / pageSize;
@@ -661,7 +646,6 @@ function zhi(){
                 )
             })
         }
-        }
     })
 }
 
@@ -682,9 +666,6 @@ function getPYList() {
         data: JSON.stringify(need_data),
         success: function (data) {
             var needList = data.data.pageData.list;
-            if(needList==''){
-                $("#needData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             // 渲染前先清空
             $("#needData").html('');
             // 总页数
@@ -781,7 +762,6 @@ function getPYList() {
                 )
             })
         }
-        }
     })
 }
 
@@ -851,9 +831,6 @@ function getAPList() {
         data: JSON.stringify(need_data),
         success: function (data) {
             var needList = data.data.pageData.list;
-            if(needList==''){
-                $("#paiData").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             $("#paiData").html('');
             // 总页数
             allPage2 = parseInt(data.data.pageData.totalCount) / pageSize;
@@ -971,7 +948,6 @@ function getAPList() {
                     '</div>'
                 )
             })
-        }
         }
     })
 }
@@ -1051,9 +1027,6 @@ function getLKList() {
         data: JSON.stringify(need_data),
         success: function (data) {
             var needList = data.data.pageData.list;
-            if(needList==''){
-                $("#unway").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             $("#unway").html('');
             // 总页数
             allPage3 = parseInt(data.data.pageData.totalCount) / pageSize;
@@ -1156,7 +1129,6 @@ function getLKList() {
                 )
             })
         }
-        }
     })
 }
 
@@ -1225,9 +1197,6 @@ function getFNList() {
         data: JSON.stringify(fn_data),
         success: function (data) {
             var fiList = data.data.pageData.list;
-            if(fiList==''){
-                $("#finish").append('<h1 class="demo">订单正在来的路上~~~</h1>')
-            }else{
             $("#finish").html('');
             // 总页数
             allPage4 = parseInt(data.data.pageData.totalCount) / pageSize;
@@ -1330,7 +1299,6 @@ function getFNList() {
                     '</div>'
                 )
             })
-        }
         }
     })
 }
