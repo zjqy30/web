@@ -2,6 +2,7 @@
 window.templates = Object.create(null);
 //网红审核
 window.templates['demo1.html'] = '<!-- 网红管理-网红审核 -->\n' +
+    '<input type="button" onclick="zhi()" value="刷新" style="display:none"/>'+
     '<script src="js/demo1.js"></script>\n' +
     '<div id="red_sh" style="width: 100%;height:100%;">   \n' +
     '  <!-- 内容 -->\n' +
@@ -20,6 +21,7 @@ window.templates['demo1.html'] = '<!-- 网红管理-网红审核 -->\n' +
    '</div>'
 // <!--网红审核-人员查看  -->
 window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
+'<input type="button" onclick="zhi()" value="刷新"/>'+
     '<script src="js/demo2.js"></script>\n' +
     '<div class="wh_content">\n' +
     '    <!-- 查询 -->\n' +
@@ -91,6 +93,7 @@ window.templates['demo2.html'] = '<!-- 网红管理-人员查看 -->\n' +
     '</div>';
 //商家审核
 window.templates['demo3.html'] = '<!-- 商家审核 -->\n' +
+'<input type="button" onclick="zhi()" value="刷新" style="display:none"/>'+
     '<script src="js/demo3.js"></script>\n' +
     '<div id="sjDate">\n' +
     '    <!-- 内容 -->\n' +
@@ -109,6 +112,7 @@ window.templates['demo3.html'] = '<!-- 商家审核 -->\n' +
     '</div>';
 // <!--商家审核-人员查看  -->
 window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
+'<input type="button" onclick="zhi()" value="刷新"/>'+
     '<script src="js/demo4.js"></script>\n' +
     '<div class="wh_content">\n' +
     '    <!-- 查询 -->\n' +
@@ -203,6 +207,7 @@ window.templates['demo4.html'] = '<!--商家-人员查看  -->\n' +
     '</div>';
 // <!-- 订单管理 -->
 window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
+'<input type="button" onclick="zhi()" value="刷新"/>'+
     '<link rel="stylesheet" href="css/dingdan.css">\n' +
     '<script src="js/dingdan.js"></script>\n' +
     '<div class="dd_solid"></div>\n' +
@@ -305,6 +310,7 @@ window.templates['dingdan.html'] = '<!-- 订单管理 -->\n' +
     '</div>';
 // <!-- 纯佣管理 Pure_rob-->
 window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
+'<input type="button" onclick="zhi()" value="刷新"/>'+
     '<link rel="stylesheet" href="css/dingdan.css">\n' +
     '<script src="js/cun.js"></script>\n' +
     '<div class="dd_solid"></div>\n' +
@@ -388,6 +394,7 @@ window.templates['Pure.html'] = '<!-- 纯佣订单 -->\n' +
     '</div>';
 // 纯佣管理-抢单管理
 window.templates['Pure_rob.html'] = '<!-- 抢单管理 -->\n' +
+// '<input type="button" onclick="zhi()" value="刷新"/>'+
     '<link rel="stylesheet" href="css/serve.css">\n' +
     '<script src="js/pure_rob.js"></script>\n' +
     '<div class="serve_solid"></div>\n' +
@@ -416,6 +423,7 @@ window.templates['Pure_rob.html'] = '<!-- 抢单管理 -->\n' +
     '</div>';
 //订单生成
 window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
+// '<input type="button" onclick="zhi()" value="刷新"/>'+
     '<link rel="stylesheet" href="css/dings.css">\n' +
     '<script src="js/dings.js"></script>\n' +
     '<div class="ds_solid"></div>\n' +
@@ -530,6 +538,7 @@ window.templates['dings.html'] = '<!-- 订单生成 -->\n' +
     '</div>';
 // <!-- 服务类型 -->
 window.templates['serveType.html'] = '<!-- 服务类型 -->\n' +
+'<input type="button" onclick="zhi()" value="刷新" style="display:none"/>'+
     '<link rel="stylesheet" href="css/serve.css">\n' +
     '<script src="js/serveType.js"></script>\n' +
     '<div class="serve_solid"></div>\n' +
@@ -565,6 +574,7 @@ window.templates['serveType.html'] = '<!-- 服务类型 -->\n' +
     '</div>';
 //    服务内幕
 window.templates['serve.html'] = '<!-- 服务内幕 -->\n' +
+'<input type="button" onclick="zhi()" value="刷新" style="display:none"/>'+
     '<link rel="stylesheet" href="css/serve.css">\n' +
     '<script src="js/serve.js"></script>\n' +
     '<div class="serve_solid"></div>\n' +
@@ -598,7 +608,7 @@ window.templates['serve.html'] = '<!-- 服务内幕 -->\n' +
     '    </div>\n' +
     '    <div class="serve_foot">\n' +
     '        <div role="tabpanel" class="tab-pane" id="settings">\n' +
-    '            <div class="row" style="margin:0;height:555px;overflow: auto;" id="serve_big">\n' +
+    '            <div class="row" style="margin:0;height:500px;overflow: auto;" id="serve_big">\n' +
     '\n' +
     '                <!--  小块  -->\n' +
     '                <div class="col-md-4" id="serve_content">\n' +
@@ -620,6 +630,7 @@ window.templates['serve.html'] = '<!-- 服务内幕 -->\n' +
     '</div>';
 //销售管理
 window.templates['market.html'] = "<!-- 销售管理 -->\n" +
+'<input type="button" onclick="zhi()" value="刷新" style="display:none"/>'+
     "<link rel=\"stylesheet\" href=\"css/market.css\">\n" +
     "<link rel=\"stylesheet\" href=\"css/index.css\">\n" +
     "<script src=\"js/market.js\"></script>\n" +
@@ -711,6 +722,7 @@ window.templates['market.html'] = "<!-- 销售管理 -->\n" +
     "</div>";
 // <!-- 网红提现 -->
 window.templates['red.html'] = '<!-- 网红提现 -->\n' +
+'<input type="button" onclick="zhi()" value="刷新" style="display:none"/>'+
     '<link rel="stylesheet" href="css/serve.css">\n' +
     '<script src="js/red.js"></script>\n' +
     '<div class="serve_solid"></div>\n' +
@@ -727,6 +739,7 @@ window.templates['red.html'] = '<!-- 网红提现 -->\n' +
     '</div>';
 //商家退款
 window.templates['refund.html'] = '<!-- 商家退款 -->\n' +
+    '<input type="button" onclick="zhi()" value="刷新" style="display:none"/>'+
     '<link rel="stylesheet" href="css/refund.css">\n' +
     '<script src="js/refund.js"></script>\n' +
     '<div class="refund_content">\n' +
@@ -751,6 +764,7 @@ window.templates['refund.html'] = '<!-- 商家退款 -->\n' +
 
 //标签管理
 window.templates['labels.html'] = "<!-- 标签管理 -->\n" +
+'<input type="button" onclick="zhi()" value="刷新" style="display:none"/>'+
     "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
     "<script src=\"jquery.min.js\"></script>\n" +
     "<script src=\"js/labels.js\"></script>\n" +
@@ -798,6 +812,7 @@ window.templates['labels.html'] = "<!-- 标签管理 -->\n" +
 
 //公告管理
 window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
+'<input type="button" onclick="zhi()" value="刷新" style="display:none"/>'+
     "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
     "<script src=\"jquery.min.js\"></script>\n" +
     "<script src=\"js/announcement.js\"></script>\n" +
@@ -835,7 +850,8 @@ window.templates['announcement.html'] = "<!-- 公告管理 -->\n" +
     "    </div>\n" +
     "</div>";
 //商家内幕-层级管理
-window.templates['sjindex.html'] = "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
+window.templates['sjindex.html'] = '<input type="button" onclick="zhi()" value="刷新"/>'+
+   "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
     "<link rel=\"stylesheet\" href=\"css/sjStory.css\">\n" +
     "<script src=\"js/sjindex.js\"></script>\n" +
     "<div class=\"labels_solid\"></div>\n" +
@@ -847,7 +863,7 @@ window.templates['sjindex.html'] = "<link rel=\"stylesheet\" href=\"css/labels.c
     "                <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">新建标签：</label>\n" +
     "                <div class=\"col-sm-10\">\n" +
     "                    <select id=\"one_li\" style=\"width: 70%;height:35px\">\n" +
-    "                        <option>请选择</option>\n" +
+    "                        <option id='opt' value='请选择'>请选择</option>\n" +
     "                    </select>\n" +
     "                    <div id=\"ipts\">\n" +
     "                        <input type=\"text\" value=\"\" class=\"form-control\" id=\"two_li\" autocomplete=\"off\"\n" +
@@ -899,6 +915,7 @@ window.templates['sjindex.html'] = "<link rel=\"stylesheet\" href=\"css/labels.c
     "</div>";
 // <!-- 商品类型 -->
 window.templates['product.html'] = '<!-- 商品类型 -->\n' +
+'<input type="button" onclick="zhi()" value="刷新"/>'+
     '<link rel="stylesheet" href="css/labels.css">\n' +
     '<script src="jquery.min.js"></script>\n' +
     '<script src="js/product.js"></script>\n' +
@@ -940,6 +957,7 @@ window.templates['product.html'] = '<!-- 商品类型 -->\n' +
     '</div>';
 // 轮播图管理
 window.templates['banner.html'] = "<!-- 轮播图管理 -->\n" +
+'<input type="button" onclick="zhi()" value="刷新" />'+
     "<!-- 把css写在labels.css里面了 -->\n" +
     "<link rel=\"stylesheet\" href=\"css/labels.css\">\n" +
     "<script src=\"js/banner.js\"></script>\n" +
